@@ -1,0 +1,117 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int     @id @default(autoincrement())
+  username String?
+  fullname String?
+  avatar   String?
+  role     Int     @default(1) @db.SmallInt
+  phone    String? @db.VarChar(15)
+  gender   Int?    @db.SmallInt
+  email    String?
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  profile Profile?
+
+  @@map("users")
+}
+
+model Auth {
+  id       Int    @id @default(autoincrement())
+  userId   Int    @map("user_id")
+  password String
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  @@map("auths")
+}
+
+model Profile {
+  id     Int    @id @default(autoincrement())
+  userId Int    @unique @map("user_id")
+  intro  String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  profileWorkExperiences ProfileWorkExperience[]
+
+  @@map("profiles")
+}
+
+model ProfileWorkExperience {
+  id              Int      @id @default(autoincrement())
+  profileId       Int
+  workName        String   @map("work_name")
+  workDescription String   @map("work_experience")
+  from            DateTime @db.Timestamptz()
+  to              DateTime @db.Timestamptz()
+
+  profile   Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  @@map("profile_work_experiences")
+}
+
+model Portfolio {
+  id     Int    @id @default(autoincrement())
+  skills String
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  @@map("portfolios")
+}
+
+model Feedback {
+  id           Int     @id @default(autoincrement())
+  freelancerId Int     @map("freelancer_id")
+  clientId     Int     @map("client_id")
+  comment      String?
+  ratingPoint  Int     @map("rating_point")
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  @@index([freelancerId])
+  @@index([clientId])
+  @@map("feedbacks")
+}
+
+model Booking {
+  id           Int     @id @default(autoincrement())
+  freelancerId Int     @map("freelancer_id")
+  clientId     Int     @map("client_id")
+  wage         Decimal
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  @@index([freelancerId])
+  @@index([clientId])
+  @@map("bookings")
+}
+
+// npx prisma migrate dev --name init
+// npx prisma migrate reset
+// npx prisma migrate deploy
