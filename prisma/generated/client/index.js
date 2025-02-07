@@ -190,7 +190,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "E:\\Desktop\\Knack\\knack-working\\server\\prisma\\generated\\client",
+      "value": "E:\\Desktop\\Knack\\server\\prisma\\generated\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -208,11 +208,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "E:\\Desktop\\Knack\\knack-working\\server\\prisma\\schema.prisma",
+    "sourceFilePath": "E:\\Desktop\\Knack\\server\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../../.env"
   },
   "relativePath": "../..",
@@ -222,7 +222,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": false,
+  "postinstall": true,
   "inlineDatasources": {
     "db": {
       "url": {

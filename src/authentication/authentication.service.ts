@@ -1,15 +1,84 @@
-import { Injectable } from "@nestjs/common";
+import { BadRequestException, Injectable } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 import { PrismaService } from "@prisma/prisma.service";
+import { ConfigService } from "@nestjs/config";
+import { OAuth2Client } from "google-auth-library";
+import { CompleteSignupInfoDto } from "@authentication/dto/complete-signup-info.dto";
 
 
 @Injectable()
 export class AuthenticationService {
-  constructor(private readonly jwtService: JwtService, private readonly prisma: PrismaService) {
+  private client: OAuth2Client;
 
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly configService: ConfigService,
+    private readonly jwtService: JwtService
+  ) {
+    this.client = new OAuth2Client(
+      this.configService.getOrThrow("GOOGLE_CLIENT_ID"),
+      this.configService.getOrThrow("GOOGLE_CLIENT_SECRET")
+    );
   }
 
-  async signupByUsername(){
+  async login(credential: string) {
+    try {
+      let hasFillInfo: boolean = true;
+      const ticket = await this.client.verifyIdToken({
+        idToken: credential,
+        audience: this.configService.getOrThrow("GOOGLE_CLIENT_ID")
+      });
+      const profile = ticket.getPayload();
+      //* Login
+      let foundUser = await this.prisma.user.findFirst({
+        where: {
+          email: profile.email
+        }
+      });
 
+      if (foundUser) {
+        if (!foundUser.phone) hasFillInfo = false;
+      }
+
+
+      //* Register
+      if (!foundUser) {
+        foundUser = await this.prisma.user.create({
+          data: {
+            email: profile.email,
+            avatar: profile.picture,
+            fullname : profile.name
+          }
+        });
+        hasFillInfo = false;
+      }
+
+      return {
+        token: this.jwtService.sign({
+          id: foundUser.id
+        }),
+        hasFillInfo: hasFillInfo
+      };
+    } catch (err) {
+      console.log(err);
+      return new BadRequestException(err?.message);
+    }
   }
+
+  async fillInformation(id: number, info: CompleteSignupInfoDto) {
+    try {
+      await this.prisma.user.update({
+        where: {
+          id: id
+        }, data: {
+          username: info.username,
+          phone: info.phone
+        }
+      });
+      return "Updated successfully.";
+    } catch (err) {
+      return new BadRequestException(err?.message);
+    }
+  }
+
 }
