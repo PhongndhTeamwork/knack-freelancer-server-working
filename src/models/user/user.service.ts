@@ -20,7 +20,6 @@ export class UserService {
         role: user.role,
         username: user.username,
         avatar: user.avatar,
-        social : user.social
       }
     } catch (error) {
       return new InternalServerErrorException(error?.message)

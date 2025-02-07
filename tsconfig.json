@@ -42,6 +42,9 @@
       "@prisma/*": [
         "src/prisma/*"
       ],
+      "@prisma-module/*": [
+        "prisma/*"
+      ],
       "@database/*": [
         "src/database/*"
       ],
