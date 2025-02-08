@@ -34,6 +34,16 @@ export type Profile = $Result.DefaultSelection<Prisma.$ProfilePayload>
  */
 export type ProfileWorkExperience = $Result.DefaultSelection<Prisma.$ProfileWorkExperiencePayload>
 /**
+ * Model ProfileAchievement
+ * 
+ */
+export type ProfileAchievement = $Result.DefaultSelection<Prisma.$ProfileAchievementPayload>
+/**
+ * Model ProfileProminentWork
+ * 
+ */
+export type ProfileProminentWork = $Result.DefaultSelection<Prisma.$ProfileProminentWorkPayload>
+/**
  * Model Portfolio
  * 
  */
@@ -210,6 +220,26 @@ export class PrismaClient<
     * ```
     */
   get profileWorkExperience(): Prisma.ProfileWorkExperienceDelegate<ExtArgs>;
+
+  /**
+   * `prisma.profileAchievement`: Exposes CRUD operations for the **ProfileAchievement** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ProfileAchievements
+    * const profileAchievements = await prisma.profileAchievement.findMany()
+    * ```
+    */
+  get profileAchievement(): Prisma.ProfileAchievementDelegate<ExtArgs>;
+
+  /**
+   * `prisma.profileProminentWork`: Exposes CRUD operations for the **ProfileProminentWork** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ProfileProminentWorks
+    * const profileProminentWorks = await prisma.profileProminentWork.findMany()
+    * ```
+    */
+  get profileProminentWork(): Prisma.ProfileProminentWorkDelegate<ExtArgs>;
 
   /**
    * `prisma.portfolio`: Exposes CRUD operations for the **Portfolio** model.
@@ -721,6 +751,8 @@ export namespace Prisma {
     Auth: 'Auth',
     Profile: 'Profile',
     ProfileWorkExperience: 'ProfileWorkExperience',
+    ProfileAchievement: 'ProfileAchievement',
+    ProfileProminentWork: 'ProfileProminentWork',
     Portfolio: 'Portfolio',
     Feedback: 'Feedback',
     Booking: 'Booking'
@@ -739,7 +771,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "user" | "auth" | "profile" | "profileWorkExperience" | "portfolio" | "feedback" | "booking"
+      modelProps: "user" | "auth" | "profile" | "profileWorkExperience" | "profileAchievement" | "profileProminentWork" | "portfolio" | "feedback" | "booking"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1020,6 +1052,146 @@ export namespace Prisma {
           count: {
             args: Prisma.ProfileWorkExperienceCountArgs<ExtArgs>
             result: $Utils.Optional<ProfileWorkExperienceCountAggregateOutputType> | number
+          }
+        }
+      }
+      ProfileAchievement: {
+        payload: Prisma.$ProfileAchievementPayload<ExtArgs>
+        fields: Prisma.ProfileAchievementFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProfileAchievementFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileAchievementPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProfileAchievementFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileAchievementPayload>
+          }
+          findFirst: {
+            args: Prisma.ProfileAchievementFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileAchievementPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProfileAchievementFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileAchievementPayload>
+          }
+          findMany: {
+            args: Prisma.ProfileAchievementFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileAchievementPayload>[]
+          }
+          create: {
+            args: Prisma.ProfileAchievementCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileAchievementPayload>
+          }
+          createMany: {
+            args: Prisma.ProfileAchievementCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProfileAchievementCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileAchievementPayload>[]
+          }
+          delete: {
+            args: Prisma.ProfileAchievementDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileAchievementPayload>
+          }
+          update: {
+            args: Prisma.ProfileAchievementUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileAchievementPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProfileAchievementDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProfileAchievementUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.ProfileAchievementUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileAchievementPayload>
+          }
+          aggregate: {
+            args: Prisma.ProfileAchievementAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProfileAchievement>
+          }
+          groupBy: {
+            args: Prisma.ProfileAchievementGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProfileAchievementGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProfileAchievementCountArgs<ExtArgs>
+            result: $Utils.Optional<ProfileAchievementCountAggregateOutputType> | number
+          }
+        }
+      }
+      ProfileProminentWork: {
+        payload: Prisma.$ProfileProminentWorkPayload<ExtArgs>
+        fields: Prisma.ProfileProminentWorkFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProfileProminentWorkFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileProminentWorkPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProfileProminentWorkFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileProminentWorkPayload>
+          }
+          findFirst: {
+            args: Prisma.ProfileProminentWorkFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileProminentWorkPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProfileProminentWorkFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileProminentWorkPayload>
+          }
+          findMany: {
+            args: Prisma.ProfileProminentWorkFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileProminentWorkPayload>[]
+          }
+          create: {
+            args: Prisma.ProfileProminentWorkCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileProminentWorkPayload>
+          }
+          createMany: {
+            args: Prisma.ProfileProminentWorkCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProfileProminentWorkCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileProminentWorkPayload>[]
+          }
+          delete: {
+            args: Prisma.ProfileProminentWorkDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileProminentWorkPayload>
+          }
+          update: {
+            args: Prisma.ProfileProminentWorkUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileProminentWorkPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProfileProminentWorkDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProfileProminentWorkUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.ProfileProminentWorkUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileProminentWorkPayload>
+          }
+          aggregate: {
+            args: Prisma.ProfileProminentWorkAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProfileProminentWork>
+          }
+          groupBy: {
+            args: Prisma.ProfileProminentWorkGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProfileProminentWorkGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProfileProminentWorkCountArgs<ExtArgs>
+            result: $Utils.Optional<ProfileProminentWorkCountAggregateOutputType> | number
           }
         }
       }
@@ -1390,33 +1562,51 @@ export namespace Prisma {
 
 
   /**
-   * Count Type ProfileCountOutputType
+   * Count Type UserCountOutputType
    */
 
-  export type ProfileCountOutputType = {
+  export type UserCountOutputType = {
     profileWorkExperiences: number
+    profileAchievements: number
+    profileProminentWorks: number
   }
 
-  export type ProfileCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    profileWorkExperiences?: boolean | ProfileCountOutputTypeCountProfileWorkExperiencesArgs
+  export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profileWorkExperiences?: boolean | UserCountOutputTypeCountProfileWorkExperiencesArgs
+    profileAchievements?: boolean | UserCountOutputTypeCountProfileAchievementsArgs
+    profileProminentWorks?: boolean | UserCountOutputTypeCountProfileProminentWorksArgs
   }
 
   // Custom InputTypes
   /**
-   * ProfileCountOutputType without action
+   * UserCountOutputType without action
    */
-  export type ProfileCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ProfileCountOutputType
+     * Select specific fields to fetch from the UserCountOutputType
      */
-    select?: ProfileCountOutputTypeSelect<ExtArgs> | null
+    select?: UserCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * ProfileCountOutputType without action
+   * UserCountOutputType without action
    */
-  export type ProfileCountOutputTypeCountProfileWorkExperiencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserCountOutputTypeCountProfileWorkExperiencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ProfileWorkExperienceWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountProfileAchievementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfileAchievementWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountProfileProminentWorksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfileProminentWorkWhereInput
   }
 
 
@@ -1671,6 +1861,10 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     profile?: boolean | User$profileArgs<ExtArgs>
+    profileWorkExperiences?: boolean | User$profileWorkExperiencesArgs<ExtArgs>
+    profileAchievements?: boolean | User$profileAchievementsArgs<ExtArgs>
+    profileProminentWorks?: boolean | User$profileProminentWorksArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1701,6 +1895,10 @@ export namespace Prisma {
 
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     profile?: boolean | User$profileArgs<ExtArgs>
+    profileWorkExperiences?: boolean | User$profileWorkExperiencesArgs<ExtArgs>
+    profileAchievements?: boolean | User$profileAchievementsArgs<ExtArgs>
+    profileProminentWorks?: boolean | User$profileProminentWorksArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
@@ -1708,6 +1906,9 @@ export namespace Prisma {
     name: "User"
     objects: {
       profile: Prisma.$ProfilePayload<ExtArgs> | null
+      profileWorkExperiences: Prisma.$ProfileWorkExperiencePayload<ExtArgs>[]
+      profileAchievements: Prisma.$ProfileAchievementPayload<ExtArgs>[]
+      profileProminentWorks: Prisma.$ProfileProminentWorkPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -2085,6 +2286,9 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     profile<T extends User$profileArgs<ExtArgs> = {}>(args?: Subset<T, User$profileArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    profileWorkExperiences<T extends User$profileWorkExperiencesArgs<ExtArgs> = {}>(args?: Subset<T, User$profileWorkExperiencesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileWorkExperiencePayload<ExtArgs>, T, "findMany"> | Null>
+    profileAchievements<T extends User$profileAchievementsArgs<ExtArgs> = {}>(args?: Subset<T, User$profileAchievementsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileAchievementPayload<ExtArgs>, T, "findMany"> | Null>
+    profileProminentWorks<T extends User$profileProminentWorksArgs<ExtArgs> = {}>(args?: Subset<T, User$profileProminentWorksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileProminentWorkPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2450,6 +2654,66 @@ export namespace Prisma {
      */
     include?: ProfileInclude<ExtArgs> | null
     where?: ProfileWhereInput
+  }
+
+  /**
+   * User.profileWorkExperiences
+   */
+  export type User$profileWorkExperiencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileWorkExperience
+     */
+    select?: ProfileWorkExperienceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileWorkExperienceInclude<ExtArgs> | null
+    where?: ProfileWorkExperienceWhereInput
+    orderBy?: ProfileWorkExperienceOrderByWithRelationInput | ProfileWorkExperienceOrderByWithRelationInput[]
+    cursor?: ProfileWorkExperienceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProfileWorkExperienceScalarFieldEnum | ProfileWorkExperienceScalarFieldEnum[]
+  }
+
+  /**
+   * User.profileAchievements
+   */
+  export type User$profileAchievementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileAchievement
+     */
+    select?: ProfileAchievementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileAchievementInclude<ExtArgs> | null
+    where?: ProfileAchievementWhereInput
+    orderBy?: ProfileAchievementOrderByWithRelationInput | ProfileAchievementOrderByWithRelationInput[]
+    cursor?: ProfileAchievementWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProfileAchievementScalarFieldEnum | ProfileAchievementScalarFieldEnum[]
+  }
+
+  /**
+   * User.profileProminentWorks
+   */
+  export type User$profileProminentWorksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileProminentWork
+     */
+    select?: ProfileProminentWorkSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileProminentWorkInclude<ExtArgs> | null
+    where?: ProfileProminentWorkWhereInput
+    orderBy?: ProfileProminentWorkOrderByWithRelationInput | ProfileProminentWorkOrderByWithRelationInput[]
+    cursor?: ProfileProminentWorkWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProfileProminentWorkScalarFieldEnum | ProfileProminentWorkScalarFieldEnum[]
   }
 
   /**
@@ -3408,7 +3672,15 @@ export namespace Prisma {
   export type ProfileMinAggregateOutputType = {
     id: number | null
     userId: number | null
-    intro: string | null
+    biography: string | null
+    residence: string | null
+    workEmail: string | null
+    occupation: string | null
+    facebookLink: string | null
+    instagramLink: string | null
+    youtubeLink: string | null
+    tiktokLink: string | null
+    avatar: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3416,7 +3688,15 @@ export namespace Prisma {
   export type ProfileMaxAggregateOutputType = {
     id: number | null
     userId: number | null
-    intro: string | null
+    biography: string | null
+    residence: string | null
+    workEmail: string | null
+    occupation: string | null
+    facebookLink: string | null
+    instagramLink: string | null
+    youtubeLink: string | null
+    tiktokLink: string | null
+    avatar: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3424,7 +3704,15 @@ export namespace Prisma {
   export type ProfileCountAggregateOutputType = {
     id: number
     userId: number
-    intro: number
+    biography: number
+    residence: number
+    workEmail: number
+    occupation: number
+    facebookLink: number
+    instagramLink: number
+    youtubeLink: number
+    tiktokLink: number
+    avatar: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -3444,7 +3732,15 @@ export namespace Prisma {
   export type ProfileMinAggregateInputType = {
     id?: true
     userId?: true
-    intro?: true
+    biography?: true
+    residence?: true
+    workEmail?: true
+    occupation?: true
+    facebookLink?: true
+    instagramLink?: true
+    youtubeLink?: true
+    tiktokLink?: true
+    avatar?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3452,7 +3748,15 @@ export namespace Prisma {
   export type ProfileMaxAggregateInputType = {
     id?: true
     userId?: true
-    intro?: true
+    biography?: true
+    residence?: true
+    workEmail?: true
+    occupation?: true
+    facebookLink?: true
+    instagramLink?: true
+    youtubeLink?: true
+    tiktokLink?: true
+    avatar?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3460,7 +3764,15 @@ export namespace Prisma {
   export type ProfileCountAggregateInputType = {
     id?: true
     userId?: true
-    intro?: true
+    biography?: true
+    residence?: true
+    workEmail?: true
+    occupation?: true
+    facebookLink?: true
+    instagramLink?: true
+    youtubeLink?: true
+    tiktokLink?: true
+    avatar?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -3555,7 +3867,15 @@ export namespace Prisma {
   export type ProfileGroupByOutputType = {
     id: number
     userId: number
-    intro: string
+    biography: string | null
+    residence: string
+    workEmail: string | null
+    occupation: string | null
+    facebookLink: string | null
+    instagramLink: string | null
+    youtubeLink: string | null
+    tiktokLink: string | null
+    avatar: string | null
     createdAt: Date
     updatedAt: Date
     _count: ProfileCountAggregateOutputType | null
@@ -3582,18 +3902,32 @@ export namespace Prisma {
   export type ProfileSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    intro?: boolean
+    biography?: boolean
+    residence?: boolean
+    workEmail?: boolean
+    occupation?: boolean
+    facebookLink?: boolean
+    instagramLink?: boolean
+    youtubeLink?: boolean
+    tiktokLink?: boolean
+    avatar?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-    profileWorkExperiences?: boolean | Profile$profileWorkExperiencesArgs<ExtArgs>
-    _count?: boolean | ProfileCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["profile"]>
 
   export type ProfileSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    intro?: boolean
+    biography?: boolean
+    residence?: boolean
+    workEmail?: boolean
+    occupation?: boolean
+    facebookLink?: boolean
+    instagramLink?: boolean
+    youtubeLink?: boolean
+    tiktokLink?: boolean
+    avatar?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -3602,15 +3936,21 @@ export namespace Prisma {
   export type ProfileSelectScalar = {
     id?: boolean
     userId?: boolean
-    intro?: boolean
+    biography?: boolean
+    residence?: boolean
+    workEmail?: boolean
+    occupation?: boolean
+    facebookLink?: boolean
+    instagramLink?: boolean
+    youtubeLink?: boolean
+    tiktokLink?: boolean
+    avatar?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
   export type ProfileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-    profileWorkExperiences?: boolean | Profile$profileWorkExperiencesArgs<ExtArgs>
-    _count?: boolean | ProfileCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ProfileIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -3620,12 +3960,19 @@ export namespace Prisma {
     name: "Profile"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
-      profileWorkExperiences: Prisma.$ProfileWorkExperiencePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       userId: number
-      intro: string
+      biography: string | null
+      residence: string
+      workEmail: string | null
+      occupation: string | null
+      facebookLink: string | null
+      instagramLink: string | null
+      youtubeLink: string | null
+      tiktokLink: string | null
+      avatar: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["profile"]>
@@ -3993,7 +4340,6 @@ export namespace Prisma {
   export interface Prisma__ProfileClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
-    profileWorkExperiences<T extends Profile$profileWorkExperiencesArgs<ExtArgs> = {}>(args?: Subset<T, Profile$profileWorkExperiencesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileWorkExperiencePayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4025,7 +4371,15 @@ export namespace Prisma {
   interface ProfileFieldRefs {
     readonly id: FieldRef<"Profile", 'Int'>
     readonly userId: FieldRef<"Profile", 'Int'>
-    readonly intro: FieldRef<"Profile", 'String'>
+    readonly biography: FieldRef<"Profile", 'String'>
+    readonly residence: FieldRef<"Profile", 'String'>
+    readonly workEmail: FieldRef<"Profile", 'String'>
+    readonly occupation: FieldRef<"Profile", 'String'>
+    readonly facebookLink: FieldRef<"Profile", 'String'>
+    readonly instagramLink: FieldRef<"Profile", 'String'>
+    readonly youtubeLink: FieldRef<"Profile", 'String'>
+    readonly tiktokLink: FieldRef<"Profile", 'String'>
+    readonly avatar: FieldRef<"Profile", 'String'>
     readonly createdAt: FieldRef<"Profile", 'DateTime'>
     readonly updatedAt: FieldRef<"Profile", 'DateTime'>
   }
@@ -4346,26 +4700,6 @@ export namespace Prisma {
   }
 
   /**
-   * Profile.profileWorkExperiences
-   */
-  export type Profile$profileWorkExperiencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ProfileWorkExperience
-     */
-    select?: ProfileWorkExperienceSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ProfileWorkExperienceInclude<ExtArgs> | null
-    where?: ProfileWorkExperienceWhereInput
-    orderBy?: ProfileWorkExperienceOrderByWithRelationInput | ProfileWorkExperienceOrderByWithRelationInput[]
-    cursor?: ProfileWorkExperienceWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ProfileWorkExperienceScalarFieldEnum | ProfileWorkExperienceScalarFieldEnum[]
-  }
-
-  /**
    * Profile without action
    */
   export type ProfileDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4394,19 +4728,19 @@ export namespace Prisma {
 
   export type ProfileWorkExperienceAvgAggregateOutputType = {
     id: number | null
-    profileId: number | null
+    userId: number | null
   }
 
   export type ProfileWorkExperienceSumAggregateOutputType = {
     id: number | null
-    profileId: number | null
+    userId: number | null
   }
 
   export type ProfileWorkExperienceMinAggregateOutputType = {
     id: number | null
-    profileId: number | null
-    workName: string | null
-    workDescription: string | null
+    userId: number | null
+    name: string | null
+    description: string | null
     from: Date | null
     to: Date | null
     createdAt: Date | null
@@ -4415,9 +4749,9 @@ export namespace Prisma {
 
   export type ProfileWorkExperienceMaxAggregateOutputType = {
     id: number | null
-    profileId: number | null
-    workName: string | null
-    workDescription: string | null
+    userId: number | null
+    name: string | null
+    description: string | null
     from: Date | null
     to: Date | null
     createdAt: Date | null
@@ -4426,9 +4760,9 @@ export namespace Prisma {
 
   export type ProfileWorkExperienceCountAggregateOutputType = {
     id: number
-    profileId: number
-    workName: number
-    workDescription: number
+    userId: number
+    name: number
+    description: number
     from: number
     to: number
     createdAt: number
@@ -4439,19 +4773,19 @@ export namespace Prisma {
 
   export type ProfileWorkExperienceAvgAggregateInputType = {
     id?: true
-    profileId?: true
+    userId?: true
   }
 
   export type ProfileWorkExperienceSumAggregateInputType = {
     id?: true
-    profileId?: true
+    userId?: true
   }
 
   export type ProfileWorkExperienceMinAggregateInputType = {
     id?: true
-    profileId?: true
-    workName?: true
-    workDescription?: true
+    userId?: true
+    name?: true
+    description?: true
     from?: true
     to?: true
     createdAt?: true
@@ -4460,9 +4794,9 @@ export namespace Prisma {
 
   export type ProfileWorkExperienceMaxAggregateInputType = {
     id?: true
-    profileId?: true
-    workName?: true
-    workDescription?: true
+    userId?: true
+    name?: true
+    description?: true
     from?: true
     to?: true
     createdAt?: true
@@ -4471,9 +4805,9 @@ export namespace Prisma {
 
   export type ProfileWorkExperienceCountAggregateInputType = {
     id?: true
-    profileId?: true
-    workName?: true
-    workDescription?: true
+    userId?: true
+    name?: true
+    description?: true
     from?: true
     to?: true
     createdAt?: true
@@ -4569,9 +4903,9 @@ export namespace Prisma {
 
   export type ProfileWorkExperienceGroupByOutputType = {
     id: number
-    profileId: number
-    workName: string
-    workDescription: string
+    userId: number
+    name: string
+    description: string | null
     from: Date
     to: Date
     createdAt: Date
@@ -4599,33 +4933,33 @@ export namespace Prisma {
 
   export type ProfileWorkExperienceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    profileId?: boolean
-    workName?: boolean
-    workDescription?: boolean
+    userId?: boolean
+    name?: boolean
+    description?: boolean
     from?: boolean
     to?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    profile?: boolean | ProfileDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["profileWorkExperience"]>
 
   export type ProfileWorkExperienceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    profileId?: boolean
-    workName?: boolean
-    workDescription?: boolean
+    userId?: boolean
+    name?: boolean
+    description?: boolean
     from?: boolean
     to?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    profile?: boolean | ProfileDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["profileWorkExperience"]>
 
   export type ProfileWorkExperienceSelectScalar = {
     id?: boolean
-    profileId?: boolean
-    workName?: boolean
-    workDescription?: boolean
+    userId?: boolean
+    name?: boolean
+    description?: boolean
     from?: boolean
     to?: boolean
     createdAt?: boolean
@@ -4633,22 +4967,22 @@ export namespace Prisma {
   }
 
   export type ProfileWorkExperienceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    profile?: boolean | ProfileDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type ProfileWorkExperienceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    profile?: boolean | ProfileDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
   export type $ProfileWorkExperiencePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ProfileWorkExperience"
     objects: {
-      profile: Prisma.$ProfilePayload<ExtArgs>
+      user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      profileId: number
-      workName: string
-      workDescription: string
+      userId: number
+      name: string
+      description: string | null
       from: Date
       to: Date
       createdAt: Date
@@ -5017,7 +5351,7 @@ export namespace Prisma {
    */
   export interface Prisma__ProfileWorkExperienceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    profile<T extends ProfileDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProfileDefaultArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5048,9 +5382,9 @@ export namespace Prisma {
    */ 
   interface ProfileWorkExperienceFieldRefs {
     readonly id: FieldRef<"ProfileWorkExperience", 'Int'>
-    readonly profileId: FieldRef<"ProfileWorkExperience", 'Int'>
-    readonly workName: FieldRef<"ProfileWorkExperience", 'String'>
-    readonly workDescription: FieldRef<"ProfileWorkExperience", 'String'>
+    readonly userId: FieldRef<"ProfileWorkExperience", 'Int'>
+    readonly name: FieldRef<"ProfileWorkExperience", 'String'>
+    readonly description: FieldRef<"ProfileWorkExperience", 'String'>
     readonly from: FieldRef<"ProfileWorkExperience", 'DateTime'>
     readonly to: FieldRef<"ProfileWorkExperience", 'DateTime'>
     readonly createdAt: FieldRef<"ProfileWorkExperience", 'DateTime'>
@@ -5384,6 +5718,2036 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: ProfileWorkExperienceInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ProfileAchievement
+   */
+
+  export type AggregateProfileAchievement = {
+    _count: ProfileAchievementCountAggregateOutputType | null
+    _avg: ProfileAchievementAvgAggregateOutputType | null
+    _sum: ProfileAchievementSumAggregateOutputType | null
+    _min: ProfileAchievementMinAggregateOutputType | null
+    _max: ProfileAchievementMaxAggregateOutputType | null
+  }
+
+  export type ProfileAchievementAvgAggregateOutputType = {
+    id: number | null
+    userId: number | null
+  }
+
+  export type ProfileAchievementSumAggregateOutputType = {
+    id: number | null
+    userId: number | null
+  }
+
+  export type ProfileAchievementMinAggregateOutputType = {
+    id: number | null
+    userId: number | null
+    name: string | null
+    description: string | null
+    from: Date | null
+    to: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ProfileAchievementMaxAggregateOutputType = {
+    id: number | null
+    userId: number | null
+    name: string | null
+    description: string | null
+    from: Date | null
+    to: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ProfileAchievementCountAggregateOutputType = {
+    id: number
+    userId: number
+    name: number
+    description: number
+    from: number
+    to: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ProfileAchievementAvgAggregateInputType = {
+    id?: true
+    userId?: true
+  }
+
+  export type ProfileAchievementSumAggregateInputType = {
+    id?: true
+    userId?: true
+  }
+
+  export type ProfileAchievementMinAggregateInputType = {
+    id?: true
+    userId?: true
+    name?: true
+    description?: true
+    from?: true
+    to?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ProfileAchievementMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    name?: true
+    description?: true
+    from?: true
+    to?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ProfileAchievementCountAggregateInputType = {
+    id?: true
+    userId?: true
+    name?: true
+    description?: true
+    from?: true
+    to?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ProfileAchievementAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProfileAchievement to aggregate.
+     */
+    where?: ProfileAchievementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileAchievements to fetch.
+     */
+    orderBy?: ProfileAchievementOrderByWithRelationInput | ProfileAchievementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProfileAchievementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileAchievements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileAchievements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ProfileAchievements
+    **/
+    _count?: true | ProfileAchievementCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProfileAchievementAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProfileAchievementSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProfileAchievementMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProfileAchievementMaxAggregateInputType
+  }
+
+  export type GetProfileAchievementAggregateType<T extends ProfileAchievementAggregateArgs> = {
+        [P in keyof T & keyof AggregateProfileAchievement]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProfileAchievement[P]>
+      : GetScalarType<T[P], AggregateProfileAchievement[P]>
+  }
+
+
+
+
+  export type ProfileAchievementGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfileAchievementWhereInput
+    orderBy?: ProfileAchievementOrderByWithAggregationInput | ProfileAchievementOrderByWithAggregationInput[]
+    by: ProfileAchievementScalarFieldEnum[] | ProfileAchievementScalarFieldEnum
+    having?: ProfileAchievementScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProfileAchievementCountAggregateInputType | true
+    _avg?: ProfileAchievementAvgAggregateInputType
+    _sum?: ProfileAchievementSumAggregateInputType
+    _min?: ProfileAchievementMinAggregateInputType
+    _max?: ProfileAchievementMaxAggregateInputType
+  }
+
+  export type ProfileAchievementGroupByOutputType = {
+    id: number
+    userId: number
+    name: string
+    description: string | null
+    from: Date
+    to: Date
+    createdAt: Date
+    updatedAt: Date
+    _count: ProfileAchievementCountAggregateOutputType | null
+    _avg: ProfileAchievementAvgAggregateOutputType | null
+    _sum: ProfileAchievementSumAggregateOutputType | null
+    _min: ProfileAchievementMinAggregateOutputType | null
+    _max: ProfileAchievementMaxAggregateOutputType | null
+  }
+
+  type GetProfileAchievementGroupByPayload<T extends ProfileAchievementGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProfileAchievementGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProfileAchievementGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProfileAchievementGroupByOutputType[P]>
+            : GetScalarType<T[P], ProfileAchievementGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProfileAchievementSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    name?: boolean
+    description?: boolean
+    from?: boolean
+    to?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profileAchievement"]>
+
+  export type ProfileAchievementSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    name?: boolean
+    description?: boolean
+    from?: boolean
+    to?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profileAchievement"]>
+
+  export type ProfileAchievementSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    name?: boolean
+    description?: boolean
+    from?: boolean
+    to?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ProfileAchievementInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type ProfileAchievementIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $ProfileAchievementPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ProfileAchievement"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      userId: number
+      name: string
+      description: string | null
+      from: Date
+      to: Date
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["profileAchievement"]>
+    composites: {}
+  }
+
+  type ProfileAchievementGetPayload<S extends boolean | null | undefined | ProfileAchievementDefaultArgs> = $Result.GetResult<Prisma.$ProfileAchievementPayload, S>
+
+  type ProfileAchievementCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<ProfileAchievementFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: ProfileAchievementCountAggregateInputType | true
+    }
+
+  export interface ProfileAchievementDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProfileAchievement'], meta: { name: 'ProfileAchievement' } }
+    /**
+     * Find zero or one ProfileAchievement that matches the filter.
+     * @param {ProfileAchievementFindUniqueArgs} args - Arguments to find a ProfileAchievement
+     * @example
+     * // Get one ProfileAchievement
+     * const profileAchievement = await prisma.profileAchievement.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProfileAchievementFindUniqueArgs>(args: SelectSubset<T, ProfileAchievementFindUniqueArgs<ExtArgs>>): Prisma__ProfileAchievementClient<$Result.GetResult<Prisma.$ProfileAchievementPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one ProfileAchievement that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {ProfileAchievementFindUniqueOrThrowArgs} args - Arguments to find a ProfileAchievement
+     * @example
+     * // Get one ProfileAchievement
+     * const profileAchievement = await prisma.profileAchievement.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProfileAchievementFindUniqueOrThrowArgs>(args: SelectSubset<T, ProfileAchievementFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProfileAchievementClient<$Result.GetResult<Prisma.$ProfileAchievementPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first ProfileAchievement that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileAchievementFindFirstArgs} args - Arguments to find a ProfileAchievement
+     * @example
+     * // Get one ProfileAchievement
+     * const profileAchievement = await prisma.profileAchievement.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProfileAchievementFindFirstArgs>(args?: SelectSubset<T, ProfileAchievementFindFirstArgs<ExtArgs>>): Prisma__ProfileAchievementClient<$Result.GetResult<Prisma.$ProfileAchievementPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first ProfileAchievement that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileAchievementFindFirstOrThrowArgs} args - Arguments to find a ProfileAchievement
+     * @example
+     * // Get one ProfileAchievement
+     * const profileAchievement = await prisma.profileAchievement.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProfileAchievementFindFirstOrThrowArgs>(args?: SelectSubset<T, ProfileAchievementFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProfileAchievementClient<$Result.GetResult<Prisma.$ProfileAchievementPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more ProfileAchievements that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileAchievementFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ProfileAchievements
+     * const profileAchievements = await prisma.profileAchievement.findMany()
+     * 
+     * // Get first 10 ProfileAchievements
+     * const profileAchievements = await prisma.profileAchievement.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const profileAchievementWithIdOnly = await prisma.profileAchievement.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProfileAchievementFindManyArgs>(args?: SelectSubset<T, ProfileAchievementFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileAchievementPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a ProfileAchievement.
+     * @param {ProfileAchievementCreateArgs} args - Arguments to create a ProfileAchievement.
+     * @example
+     * // Create one ProfileAchievement
+     * const ProfileAchievement = await prisma.profileAchievement.create({
+     *   data: {
+     *     // ... data to create a ProfileAchievement
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProfileAchievementCreateArgs>(args: SelectSubset<T, ProfileAchievementCreateArgs<ExtArgs>>): Prisma__ProfileAchievementClient<$Result.GetResult<Prisma.$ProfileAchievementPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many ProfileAchievements.
+     * @param {ProfileAchievementCreateManyArgs} args - Arguments to create many ProfileAchievements.
+     * @example
+     * // Create many ProfileAchievements
+     * const profileAchievement = await prisma.profileAchievement.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProfileAchievementCreateManyArgs>(args?: SelectSubset<T, ProfileAchievementCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ProfileAchievements and returns the data saved in the database.
+     * @param {ProfileAchievementCreateManyAndReturnArgs} args - Arguments to create many ProfileAchievements.
+     * @example
+     * // Create many ProfileAchievements
+     * const profileAchievement = await prisma.profileAchievement.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ProfileAchievements and only return the `id`
+     * const profileAchievementWithIdOnly = await prisma.profileAchievement.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProfileAchievementCreateManyAndReturnArgs>(args?: SelectSubset<T, ProfileAchievementCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileAchievementPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a ProfileAchievement.
+     * @param {ProfileAchievementDeleteArgs} args - Arguments to delete one ProfileAchievement.
+     * @example
+     * // Delete one ProfileAchievement
+     * const ProfileAchievement = await prisma.profileAchievement.delete({
+     *   where: {
+     *     // ... filter to delete one ProfileAchievement
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProfileAchievementDeleteArgs>(args: SelectSubset<T, ProfileAchievementDeleteArgs<ExtArgs>>): Prisma__ProfileAchievementClient<$Result.GetResult<Prisma.$ProfileAchievementPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one ProfileAchievement.
+     * @param {ProfileAchievementUpdateArgs} args - Arguments to update one ProfileAchievement.
+     * @example
+     * // Update one ProfileAchievement
+     * const profileAchievement = await prisma.profileAchievement.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProfileAchievementUpdateArgs>(args: SelectSubset<T, ProfileAchievementUpdateArgs<ExtArgs>>): Prisma__ProfileAchievementClient<$Result.GetResult<Prisma.$ProfileAchievementPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more ProfileAchievements.
+     * @param {ProfileAchievementDeleteManyArgs} args - Arguments to filter ProfileAchievements to delete.
+     * @example
+     * // Delete a few ProfileAchievements
+     * const { count } = await prisma.profileAchievement.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProfileAchievementDeleteManyArgs>(args?: SelectSubset<T, ProfileAchievementDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProfileAchievements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileAchievementUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ProfileAchievements
+     * const profileAchievement = await prisma.profileAchievement.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProfileAchievementUpdateManyArgs>(args: SelectSubset<T, ProfileAchievementUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one ProfileAchievement.
+     * @param {ProfileAchievementUpsertArgs} args - Arguments to update or create a ProfileAchievement.
+     * @example
+     * // Update or create a ProfileAchievement
+     * const profileAchievement = await prisma.profileAchievement.upsert({
+     *   create: {
+     *     // ... data to create a ProfileAchievement
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ProfileAchievement we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProfileAchievementUpsertArgs>(args: SelectSubset<T, ProfileAchievementUpsertArgs<ExtArgs>>): Prisma__ProfileAchievementClient<$Result.GetResult<Prisma.$ProfileAchievementPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of ProfileAchievements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileAchievementCountArgs} args - Arguments to filter ProfileAchievements to count.
+     * @example
+     * // Count the number of ProfileAchievements
+     * const count = await prisma.profileAchievement.count({
+     *   where: {
+     *     // ... the filter for the ProfileAchievements we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProfileAchievementCountArgs>(
+      args?: Subset<T, ProfileAchievementCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProfileAchievementCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ProfileAchievement.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileAchievementAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProfileAchievementAggregateArgs>(args: Subset<T, ProfileAchievementAggregateArgs>): Prisma.PrismaPromise<GetProfileAchievementAggregateType<T>>
+
+    /**
+     * Group by ProfileAchievement.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileAchievementGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProfileAchievementGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProfileAchievementGroupByArgs['orderBy'] }
+        : { orderBy?: ProfileAchievementGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProfileAchievementGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProfileAchievementGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ProfileAchievement model
+   */
+  readonly fields: ProfileAchievementFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ProfileAchievement.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProfileAchievementClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ProfileAchievement model
+   */ 
+  interface ProfileAchievementFieldRefs {
+    readonly id: FieldRef<"ProfileAchievement", 'Int'>
+    readonly userId: FieldRef<"ProfileAchievement", 'Int'>
+    readonly name: FieldRef<"ProfileAchievement", 'String'>
+    readonly description: FieldRef<"ProfileAchievement", 'String'>
+    readonly from: FieldRef<"ProfileAchievement", 'DateTime'>
+    readonly to: FieldRef<"ProfileAchievement", 'DateTime'>
+    readonly createdAt: FieldRef<"ProfileAchievement", 'DateTime'>
+    readonly updatedAt: FieldRef<"ProfileAchievement", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ProfileAchievement findUnique
+   */
+  export type ProfileAchievementFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileAchievement
+     */
+    select?: ProfileAchievementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileAchievementInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileAchievement to fetch.
+     */
+    where: ProfileAchievementWhereUniqueInput
+  }
+
+  /**
+   * ProfileAchievement findUniqueOrThrow
+   */
+  export type ProfileAchievementFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileAchievement
+     */
+    select?: ProfileAchievementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileAchievementInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileAchievement to fetch.
+     */
+    where: ProfileAchievementWhereUniqueInput
+  }
+
+  /**
+   * ProfileAchievement findFirst
+   */
+  export type ProfileAchievementFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileAchievement
+     */
+    select?: ProfileAchievementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileAchievementInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileAchievement to fetch.
+     */
+    where?: ProfileAchievementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileAchievements to fetch.
+     */
+    orderBy?: ProfileAchievementOrderByWithRelationInput | ProfileAchievementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProfileAchievements.
+     */
+    cursor?: ProfileAchievementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileAchievements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileAchievements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProfileAchievements.
+     */
+    distinct?: ProfileAchievementScalarFieldEnum | ProfileAchievementScalarFieldEnum[]
+  }
+
+  /**
+   * ProfileAchievement findFirstOrThrow
+   */
+  export type ProfileAchievementFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileAchievement
+     */
+    select?: ProfileAchievementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileAchievementInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileAchievement to fetch.
+     */
+    where?: ProfileAchievementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileAchievements to fetch.
+     */
+    orderBy?: ProfileAchievementOrderByWithRelationInput | ProfileAchievementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProfileAchievements.
+     */
+    cursor?: ProfileAchievementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileAchievements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileAchievements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProfileAchievements.
+     */
+    distinct?: ProfileAchievementScalarFieldEnum | ProfileAchievementScalarFieldEnum[]
+  }
+
+  /**
+   * ProfileAchievement findMany
+   */
+  export type ProfileAchievementFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileAchievement
+     */
+    select?: ProfileAchievementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileAchievementInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileAchievements to fetch.
+     */
+    where?: ProfileAchievementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileAchievements to fetch.
+     */
+    orderBy?: ProfileAchievementOrderByWithRelationInput | ProfileAchievementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ProfileAchievements.
+     */
+    cursor?: ProfileAchievementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileAchievements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileAchievements.
+     */
+    skip?: number
+    distinct?: ProfileAchievementScalarFieldEnum | ProfileAchievementScalarFieldEnum[]
+  }
+
+  /**
+   * ProfileAchievement create
+   */
+  export type ProfileAchievementCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileAchievement
+     */
+    select?: ProfileAchievementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileAchievementInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ProfileAchievement.
+     */
+    data: XOR<ProfileAchievementCreateInput, ProfileAchievementUncheckedCreateInput>
+  }
+
+  /**
+   * ProfileAchievement createMany
+   */
+  export type ProfileAchievementCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ProfileAchievements.
+     */
+    data: ProfileAchievementCreateManyInput | ProfileAchievementCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProfileAchievement createManyAndReturn
+   */
+  export type ProfileAchievementCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileAchievement
+     */
+    select?: ProfileAchievementSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many ProfileAchievements.
+     */
+    data: ProfileAchievementCreateManyInput | ProfileAchievementCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileAchievementIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProfileAchievement update
+   */
+  export type ProfileAchievementUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileAchievement
+     */
+    select?: ProfileAchievementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileAchievementInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ProfileAchievement.
+     */
+    data: XOR<ProfileAchievementUpdateInput, ProfileAchievementUncheckedUpdateInput>
+    /**
+     * Choose, which ProfileAchievement to update.
+     */
+    where: ProfileAchievementWhereUniqueInput
+  }
+
+  /**
+   * ProfileAchievement updateMany
+   */
+  export type ProfileAchievementUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ProfileAchievements.
+     */
+    data: XOR<ProfileAchievementUpdateManyMutationInput, ProfileAchievementUncheckedUpdateManyInput>
+    /**
+     * Filter which ProfileAchievements to update
+     */
+    where?: ProfileAchievementWhereInput
+  }
+
+  /**
+   * ProfileAchievement upsert
+   */
+  export type ProfileAchievementUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileAchievement
+     */
+    select?: ProfileAchievementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileAchievementInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ProfileAchievement to update in case it exists.
+     */
+    where: ProfileAchievementWhereUniqueInput
+    /**
+     * In case the ProfileAchievement found by the `where` argument doesn't exist, create a new ProfileAchievement with this data.
+     */
+    create: XOR<ProfileAchievementCreateInput, ProfileAchievementUncheckedCreateInput>
+    /**
+     * In case the ProfileAchievement was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProfileAchievementUpdateInput, ProfileAchievementUncheckedUpdateInput>
+  }
+
+  /**
+   * ProfileAchievement delete
+   */
+  export type ProfileAchievementDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileAchievement
+     */
+    select?: ProfileAchievementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileAchievementInclude<ExtArgs> | null
+    /**
+     * Filter which ProfileAchievement to delete.
+     */
+    where: ProfileAchievementWhereUniqueInput
+  }
+
+  /**
+   * ProfileAchievement deleteMany
+   */
+  export type ProfileAchievementDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProfileAchievements to delete
+     */
+    where?: ProfileAchievementWhereInput
+  }
+
+  /**
+   * ProfileAchievement without action
+   */
+  export type ProfileAchievementDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileAchievement
+     */
+    select?: ProfileAchievementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileAchievementInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ProfileProminentWork
+   */
+
+  export type AggregateProfileProminentWork = {
+    _count: ProfileProminentWorkCountAggregateOutputType | null
+    _avg: ProfileProminentWorkAvgAggregateOutputType | null
+    _sum: ProfileProminentWorkSumAggregateOutputType | null
+    _min: ProfileProminentWorkMinAggregateOutputType | null
+    _max: ProfileProminentWorkMaxAggregateOutputType | null
+  }
+
+  export type ProfileProminentWorkAvgAggregateOutputType = {
+    id: number | null
+    userId: number | null
+    wage: number | null
+  }
+
+  export type ProfileProminentWorkSumAggregateOutputType = {
+    id: number | null
+    userId: number | null
+    wage: number | null
+  }
+
+  export type ProfileProminentWorkMinAggregateOutputType = {
+    id: number | null
+    userId: number | null
+    name: string | null
+    description: string | null
+    from: Date | null
+    to: Date | null
+    wage: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ProfileProminentWorkMaxAggregateOutputType = {
+    id: number | null
+    userId: number | null
+    name: string | null
+    description: string | null
+    from: Date | null
+    to: Date | null
+    wage: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ProfileProminentWorkCountAggregateOutputType = {
+    id: number
+    userId: number
+    name: number
+    description: number
+    from: number
+    to: number
+    wage: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ProfileProminentWorkAvgAggregateInputType = {
+    id?: true
+    userId?: true
+    wage?: true
+  }
+
+  export type ProfileProminentWorkSumAggregateInputType = {
+    id?: true
+    userId?: true
+    wage?: true
+  }
+
+  export type ProfileProminentWorkMinAggregateInputType = {
+    id?: true
+    userId?: true
+    name?: true
+    description?: true
+    from?: true
+    to?: true
+    wage?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ProfileProminentWorkMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    name?: true
+    description?: true
+    from?: true
+    to?: true
+    wage?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ProfileProminentWorkCountAggregateInputType = {
+    id?: true
+    userId?: true
+    name?: true
+    description?: true
+    from?: true
+    to?: true
+    wage?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ProfileProminentWorkAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProfileProminentWork to aggregate.
+     */
+    where?: ProfileProminentWorkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileProminentWorks to fetch.
+     */
+    orderBy?: ProfileProminentWorkOrderByWithRelationInput | ProfileProminentWorkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProfileProminentWorkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileProminentWorks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileProminentWorks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ProfileProminentWorks
+    **/
+    _count?: true | ProfileProminentWorkCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProfileProminentWorkAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProfileProminentWorkSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProfileProminentWorkMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProfileProminentWorkMaxAggregateInputType
+  }
+
+  export type GetProfileProminentWorkAggregateType<T extends ProfileProminentWorkAggregateArgs> = {
+        [P in keyof T & keyof AggregateProfileProminentWork]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProfileProminentWork[P]>
+      : GetScalarType<T[P], AggregateProfileProminentWork[P]>
+  }
+
+
+
+
+  export type ProfileProminentWorkGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfileProminentWorkWhereInput
+    orderBy?: ProfileProminentWorkOrderByWithAggregationInput | ProfileProminentWorkOrderByWithAggregationInput[]
+    by: ProfileProminentWorkScalarFieldEnum[] | ProfileProminentWorkScalarFieldEnum
+    having?: ProfileProminentWorkScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProfileProminentWorkCountAggregateInputType | true
+    _avg?: ProfileProminentWorkAvgAggregateInputType
+    _sum?: ProfileProminentWorkSumAggregateInputType
+    _min?: ProfileProminentWorkMinAggregateInputType
+    _max?: ProfileProminentWorkMaxAggregateInputType
+  }
+
+  export type ProfileProminentWorkGroupByOutputType = {
+    id: number
+    userId: number
+    name: string
+    description: string | null
+    from: Date
+    to: Date
+    wage: number | null
+    createdAt: Date
+    updatedAt: Date
+    _count: ProfileProminentWorkCountAggregateOutputType | null
+    _avg: ProfileProminentWorkAvgAggregateOutputType | null
+    _sum: ProfileProminentWorkSumAggregateOutputType | null
+    _min: ProfileProminentWorkMinAggregateOutputType | null
+    _max: ProfileProminentWorkMaxAggregateOutputType | null
+  }
+
+  type GetProfileProminentWorkGroupByPayload<T extends ProfileProminentWorkGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProfileProminentWorkGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProfileProminentWorkGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProfileProminentWorkGroupByOutputType[P]>
+            : GetScalarType<T[P], ProfileProminentWorkGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProfileProminentWorkSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    name?: boolean
+    description?: boolean
+    from?: boolean
+    to?: boolean
+    wage?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profileProminentWork"]>
+
+  export type ProfileProminentWorkSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    name?: boolean
+    description?: boolean
+    from?: boolean
+    to?: boolean
+    wage?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profileProminentWork"]>
+
+  export type ProfileProminentWorkSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    name?: boolean
+    description?: boolean
+    from?: boolean
+    to?: boolean
+    wage?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ProfileProminentWorkInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type ProfileProminentWorkIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $ProfileProminentWorkPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ProfileProminentWork"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      userId: number
+      name: string
+      description: string | null
+      from: Date
+      to: Date
+      wage: number | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["profileProminentWork"]>
+    composites: {}
+  }
+
+  type ProfileProminentWorkGetPayload<S extends boolean | null | undefined | ProfileProminentWorkDefaultArgs> = $Result.GetResult<Prisma.$ProfileProminentWorkPayload, S>
+
+  type ProfileProminentWorkCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<ProfileProminentWorkFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: ProfileProminentWorkCountAggregateInputType | true
+    }
+
+  export interface ProfileProminentWorkDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProfileProminentWork'], meta: { name: 'ProfileProminentWork' } }
+    /**
+     * Find zero or one ProfileProminentWork that matches the filter.
+     * @param {ProfileProminentWorkFindUniqueArgs} args - Arguments to find a ProfileProminentWork
+     * @example
+     * // Get one ProfileProminentWork
+     * const profileProminentWork = await prisma.profileProminentWork.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProfileProminentWorkFindUniqueArgs>(args: SelectSubset<T, ProfileProminentWorkFindUniqueArgs<ExtArgs>>): Prisma__ProfileProminentWorkClient<$Result.GetResult<Prisma.$ProfileProminentWorkPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one ProfileProminentWork that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {ProfileProminentWorkFindUniqueOrThrowArgs} args - Arguments to find a ProfileProminentWork
+     * @example
+     * // Get one ProfileProminentWork
+     * const profileProminentWork = await prisma.profileProminentWork.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProfileProminentWorkFindUniqueOrThrowArgs>(args: SelectSubset<T, ProfileProminentWorkFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProfileProminentWorkClient<$Result.GetResult<Prisma.$ProfileProminentWorkPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first ProfileProminentWork that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileProminentWorkFindFirstArgs} args - Arguments to find a ProfileProminentWork
+     * @example
+     * // Get one ProfileProminentWork
+     * const profileProminentWork = await prisma.profileProminentWork.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProfileProminentWorkFindFirstArgs>(args?: SelectSubset<T, ProfileProminentWorkFindFirstArgs<ExtArgs>>): Prisma__ProfileProminentWorkClient<$Result.GetResult<Prisma.$ProfileProminentWorkPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first ProfileProminentWork that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileProminentWorkFindFirstOrThrowArgs} args - Arguments to find a ProfileProminentWork
+     * @example
+     * // Get one ProfileProminentWork
+     * const profileProminentWork = await prisma.profileProminentWork.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProfileProminentWorkFindFirstOrThrowArgs>(args?: SelectSubset<T, ProfileProminentWorkFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProfileProminentWorkClient<$Result.GetResult<Prisma.$ProfileProminentWorkPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more ProfileProminentWorks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileProminentWorkFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ProfileProminentWorks
+     * const profileProminentWorks = await prisma.profileProminentWork.findMany()
+     * 
+     * // Get first 10 ProfileProminentWorks
+     * const profileProminentWorks = await prisma.profileProminentWork.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const profileProminentWorkWithIdOnly = await prisma.profileProminentWork.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProfileProminentWorkFindManyArgs>(args?: SelectSubset<T, ProfileProminentWorkFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileProminentWorkPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a ProfileProminentWork.
+     * @param {ProfileProminentWorkCreateArgs} args - Arguments to create a ProfileProminentWork.
+     * @example
+     * // Create one ProfileProminentWork
+     * const ProfileProminentWork = await prisma.profileProminentWork.create({
+     *   data: {
+     *     // ... data to create a ProfileProminentWork
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProfileProminentWorkCreateArgs>(args: SelectSubset<T, ProfileProminentWorkCreateArgs<ExtArgs>>): Prisma__ProfileProminentWorkClient<$Result.GetResult<Prisma.$ProfileProminentWorkPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many ProfileProminentWorks.
+     * @param {ProfileProminentWorkCreateManyArgs} args - Arguments to create many ProfileProminentWorks.
+     * @example
+     * // Create many ProfileProminentWorks
+     * const profileProminentWork = await prisma.profileProminentWork.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProfileProminentWorkCreateManyArgs>(args?: SelectSubset<T, ProfileProminentWorkCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ProfileProminentWorks and returns the data saved in the database.
+     * @param {ProfileProminentWorkCreateManyAndReturnArgs} args - Arguments to create many ProfileProminentWorks.
+     * @example
+     * // Create many ProfileProminentWorks
+     * const profileProminentWork = await prisma.profileProminentWork.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ProfileProminentWorks and only return the `id`
+     * const profileProminentWorkWithIdOnly = await prisma.profileProminentWork.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProfileProminentWorkCreateManyAndReturnArgs>(args?: SelectSubset<T, ProfileProminentWorkCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileProminentWorkPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a ProfileProminentWork.
+     * @param {ProfileProminentWorkDeleteArgs} args - Arguments to delete one ProfileProminentWork.
+     * @example
+     * // Delete one ProfileProminentWork
+     * const ProfileProminentWork = await prisma.profileProminentWork.delete({
+     *   where: {
+     *     // ... filter to delete one ProfileProminentWork
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProfileProminentWorkDeleteArgs>(args: SelectSubset<T, ProfileProminentWorkDeleteArgs<ExtArgs>>): Prisma__ProfileProminentWorkClient<$Result.GetResult<Prisma.$ProfileProminentWorkPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one ProfileProminentWork.
+     * @param {ProfileProminentWorkUpdateArgs} args - Arguments to update one ProfileProminentWork.
+     * @example
+     * // Update one ProfileProminentWork
+     * const profileProminentWork = await prisma.profileProminentWork.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProfileProminentWorkUpdateArgs>(args: SelectSubset<T, ProfileProminentWorkUpdateArgs<ExtArgs>>): Prisma__ProfileProminentWorkClient<$Result.GetResult<Prisma.$ProfileProminentWorkPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more ProfileProminentWorks.
+     * @param {ProfileProminentWorkDeleteManyArgs} args - Arguments to filter ProfileProminentWorks to delete.
+     * @example
+     * // Delete a few ProfileProminentWorks
+     * const { count } = await prisma.profileProminentWork.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProfileProminentWorkDeleteManyArgs>(args?: SelectSubset<T, ProfileProminentWorkDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProfileProminentWorks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileProminentWorkUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ProfileProminentWorks
+     * const profileProminentWork = await prisma.profileProminentWork.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProfileProminentWorkUpdateManyArgs>(args: SelectSubset<T, ProfileProminentWorkUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one ProfileProminentWork.
+     * @param {ProfileProminentWorkUpsertArgs} args - Arguments to update or create a ProfileProminentWork.
+     * @example
+     * // Update or create a ProfileProminentWork
+     * const profileProminentWork = await prisma.profileProminentWork.upsert({
+     *   create: {
+     *     // ... data to create a ProfileProminentWork
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ProfileProminentWork we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProfileProminentWorkUpsertArgs>(args: SelectSubset<T, ProfileProminentWorkUpsertArgs<ExtArgs>>): Prisma__ProfileProminentWorkClient<$Result.GetResult<Prisma.$ProfileProminentWorkPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of ProfileProminentWorks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileProminentWorkCountArgs} args - Arguments to filter ProfileProminentWorks to count.
+     * @example
+     * // Count the number of ProfileProminentWorks
+     * const count = await prisma.profileProminentWork.count({
+     *   where: {
+     *     // ... the filter for the ProfileProminentWorks we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProfileProminentWorkCountArgs>(
+      args?: Subset<T, ProfileProminentWorkCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProfileProminentWorkCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ProfileProminentWork.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileProminentWorkAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProfileProminentWorkAggregateArgs>(args: Subset<T, ProfileProminentWorkAggregateArgs>): Prisma.PrismaPromise<GetProfileProminentWorkAggregateType<T>>
+
+    /**
+     * Group by ProfileProminentWork.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileProminentWorkGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProfileProminentWorkGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProfileProminentWorkGroupByArgs['orderBy'] }
+        : { orderBy?: ProfileProminentWorkGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProfileProminentWorkGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProfileProminentWorkGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ProfileProminentWork model
+   */
+  readonly fields: ProfileProminentWorkFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ProfileProminentWork.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProfileProminentWorkClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ProfileProminentWork model
+   */ 
+  interface ProfileProminentWorkFieldRefs {
+    readonly id: FieldRef<"ProfileProminentWork", 'Int'>
+    readonly userId: FieldRef<"ProfileProminentWork", 'Int'>
+    readonly name: FieldRef<"ProfileProminentWork", 'String'>
+    readonly description: FieldRef<"ProfileProminentWork", 'String'>
+    readonly from: FieldRef<"ProfileProminentWork", 'DateTime'>
+    readonly to: FieldRef<"ProfileProminentWork", 'DateTime'>
+    readonly wage: FieldRef<"ProfileProminentWork", 'Int'>
+    readonly createdAt: FieldRef<"ProfileProminentWork", 'DateTime'>
+    readonly updatedAt: FieldRef<"ProfileProminentWork", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ProfileProminentWork findUnique
+   */
+  export type ProfileProminentWorkFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileProminentWork
+     */
+    select?: ProfileProminentWorkSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileProminentWorkInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileProminentWork to fetch.
+     */
+    where: ProfileProminentWorkWhereUniqueInput
+  }
+
+  /**
+   * ProfileProminentWork findUniqueOrThrow
+   */
+  export type ProfileProminentWorkFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileProminentWork
+     */
+    select?: ProfileProminentWorkSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileProminentWorkInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileProminentWork to fetch.
+     */
+    where: ProfileProminentWorkWhereUniqueInput
+  }
+
+  /**
+   * ProfileProminentWork findFirst
+   */
+  export type ProfileProminentWorkFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileProminentWork
+     */
+    select?: ProfileProminentWorkSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileProminentWorkInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileProminentWork to fetch.
+     */
+    where?: ProfileProminentWorkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileProminentWorks to fetch.
+     */
+    orderBy?: ProfileProminentWorkOrderByWithRelationInput | ProfileProminentWorkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProfileProminentWorks.
+     */
+    cursor?: ProfileProminentWorkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileProminentWorks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileProminentWorks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProfileProminentWorks.
+     */
+    distinct?: ProfileProminentWorkScalarFieldEnum | ProfileProminentWorkScalarFieldEnum[]
+  }
+
+  /**
+   * ProfileProminentWork findFirstOrThrow
+   */
+  export type ProfileProminentWorkFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileProminentWork
+     */
+    select?: ProfileProminentWorkSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileProminentWorkInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileProminentWork to fetch.
+     */
+    where?: ProfileProminentWorkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileProminentWorks to fetch.
+     */
+    orderBy?: ProfileProminentWorkOrderByWithRelationInput | ProfileProminentWorkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProfileProminentWorks.
+     */
+    cursor?: ProfileProminentWorkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileProminentWorks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileProminentWorks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProfileProminentWorks.
+     */
+    distinct?: ProfileProminentWorkScalarFieldEnum | ProfileProminentWorkScalarFieldEnum[]
+  }
+
+  /**
+   * ProfileProminentWork findMany
+   */
+  export type ProfileProminentWorkFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileProminentWork
+     */
+    select?: ProfileProminentWorkSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileProminentWorkInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileProminentWorks to fetch.
+     */
+    where?: ProfileProminentWorkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileProminentWorks to fetch.
+     */
+    orderBy?: ProfileProminentWorkOrderByWithRelationInput | ProfileProminentWorkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ProfileProminentWorks.
+     */
+    cursor?: ProfileProminentWorkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileProminentWorks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileProminentWorks.
+     */
+    skip?: number
+    distinct?: ProfileProminentWorkScalarFieldEnum | ProfileProminentWorkScalarFieldEnum[]
+  }
+
+  /**
+   * ProfileProminentWork create
+   */
+  export type ProfileProminentWorkCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileProminentWork
+     */
+    select?: ProfileProminentWorkSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileProminentWorkInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ProfileProminentWork.
+     */
+    data: XOR<ProfileProminentWorkCreateInput, ProfileProminentWorkUncheckedCreateInput>
+  }
+
+  /**
+   * ProfileProminentWork createMany
+   */
+  export type ProfileProminentWorkCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ProfileProminentWorks.
+     */
+    data: ProfileProminentWorkCreateManyInput | ProfileProminentWorkCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProfileProminentWork createManyAndReturn
+   */
+  export type ProfileProminentWorkCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileProminentWork
+     */
+    select?: ProfileProminentWorkSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many ProfileProminentWorks.
+     */
+    data: ProfileProminentWorkCreateManyInput | ProfileProminentWorkCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileProminentWorkIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProfileProminentWork update
+   */
+  export type ProfileProminentWorkUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileProminentWork
+     */
+    select?: ProfileProminentWorkSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileProminentWorkInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ProfileProminentWork.
+     */
+    data: XOR<ProfileProminentWorkUpdateInput, ProfileProminentWorkUncheckedUpdateInput>
+    /**
+     * Choose, which ProfileProminentWork to update.
+     */
+    where: ProfileProminentWorkWhereUniqueInput
+  }
+
+  /**
+   * ProfileProminentWork updateMany
+   */
+  export type ProfileProminentWorkUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ProfileProminentWorks.
+     */
+    data: XOR<ProfileProminentWorkUpdateManyMutationInput, ProfileProminentWorkUncheckedUpdateManyInput>
+    /**
+     * Filter which ProfileProminentWorks to update
+     */
+    where?: ProfileProminentWorkWhereInput
+  }
+
+  /**
+   * ProfileProminentWork upsert
+   */
+  export type ProfileProminentWorkUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileProminentWork
+     */
+    select?: ProfileProminentWorkSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileProminentWorkInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ProfileProminentWork to update in case it exists.
+     */
+    where: ProfileProminentWorkWhereUniqueInput
+    /**
+     * In case the ProfileProminentWork found by the `where` argument doesn't exist, create a new ProfileProminentWork with this data.
+     */
+    create: XOR<ProfileProminentWorkCreateInput, ProfileProminentWorkUncheckedCreateInput>
+    /**
+     * In case the ProfileProminentWork was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProfileProminentWorkUpdateInput, ProfileProminentWorkUncheckedUpdateInput>
+  }
+
+  /**
+   * ProfileProminentWork delete
+   */
+  export type ProfileProminentWorkDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileProminentWork
+     */
+    select?: ProfileProminentWorkSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileProminentWorkInclude<ExtArgs> | null
+    /**
+     * Filter which ProfileProminentWork to delete.
+     */
+    where: ProfileProminentWorkWhereUniqueInput
+  }
+
+  /**
+   * ProfileProminentWork deleteMany
+   */
+  export type ProfileProminentWorkDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProfileProminentWorks to delete
+     */
+    where?: ProfileProminentWorkWhereInput
+  }
+
+  /**
+   * ProfileProminentWork without action
+   */
+  export type ProfileProminentWorkDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileProminentWork
+     */
+    select?: ProfileProminentWorkSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileProminentWorkInclude<ExtArgs> | null
   }
 
 
@@ -8215,7 +10579,15 @@ export namespace Prisma {
   export const ProfileScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
-    intro: 'intro',
+    biography: 'biography',
+    residence: 'residence',
+    workEmail: 'workEmail',
+    occupation: 'occupation',
+    facebookLink: 'facebookLink',
+    instagramLink: 'instagramLink',
+    youtubeLink: 'youtubeLink',
+    tiktokLink: 'tiktokLink',
+    avatar: 'avatar',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -8225,9 +10597,9 @@ export namespace Prisma {
 
   export const ProfileWorkExperienceScalarFieldEnum: {
     id: 'id',
-    profileId: 'profileId',
-    workName: 'workName',
-    workDescription: 'workDescription',
+    userId: 'userId',
+    name: 'name',
+    description: 'description',
     from: 'from',
     to: 'to',
     createdAt: 'createdAt',
@@ -8235,6 +10607,35 @@ export namespace Prisma {
   };
 
   export type ProfileWorkExperienceScalarFieldEnum = (typeof ProfileWorkExperienceScalarFieldEnum)[keyof typeof ProfileWorkExperienceScalarFieldEnum]
+
+
+  export const ProfileAchievementScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    name: 'name',
+    description: 'description',
+    from: 'from',
+    to: 'to',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ProfileAchievementScalarFieldEnum = (typeof ProfileAchievementScalarFieldEnum)[keyof typeof ProfileAchievementScalarFieldEnum]
+
+
+  export const ProfileProminentWorkScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    name: 'name',
+    description: 'description',
+    from: 'from',
+    to: 'to',
+    wage: 'wage',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ProfileProminentWorkScalarFieldEnum = (typeof ProfileProminentWorkScalarFieldEnum)[keyof typeof ProfileProminentWorkScalarFieldEnum]
 
 
   export const PortfolioScalarFieldEnum: {
@@ -8389,6 +10790,9 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     profile?: XOR<ProfileNullableRelationFilter, ProfileWhereInput> | null
+    profileWorkExperiences?: ProfileWorkExperienceListRelationFilter
+    profileAchievements?: ProfileAchievementListRelationFilter
+    profileProminentWorks?: ProfileProminentWorkListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -8403,10 +10807,14 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     profile?: ProfileOrderByWithRelationInput
+    profileWorkExperiences?: ProfileWorkExperienceOrderByRelationAggregateInput
+    profileAchievements?: ProfileAchievementOrderByRelationAggregateInput
+    profileProminentWorks?: ProfileProminentWorkOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    email?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
@@ -8416,11 +10824,13 @@ export namespace Prisma {
     role?: IntFilter<"User"> | number
     phone?: StringNullableFilter<"User"> | string | null
     gender?: IntNullableFilter<"User"> | number | null
-    email?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     profile?: XOR<ProfileNullableRelationFilter, ProfileWhereInput> | null
-  }, "id">
+    profileWorkExperiences?: ProfileWorkExperienceListRelationFilter
+    profileAchievements?: ProfileAchievementListRelationFilter
+    profileProminentWorks?: ProfileProminentWorkListRelationFilter
+  }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
@@ -8516,21 +10926,35 @@ export namespace Prisma {
     NOT?: ProfileWhereInput | ProfileWhereInput[]
     id?: IntFilter<"Profile"> | number
     userId?: IntFilter<"Profile"> | number
-    intro?: StringFilter<"Profile"> | string
+    biography?: StringNullableFilter<"Profile"> | string | null
+    residence?: StringFilter<"Profile"> | string
+    workEmail?: StringNullableFilter<"Profile"> | string | null
+    occupation?: StringNullableFilter<"Profile"> | string | null
+    facebookLink?: StringNullableFilter<"Profile"> | string | null
+    instagramLink?: StringNullableFilter<"Profile"> | string | null
+    youtubeLink?: StringNullableFilter<"Profile"> | string | null
+    tiktokLink?: StringNullableFilter<"Profile"> | string | null
+    avatar?: StringNullableFilter<"Profile"> | string | null
     createdAt?: DateTimeFilter<"Profile"> | Date | string
     updatedAt?: DateTimeFilter<"Profile"> | Date | string
     user?: XOR<UserRelationFilter, UserWhereInput>
-    profileWorkExperiences?: ProfileWorkExperienceListRelationFilter
   }
 
   export type ProfileOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
-    intro?: SortOrder
+    biography?: SortOrderInput | SortOrder
+    residence?: SortOrder
+    workEmail?: SortOrderInput | SortOrder
+    occupation?: SortOrderInput | SortOrder
+    facebookLink?: SortOrderInput | SortOrder
+    instagramLink?: SortOrderInput | SortOrder
+    youtubeLink?: SortOrderInput | SortOrder
+    tiktokLink?: SortOrderInput | SortOrder
+    avatar?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
-    profileWorkExperiences?: ProfileWorkExperienceOrderByRelationAggregateInput
   }
 
   export type ProfileWhereUniqueInput = Prisma.AtLeast<{
@@ -8539,17 +10963,32 @@ export namespace Prisma {
     AND?: ProfileWhereInput | ProfileWhereInput[]
     OR?: ProfileWhereInput[]
     NOT?: ProfileWhereInput | ProfileWhereInput[]
-    intro?: StringFilter<"Profile"> | string
+    biography?: StringNullableFilter<"Profile"> | string | null
+    residence?: StringFilter<"Profile"> | string
+    workEmail?: StringNullableFilter<"Profile"> | string | null
+    occupation?: StringNullableFilter<"Profile"> | string | null
+    facebookLink?: StringNullableFilter<"Profile"> | string | null
+    instagramLink?: StringNullableFilter<"Profile"> | string | null
+    youtubeLink?: StringNullableFilter<"Profile"> | string | null
+    tiktokLink?: StringNullableFilter<"Profile"> | string | null
+    avatar?: StringNullableFilter<"Profile"> | string | null
     createdAt?: DateTimeFilter<"Profile"> | Date | string
     updatedAt?: DateTimeFilter<"Profile"> | Date | string
     user?: XOR<UserRelationFilter, UserWhereInput>
-    profileWorkExperiences?: ProfileWorkExperienceListRelationFilter
   }, "id" | "userId">
 
   export type ProfileOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
-    intro?: SortOrder
+    biography?: SortOrderInput | SortOrder
+    residence?: SortOrder
+    workEmail?: SortOrderInput | SortOrder
+    occupation?: SortOrderInput | SortOrder
+    facebookLink?: SortOrderInput | SortOrder
+    instagramLink?: SortOrderInput | SortOrder
+    youtubeLink?: SortOrderInput | SortOrder
+    tiktokLink?: SortOrderInput | SortOrder
+    avatar?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: ProfileCountOrderByAggregateInput
@@ -8565,7 +11004,15 @@ export namespace Prisma {
     NOT?: ProfileScalarWhereWithAggregatesInput | ProfileScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Profile"> | number
     userId?: IntWithAggregatesFilter<"Profile"> | number
-    intro?: StringWithAggregatesFilter<"Profile"> | string
+    biography?: StringNullableWithAggregatesFilter<"Profile"> | string | null
+    residence?: StringWithAggregatesFilter<"Profile"> | string
+    workEmail?: StringNullableWithAggregatesFilter<"Profile"> | string | null
+    occupation?: StringNullableWithAggregatesFilter<"Profile"> | string | null
+    facebookLink?: StringNullableWithAggregatesFilter<"Profile"> | string | null
+    instagramLink?: StringNullableWithAggregatesFilter<"Profile"> | string | null
+    youtubeLink?: StringNullableWithAggregatesFilter<"Profile"> | string | null
+    tiktokLink?: StringNullableWithAggregatesFilter<"Profile"> | string | null
+    avatar?: StringNullableWithAggregatesFilter<"Profile"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Profile"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Profile"> | Date | string
   }
@@ -8575,26 +11022,26 @@ export namespace Prisma {
     OR?: ProfileWorkExperienceWhereInput[]
     NOT?: ProfileWorkExperienceWhereInput | ProfileWorkExperienceWhereInput[]
     id?: IntFilter<"ProfileWorkExperience"> | number
-    profileId?: IntFilter<"ProfileWorkExperience"> | number
-    workName?: StringFilter<"ProfileWorkExperience"> | string
-    workDescription?: StringFilter<"ProfileWorkExperience"> | string
+    userId?: IntFilter<"ProfileWorkExperience"> | number
+    name?: StringFilter<"ProfileWorkExperience"> | string
+    description?: StringNullableFilter<"ProfileWorkExperience"> | string | null
     from?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
     to?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
     createdAt?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
     updatedAt?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
-    profile?: XOR<ProfileRelationFilter, ProfileWhereInput>
+    user?: XOR<UserRelationFilter, UserWhereInput>
   }
 
   export type ProfileWorkExperienceOrderByWithRelationInput = {
     id?: SortOrder
-    profileId?: SortOrder
-    workName?: SortOrder
-    workDescription?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
     from?: SortOrder
     to?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    profile?: ProfileOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
   }
 
   export type ProfileWorkExperienceWhereUniqueInput = Prisma.AtLeast<{
@@ -8602,21 +11049,21 @@ export namespace Prisma {
     AND?: ProfileWorkExperienceWhereInput | ProfileWorkExperienceWhereInput[]
     OR?: ProfileWorkExperienceWhereInput[]
     NOT?: ProfileWorkExperienceWhereInput | ProfileWorkExperienceWhereInput[]
-    profileId?: IntFilter<"ProfileWorkExperience"> | number
-    workName?: StringFilter<"ProfileWorkExperience"> | string
-    workDescription?: StringFilter<"ProfileWorkExperience"> | string
+    userId?: IntFilter<"ProfileWorkExperience"> | number
+    name?: StringFilter<"ProfileWorkExperience"> | string
+    description?: StringNullableFilter<"ProfileWorkExperience"> | string | null
     from?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
     to?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
     createdAt?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
     updatedAt?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
-    profile?: XOR<ProfileRelationFilter, ProfileWhereInput>
+    user?: XOR<UserRelationFilter, UserWhereInput>
   }, "id">
 
   export type ProfileWorkExperienceOrderByWithAggregationInput = {
     id?: SortOrder
-    profileId?: SortOrder
-    workName?: SortOrder
-    workDescription?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
     from?: SortOrder
     to?: SortOrder
     createdAt?: SortOrder
@@ -8633,13 +11080,162 @@ export namespace Prisma {
     OR?: ProfileWorkExperienceScalarWhereWithAggregatesInput[]
     NOT?: ProfileWorkExperienceScalarWhereWithAggregatesInput | ProfileWorkExperienceScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"ProfileWorkExperience"> | number
-    profileId?: IntWithAggregatesFilter<"ProfileWorkExperience"> | number
-    workName?: StringWithAggregatesFilter<"ProfileWorkExperience"> | string
-    workDescription?: StringWithAggregatesFilter<"ProfileWorkExperience"> | string
+    userId?: IntWithAggregatesFilter<"ProfileWorkExperience"> | number
+    name?: StringWithAggregatesFilter<"ProfileWorkExperience"> | string
+    description?: StringNullableWithAggregatesFilter<"ProfileWorkExperience"> | string | null
     from?: DateTimeWithAggregatesFilter<"ProfileWorkExperience"> | Date | string
     to?: DateTimeWithAggregatesFilter<"ProfileWorkExperience"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"ProfileWorkExperience"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"ProfileWorkExperience"> | Date | string
+  }
+
+  export type ProfileAchievementWhereInput = {
+    AND?: ProfileAchievementWhereInput | ProfileAchievementWhereInput[]
+    OR?: ProfileAchievementWhereInput[]
+    NOT?: ProfileAchievementWhereInput | ProfileAchievementWhereInput[]
+    id?: IntFilter<"ProfileAchievement"> | number
+    userId?: IntFilter<"ProfileAchievement"> | number
+    name?: StringFilter<"ProfileAchievement"> | string
+    description?: StringNullableFilter<"ProfileAchievement"> | string | null
+    from?: DateTimeFilter<"ProfileAchievement"> | Date | string
+    to?: DateTimeFilter<"ProfileAchievement"> | Date | string
+    createdAt?: DateTimeFilter<"ProfileAchievement"> | Date | string
+    updatedAt?: DateTimeFilter<"ProfileAchievement"> | Date | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+  }
+
+  export type ProfileAchievementOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    from?: SortOrder
+    to?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type ProfileAchievementWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ProfileAchievementWhereInput | ProfileAchievementWhereInput[]
+    OR?: ProfileAchievementWhereInput[]
+    NOT?: ProfileAchievementWhereInput | ProfileAchievementWhereInput[]
+    userId?: IntFilter<"ProfileAchievement"> | number
+    name?: StringFilter<"ProfileAchievement"> | string
+    description?: StringNullableFilter<"ProfileAchievement"> | string | null
+    from?: DateTimeFilter<"ProfileAchievement"> | Date | string
+    to?: DateTimeFilter<"ProfileAchievement"> | Date | string
+    createdAt?: DateTimeFilter<"ProfileAchievement"> | Date | string
+    updatedAt?: DateTimeFilter<"ProfileAchievement"> | Date | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type ProfileAchievementOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    from?: SortOrder
+    to?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ProfileAchievementCountOrderByAggregateInput
+    _avg?: ProfileAchievementAvgOrderByAggregateInput
+    _max?: ProfileAchievementMaxOrderByAggregateInput
+    _min?: ProfileAchievementMinOrderByAggregateInput
+    _sum?: ProfileAchievementSumOrderByAggregateInput
+  }
+
+  export type ProfileAchievementScalarWhereWithAggregatesInput = {
+    AND?: ProfileAchievementScalarWhereWithAggregatesInput | ProfileAchievementScalarWhereWithAggregatesInput[]
+    OR?: ProfileAchievementScalarWhereWithAggregatesInput[]
+    NOT?: ProfileAchievementScalarWhereWithAggregatesInput | ProfileAchievementScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ProfileAchievement"> | number
+    userId?: IntWithAggregatesFilter<"ProfileAchievement"> | number
+    name?: StringWithAggregatesFilter<"ProfileAchievement"> | string
+    description?: StringNullableWithAggregatesFilter<"ProfileAchievement"> | string | null
+    from?: DateTimeWithAggregatesFilter<"ProfileAchievement"> | Date | string
+    to?: DateTimeWithAggregatesFilter<"ProfileAchievement"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"ProfileAchievement"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ProfileAchievement"> | Date | string
+  }
+
+  export type ProfileProminentWorkWhereInput = {
+    AND?: ProfileProminentWorkWhereInput | ProfileProminentWorkWhereInput[]
+    OR?: ProfileProminentWorkWhereInput[]
+    NOT?: ProfileProminentWorkWhereInput | ProfileProminentWorkWhereInput[]
+    id?: IntFilter<"ProfileProminentWork"> | number
+    userId?: IntFilter<"ProfileProminentWork"> | number
+    name?: StringFilter<"ProfileProminentWork"> | string
+    description?: StringNullableFilter<"ProfileProminentWork"> | string | null
+    from?: DateTimeFilter<"ProfileProminentWork"> | Date | string
+    to?: DateTimeFilter<"ProfileProminentWork"> | Date | string
+    wage?: IntNullableFilter<"ProfileProminentWork"> | number | null
+    createdAt?: DateTimeFilter<"ProfileProminentWork"> | Date | string
+    updatedAt?: DateTimeFilter<"ProfileProminentWork"> | Date | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+  }
+
+  export type ProfileProminentWorkOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    from?: SortOrder
+    to?: SortOrder
+    wage?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type ProfileProminentWorkWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ProfileProminentWorkWhereInput | ProfileProminentWorkWhereInput[]
+    OR?: ProfileProminentWorkWhereInput[]
+    NOT?: ProfileProminentWorkWhereInput | ProfileProminentWorkWhereInput[]
+    userId?: IntFilter<"ProfileProminentWork"> | number
+    name?: StringFilter<"ProfileProminentWork"> | string
+    description?: StringNullableFilter<"ProfileProminentWork"> | string | null
+    from?: DateTimeFilter<"ProfileProminentWork"> | Date | string
+    to?: DateTimeFilter<"ProfileProminentWork"> | Date | string
+    wage?: IntNullableFilter<"ProfileProminentWork"> | number | null
+    createdAt?: DateTimeFilter<"ProfileProminentWork"> | Date | string
+    updatedAt?: DateTimeFilter<"ProfileProminentWork"> | Date | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type ProfileProminentWorkOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    from?: SortOrder
+    to?: SortOrder
+    wage?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ProfileProminentWorkCountOrderByAggregateInput
+    _avg?: ProfileProminentWorkAvgOrderByAggregateInput
+    _max?: ProfileProminentWorkMaxOrderByAggregateInput
+    _min?: ProfileProminentWorkMinOrderByAggregateInput
+    _sum?: ProfileProminentWorkSumOrderByAggregateInput
+  }
+
+  export type ProfileProminentWorkScalarWhereWithAggregatesInput = {
+    AND?: ProfileProminentWorkScalarWhereWithAggregatesInput | ProfileProminentWorkScalarWhereWithAggregatesInput[]
+    OR?: ProfileProminentWorkScalarWhereWithAggregatesInput[]
+    NOT?: ProfileProminentWorkScalarWhereWithAggregatesInput | ProfileProminentWorkScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ProfileProminentWork"> | number
+    userId?: IntWithAggregatesFilter<"ProfileProminentWork"> | number
+    name?: StringWithAggregatesFilter<"ProfileProminentWork"> | string
+    description?: StringNullableWithAggregatesFilter<"ProfileProminentWork"> | string | null
+    from?: DateTimeWithAggregatesFilter<"ProfileProminentWork"> | Date | string
+    to?: DateTimeWithAggregatesFilter<"ProfileProminentWork"> | Date | string
+    wage?: IntNullableWithAggregatesFilter<"ProfileProminentWork"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"ProfileProminentWork"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ProfileProminentWork"> | Date | string
   }
 
   export type PortfolioWhereInput = {
@@ -8825,6 +11421,9 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     profile?: ProfileCreateNestedOneWithoutUserInput
+    profileWorkExperiences?: ProfileWorkExperienceCreateNestedManyWithoutUserInput
+    profileAchievements?: ProfileAchievementCreateNestedManyWithoutUserInput
+    profileProminentWorks?: ProfileProminentWorkCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -8839,6 +11438,9 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     profile?: ProfileUncheckedCreateNestedOneWithoutUserInput
+    profileWorkExperiences?: ProfileWorkExperienceUncheckedCreateNestedManyWithoutUserInput
+    profileAchievements?: ProfileAchievementUncheckedCreateNestedManyWithoutUserInput
+    profileProminentWorks?: ProfileProminentWorkUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -8852,6 +11454,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profile?: ProfileUpdateOneWithoutUserNestedInput
+    profileWorkExperiences?: ProfileWorkExperienceUpdateManyWithoutUserNestedInput
+    profileAchievements?: ProfileAchievementUpdateManyWithoutUserNestedInput
+    profileProminentWorks?: ProfileProminentWorkUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -8866,6 +11471,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profile?: ProfileUncheckedUpdateOneWithoutUserNestedInput
+    profileWorkExperiences?: ProfileWorkExperienceUncheckedUpdateManyWithoutUserNestedInput
+    profileAchievements?: ProfileAchievementUncheckedUpdateManyWithoutUserNestedInput
+    profileProminentWorks?: ProfileProminentWorkUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -8960,49 +11568,93 @@ export namespace Prisma {
   }
 
   export type ProfileCreateInput = {
-    intro: string
+    biography?: string | null
+    residence: string
+    workEmail?: string | null
+    occupation?: string | null
+    facebookLink?: string | null
+    instagramLink?: string | null
+    youtubeLink?: string | null
+    tiktokLink?: string | null
+    avatar?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutProfileInput
-    profileWorkExperiences?: ProfileWorkExperienceCreateNestedManyWithoutProfileInput
   }
 
   export type ProfileUncheckedCreateInput = {
     id?: number
     userId: number
-    intro: string
+    biography?: string | null
+    residence: string
+    workEmail?: string | null
+    occupation?: string | null
+    facebookLink?: string | null
+    instagramLink?: string | null
+    youtubeLink?: string | null
+    tiktokLink?: string | null
+    avatar?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    profileWorkExperiences?: ProfileWorkExperienceUncheckedCreateNestedManyWithoutProfileInput
   }
 
   export type ProfileUpdateInput = {
-    intro?: StringFieldUpdateOperationsInput | string
+    biography?: NullableStringFieldUpdateOperationsInput | string | null
+    residence?: StringFieldUpdateOperationsInput | string
+    workEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookLink?: NullableStringFieldUpdateOperationsInput | string | null
+    instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutProfileNestedInput
-    profileWorkExperiences?: ProfileWorkExperienceUpdateManyWithoutProfileNestedInput
   }
 
   export type ProfileUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
-    intro?: StringFieldUpdateOperationsInput | string
+    biography?: NullableStringFieldUpdateOperationsInput | string | null
+    residence?: StringFieldUpdateOperationsInput | string
+    workEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookLink?: NullableStringFieldUpdateOperationsInput | string | null
+    instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    profileWorkExperiences?: ProfileWorkExperienceUncheckedUpdateManyWithoutProfileNestedInput
   }
 
   export type ProfileCreateManyInput = {
     id?: number
     userId: number
-    intro: string
+    biography?: string | null
+    residence: string
+    workEmail?: string | null
+    occupation?: string | null
+    facebookLink?: string | null
+    instagramLink?: string | null
+    youtubeLink?: string | null
+    tiktokLink?: string | null
+    avatar?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type ProfileUpdateManyMutationInput = {
-    intro?: StringFieldUpdateOperationsInput | string
+    biography?: NullableStringFieldUpdateOperationsInput | string | null
+    residence?: StringFieldUpdateOperationsInput | string
+    workEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookLink?: NullableStringFieldUpdateOperationsInput | string | null
+    instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -9010,26 +11662,34 @@ export namespace Prisma {
   export type ProfileUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
-    intro?: StringFieldUpdateOperationsInput | string
+    biography?: NullableStringFieldUpdateOperationsInput | string | null
+    residence?: StringFieldUpdateOperationsInput | string
+    workEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookLink?: NullableStringFieldUpdateOperationsInput | string | null
+    instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ProfileWorkExperienceCreateInput = {
-    workName: string
-    workDescription: string
+    name: string
+    description?: string | null
     from: Date | string
     to: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
-    profile: ProfileCreateNestedOneWithoutProfileWorkExperiencesInput
+    user: UserCreateNestedOneWithoutProfileWorkExperiencesInput
   }
 
   export type ProfileWorkExperienceUncheckedCreateInput = {
     id?: number
-    profileId: number
-    workName: string
-    workDescription: string
+    userId: number
+    name: string
+    description?: string | null
     from: Date | string
     to: Date | string
     createdAt?: Date | string
@@ -9037,20 +11697,20 @@ export namespace Prisma {
   }
 
   export type ProfileWorkExperienceUpdateInput = {
-    workName?: StringFieldUpdateOperationsInput | string
-    workDescription?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    profile?: ProfileUpdateOneRequiredWithoutProfileWorkExperiencesNestedInput
+    user?: UserUpdateOneRequiredWithoutProfileWorkExperiencesNestedInput
   }
 
   export type ProfileWorkExperienceUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    profileId?: IntFieldUpdateOperationsInput | number
-    workName?: StringFieldUpdateOperationsInput | string
-    workDescription?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9059,9 +11719,9 @@ export namespace Prisma {
 
   export type ProfileWorkExperienceCreateManyInput = {
     id?: number
-    profileId: number
-    workName: string
-    workDescription: string
+    userId: number
+    name: string
+    description?: string | null
     from: Date | string
     to: Date | string
     createdAt?: Date | string
@@ -9069,8 +11729,8 @@ export namespace Prisma {
   }
 
   export type ProfileWorkExperienceUpdateManyMutationInput = {
-    workName?: StringFieldUpdateOperationsInput | string
-    workDescription?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9079,11 +11739,164 @@ export namespace Prisma {
 
   export type ProfileWorkExperienceUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    profileId?: IntFieldUpdateOperationsInput | number
-    workName?: StringFieldUpdateOperationsInput | string
-    workDescription?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileAchievementCreateInput = {
+    name: string
+    description?: string | null
+    from: Date | string
+    to: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutProfileAchievementsInput
+  }
+
+  export type ProfileAchievementUncheckedCreateInput = {
+    id?: number
+    userId: number
+    name: string
+    description?: string | null
+    from: Date | string
+    to: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileAchievementUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutProfileAchievementsNestedInput
+  }
+
+  export type ProfileAchievementUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileAchievementCreateManyInput = {
+    id?: number
+    userId: number
+    name: string
+    description?: string | null
+    from: Date | string
+    to: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileAchievementUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileAchievementUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileProminentWorkCreateInput = {
+    name: string
+    description?: string | null
+    from: Date | string
+    to: Date | string
+    wage?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutProfileProminentWorksInput
+  }
+
+  export type ProfileProminentWorkUncheckedCreateInput = {
+    id?: number
+    userId: number
+    name: string
+    description?: string | null
+    from: Date | string
+    to: Date | string
+    wage?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileProminentWorkUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    wage?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutProfileProminentWorksNestedInput
+  }
+
+  export type ProfileProminentWorkUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    wage?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileProminentWorkCreateManyInput = {
+    id?: number
+    userId: number
+    name: string
+    description?: string | null
+    from: Date | string
+    to: Date | string
+    wage?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileProminentWorkUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    wage?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileProminentWorkUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -9314,9 +12127,39 @@ export namespace Prisma {
     isNot?: ProfileWhereInput | null
   }
 
+  export type ProfileWorkExperienceListRelationFilter = {
+    every?: ProfileWorkExperienceWhereInput
+    some?: ProfileWorkExperienceWhereInput
+    none?: ProfileWorkExperienceWhereInput
+  }
+
+  export type ProfileAchievementListRelationFilter = {
+    every?: ProfileAchievementWhereInput
+    some?: ProfileAchievementWhereInput
+    none?: ProfileAchievementWhereInput
+  }
+
+  export type ProfileProminentWorkListRelationFilter = {
+    every?: ProfileProminentWorkWhereInput
+    some?: ProfileProminentWorkWhereInput
+    none?: ProfileProminentWorkWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
+  }
+
+  export type ProfileWorkExperienceOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ProfileAchievementOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ProfileProminentWorkOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type UserCountOrderByAggregateInput = {
@@ -9506,20 +12349,18 @@ export namespace Prisma {
     isNot?: UserWhereInput
   }
 
-  export type ProfileWorkExperienceListRelationFilter = {
-    every?: ProfileWorkExperienceWhereInput
-    some?: ProfileWorkExperienceWhereInput
-    none?: ProfileWorkExperienceWhereInput
-  }
-
-  export type ProfileWorkExperienceOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
   export type ProfileCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    intro?: SortOrder
+    biography?: SortOrder
+    residence?: SortOrder
+    workEmail?: SortOrder
+    occupation?: SortOrder
+    facebookLink?: SortOrder
+    instagramLink?: SortOrder
+    youtubeLink?: SortOrder
+    tiktokLink?: SortOrder
+    avatar?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -9532,7 +12373,15 @@ export namespace Prisma {
   export type ProfileMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    intro?: SortOrder
+    biography?: SortOrder
+    residence?: SortOrder
+    workEmail?: SortOrder
+    occupation?: SortOrder
+    facebookLink?: SortOrder
+    instagramLink?: SortOrder
+    youtubeLink?: SortOrder
+    tiktokLink?: SortOrder
+    avatar?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -9540,7 +12389,15 @@ export namespace Prisma {
   export type ProfileMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    intro?: SortOrder
+    biography?: SortOrder
+    residence?: SortOrder
+    workEmail?: SortOrder
+    occupation?: SortOrder
+    facebookLink?: SortOrder
+    instagramLink?: SortOrder
+    youtubeLink?: SortOrder
+    tiktokLink?: SortOrder
+    avatar?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -9550,16 +12407,11 @@ export namespace Prisma {
     userId?: SortOrder
   }
 
-  export type ProfileRelationFilter = {
-    is?: ProfileWhereInput
-    isNot?: ProfileWhereInput
-  }
-
   export type ProfileWorkExperienceCountOrderByAggregateInput = {
     id?: SortOrder
-    profileId?: SortOrder
-    workName?: SortOrder
-    workDescription?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
     from?: SortOrder
     to?: SortOrder
     createdAt?: SortOrder
@@ -9568,14 +12420,14 @@ export namespace Prisma {
 
   export type ProfileWorkExperienceAvgOrderByAggregateInput = {
     id?: SortOrder
-    profileId?: SortOrder
+    userId?: SortOrder
   }
 
   export type ProfileWorkExperienceMaxOrderByAggregateInput = {
     id?: SortOrder
-    profileId?: SortOrder
-    workName?: SortOrder
-    workDescription?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
     from?: SortOrder
     to?: SortOrder
     createdAt?: SortOrder
@@ -9584,9 +12436,9 @@ export namespace Prisma {
 
   export type ProfileWorkExperienceMinOrderByAggregateInput = {
     id?: SortOrder
-    profileId?: SortOrder
-    workName?: SortOrder
-    workDescription?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
     from?: SortOrder
     to?: SortOrder
     createdAt?: SortOrder
@@ -9595,7 +12447,98 @@ export namespace Prisma {
 
   export type ProfileWorkExperienceSumOrderByAggregateInput = {
     id?: SortOrder
-    profileId?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type ProfileAchievementCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    from?: SortOrder
+    to?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProfileAchievementAvgOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type ProfileAchievementMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    from?: SortOrder
+    to?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProfileAchievementMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    from?: SortOrder
+    to?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProfileAchievementSumOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type ProfileProminentWorkCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    from?: SortOrder
+    to?: SortOrder
+    wage?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProfileProminentWorkAvgOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    wage?: SortOrder
+  }
+
+  export type ProfileProminentWorkMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    from?: SortOrder
+    to?: SortOrder
+    wage?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProfileProminentWorkMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    from?: SortOrder
+    to?: SortOrder
+    wage?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProfileProminentWorkSumOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    wage?: SortOrder
   }
 
   export type PortfolioCountOrderByAggregateInput = {
@@ -9745,10 +12688,52 @@ export namespace Prisma {
     connect?: ProfileWhereUniqueInput
   }
 
+  export type ProfileWorkExperienceCreateNestedManyWithoutUserInput = {
+    create?: XOR<ProfileWorkExperienceCreateWithoutUserInput, ProfileWorkExperienceUncheckedCreateWithoutUserInput> | ProfileWorkExperienceCreateWithoutUserInput[] | ProfileWorkExperienceUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProfileWorkExperienceCreateOrConnectWithoutUserInput | ProfileWorkExperienceCreateOrConnectWithoutUserInput[]
+    createMany?: ProfileWorkExperienceCreateManyUserInputEnvelope
+    connect?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
+  }
+
+  export type ProfileAchievementCreateNestedManyWithoutUserInput = {
+    create?: XOR<ProfileAchievementCreateWithoutUserInput, ProfileAchievementUncheckedCreateWithoutUserInput> | ProfileAchievementCreateWithoutUserInput[] | ProfileAchievementUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProfileAchievementCreateOrConnectWithoutUserInput | ProfileAchievementCreateOrConnectWithoutUserInput[]
+    createMany?: ProfileAchievementCreateManyUserInputEnvelope
+    connect?: ProfileAchievementWhereUniqueInput | ProfileAchievementWhereUniqueInput[]
+  }
+
+  export type ProfileProminentWorkCreateNestedManyWithoutUserInput = {
+    create?: XOR<ProfileProminentWorkCreateWithoutUserInput, ProfileProminentWorkUncheckedCreateWithoutUserInput> | ProfileProminentWorkCreateWithoutUserInput[] | ProfileProminentWorkUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProfileProminentWorkCreateOrConnectWithoutUserInput | ProfileProminentWorkCreateOrConnectWithoutUserInput[]
+    createMany?: ProfileProminentWorkCreateManyUserInputEnvelope
+    connect?: ProfileProminentWorkWhereUniqueInput | ProfileProminentWorkWhereUniqueInput[]
+  }
+
   export type ProfileUncheckedCreateNestedOneWithoutUserInput = {
     create?: XOR<ProfileCreateWithoutUserInput, ProfileUncheckedCreateWithoutUserInput>
     connectOrCreate?: ProfileCreateOrConnectWithoutUserInput
     connect?: ProfileWhereUniqueInput
+  }
+
+  export type ProfileWorkExperienceUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<ProfileWorkExperienceCreateWithoutUserInput, ProfileWorkExperienceUncheckedCreateWithoutUserInput> | ProfileWorkExperienceCreateWithoutUserInput[] | ProfileWorkExperienceUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProfileWorkExperienceCreateOrConnectWithoutUserInput | ProfileWorkExperienceCreateOrConnectWithoutUserInput[]
+    createMany?: ProfileWorkExperienceCreateManyUserInputEnvelope
+    connect?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
+  }
+
+  export type ProfileAchievementUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<ProfileAchievementCreateWithoutUserInput, ProfileAchievementUncheckedCreateWithoutUserInput> | ProfileAchievementCreateWithoutUserInput[] | ProfileAchievementUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProfileAchievementCreateOrConnectWithoutUserInput | ProfileAchievementCreateOrConnectWithoutUserInput[]
+    createMany?: ProfileAchievementCreateManyUserInputEnvelope
+    connect?: ProfileAchievementWhereUniqueInput | ProfileAchievementWhereUniqueInput[]
+  }
+
+  export type ProfileProminentWorkUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<ProfileProminentWorkCreateWithoutUserInput, ProfileProminentWorkUncheckedCreateWithoutUserInput> | ProfileProminentWorkCreateWithoutUserInput[] | ProfileProminentWorkUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProfileProminentWorkCreateOrConnectWithoutUserInput | ProfileProminentWorkCreateOrConnectWithoutUserInput[]
+    createMany?: ProfileProminentWorkCreateManyUserInputEnvelope
+    connect?: ProfileProminentWorkWhereUniqueInput | ProfileProminentWorkWhereUniqueInput[]
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -9785,6 +12770,48 @@ export namespace Prisma {
     update?: XOR<XOR<ProfileUpdateToOneWithWhereWithoutUserInput, ProfileUpdateWithoutUserInput>, ProfileUncheckedUpdateWithoutUserInput>
   }
 
+  export type ProfileWorkExperienceUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ProfileWorkExperienceCreateWithoutUserInput, ProfileWorkExperienceUncheckedCreateWithoutUserInput> | ProfileWorkExperienceCreateWithoutUserInput[] | ProfileWorkExperienceUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProfileWorkExperienceCreateOrConnectWithoutUserInput | ProfileWorkExperienceCreateOrConnectWithoutUserInput[]
+    upsert?: ProfileWorkExperienceUpsertWithWhereUniqueWithoutUserInput | ProfileWorkExperienceUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ProfileWorkExperienceCreateManyUserInputEnvelope
+    set?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
+    disconnect?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
+    delete?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
+    connect?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
+    update?: ProfileWorkExperienceUpdateWithWhereUniqueWithoutUserInput | ProfileWorkExperienceUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ProfileWorkExperienceUpdateManyWithWhereWithoutUserInput | ProfileWorkExperienceUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ProfileWorkExperienceScalarWhereInput | ProfileWorkExperienceScalarWhereInput[]
+  }
+
+  export type ProfileAchievementUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ProfileAchievementCreateWithoutUserInput, ProfileAchievementUncheckedCreateWithoutUserInput> | ProfileAchievementCreateWithoutUserInput[] | ProfileAchievementUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProfileAchievementCreateOrConnectWithoutUserInput | ProfileAchievementCreateOrConnectWithoutUserInput[]
+    upsert?: ProfileAchievementUpsertWithWhereUniqueWithoutUserInput | ProfileAchievementUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ProfileAchievementCreateManyUserInputEnvelope
+    set?: ProfileAchievementWhereUniqueInput | ProfileAchievementWhereUniqueInput[]
+    disconnect?: ProfileAchievementWhereUniqueInput | ProfileAchievementWhereUniqueInput[]
+    delete?: ProfileAchievementWhereUniqueInput | ProfileAchievementWhereUniqueInput[]
+    connect?: ProfileAchievementWhereUniqueInput | ProfileAchievementWhereUniqueInput[]
+    update?: ProfileAchievementUpdateWithWhereUniqueWithoutUserInput | ProfileAchievementUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ProfileAchievementUpdateManyWithWhereWithoutUserInput | ProfileAchievementUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ProfileAchievementScalarWhereInput | ProfileAchievementScalarWhereInput[]
+  }
+
+  export type ProfileProminentWorkUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ProfileProminentWorkCreateWithoutUserInput, ProfileProminentWorkUncheckedCreateWithoutUserInput> | ProfileProminentWorkCreateWithoutUserInput[] | ProfileProminentWorkUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProfileProminentWorkCreateOrConnectWithoutUserInput | ProfileProminentWorkCreateOrConnectWithoutUserInput[]
+    upsert?: ProfileProminentWorkUpsertWithWhereUniqueWithoutUserInput | ProfileProminentWorkUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ProfileProminentWorkCreateManyUserInputEnvelope
+    set?: ProfileProminentWorkWhereUniqueInput | ProfileProminentWorkWhereUniqueInput[]
+    disconnect?: ProfileProminentWorkWhereUniqueInput | ProfileProminentWorkWhereUniqueInput[]
+    delete?: ProfileProminentWorkWhereUniqueInput | ProfileProminentWorkWhereUniqueInput[]
+    connect?: ProfileProminentWorkWhereUniqueInput | ProfileProminentWorkWhereUniqueInput[]
+    update?: ProfileProminentWorkUpdateWithWhereUniqueWithoutUserInput | ProfileProminentWorkUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ProfileProminentWorkUpdateManyWithWhereWithoutUserInput | ProfileProminentWorkUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ProfileProminentWorkScalarWhereInput | ProfileProminentWorkScalarWhereInput[]
+  }
+
   export type ProfileUncheckedUpdateOneWithoutUserNestedInput = {
     create?: XOR<ProfileCreateWithoutUserInput, ProfileUncheckedCreateWithoutUserInput>
     connectOrCreate?: ProfileCreateOrConnectWithoutUserInput
@@ -9793,6 +12820,48 @@ export namespace Prisma {
     delete?: ProfileWhereInput | boolean
     connect?: ProfileWhereUniqueInput
     update?: XOR<XOR<ProfileUpdateToOneWithWhereWithoutUserInput, ProfileUpdateWithoutUserInput>, ProfileUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ProfileWorkExperienceUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ProfileWorkExperienceCreateWithoutUserInput, ProfileWorkExperienceUncheckedCreateWithoutUserInput> | ProfileWorkExperienceCreateWithoutUserInput[] | ProfileWorkExperienceUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProfileWorkExperienceCreateOrConnectWithoutUserInput | ProfileWorkExperienceCreateOrConnectWithoutUserInput[]
+    upsert?: ProfileWorkExperienceUpsertWithWhereUniqueWithoutUserInput | ProfileWorkExperienceUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ProfileWorkExperienceCreateManyUserInputEnvelope
+    set?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
+    disconnect?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
+    delete?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
+    connect?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
+    update?: ProfileWorkExperienceUpdateWithWhereUniqueWithoutUserInput | ProfileWorkExperienceUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ProfileWorkExperienceUpdateManyWithWhereWithoutUserInput | ProfileWorkExperienceUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ProfileWorkExperienceScalarWhereInput | ProfileWorkExperienceScalarWhereInput[]
+  }
+
+  export type ProfileAchievementUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ProfileAchievementCreateWithoutUserInput, ProfileAchievementUncheckedCreateWithoutUserInput> | ProfileAchievementCreateWithoutUserInput[] | ProfileAchievementUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProfileAchievementCreateOrConnectWithoutUserInput | ProfileAchievementCreateOrConnectWithoutUserInput[]
+    upsert?: ProfileAchievementUpsertWithWhereUniqueWithoutUserInput | ProfileAchievementUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ProfileAchievementCreateManyUserInputEnvelope
+    set?: ProfileAchievementWhereUniqueInput | ProfileAchievementWhereUniqueInput[]
+    disconnect?: ProfileAchievementWhereUniqueInput | ProfileAchievementWhereUniqueInput[]
+    delete?: ProfileAchievementWhereUniqueInput | ProfileAchievementWhereUniqueInput[]
+    connect?: ProfileAchievementWhereUniqueInput | ProfileAchievementWhereUniqueInput[]
+    update?: ProfileAchievementUpdateWithWhereUniqueWithoutUserInput | ProfileAchievementUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ProfileAchievementUpdateManyWithWhereWithoutUserInput | ProfileAchievementUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ProfileAchievementScalarWhereInput | ProfileAchievementScalarWhereInput[]
+  }
+
+  export type ProfileProminentWorkUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ProfileProminentWorkCreateWithoutUserInput, ProfileProminentWorkUncheckedCreateWithoutUserInput> | ProfileProminentWorkCreateWithoutUserInput[] | ProfileProminentWorkUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProfileProminentWorkCreateOrConnectWithoutUserInput | ProfileProminentWorkCreateOrConnectWithoutUserInput[]
+    upsert?: ProfileProminentWorkUpsertWithWhereUniqueWithoutUserInput | ProfileProminentWorkUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ProfileProminentWorkCreateManyUserInputEnvelope
+    set?: ProfileProminentWorkWhereUniqueInput | ProfileProminentWorkWhereUniqueInput[]
+    disconnect?: ProfileProminentWorkWhereUniqueInput | ProfileProminentWorkWhereUniqueInput[]
+    delete?: ProfileProminentWorkWhereUniqueInput | ProfileProminentWorkWhereUniqueInput[]
+    connect?: ProfileProminentWorkWhereUniqueInput | ProfileProminentWorkWhereUniqueInput[]
+    update?: ProfileProminentWorkUpdateWithWhereUniqueWithoutUserInput | ProfileProminentWorkUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ProfileProminentWorkUpdateManyWithWhereWithoutUserInput | ProfileProminentWorkUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ProfileProminentWorkScalarWhereInput | ProfileProminentWorkScalarWhereInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -9805,20 +12874,6 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type ProfileWorkExperienceCreateNestedManyWithoutProfileInput = {
-    create?: XOR<ProfileWorkExperienceCreateWithoutProfileInput, ProfileWorkExperienceUncheckedCreateWithoutProfileInput> | ProfileWorkExperienceCreateWithoutProfileInput[] | ProfileWorkExperienceUncheckedCreateWithoutProfileInput[]
-    connectOrCreate?: ProfileWorkExperienceCreateOrConnectWithoutProfileInput | ProfileWorkExperienceCreateOrConnectWithoutProfileInput[]
-    createMany?: ProfileWorkExperienceCreateManyProfileInputEnvelope
-    connect?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
-  }
-
-  export type ProfileWorkExperienceUncheckedCreateNestedManyWithoutProfileInput = {
-    create?: XOR<ProfileWorkExperienceCreateWithoutProfileInput, ProfileWorkExperienceUncheckedCreateWithoutProfileInput> | ProfileWorkExperienceCreateWithoutProfileInput[] | ProfileWorkExperienceUncheckedCreateWithoutProfileInput[]
-    connectOrCreate?: ProfileWorkExperienceCreateOrConnectWithoutProfileInput | ProfileWorkExperienceCreateOrConnectWithoutProfileInput[]
-    createMany?: ProfileWorkExperienceCreateManyProfileInputEnvelope
-    connect?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
-  }
-
   export type UserUpdateOneRequiredWithoutProfileNestedInput = {
     create?: XOR<UserCreateWithoutProfileInput, UserUncheckedCreateWithoutProfileInput>
     connectOrCreate?: UserCreateOrConnectWithoutProfileInput
@@ -9827,46 +12882,46 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutProfileInput, UserUpdateWithoutProfileInput>, UserUncheckedUpdateWithoutProfileInput>
   }
 
-  export type ProfileWorkExperienceUpdateManyWithoutProfileNestedInput = {
-    create?: XOR<ProfileWorkExperienceCreateWithoutProfileInput, ProfileWorkExperienceUncheckedCreateWithoutProfileInput> | ProfileWorkExperienceCreateWithoutProfileInput[] | ProfileWorkExperienceUncheckedCreateWithoutProfileInput[]
-    connectOrCreate?: ProfileWorkExperienceCreateOrConnectWithoutProfileInput | ProfileWorkExperienceCreateOrConnectWithoutProfileInput[]
-    upsert?: ProfileWorkExperienceUpsertWithWhereUniqueWithoutProfileInput | ProfileWorkExperienceUpsertWithWhereUniqueWithoutProfileInput[]
-    createMany?: ProfileWorkExperienceCreateManyProfileInputEnvelope
-    set?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
-    disconnect?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
-    delete?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
-    connect?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
-    update?: ProfileWorkExperienceUpdateWithWhereUniqueWithoutProfileInput | ProfileWorkExperienceUpdateWithWhereUniqueWithoutProfileInput[]
-    updateMany?: ProfileWorkExperienceUpdateManyWithWhereWithoutProfileInput | ProfileWorkExperienceUpdateManyWithWhereWithoutProfileInput[]
-    deleteMany?: ProfileWorkExperienceScalarWhereInput | ProfileWorkExperienceScalarWhereInput[]
+  export type UserCreateNestedOneWithoutProfileWorkExperiencesInput = {
+    create?: XOR<UserCreateWithoutProfileWorkExperiencesInput, UserUncheckedCreateWithoutProfileWorkExperiencesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProfileWorkExperiencesInput
+    connect?: UserWhereUniqueInput
   }
 
-  export type ProfileWorkExperienceUncheckedUpdateManyWithoutProfileNestedInput = {
-    create?: XOR<ProfileWorkExperienceCreateWithoutProfileInput, ProfileWorkExperienceUncheckedCreateWithoutProfileInput> | ProfileWorkExperienceCreateWithoutProfileInput[] | ProfileWorkExperienceUncheckedCreateWithoutProfileInput[]
-    connectOrCreate?: ProfileWorkExperienceCreateOrConnectWithoutProfileInput | ProfileWorkExperienceCreateOrConnectWithoutProfileInput[]
-    upsert?: ProfileWorkExperienceUpsertWithWhereUniqueWithoutProfileInput | ProfileWorkExperienceUpsertWithWhereUniqueWithoutProfileInput[]
-    createMany?: ProfileWorkExperienceCreateManyProfileInputEnvelope
-    set?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
-    disconnect?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
-    delete?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
-    connect?: ProfileWorkExperienceWhereUniqueInput | ProfileWorkExperienceWhereUniqueInput[]
-    update?: ProfileWorkExperienceUpdateWithWhereUniqueWithoutProfileInput | ProfileWorkExperienceUpdateWithWhereUniqueWithoutProfileInput[]
-    updateMany?: ProfileWorkExperienceUpdateManyWithWhereWithoutProfileInput | ProfileWorkExperienceUpdateManyWithWhereWithoutProfileInput[]
-    deleteMany?: ProfileWorkExperienceScalarWhereInput | ProfileWorkExperienceScalarWhereInput[]
+  export type UserUpdateOneRequiredWithoutProfileWorkExperiencesNestedInput = {
+    create?: XOR<UserCreateWithoutProfileWorkExperiencesInput, UserUncheckedCreateWithoutProfileWorkExperiencesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProfileWorkExperiencesInput
+    upsert?: UserUpsertWithoutProfileWorkExperiencesInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutProfileWorkExperiencesInput, UserUpdateWithoutProfileWorkExperiencesInput>, UserUncheckedUpdateWithoutProfileWorkExperiencesInput>
   }
 
-  export type ProfileCreateNestedOneWithoutProfileWorkExperiencesInput = {
-    create?: XOR<ProfileCreateWithoutProfileWorkExperiencesInput, ProfileUncheckedCreateWithoutProfileWorkExperiencesInput>
-    connectOrCreate?: ProfileCreateOrConnectWithoutProfileWorkExperiencesInput
-    connect?: ProfileWhereUniqueInput
+  export type UserCreateNestedOneWithoutProfileAchievementsInput = {
+    create?: XOR<UserCreateWithoutProfileAchievementsInput, UserUncheckedCreateWithoutProfileAchievementsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProfileAchievementsInput
+    connect?: UserWhereUniqueInput
   }
 
-  export type ProfileUpdateOneRequiredWithoutProfileWorkExperiencesNestedInput = {
-    create?: XOR<ProfileCreateWithoutProfileWorkExperiencesInput, ProfileUncheckedCreateWithoutProfileWorkExperiencesInput>
-    connectOrCreate?: ProfileCreateOrConnectWithoutProfileWorkExperiencesInput
-    upsert?: ProfileUpsertWithoutProfileWorkExperiencesInput
-    connect?: ProfileWhereUniqueInput
-    update?: XOR<XOR<ProfileUpdateToOneWithWhereWithoutProfileWorkExperiencesInput, ProfileUpdateWithoutProfileWorkExperiencesInput>, ProfileUncheckedUpdateWithoutProfileWorkExperiencesInput>
+  export type UserUpdateOneRequiredWithoutProfileAchievementsNestedInput = {
+    create?: XOR<UserCreateWithoutProfileAchievementsInput, UserUncheckedCreateWithoutProfileAchievementsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProfileAchievementsInput
+    upsert?: UserUpsertWithoutProfileAchievementsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutProfileAchievementsInput, UserUpdateWithoutProfileAchievementsInput>, UserUncheckedUpdateWithoutProfileAchievementsInput>
+  }
+
+  export type UserCreateNestedOneWithoutProfileProminentWorksInput = {
+    create?: XOR<UserCreateWithoutProfileProminentWorksInput, UserUncheckedCreateWithoutProfileProminentWorksInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProfileProminentWorksInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutProfileProminentWorksNestedInput = {
+    create?: XOR<UserCreateWithoutProfileProminentWorksInput, UserUncheckedCreateWithoutProfileProminentWorksInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProfileProminentWorksInput
+    upsert?: UserUpsertWithoutProfileProminentWorksInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutProfileProminentWorksInput, UserUpdateWithoutProfileProminentWorksInput>, UserUncheckedUpdateWithoutProfileProminentWorksInput>
   }
 
   export type DecimalFieldUpdateOperationsInput = {
@@ -10068,23 +13123,126 @@ export namespace Prisma {
   }
 
   export type ProfileCreateWithoutUserInput = {
-    intro: string
+    biography?: string | null
+    residence: string
+    workEmail?: string | null
+    occupation?: string | null
+    facebookLink?: string | null
+    instagramLink?: string | null
+    youtubeLink?: string | null
+    tiktokLink?: string | null
+    avatar?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    profileWorkExperiences?: ProfileWorkExperienceCreateNestedManyWithoutProfileInput
   }
 
   export type ProfileUncheckedCreateWithoutUserInput = {
     id?: number
-    intro: string
+    biography?: string | null
+    residence: string
+    workEmail?: string | null
+    occupation?: string | null
+    facebookLink?: string | null
+    instagramLink?: string | null
+    youtubeLink?: string | null
+    tiktokLink?: string | null
+    avatar?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    profileWorkExperiences?: ProfileWorkExperienceUncheckedCreateNestedManyWithoutProfileInput
   }
 
   export type ProfileCreateOrConnectWithoutUserInput = {
     where: ProfileWhereUniqueInput
     create: XOR<ProfileCreateWithoutUserInput, ProfileUncheckedCreateWithoutUserInput>
+  }
+
+  export type ProfileWorkExperienceCreateWithoutUserInput = {
+    name: string
+    description?: string | null
+    from: Date | string
+    to: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileWorkExperienceUncheckedCreateWithoutUserInput = {
+    id?: number
+    name: string
+    description?: string | null
+    from: Date | string
+    to: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileWorkExperienceCreateOrConnectWithoutUserInput = {
+    where: ProfileWorkExperienceWhereUniqueInput
+    create: XOR<ProfileWorkExperienceCreateWithoutUserInput, ProfileWorkExperienceUncheckedCreateWithoutUserInput>
+  }
+
+  export type ProfileWorkExperienceCreateManyUserInputEnvelope = {
+    data: ProfileWorkExperienceCreateManyUserInput | ProfileWorkExperienceCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProfileAchievementCreateWithoutUserInput = {
+    name: string
+    description?: string | null
+    from: Date | string
+    to: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileAchievementUncheckedCreateWithoutUserInput = {
+    id?: number
+    name: string
+    description?: string | null
+    from: Date | string
+    to: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileAchievementCreateOrConnectWithoutUserInput = {
+    where: ProfileAchievementWhereUniqueInput
+    create: XOR<ProfileAchievementCreateWithoutUserInput, ProfileAchievementUncheckedCreateWithoutUserInput>
+  }
+
+  export type ProfileAchievementCreateManyUserInputEnvelope = {
+    data: ProfileAchievementCreateManyUserInput | ProfileAchievementCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProfileProminentWorkCreateWithoutUserInput = {
+    name: string
+    description?: string | null
+    from: Date | string
+    to: Date | string
+    wage?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileProminentWorkUncheckedCreateWithoutUserInput = {
+    id?: number
+    name: string
+    description?: string | null
+    from: Date | string
+    to: Date | string
+    wage?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileProminentWorkCreateOrConnectWithoutUserInput = {
+    where: ProfileProminentWorkWhereUniqueInput
+    create: XOR<ProfileProminentWorkCreateWithoutUserInput, ProfileProminentWorkUncheckedCreateWithoutUserInput>
+  }
+
+  export type ProfileProminentWorkCreateManyUserInputEnvelope = {
+    data: ProfileProminentWorkCreateManyUserInput | ProfileProminentWorkCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type ProfileUpsertWithoutUserInput = {
@@ -10099,18 +13257,123 @@ export namespace Prisma {
   }
 
   export type ProfileUpdateWithoutUserInput = {
-    intro?: StringFieldUpdateOperationsInput | string
+    biography?: NullableStringFieldUpdateOperationsInput | string | null
+    residence?: StringFieldUpdateOperationsInput | string
+    workEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookLink?: NullableStringFieldUpdateOperationsInput | string | null
+    instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    profileWorkExperiences?: ProfileWorkExperienceUpdateManyWithoutProfileNestedInput
   }
 
   export type ProfileUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
-    intro?: StringFieldUpdateOperationsInput | string
+    biography?: NullableStringFieldUpdateOperationsInput | string | null
+    residence?: StringFieldUpdateOperationsInput | string
+    workEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookLink?: NullableStringFieldUpdateOperationsInput | string | null
+    instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    profileWorkExperiences?: ProfileWorkExperienceUncheckedUpdateManyWithoutProfileNestedInput
+  }
+
+  export type ProfileWorkExperienceUpsertWithWhereUniqueWithoutUserInput = {
+    where: ProfileWorkExperienceWhereUniqueInput
+    update: XOR<ProfileWorkExperienceUpdateWithoutUserInput, ProfileWorkExperienceUncheckedUpdateWithoutUserInput>
+    create: XOR<ProfileWorkExperienceCreateWithoutUserInput, ProfileWorkExperienceUncheckedCreateWithoutUserInput>
+  }
+
+  export type ProfileWorkExperienceUpdateWithWhereUniqueWithoutUserInput = {
+    where: ProfileWorkExperienceWhereUniqueInput
+    data: XOR<ProfileWorkExperienceUpdateWithoutUserInput, ProfileWorkExperienceUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ProfileWorkExperienceUpdateManyWithWhereWithoutUserInput = {
+    where: ProfileWorkExperienceScalarWhereInput
+    data: XOR<ProfileWorkExperienceUpdateManyMutationInput, ProfileWorkExperienceUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type ProfileWorkExperienceScalarWhereInput = {
+    AND?: ProfileWorkExperienceScalarWhereInput | ProfileWorkExperienceScalarWhereInput[]
+    OR?: ProfileWorkExperienceScalarWhereInput[]
+    NOT?: ProfileWorkExperienceScalarWhereInput | ProfileWorkExperienceScalarWhereInput[]
+    id?: IntFilter<"ProfileWorkExperience"> | number
+    userId?: IntFilter<"ProfileWorkExperience"> | number
+    name?: StringFilter<"ProfileWorkExperience"> | string
+    description?: StringNullableFilter<"ProfileWorkExperience"> | string | null
+    from?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
+    to?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
+    createdAt?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
+    updatedAt?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
+  }
+
+  export type ProfileAchievementUpsertWithWhereUniqueWithoutUserInput = {
+    where: ProfileAchievementWhereUniqueInput
+    update: XOR<ProfileAchievementUpdateWithoutUserInput, ProfileAchievementUncheckedUpdateWithoutUserInput>
+    create: XOR<ProfileAchievementCreateWithoutUserInput, ProfileAchievementUncheckedCreateWithoutUserInput>
+  }
+
+  export type ProfileAchievementUpdateWithWhereUniqueWithoutUserInput = {
+    where: ProfileAchievementWhereUniqueInput
+    data: XOR<ProfileAchievementUpdateWithoutUserInput, ProfileAchievementUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ProfileAchievementUpdateManyWithWhereWithoutUserInput = {
+    where: ProfileAchievementScalarWhereInput
+    data: XOR<ProfileAchievementUpdateManyMutationInput, ProfileAchievementUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type ProfileAchievementScalarWhereInput = {
+    AND?: ProfileAchievementScalarWhereInput | ProfileAchievementScalarWhereInput[]
+    OR?: ProfileAchievementScalarWhereInput[]
+    NOT?: ProfileAchievementScalarWhereInput | ProfileAchievementScalarWhereInput[]
+    id?: IntFilter<"ProfileAchievement"> | number
+    userId?: IntFilter<"ProfileAchievement"> | number
+    name?: StringFilter<"ProfileAchievement"> | string
+    description?: StringNullableFilter<"ProfileAchievement"> | string | null
+    from?: DateTimeFilter<"ProfileAchievement"> | Date | string
+    to?: DateTimeFilter<"ProfileAchievement"> | Date | string
+    createdAt?: DateTimeFilter<"ProfileAchievement"> | Date | string
+    updatedAt?: DateTimeFilter<"ProfileAchievement"> | Date | string
+  }
+
+  export type ProfileProminentWorkUpsertWithWhereUniqueWithoutUserInput = {
+    where: ProfileProminentWorkWhereUniqueInput
+    update: XOR<ProfileProminentWorkUpdateWithoutUserInput, ProfileProminentWorkUncheckedUpdateWithoutUserInput>
+    create: XOR<ProfileProminentWorkCreateWithoutUserInput, ProfileProminentWorkUncheckedCreateWithoutUserInput>
+  }
+
+  export type ProfileProminentWorkUpdateWithWhereUniqueWithoutUserInput = {
+    where: ProfileProminentWorkWhereUniqueInput
+    data: XOR<ProfileProminentWorkUpdateWithoutUserInput, ProfileProminentWorkUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ProfileProminentWorkUpdateManyWithWhereWithoutUserInput = {
+    where: ProfileProminentWorkScalarWhereInput
+    data: XOR<ProfileProminentWorkUpdateManyMutationInput, ProfileProminentWorkUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type ProfileProminentWorkScalarWhereInput = {
+    AND?: ProfileProminentWorkScalarWhereInput | ProfileProminentWorkScalarWhereInput[]
+    OR?: ProfileProminentWorkScalarWhereInput[]
+    NOT?: ProfileProminentWorkScalarWhereInput | ProfileProminentWorkScalarWhereInput[]
+    id?: IntFilter<"ProfileProminentWork"> | number
+    userId?: IntFilter<"ProfileProminentWork"> | number
+    name?: StringFilter<"ProfileProminentWork"> | string
+    description?: StringNullableFilter<"ProfileProminentWork"> | string | null
+    from?: DateTimeFilter<"ProfileProminentWork"> | Date | string
+    to?: DateTimeFilter<"ProfileProminentWork"> | Date | string
+    wage?: IntNullableFilter<"ProfileProminentWork"> | number | null
+    createdAt?: DateTimeFilter<"ProfileProminentWork"> | Date | string
+    updatedAt?: DateTimeFilter<"ProfileProminentWork"> | Date | string
   }
 
   export type UserCreateWithoutProfileInput = {
@@ -10123,6 +13386,9 @@ export namespace Prisma {
     email?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    profileWorkExperiences?: ProfileWorkExperienceCreateNestedManyWithoutUserInput
+    profileAchievements?: ProfileAchievementCreateNestedManyWithoutUserInput
+    profileProminentWorks?: ProfileProminentWorkCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutProfileInput = {
@@ -10136,40 +13402,14 @@ export namespace Prisma {
     email?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    profileWorkExperiences?: ProfileWorkExperienceUncheckedCreateNestedManyWithoutUserInput
+    profileAchievements?: ProfileAchievementUncheckedCreateNestedManyWithoutUserInput
+    profileProminentWorks?: ProfileProminentWorkUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutProfileInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutProfileInput, UserUncheckedCreateWithoutProfileInput>
-  }
-
-  export type ProfileWorkExperienceCreateWithoutProfileInput = {
-    workName: string
-    workDescription: string
-    from: Date | string
-    to: Date | string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type ProfileWorkExperienceUncheckedCreateWithoutProfileInput = {
-    id?: number
-    workName: string
-    workDescription: string
-    from: Date | string
-    to: Date | string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type ProfileWorkExperienceCreateOrConnectWithoutProfileInput = {
-    where: ProfileWorkExperienceWhereUniqueInput
-    create: XOR<ProfileWorkExperienceCreateWithoutProfileInput, ProfileWorkExperienceUncheckedCreateWithoutProfileInput>
-  }
-
-  export type ProfileWorkExperienceCreateManyProfileInputEnvelope = {
-    data: ProfileWorkExperienceCreateManyProfileInput | ProfileWorkExperienceCreateManyProfileInput[]
-    skipDuplicates?: boolean
   }
 
   export type UserUpsertWithoutProfileInput = {
@@ -10193,6 +13433,9 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    profileWorkExperiences?: ProfileWorkExperienceUpdateManyWithoutUserNestedInput
+    profileAchievements?: ProfileAchievementUpdateManyWithoutUserNestedInput
+    profileProminentWorks?: ProfileProminentWorkUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutProfileInput = {
@@ -10206,119 +13449,362 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    profileWorkExperiences?: ProfileWorkExperienceUncheckedUpdateManyWithoutUserNestedInput
+    profileAchievements?: ProfileAchievementUncheckedUpdateManyWithoutUserNestedInput
+    profileProminentWorks?: ProfileProminentWorkUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type ProfileWorkExperienceUpsertWithWhereUniqueWithoutProfileInput = {
-    where: ProfileWorkExperienceWhereUniqueInput
-    update: XOR<ProfileWorkExperienceUpdateWithoutProfileInput, ProfileWorkExperienceUncheckedUpdateWithoutProfileInput>
-    create: XOR<ProfileWorkExperienceCreateWithoutProfileInput, ProfileWorkExperienceUncheckedCreateWithoutProfileInput>
-  }
-
-  export type ProfileWorkExperienceUpdateWithWhereUniqueWithoutProfileInput = {
-    where: ProfileWorkExperienceWhereUniqueInput
-    data: XOR<ProfileWorkExperienceUpdateWithoutProfileInput, ProfileWorkExperienceUncheckedUpdateWithoutProfileInput>
-  }
-
-  export type ProfileWorkExperienceUpdateManyWithWhereWithoutProfileInput = {
-    where: ProfileWorkExperienceScalarWhereInput
-    data: XOR<ProfileWorkExperienceUpdateManyMutationInput, ProfileWorkExperienceUncheckedUpdateManyWithoutProfileInput>
-  }
-
-  export type ProfileWorkExperienceScalarWhereInput = {
-    AND?: ProfileWorkExperienceScalarWhereInput | ProfileWorkExperienceScalarWhereInput[]
-    OR?: ProfileWorkExperienceScalarWhereInput[]
-    NOT?: ProfileWorkExperienceScalarWhereInput | ProfileWorkExperienceScalarWhereInput[]
-    id?: IntFilter<"ProfileWorkExperience"> | number
-    profileId?: IntFilter<"ProfileWorkExperience"> | number
-    workName?: StringFilter<"ProfileWorkExperience"> | string
-    workDescription?: StringFilter<"ProfileWorkExperience"> | string
-    from?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
-    to?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
-    createdAt?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
-    updatedAt?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
-  }
-
-  export type ProfileCreateWithoutProfileWorkExperiencesInput = {
-    intro: string
+  export type UserCreateWithoutProfileWorkExperiencesInput = {
+    username?: string | null
+    fullname?: string | null
+    avatar?: string | null
+    role?: number
+    phone?: string | null
+    gender?: number | null
+    email?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutProfileInput
+    profile?: ProfileCreateNestedOneWithoutUserInput
+    profileAchievements?: ProfileAchievementCreateNestedManyWithoutUserInput
+    profileProminentWorks?: ProfileProminentWorkCreateNestedManyWithoutUserInput
   }
 
-  export type ProfileUncheckedCreateWithoutProfileWorkExperiencesInput = {
+  export type UserUncheckedCreateWithoutProfileWorkExperiencesInput = {
     id?: number
-    userId: number
-    intro: string
+    username?: string | null
+    fullname?: string | null
+    avatar?: string | null
+    role?: number
+    phone?: string | null
+    gender?: number | null
+    email?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    profile?: ProfileUncheckedCreateNestedOneWithoutUserInput
+    profileAchievements?: ProfileAchievementUncheckedCreateNestedManyWithoutUserInput
+    profileProminentWorks?: ProfileProminentWorkUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type ProfileCreateOrConnectWithoutProfileWorkExperiencesInput = {
-    where: ProfileWhereUniqueInput
-    create: XOR<ProfileCreateWithoutProfileWorkExperiencesInput, ProfileUncheckedCreateWithoutProfileWorkExperiencesInput>
+  export type UserCreateOrConnectWithoutProfileWorkExperiencesInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutProfileWorkExperiencesInput, UserUncheckedCreateWithoutProfileWorkExperiencesInput>
   }
 
-  export type ProfileUpsertWithoutProfileWorkExperiencesInput = {
-    update: XOR<ProfileUpdateWithoutProfileWorkExperiencesInput, ProfileUncheckedUpdateWithoutProfileWorkExperiencesInput>
-    create: XOR<ProfileCreateWithoutProfileWorkExperiencesInput, ProfileUncheckedCreateWithoutProfileWorkExperiencesInput>
-    where?: ProfileWhereInput
+  export type UserUpsertWithoutProfileWorkExperiencesInput = {
+    update: XOR<UserUpdateWithoutProfileWorkExperiencesInput, UserUncheckedUpdateWithoutProfileWorkExperiencesInput>
+    create: XOR<UserCreateWithoutProfileWorkExperiencesInput, UserUncheckedCreateWithoutProfileWorkExperiencesInput>
+    where?: UserWhereInput
   }
 
-  export type ProfileUpdateToOneWithWhereWithoutProfileWorkExperiencesInput = {
-    where?: ProfileWhereInput
-    data: XOR<ProfileUpdateWithoutProfileWorkExperiencesInput, ProfileUncheckedUpdateWithoutProfileWorkExperiencesInput>
+  export type UserUpdateToOneWithWhereWithoutProfileWorkExperiencesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutProfileWorkExperiencesInput, UserUncheckedUpdateWithoutProfileWorkExperiencesInput>
   }
 
-  export type ProfileUpdateWithoutProfileWorkExperiencesInput = {
-    intro?: StringFieldUpdateOperationsInput | string
+  export type UserUpdateWithoutProfileWorkExperiencesInput = {
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    fullname?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: IntFieldUpdateOperationsInput | number
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableIntFieldUpdateOperationsInput | number | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutProfileNestedInput
+    profile?: ProfileUpdateOneWithoutUserNestedInput
+    profileAchievements?: ProfileAchievementUpdateManyWithoutUserNestedInput
+    profileProminentWorks?: ProfileProminentWorkUpdateManyWithoutUserNestedInput
   }
 
-  export type ProfileUncheckedUpdateWithoutProfileWorkExperiencesInput = {
+  export type UserUncheckedUpdateWithoutProfileWorkExperiencesInput = {
     id?: IntFieldUpdateOperationsInput | number
-    userId?: IntFieldUpdateOperationsInput | number
-    intro?: StringFieldUpdateOperationsInput | string
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    fullname?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: IntFieldUpdateOperationsInput | number
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableIntFieldUpdateOperationsInput | number | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    profile?: ProfileUncheckedUpdateOneWithoutUserNestedInput
+    profileAchievements?: ProfileAchievementUncheckedUpdateManyWithoutUserNestedInput
+    profileProminentWorks?: ProfileProminentWorkUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type ProfileWorkExperienceCreateManyProfileInput = {
+  export type UserCreateWithoutProfileAchievementsInput = {
+    username?: string | null
+    fullname?: string | null
+    avatar?: string | null
+    role?: number
+    phone?: string | null
+    gender?: number | null
+    email?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    profile?: ProfileCreateNestedOneWithoutUserInput
+    profileWorkExperiences?: ProfileWorkExperienceCreateNestedManyWithoutUserInput
+    profileProminentWorks?: ProfileProminentWorkCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutProfileAchievementsInput = {
     id?: number
-    workName: string
-    workDescription: string
+    username?: string | null
+    fullname?: string | null
+    avatar?: string | null
+    role?: number
+    phone?: string | null
+    gender?: number | null
+    email?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    profile?: ProfileUncheckedCreateNestedOneWithoutUserInput
+    profileWorkExperiences?: ProfileWorkExperienceUncheckedCreateNestedManyWithoutUserInput
+    profileProminentWorks?: ProfileProminentWorkUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutProfileAchievementsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutProfileAchievementsInput, UserUncheckedCreateWithoutProfileAchievementsInput>
+  }
+
+  export type UserUpsertWithoutProfileAchievementsInput = {
+    update: XOR<UserUpdateWithoutProfileAchievementsInput, UserUncheckedUpdateWithoutProfileAchievementsInput>
+    create: XOR<UserCreateWithoutProfileAchievementsInput, UserUncheckedCreateWithoutProfileAchievementsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutProfileAchievementsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutProfileAchievementsInput, UserUncheckedUpdateWithoutProfileAchievementsInput>
+  }
+
+  export type UserUpdateWithoutProfileAchievementsInput = {
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    fullname?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: IntFieldUpdateOperationsInput | number
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableIntFieldUpdateOperationsInput | number | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    profile?: ProfileUpdateOneWithoutUserNestedInput
+    profileWorkExperiences?: ProfileWorkExperienceUpdateManyWithoutUserNestedInput
+    profileProminentWorks?: ProfileProminentWorkUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutProfileAchievementsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    fullname?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: IntFieldUpdateOperationsInput | number
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableIntFieldUpdateOperationsInput | number | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    profile?: ProfileUncheckedUpdateOneWithoutUserNestedInput
+    profileWorkExperiences?: ProfileWorkExperienceUncheckedUpdateManyWithoutUserNestedInput
+    profileProminentWorks?: ProfileProminentWorkUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutProfileProminentWorksInput = {
+    username?: string | null
+    fullname?: string | null
+    avatar?: string | null
+    role?: number
+    phone?: string | null
+    gender?: number | null
+    email?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    profile?: ProfileCreateNestedOneWithoutUserInput
+    profileWorkExperiences?: ProfileWorkExperienceCreateNestedManyWithoutUserInput
+    profileAchievements?: ProfileAchievementCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutProfileProminentWorksInput = {
+    id?: number
+    username?: string | null
+    fullname?: string | null
+    avatar?: string | null
+    role?: number
+    phone?: string | null
+    gender?: number | null
+    email?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    profile?: ProfileUncheckedCreateNestedOneWithoutUserInput
+    profileWorkExperiences?: ProfileWorkExperienceUncheckedCreateNestedManyWithoutUserInput
+    profileAchievements?: ProfileAchievementUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutProfileProminentWorksInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutProfileProminentWorksInput, UserUncheckedCreateWithoutProfileProminentWorksInput>
+  }
+
+  export type UserUpsertWithoutProfileProminentWorksInput = {
+    update: XOR<UserUpdateWithoutProfileProminentWorksInput, UserUncheckedUpdateWithoutProfileProminentWorksInput>
+    create: XOR<UserCreateWithoutProfileProminentWorksInput, UserUncheckedCreateWithoutProfileProminentWorksInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutProfileProminentWorksInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutProfileProminentWorksInput, UserUncheckedUpdateWithoutProfileProminentWorksInput>
+  }
+
+  export type UserUpdateWithoutProfileProminentWorksInput = {
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    fullname?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: IntFieldUpdateOperationsInput | number
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableIntFieldUpdateOperationsInput | number | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    profile?: ProfileUpdateOneWithoutUserNestedInput
+    profileWorkExperiences?: ProfileWorkExperienceUpdateManyWithoutUserNestedInput
+    profileAchievements?: ProfileAchievementUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutProfileProminentWorksInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    username?: NullableStringFieldUpdateOperationsInput | string | null
+    fullname?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: IntFieldUpdateOperationsInput | number
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableIntFieldUpdateOperationsInput | number | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    profile?: ProfileUncheckedUpdateOneWithoutUserNestedInput
+    profileWorkExperiences?: ProfileWorkExperienceUncheckedUpdateManyWithoutUserNestedInput
+    profileAchievements?: ProfileAchievementUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type ProfileWorkExperienceCreateManyUserInput = {
+    id?: number
+    name: string
+    description?: string | null
     from: Date | string
     to: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type ProfileWorkExperienceUpdateWithoutProfileInput = {
-    workName?: StringFieldUpdateOperationsInput | string
-    workDescription?: StringFieldUpdateOperationsInput | string
+  export type ProfileAchievementCreateManyUserInput = {
+    id?: number
+    name: string
+    description?: string | null
+    from: Date | string
+    to: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileProminentWorkCreateManyUserInput = {
+    id?: number
+    name: string
+    description?: string | null
+    from: Date | string
+    to: Date | string
+    wage?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileWorkExperienceUpdateWithoutUserInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ProfileWorkExperienceUncheckedUpdateWithoutProfileInput = {
+  export type ProfileWorkExperienceUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
-    workName?: StringFieldUpdateOperationsInput | string
-    workDescription?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ProfileWorkExperienceUncheckedUpdateManyWithoutProfileInput = {
+  export type ProfileWorkExperienceUncheckedUpdateManyWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
-    workName?: StringFieldUpdateOperationsInput | string
-    workDescription?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileAchievementUpdateWithoutUserInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileAchievementUncheckedUpdateWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileAchievementUncheckedUpdateManyWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileProminentWorkUpdateWithoutUserInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    wage?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileProminentWorkUncheckedUpdateWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    wage?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileProminentWorkUncheckedUpdateManyWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10329,9 +13815,9 @@ export namespace Prisma {
    * Aliases for legacy arg types
    */
     /**
-     * @deprecated Use ProfileCountOutputTypeDefaultArgs instead
+     * @deprecated Use UserCountOutputTypeDefaultArgs instead
      */
-    export type ProfileCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ProfileCountOutputTypeDefaultArgs<ExtArgs>
+    export type UserCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use UserDefaultArgs instead
      */
@@ -10348,6 +13834,14 @@ export namespace Prisma {
      * @deprecated Use ProfileWorkExperienceDefaultArgs instead
      */
     export type ProfileWorkExperienceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ProfileWorkExperienceDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use ProfileAchievementDefaultArgs instead
+     */
+    export type ProfileAchievementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ProfileAchievementDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use ProfileProminentWorkDefaultArgs instead
+     */
+    export type ProfileProminentWorkArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ProfileProminentWorkDefaultArgs<ExtArgs>
     /**
      * @deprecated Use PortfolioDefaultArgs instead
      */

@@ -28,8 +28,12 @@ model User {
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
 
-  profile Profile?
+  profile                Profile?
+  profileWorkExperiences ProfileWorkExperience[]
+  profileAchievements     ProfileAchievement[]
+  profileProminentWorks   ProfileProminentWork[]
 
+  @@unique([email])
   @@map("users")
 }
 
@@ -45,33 +49,72 @@ model Auth {
 }
 
 model Profile {
-  id     Int    @id @default(autoincrement())
-  userId Int    @unique @map("user_id")
-  intro  String
+  id     Int @id @default(autoincrement())
+  userId Int @unique @map("user_id")
+
+  biography String?
+
+  residence     String
+  workEmail     String? @map("work_email")
+  occupation    String?
+  facebookLink  String? @map("facebook_link")
+  instagramLink String? @map("instagram_link")
+  youtubeLink   String? @map("youtube_link")
+  tiktokLink    String? @map("tiktok_link")
+  avatar        String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
 
-  profileWorkExperiences ProfileWorkExperience[]
-
   @@map("profiles")
 }
 
 model ProfileWorkExperience {
-  id              Int      @id @default(autoincrement())
-  profileId       Int
-  workName        String   @map("work_name")
-  workDescription String   @map("work_experience")
-  from            DateTime @db.Timestamptz()
-  to              DateTime @db.Timestamptz()
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  name        String
+  description String?
+  from        DateTime @db.Timestamptz()
+  to          DateTime @db.Timestamptz()
 
-  profile   Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
 
   @@map("profile_work_experiences")
+}
+
+model ProfileAchievement {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  name        String
+  description String?
+  from        DateTime @db.Timestamptz()
+  to          DateTime @db.Timestamptz()
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  @@map("profile_achievements")
+}
+
+model ProfileProminentWork {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  name        String
+  description String?
+  from        DateTime @db.Timestamptz()
+  to          DateTime @db.Timestamptz()
+  wage        Int?
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  @@map("profile_prominent_works")
 }
 
 model Portfolio {

@@ -143,18 +143,49 @@ exports.Prisma.AuthScalarFieldEnum = {
 exports.Prisma.ProfileScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  intro: 'intro',
+  biography: 'biography',
+  residence: 'residence',
+  workEmail: 'workEmail',
+  occupation: 'occupation',
+  facebookLink: 'facebookLink',
+  instagramLink: 'instagramLink',
+  youtubeLink: 'youtubeLink',
+  tiktokLink: 'tiktokLink',
+  avatar: 'avatar',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
 
 exports.Prisma.ProfileWorkExperienceScalarFieldEnum = {
   id: 'id',
-  profileId: 'profileId',
-  workName: 'workName',
-  workDescription: 'workDescription',
+  userId: 'userId',
+  name: 'name',
+  description: 'description',
   from: 'from',
   to: 'to',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ProfileAchievementScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  name: 'name',
+  description: 'description',
+  from: 'from',
+  to: 'to',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ProfileProminentWorkScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  name: 'name',
+  description: 'description',
+  from: 'from',
+  to: 'to',
+  wage: 'wage',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -206,6 +237,8 @@ exports.Prisma.ModelName = {
   Auth: 'Auth',
   Profile: 'Profile',
   ProfileWorkExperience: 'ProfileWorkExperience',
+  ProfileAchievement: 'ProfileAchievement',
+  ProfileProminentWork: 'ProfileProminentWork',
   Portfolio: 'Portfolio',
   Feedback: 'Feedback',
   Booking: 'Booking'

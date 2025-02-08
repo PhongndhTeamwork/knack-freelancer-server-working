@@ -53,6 +53,9 @@
       ],
       "@enum/*": [
         "src/common/enums/*"
+      ],
+      "@decorator/*": [
+        "src/common/decorators/*"
       ]
     }
   }

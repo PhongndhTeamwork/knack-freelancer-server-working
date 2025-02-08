@@ -1,8 +1,11 @@
-import { Controller, Get, HttpException, Req, UseGuards } from "@nestjs/common";
+import { Body, Controller, Get, HttpException, Post, Req, UseGuards } from "@nestjs/common";
 import { UserService } from "./user.service";
 import { ApiTags } from "@nestjs/swagger";
 import { JwtAuthGuard } from "@guard/jwt-auth.guard";
 import { Request } from "express";
+import { RoleGuard } from "@guard/role.guard";
+import { Role } from "@enum/role.enum";
+import { Roles } from "@decorator/roles.decorator";
 
 
 @Controller("user")
@@ -23,4 +26,10 @@ export class UserController {
     return result;
   }
 
+  @Post("update-private-info")
+  @UseGuards(JwtAuthGuard, RoleGuard)
+  @Roles([Role.Freelancer])
+  async updatePrivateInfo(@Req() req: Request, @Body() updateInfo: any) {
+
+  }
 }
