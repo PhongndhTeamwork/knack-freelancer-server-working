@@ -23,7 +23,7 @@ async function bootstrap() {
   });
 
   app.enableCors({
-    origin: ['https://knack-freelancer.onrender.com','http://localhost:3000'], // Allow requests from this origin
+    origin: ['https://knack-freelancer-working.onrender.com/','http://localhost:3000'], // Allow requests from this origin
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed methods
     credentials: true, // Allow cookies if needed
     allowedHeaders: 'Content-Type, Authorization', // Allowed headers
