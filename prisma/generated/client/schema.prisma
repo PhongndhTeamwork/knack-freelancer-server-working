@@ -16,19 +16,24 @@ datasource db {
 }
 
 model User {
-  id       Int     @id @default(autoincrement())
-  username String?
-  fullname String?
-  avatar   String?
-  role     Int     @default(1) @db.SmallInt
-  phone    String? @db.VarChar(15)
-  gender   Int?    @db.SmallInt
-  email    String?
+  id            Int     @id @default(autoincrement())
+  name          String?
+  avatar        String?
+  role          Int     @default(1) @db.SmallInt
+  phone         String? @db.VarChar(15)
+  gender        Int?    @db.SmallInt
+  email         String?
+  biography     String?
+  address       String?
+  occupation    String?
+  facebookLink  String? @map("facebook_link")
+  instagramLink String? @map("instagram_link")
+  youtubeLink   String? @map("youtube_link")
+  tiktokLink    String? @map("tiktok_link")
 
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
 
-  profile                Profile?
   profileWorkExperiences ProfileWorkExperience[]
   profileAchievements    ProfileAchievement[]
   profileProminentWorks  ProfileProminentWork[]
@@ -46,29 +51,6 @@ model Auth {
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
 
   @@map("auths")
-}
-
-model Profile {
-  id     Int @id @default(autoincrement())
-  userId Int @unique @map("user_id")
-
-  biography String?
-
-  residence     String
-  workEmail     String? @map("work_email")
-  occupation    String?
-  facebookLink  String? @map("facebook_link")
-  instagramLink String? @map("instagram_link")
-  youtubeLink   String? @map("youtube_link")
-  tiktokLink    String? @map("tiktok_link")
-  avatar        String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
-  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
-
-  @@map("profiles")
 }
 
 model ProfileWorkExperience {
@@ -159,3 +141,4 @@ model Booking {
 // npx prisma migrate dev --name init
 // npx prisma migrate reset
 // npx prisma migrate deploy
+// npx prisma migrate generate

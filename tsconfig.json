@@ -56,6 +56,12 @@
       ],
       "@decorator/*": [
         "src/common/decorators/*"
+      ],
+      "@type/*": [
+        "src/common/types/*"
+      ],
+      "@cloudinary/*": [
+        "src/services/cloudinary/*"
       ]
     }
   }

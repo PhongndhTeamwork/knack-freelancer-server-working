@@ -47,9 +47,10 @@ export class AuthenticationService {
           data: {
             email: profile.email,
             avatar: profile.picture,
-            fullname : profile.name
+            name: profile.name
           }
         });
+
         hasFillInfo = false;
       }
 
@@ -71,7 +72,7 @@ export class AuthenticationService {
         where: {
           id: id
         }, data: {
-          username: info.username,
+          name: info.username,
           phone: info.phone
         }
       });
