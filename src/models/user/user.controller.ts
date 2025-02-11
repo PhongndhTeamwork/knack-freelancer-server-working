@@ -4,9 +4,6 @@ import { ApiTags } from "@nestjs/swagger";
 import { JwtAuthGuard } from "@guard/jwt-auth.guard";
 import { Request } from "express";
 import { FileInterceptor } from "@nestjs/platform-express";
-import { RoleGuard } from "@guard/role.guard";
-import { Role } from "@enum/role.enum";
-import { Roles } from "@decorator/roles.decorator";
 import { UpdateUserDto } from "./dto/update-user.dto";
 
 
