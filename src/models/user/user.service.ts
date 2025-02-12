@@ -33,7 +33,7 @@ export class UserService {
   async updateProfile(userId: number, updateUserDto: UpdateUserDto) {
     try {
       let avatar: CloudinaryResponse
-      if (updateUserDto.avatar) {
+      if (updateUserDto.avatar && typeof updateUserDto.avatar !== 'string') {
         avatar = await this.cloudinaryService.uploadFile(updateUserDto.avatar, "knack/users/avatar", "image")
       }
 

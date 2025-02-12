@@ -1,13 +1,14 @@
-import { IsNumber, IsObject, IsOptional, IsString } from "class-validator";
+import { IsNumber, IsObject, IsOptional, IsString, ValidateIf } from "class-validator";
 
 export class UpdateUserDto {
   @IsString()
   @IsOptional()
   name: string;
 
+  @ValidateIf((o) => typeof o.avatar === 'string')
   @IsObject()
   @IsOptional()
-  avatar: Express.Multer.File;
+  avatar: Express.Multer.File | string;
 
   @IsString()
   @IsOptional()
