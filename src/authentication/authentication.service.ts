@@ -47,7 +47,7 @@ export class AuthenticationService {
           data: {
             email: profile.email,
             avatar: profile.picture,
-            name: profile.name
+            // name: profile.name
           }
         });
 

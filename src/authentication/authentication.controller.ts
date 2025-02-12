@@ -1,4 +1,4 @@
-import { Body, Controller, HttpException, Post, Req, UseGuards } from "@nestjs/common";
+import { Body, Controller, Get, HttpException, Post, Req, UseGuards } from "@nestjs/common";
 import { AuthenticationService } from "./authentication.service";
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 import { UserService } from "@model/user/user.service";
@@ -33,4 +33,5 @@ export class AuthenticationController {
     }
     return result;
   }
+
 }

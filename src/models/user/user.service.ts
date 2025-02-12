@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable, InternalServerErrorException } from "@nestjs/common";
+import { BadRequestException, Injectable } from "@nestjs/common";
 import { PrismaService } from "@prisma/prisma.service";
 import { UpdateUserDto } from "./dto/update-user.dto";
 import { CloudinaryService } from "@cloudinary/cloudinary.service";
@@ -18,14 +18,13 @@ export class UserService {
   //! USER'S PROFILE
   async getProfile(id: number) {
     try {
-      const user = await this.prisma.user.findFirst({
+      return await this.prisma.user.findFirst({
         where: { id: id },
         include: {
           profileWorkExperiences: true,
           profileAchievements: true, profileProminentWorks: true
         }
       })
-      return user
     } catch (error) {
       return new BadRequestException(error?.message)
     }
