@@ -5,6 +5,8 @@ import { CloudinaryService } from "@cloudinary/cloudinary.service";
 import { CloudinaryResponse } from "@type/cloudinary.type";
 import { UpdateWorkExperienceDto } from "./dto/update-work-experience.dto";
 import { CreateWorkExperienceDto } from "./dto/create-work-experience.dto";
+import { CreateAchievementDto } from "./dto/create-achievement.dto";
+import { UpdateAchievementDto } from "./dto/update-achievement.dto";
 
 @Injectable()
 export class UserService {
@@ -97,6 +99,46 @@ export class UserService {
       return updateWorkExperience
     } catch (error) {
       console.error(error.message)
+      return new BadRequestException(error?.message)
+    }
+  }
+
+  //! ACHIEVEMENTS
+  async createAchievement(userId: number, createAchievementDto: CreateAchievementDto) {
+    try {
+      const achievement = await this.prisma.profileAchievement.create({
+        data: {
+          userId: userId,
+          name: createAchievementDto.name,
+          description: createAchievementDto.description,
+          from: new Date(createAchievementDto.from),
+          to: new Date(createAchievementDto.to)
+        }
+      })
+
+      return achievement
+    } catch (error) {
+      return new BadRequestException(error?.message)
+    }
+  }
+
+  async updateAchievement(userId: number, id: number, updateAchievementDto: UpdateAchievementDto) {
+    try {
+      const achievement = await this.prisma.profileAchievement.update({
+        where: {
+          userId: userId,
+          id: id
+        },
+        data: {
+          name: updateAchievementDto.name,
+          description: updateAchievementDto.description,
+          from: new Date(updateAchievementDto.from),
+          to: new Date(updateAchievementDto.to)
+        }
+      })
+
+      return achievement
+    } catch (error) {
       return new BadRequestException(error?.message)
     }
   }
