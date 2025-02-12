@@ -42,7 +42,7 @@ export class UserService {
         avatar = await this.cloudinaryService.uploadFile(updateUserDto.avatar, "knack/users/avatar", "image");
       }
 
-      await this.prisma.user.update({
+      const newUser = await this.prisma.user.update({
         where: { id: userId },
         data: {
           name: updateUserDto.name,
@@ -66,7 +66,7 @@ export class UserService {
           return new BadRequestException("Can not remove old avatar")
         }
       }
-      return "Success";
+      return newUser;
     } catch (error) {
       console.log(error);
       return new BadRequestException(error?.message);
