@@ -1567,6 +1567,7 @@ export namespace Prisma {
     instagramLink: string | null
     youtubeLink: string | null
     tiktokLink: string | null
+    avatarPublicId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1586,6 +1587,7 @@ export namespace Prisma {
     instagramLink: string | null
     youtubeLink: string | null
     tiktokLink: string | null
+    avatarPublicId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1605,6 +1607,7 @@ export namespace Prisma {
     instagramLink: number
     youtubeLink: number
     tiktokLink: number
+    avatarPublicId: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -1638,6 +1641,7 @@ export namespace Prisma {
     instagramLink?: true
     youtubeLink?: true
     tiktokLink?: true
+    avatarPublicId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1657,6 +1661,7 @@ export namespace Prisma {
     instagramLink?: true
     youtubeLink?: true
     tiktokLink?: true
+    avatarPublicId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1676,6 +1681,7 @@ export namespace Prisma {
     instagramLink?: true
     youtubeLink?: true
     tiktokLink?: true
+    avatarPublicId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1782,6 +1788,7 @@ export namespace Prisma {
     instagramLink: string | null
     youtubeLink: string | null
     tiktokLink: string | null
+    avatarPublicId: string | null
     createdAt: Date
     updatedAt: Date
     _count: UserCountAggregateOutputType | null
@@ -1820,6 +1827,7 @@ export namespace Prisma {
     instagramLink?: boolean
     youtubeLink?: boolean
     tiktokLink?: boolean
+    avatarPublicId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     profileWorkExperiences?: boolean | User$profileWorkExperiencesArgs<ExtArgs>
@@ -1843,6 +1851,7 @@ export namespace Prisma {
     instagramLink?: boolean
     youtubeLink?: boolean
     tiktokLink?: boolean
+    avatarPublicId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1862,6 +1871,7 @@ export namespace Prisma {
     instagramLink?: boolean
     youtubeLink?: boolean
     tiktokLink?: boolean
+    avatarPublicId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
@@ -1896,6 +1906,7 @@ export namespace Prisma {
       instagramLink: string | null
       youtubeLink: string | null
       tiktokLink: string | null
+      avatarPublicId: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["user"]>
@@ -2308,6 +2319,7 @@ export namespace Prisma {
     readonly instagramLink: FieldRef<"User", 'String'>
     readonly youtubeLink: FieldRef<"User", 'String'>
     readonly tiktokLink: FieldRef<"User", 'String'>
+    readonly avatarPublicId: FieldRef<"User", 'String'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
@@ -9464,6 +9476,7 @@ export namespace Prisma {
     instagramLink: 'instagramLink',
     youtubeLink: 'youtubeLink',
     tiktokLink: 'tiktokLink',
+    avatarPublicId: 'avatarPublicId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -9680,6 +9693,7 @@ export namespace Prisma {
     instagramLink?: StringNullableFilter<"User"> | string | null
     youtubeLink?: StringNullableFilter<"User"> | string | null
     tiktokLink?: StringNullableFilter<"User"> | string | null
+    avatarPublicId?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     profileWorkExperiences?: ProfileWorkExperienceListRelationFilter
@@ -9702,6 +9716,7 @@ export namespace Prisma {
     instagramLink?: SortOrderInput | SortOrder
     youtubeLink?: SortOrderInput | SortOrder
     tiktokLink?: SortOrderInput | SortOrder
+    avatarPublicId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     profileWorkExperiences?: ProfileWorkExperienceOrderByRelationAggregateInput
@@ -9727,6 +9742,7 @@ export namespace Prisma {
     instagramLink?: StringNullableFilter<"User"> | string | null
     youtubeLink?: StringNullableFilter<"User"> | string | null
     tiktokLink?: StringNullableFilter<"User"> | string | null
+    avatarPublicId?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     profileWorkExperiences?: ProfileWorkExperienceListRelationFilter
@@ -9749,6 +9765,7 @@ export namespace Prisma {
     instagramLink?: SortOrderInput | SortOrder
     youtubeLink?: SortOrderInput | SortOrder
     tiktokLink?: SortOrderInput | SortOrder
+    avatarPublicId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -9776,6 +9793,7 @@ export namespace Prisma {
     instagramLink?: StringNullableWithAggregatesFilter<"User"> | string | null
     youtubeLink?: StringNullableWithAggregatesFilter<"User"> | string | null
     tiktokLink?: StringNullableWithAggregatesFilter<"User"> | string | null
+    avatarPublicId?: StringNullableWithAggregatesFilter<"User"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
@@ -10241,6 +10259,7 @@ export namespace Prisma {
     instagramLink?: string | null
     youtubeLink?: string | null
     tiktokLink?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     profileWorkExperiences?: ProfileWorkExperienceCreateNestedManyWithoutUserInput
@@ -10263,6 +10282,7 @@ export namespace Prisma {
     instagramLink?: string | null
     youtubeLink?: string | null
     tiktokLink?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     profileWorkExperiences?: ProfileWorkExperienceUncheckedCreateNestedManyWithoutUserInput
@@ -10284,6 +10304,7 @@ export namespace Prisma {
     instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileWorkExperiences?: ProfileWorkExperienceUpdateManyWithoutUserNestedInput
@@ -10306,6 +10327,7 @@ export namespace Prisma {
     instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileWorkExperiences?: ProfileWorkExperienceUncheckedUpdateManyWithoutUserNestedInput
@@ -10328,6 +10350,7 @@ export namespace Prisma {
     instagramLink?: string | null
     youtubeLink?: string | null
     tiktokLink?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -10346,6 +10369,7 @@ export namespace Prisma {
     instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10365,6 +10389,7 @@ export namespace Prisma {
     instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10919,6 +10944,7 @@ export namespace Prisma {
     instagramLink?: SortOrder
     youtubeLink?: SortOrder
     tiktokLink?: SortOrder
+    avatarPublicId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -10944,6 +10970,7 @@ export namespace Prisma {
     instagramLink?: SortOrder
     youtubeLink?: SortOrder
     tiktokLink?: SortOrder
+    avatarPublicId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -10963,6 +10990,7 @@ export namespace Prisma {
     instagramLink?: SortOrder
     youtubeLink?: SortOrder
     tiktokLink?: SortOrder
+    avatarPublicId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -11972,6 +12000,7 @@ export namespace Prisma {
     instagramLink?: string | null
     youtubeLink?: string | null
     tiktokLink?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     profileAchievements?: ProfileAchievementCreateNestedManyWithoutUserInput
@@ -11993,6 +12022,7 @@ export namespace Prisma {
     instagramLink?: string | null
     youtubeLink?: string | null
     tiktokLink?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     profileAchievements?: ProfileAchievementUncheckedCreateNestedManyWithoutUserInput
@@ -12029,6 +12059,7 @@ export namespace Prisma {
     instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileAchievements?: ProfileAchievementUpdateManyWithoutUserNestedInput
@@ -12050,6 +12081,7 @@ export namespace Prisma {
     instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileAchievements?: ProfileAchievementUncheckedUpdateManyWithoutUserNestedInput
@@ -12070,6 +12102,7 @@ export namespace Prisma {
     instagramLink?: string | null
     youtubeLink?: string | null
     tiktokLink?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     profileWorkExperiences?: ProfileWorkExperienceCreateNestedManyWithoutUserInput
@@ -12091,6 +12124,7 @@ export namespace Prisma {
     instagramLink?: string | null
     youtubeLink?: string | null
     tiktokLink?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     profileWorkExperiences?: ProfileWorkExperienceUncheckedCreateNestedManyWithoutUserInput
@@ -12127,6 +12161,7 @@ export namespace Prisma {
     instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileWorkExperiences?: ProfileWorkExperienceUpdateManyWithoutUserNestedInput
@@ -12148,6 +12183,7 @@ export namespace Prisma {
     instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileWorkExperiences?: ProfileWorkExperienceUncheckedUpdateManyWithoutUserNestedInput
@@ -12168,6 +12204,7 @@ export namespace Prisma {
     instagramLink?: string | null
     youtubeLink?: string | null
     tiktokLink?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     profileWorkExperiences?: ProfileWorkExperienceCreateNestedManyWithoutUserInput
@@ -12189,6 +12226,7 @@ export namespace Prisma {
     instagramLink?: string | null
     youtubeLink?: string | null
     tiktokLink?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     profileWorkExperiences?: ProfileWorkExperienceUncheckedCreateNestedManyWithoutUserInput
@@ -12225,6 +12263,7 @@ export namespace Prisma {
     instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileWorkExperiences?: ProfileWorkExperienceUpdateManyWithoutUserNestedInput
@@ -12246,6 +12285,7 @@ export namespace Prisma {
     instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileWorkExperiences?: ProfileWorkExperienceUncheckedUpdateManyWithoutUserNestedInput

@@ -17,7 +17,6 @@ export class UserService {
 
   }
 
-  //! USER'S PROFILE
   async getProfile(id: number) {
     try {
       return await this.prisma.user.findFirst({
@@ -26,26 +25,28 @@ export class UserService {
           profileWorkExperiences: true,
           profileAchievements: true, profileProminentWorks: true
         }
-      })
+      });
     } catch (error) {
-      return new BadRequestException(error?.message)
+      return new BadRequestException(error?.message);
     }
   }
 
   async updateProfile(userId: number, updateUserDto: UpdateUserDto) {
     try {
-      let avatar: CloudinaryResponse
-      if (updateUserDto.avatar && typeof updateUserDto.avatar !== 'string') {
-        avatar = await this.cloudinaryService.uploadFile(updateUserDto.avatar, "knack/users/avatar", "image")
+      let avatar: CloudinaryResponse;
+      let avatarPublicId : string;
+      if (updateUserDto.avatar && typeof updateUserDto.avatar !== "string") {
+        avatarPublicId = (await this.prisma.user.findFirst({where :{id : userId}})).avatarPublicId;
+        avatar = await this.cloudinaryService.uploadFile(updateUserDto.avatar, "knack/users/avatar", "image");
       }
 
       await this.prisma.user.update({
         where: { id: userId },
         data: {
           name: updateUserDto.name,
-          ...(updateUserDto.avatar && { avatar: avatar.secure_url }),
+          ...(updateUserDto.avatar && { avatar: avatar.secure_url, avatarPublicId: avatar.public_id }),
           phone: updateUserDto.phone,
-          gender: updateUserDto.gender,
+          gender: +updateUserDto.gender,
           email: updateUserDto.email,
           biography: updateUserDto.biography,
           address: updateUserDto.address,
@@ -55,35 +56,41 @@ export class UserService {
           youtubeLink: updateUserDto.youtubeLink,
           tiktokLink: updateUserDto.tiktokLink
         }
-      })
+      });
 
-      return "Success"
+      if(updateUserDto.avatar && typeof updateUserDto.avatar !== "string" && avatarPublicId){
+        const removeResult = await this.cloudinaryService.removeFile(avatarPublicId);
+        if(!removeResult) {
+          return new BadRequestException("Can not remove old avatar")
+        }
+      }
+      return "Success";
     } catch (error) {
-      return new BadRequestException(error?.message)
+      console.log(error);
+      return new BadRequestException(error?.message);
     }
   }
 
   //!USER'S WORK EXPERIENCE
   async createWorkExperience(userId: number, createWorkExperienceDto: CreateWorkExperienceDto) {
     try {
-      const workExperience = await this.prisma.profileWorkExperience.create({
+      return await this.prisma.profileWorkExperience.create({
         data: {
           userId: userId,
           name: createWorkExperienceDto.name,
           description: createWorkExperienceDto.description,
           from: new Date(createWorkExperienceDto.from),
           to: new Date(createWorkExperienceDto.to)
-        },
-      })
-      return workExperience
+        }
+      });
     } catch (error) {
-      return new BadRequestException(error?.message)
+      return new BadRequestException(error?.message);
     }
   }
 
   async updateWorkExperience(userId: number, id: number, updateWorkExperienceDto: UpdateWorkExperienceDto) {
     try {
-      const updateWorkExperience = await this.prisma.profileWorkExperience.update({
+      return await this.prisma.profileWorkExperience.update({
         where: {
           userId: userId,
           id: id
@@ -94,12 +101,10 @@ export class UserService {
           from: new Date(updateWorkExperienceDto.from),
           to: new Date(updateWorkExperienceDto.to)
         }
-      })
-
-      return updateWorkExperience
+      });
     } catch (error) {
-      console.error(error.message)
-      return new BadRequestException(error?.message)
+      console.error(error.message);
+      return new BadRequestException(error?.message);
     }
   }
 
@@ -114,11 +119,11 @@ export class UserService {
           from: new Date(createAchievementDto.from),
           to: new Date(createAchievementDto.to)
         }
-      })
+      });
 
-      return achievement
+      return achievement;
     } catch (error) {
-      return new BadRequestException(error?.message)
+      return new BadRequestException(error?.message);
     }
   }
 
@@ -135,11 +140,11 @@ export class UserService {
           from: new Date(updateAchievementDto.from),
           to: new Date(updateAchievementDto.to)
         }
-      })
+      });
 
-      return achievement
+      return achievement;
     } catch (error) {
-      return new BadRequestException(error?.message)
+      return new BadRequestException(error?.message);
     }
   }
 }

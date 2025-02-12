@@ -134,6 +134,7 @@ exports.Prisma.UserScalarFieldEnum = {
   instagramLink: 'instagramLink',
   youtubeLink: 'youtubeLink',
   tiktokLink: 'tiktokLink',
+  avatarPublicId: 'avatarPublicId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
