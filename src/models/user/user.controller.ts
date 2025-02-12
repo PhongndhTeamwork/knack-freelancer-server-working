@@ -7,6 +7,8 @@ import { FileInterceptor } from "@nestjs/platform-express";
 import { UpdateUserDto } from "./dto/update-user.dto";
 import { CreateWorkExperienceDto } from "./dto/create-work-experience.dto";
 import { UpdateWorkExperienceDto } from "./dto/update-work-experience.dto";
+import { CreateAchievementDto } from "./dto/create-achievement.dto";
+import { UpdateAchievementDto } from "./dto/update-achievement.dto";
 
 
 @Controller("user")
@@ -89,7 +91,37 @@ export class UserController {
     return result
   }
 
+  //! ACHIEVEMENTS
+  @Post("create-achievement")
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  async createAchievement(
+    @Req() req: Request,
+    @Body() body: CreateAchievementDto
+  ) {
+    const user: any = req.user
+    const result = await this.userService.createAchievement(+user?.id, body)
+    if (result instanceof HttpException) {
+      throw result
+    }
+    return result
+  }
 
+  @Put("update-achievement/:achievementId")
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  async updateAchievement(
+    @Req() req: Request,
+    @Param("achievementId") achievementId: number,
+    @Body() body: UpdateAchievementDto
+  ) {
+    const user: any = req.user
+    const result = await this.userService.updateAchievement(+user?.id, +achievementId, body)
+    if (result instanceof HttpException) {
+      throw result
+    }
+    return result
+  }
   // @Post("update-private-info")
   // @UseGuards(JwtAuthGuard, RoleGuard)
   // @Roles([Role.Freelancer])
