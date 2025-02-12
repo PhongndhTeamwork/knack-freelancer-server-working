@@ -1,6 +1,6 @@
-import { Body, Controller, Get, HttpException, Post, Req, UseGuards, UseInterceptors } from "@nestjs/common";
+import { Body, Controller, Get, HttpException, Param, Post, Put, Req, UseGuards, UseInterceptors } from "@nestjs/common";
 import { UserService } from "./user.service";
-import { ApiTags } from "@nestjs/swagger";
+import { ApiBearerAuth, ApiBody, ApiConsumes, ApiTags } from "@nestjs/swagger";
 import { JwtAuthGuard } from "@guard/jwt-auth.guard";
 import { Request } from "express";
 import { FileInterceptor } from "@nestjs/platform-express";
@@ -8,6 +8,8 @@ import { RoleGuard } from "@guard/role.guard";
 import { Role } from "@enum/role.enum";
 import { Roles } from "@decorator/roles.decorator";
 import { UpdateUserDto } from "./dto/update-user.dto";
+import { CreateWorkExperienceDto } from "./dto/create-work-experience.dto";
+import { UpdateWorkExperienceDto } from "./dto/update-work-experience.dto";
 
 
 @Controller("user")
@@ -18,6 +20,7 @@ export class UserController {
 
   @Get("profile")
   @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
   async getProfile(@Req() req: Request) {
     const user: any = req.user;
     const result = await this.userService.getProfile(+user?.id);
@@ -27,10 +30,26 @@ export class UserController {
     return result;
   }
 
-  @Post("update-profile")
+  @Put("update-profile")
   @UseGuards(JwtAuthGuard)
   @UseInterceptors(FileInterceptor("avatar"))
-  async updateProfile(@Req() req: Request, @Body() body: UpdateUserDto) {
+  @ApiConsumes("multipart/form-data")
+  @ApiBody({
+    schema: {
+      type: "object",
+      properties: {
+        avatar: {
+          type: "string",
+          format: "binary"
+        }
+      }
+    }
+  })
+  @ApiBearerAuth()
+  async updateProfile(
+    @Req() req: Request,
+    @Body() body: UpdateUserDto
+  ) {
     const user: any = req.user
     body.avatar = req.file
 
@@ -40,6 +59,40 @@ export class UserController {
     }
     return result
   }
+
+  //! WORK EXPERIENCE
+  @Post("create-work-experience")
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  async createWorkExperience(
+    @Req() req: Request,
+    @Body() body: CreateWorkExperienceDto
+  ) {
+    const user: any = req.user
+    const result = await this.userService.createWorkExperience(+user?.id, body)
+    if (result instanceof HttpException) {
+      throw result
+    }
+    return result
+  }
+
+  @Put("update-work-experience/:workExperienceId")
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  async updateWorkExperience(
+    @Req() req: Request,
+    @Param("workExperienceId") workExperienceId: number,
+    @Body() body: UpdateWorkExperienceDto
+  ) {
+    const user: any = req.user
+    const result = await this.userService.updateWorkExperience(+user?.id, +workExperienceId, body)
+    if (result instanceof HttpException) {
+      throw result
+    }
+    return result
+  }
+
+
   // @Post("update-private-info")
   // @UseGuards(JwtAuthGuard, RoleGuard)
   // @Roles([Role.Freelancer])
