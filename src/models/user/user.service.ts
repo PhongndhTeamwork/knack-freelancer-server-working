@@ -7,6 +7,8 @@ import { UpdateWorkExperienceDto } from "./dto/update-work-experience.dto";
 import { CreateWorkExperienceDto } from "./dto/create-work-experience.dto";
 import { CreateAchievementDto } from "./dto/create-achievement.dto";
 import { UpdateAchievementDto } from "./dto/update-achievement.dto";
+import { CreateProminentWorkDto } from "./dto/create-prominent-work.dto";
+import { UpdateProminentWorkDto } from "./dto/update-prominent-work.dto";
 
 @Injectable()
 export class UserService {
@@ -145,6 +147,48 @@ export class UserService {
       return achievement;
     } catch (error) {
       return new BadRequestException(error?.message);
+    }
+  }
+
+  //! PROMINENT WORK
+  async createProminentWork(userId: number, createProminentWorkDto: CreateProminentWorkDto) {
+    try {
+      const prominentWork = await this.prisma.profileProminentWork.create({
+        data: {
+          userId: userId,
+          name: createProminentWorkDto.name,
+          description: createProminentWorkDto.description,
+          from: new Date(createProminentWorkDto.from),
+          to: new Date(createProminentWorkDto.to),
+          wage: createProminentWorkDto.wage
+        }
+      })
+
+      return prominentWork
+    } catch (error) {
+      return new BadRequestException(error?.message)
+    }
+  }
+
+  async updateProminentWork(userId: number, id: number, updateProminentWorkDto: UpdateProminentWorkDto) {
+    try {
+      const prominentWork = await this.prisma.profileProminentWork.update({
+        where: {
+          userId: userId,
+          id: id
+        },
+        data: {
+          name: updateProminentWorkDto.name,
+          description: updateProminentWorkDto.description,
+          from: new Date(updateProminentWorkDto.from),
+          to: new Date(updateProminentWorkDto.to),
+          wage: updateProminentWorkDto.wage
+        }
+      })
+
+      return prominentWork
+    } catch (error) {
+      return new BadRequestException(error?.message)
     }
   }
 }
