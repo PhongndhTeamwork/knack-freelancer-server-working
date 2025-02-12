@@ -9,6 +9,8 @@ import { CreateWorkExperienceDto } from "./dto/create-work-experience.dto";
 import { UpdateWorkExperienceDto } from "./dto/update-work-experience.dto";
 import { CreateAchievementDto } from "./dto/create-achievement.dto";
 import { UpdateAchievementDto } from "./dto/update-achievement.dto";
+import { CreateProminentWorkDto } from "./dto/create-prominent-work.dto";
+import { UpdateProminentWorkDto } from "./dto/update-prominent-work.dto";
 
 
 @Controller("user")
@@ -117,6 +119,38 @@ export class UserController {
   ) {
     const user: any = req.user
     const result = await this.userService.updateAchievement(+user?.id, +achievementId, body)
+    if (result instanceof HttpException) {
+      throw result
+    }
+    return result
+  }
+
+  //! PROMINENT WORK
+  @Post("create-prominent-work")
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  async createProminentWork(
+    @Req() req: Request,
+    @Body() body: CreateProminentWorkDto
+  ) {
+    const user: any = req.user
+    const result = await this.userService.createProminentWork(+user?.id, body)
+    if (result instanceof HttpException) {
+      throw result
+    }
+    return result
+  }
+
+  @Put("update-prominent-work/:prominentWorkId")
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  async updateProminentWork(
+    @Req() req: Request,
+    @Param("prominentWorkId") prominentWorkId: number,
+    @Body() body: UpdateProminentWorkDto
+  ) {
+    const user: any = req.user
+    const result = await this.userService.updateProminentWork(+user?.id, +prominentWorkId, body)
     if (result instanceof HttpException) {
       throw result
     }
