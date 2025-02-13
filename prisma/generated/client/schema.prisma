@@ -55,12 +55,12 @@ model Auth {
 }
 
 model ProfileWorkExperience {
-  id          Int      @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   userId      Int
   name        String
   description String?
-  from        DateTime @db.Timestamptz()
-  to          DateTime @db.Timestamptz()
+  from        DateTime  @db.Timestamptz()
+  to          DateTime? @db.Timestamptz()
 
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
@@ -70,12 +70,12 @@ model ProfileWorkExperience {
 }
 
 model ProfileAchievement {
-  id          Int      @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   userId      Int
   name        String
   description String?
-  from        DateTime @db.Timestamptz()
-  to          DateTime @db.Timestamptz()
+  from        DateTime  @db.Timestamptz()
+  to          DateTime? @db.Timestamptz()
 
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
@@ -85,12 +85,12 @@ model ProfileAchievement {
 }
 
 model ProfileProminentWork {
-  id          Int      @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   userId      Int
   name        String
   description String?
-  from        DateTime @db.Timestamptz()
-  to          DateTime @db.Timestamptz()
+  from        DateTime  @db.Timestamptz()
+  to          DateTime? @db.Timestamptz()
   wage        Int?
 
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)

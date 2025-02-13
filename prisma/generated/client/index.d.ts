@@ -3819,7 +3819,7 @@ export namespace Prisma {
     name: string
     description: string | null
     from: Date
-    to: Date
+    to: Date | null
     createdAt: Date
     updatedAt: Date
     _count: ProfileWorkExperienceCountAggregateOutputType | null
@@ -3896,7 +3896,7 @@ export namespace Prisma {
       name: string
       description: string | null
       from: Date
-      to: Date
+      to: Date | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["profileWorkExperience"]>
@@ -4826,7 +4826,7 @@ export namespace Prisma {
     name: string
     description: string | null
     from: Date
-    to: Date
+    to: Date | null
     createdAt: Date
     updatedAt: Date
     _count: ProfileAchievementCountAggregateOutputType | null
@@ -4903,7 +4903,7 @@ export namespace Prisma {
       name: string
       description: string | null
       from: Date
-      to: Date
+      to: Date | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["profileAchievement"]>
@@ -5843,7 +5843,7 @@ export namespace Prisma {
     name: string
     description: string | null
     from: Date
-    to: Date
+    to: Date | null
     wage: number | null
     createdAt: Date
     updatedAt: Date
@@ -5924,7 +5924,7 @@ export namespace Prisma {
       name: string
       description: string | null
       from: Date
-      to: Date
+      to: Date | null
       wage: number | null
       createdAt: Date
       updatedAt: Date
@@ -9861,7 +9861,7 @@ export namespace Prisma {
     name?: StringFilter<"ProfileWorkExperience"> | string
     description?: StringNullableFilter<"ProfileWorkExperience"> | string | null
     from?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
-    to?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
+    to?: DateTimeNullableFilter<"ProfileWorkExperience"> | Date | string | null
     createdAt?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
     updatedAt?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
     user?: XOR<UserRelationFilter, UserWhereInput>
@@ -9873,7 +9873,7 @@ export namespace Prisma {
     name?: SortOrder
     description?: SortOrderInput | SortOrder
     from?: SortOrder
-    to?: SortOrder
+    to?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
@@ -9888,7 +9888,7 @@ export namespace Prisma {
     name?: StringFilter<"ProfileWorkExperience"> | string
     description?: StringNullableFilter<"ProfileWorkExperience"> | string | null
     from?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
-    to?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
+    to?: DateTimeNullableFilter<"ProfileWorkExperience"> | Date | string | null
     createdAt?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
     updatedAt?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
     user?: XOR<UserRelationFilter, UserWhereInput>
@@ -9900,7 +9900,7 @@ export namespace Prisma {
     name?: SortOrder
     description?: SortOrderInput | SortOrder
     from?: SortOrder
-    to?: SortOrder
+    to?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: ProfileWorkExperienceCountOrderByAggregateInput
@@ -9919,7 +9919,7 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"ProfileWorkExperience"> | string
     description?: StringNullableWithAggregatesFilter<"ProfileWorkExperience"> | string | null
     from?: DateTimeWithAggregatesFilter<"ProfileWorkExperience"> | Date | string
-    to?: DateTimeWithAggregatesFilter<"ProfileWorkExperience"> | Date | string
+    to?: DateTimeNullableWithAggregatesFilter<"ProfileWorkExperience"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"ProfileWorkExperience"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"ProfileWorkExperience"> | Date | string
   }
@@ -9933,7 +9933,7 @@ export namespace Prisma {
     name?: StringFilter<"ProfileAchievement"> | string
     description?: StringNullableFilter<"ProfileAchievement"> | string | null
     from?: DateTimeFilter<"ProfileAchievement"> | Date | string
-    to?: DateTimeFilter<"ProfileAchievement"> | Date | string
+    to?: DateTimeNullableFilter<"ProfileAchievement"> | Date | string | null
     createdAt?: DateTimeFilter<"ProfileAchievement"> | Date | string
     updatedAt?: DateTimeFilter<"ProfileAchievement"> | Date | string
     user?: XOR<UserRelationFilter, UserWhereInput>
@@ -9945,7 +9945,7 @@ export namespace Prisma {
     name?: SortOrder
     description?: SortOrderInput | SortOrder
     from?: SortOrder
-    to?: SortOrder
+    to?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
@@ -9960,7 +9960,7 @@ export namespace Prisma {
     name?: StringFilter<"ProfileAchievement"> | string
     description?: StringNullableFilter<"ProfileAchievement"> | string | null
     from?: DateTimeFilter<"ProfileAchievement"> | Date | string
-    to?: DateTimeFilter<"ProfileAchievement"> | Date | string
+    to?: DateTimeNullableFilter<"ProfileAchievement"> | Date | string | null
     createdAt?: DateTimeFilter<"ProfileAchievement"> | Date | string
     updatedAt?: DateTimeFilter<"ProfileAchievement"> | Date | string
     user?: XOR<UserRelationFilter, UserWhereInput>
@@ -9972,7 +9972,7 @@ export namespace Prisma {
     name?: SortOrder
     description?: SortOrderInput | SortOrder
     from?: SortOrder
-    to?: SortOrder
+    to?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: ProfileAchievementCountOrderByAggregateInput
@@ -9991,7 +9991,7 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"ProfileAchievement"> | string
     description?: StringNullableWithAggregatesFilter<"ProfileAchievement"> | string | null
     from?: DateTimeWithAggregatesFilter<"ProfileAchievement"> | Date | string
-    to?: DateTimeWithAggregatesFilter<"ProfileAchievement"> | Date | string
+    to?: DateTimeNullableWithAggregatesFilter<"ProfileAchievement"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"ProfileAchievement"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"ProfileAchievement"> | Date | string
   }
@@ -10005,7 +10005,7 @@ export namespace Prisma {
     name?: StringFilter<"ProfileProminentWork"> | string
     description?: StringNullableFilter<"ProfileProminentWork"> | string | null
     from?: DateTimeFilter<"ProfileProminentWork"> | Date | string
-    to?: DateTimeFilter<"ProfileProminentWork"> | Date | string
+    to?: DateTimeNullableFilter<"ProfileProminentWork"> | Date | string | null
     wage?: IntNullableFilter<"ProfileProminentWork"> | number | null
     createdAt?: DateTimeFilter<"ProfileProminentWork"> | Date | string
     updatedAt?: DateTimeFilter<"ProfileProminentWork"> | Date | string
@@ -10018,7 +10018,7 @@ export namespace Prisma {
     name?: SortOrder
     description?: SortOrderInput | SortOrder
     from?: SortOrder
-    to?: SortOrder
+    to?: SortOrderInput | SortOrder
     wage?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -10034,7 +10034,7 @@ export namespace Prisma {
     name?: StringFilter<"ProfileProminentWork"> | string
     description?: StringNullableFilter<"ProfileProminentWork"> | string | null
     from?: DateTimeFilter<"ProfileProminentWork"> | Date | string
-    to?: DateTimeFilter<"ProfileProminentWork"> | Date | string
+    to?: DateTimeNullableFilter<"ProfileProminentWork"> | Date | string | null
     wage?: IntNullableFilter<"ProfileProminentWork"> | number | null
     createdAt?: DateTimeFilter<"ProfileProminentWork"> | Date | string
     updatedAt?: DateTimeFilter<"ProfileProminentWork"> | Date | string
@@ -10047,7 +10047,7 @@ export namespace Prisma {
     name?: SortOrder
     description?: SortOrderInput | SortOrder
     from?: SortOrder
-    to?: SortOrder
+    to?: SortOrderInput | SortOrder
     wage?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -10067,7 +10067,7 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"ProfileProminentWork"> | string
     description?: StringNullableWithAggregatesFilter<"ProfileProminentWork"> | string | null
     from?: DateTimeWithAggregatesFilter<"ProfileProminentWork"> | Date | string
-    to?: DateTimeWithAggregatesFilter<"ProfileProminentWork"> | Date | string
+    to?: DateTimeNullableWithAggregatesFilter<"ProfileProminentWork"> | Date | string | null
     wage?: IntNullableWithAggregatesFilter<"ProfileProminentWork"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"ProfileProminentWork"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"ProfileProminentWork"> | Date | string
@@ -10451,7 +10451,7 @@ export namespace Prisma {
     name: string
     description?: string | null
     from: Date | string
-    to: Date | string
+    to?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutProfileWorkExperiencesInput
@@ -10463,7 +10463,7 @@ export namespace Prisma {
     name: string
     description?: string | null
     from: Date | string
-    to: Date | string
+    to?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -10472,7 +10472,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutProfileWorkExperiencesNestedInput
@@ -10484,7 +10484,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10495,7 +10495,7 @@ export namespace Prisma {
     name: string
     description?: string | null
     from: Date | string
-    to: Date | string
+    to?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -10504,7 +10504,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10515,7 +10515,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10524,7 +10524,7 @@ export namespace Prisma {
     name: string
     description?: string | null
     from: Date | string
-    to: Date | string
+    to?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutProfileAchievementsInput
@@ -10536,7 +10536,7 @@ export namespace Prisma {
     name: string
     description?: string | null
     from: Date | string
-    to: Date | string
+    to?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -10545,7 +10545,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutProfileAchievementsNestedInput
@@ -10557,7 +10557,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10568,7 +10568,7 @@ export namespace Prisma {
     name: string
     description?: string | null
     from: Date | string
-    to: Date | string
+    to?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -10577,7 +10577,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10588,7 +10588,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10597,7 +10597,7 @@ export namespace Prisma {
     name: string
     description?: string | null
     from: Date | string
-    to: Date | string
+    to?: Date | string | null
     wage?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -10610,7 +10610,7 @@ export namespace Prisma {
     name: string
     description?: string | null
     from: Date | string
-    to: Date | string
+    to?: Date | string | null
     wage?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -10620,7 +10620,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10633,7 +10633,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10645,7 +10645,7 @@ export namespace Prisma {
     name: string
     description?: string | null
     from: Date | string
-    to: Date | string
+    to?: Date | string | null
     wage?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -10655,7 +10655,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10667,7 +10667,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11132,6 +11132,17 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type UserRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
@@ -11178,6 +11189,20 @@ export namespace Prisma {
   export type ProfileWorkExperienceSumOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type ProfileAchievementCountOrderByAggregateInput = {
@@ -11572,6 +11597,10 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
   export type UserUpdateOneRequiredWithoutProfileWorkExperiencesNestedInput = {
     create?: XOR<UserCreateWithoutProfileWorkExperiencesInput, UserUncheckedCreateWithoutProfileWorkExperiencesInput>
     connectOrCreate?: UserCreateOrConnectWithoutProfileWorkExperiencesInput
@@ -11779,6 +11808,31 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type NestedDecimalFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
@@ -11810,7 +11864,7 @@ export namespace Prisma {
     name: string
     description?: string | null
     from: Date | string
-    to: Date | string
+    to?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -11820,7 +11874,7 @@ export namespace Prisma {
     name: string
     description?: string | null
     from: Date | string
-    to: Date | string
+    to?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -11839,7 +11893,7 @@ export namespace Prisma {
     name: string
     description?: string | null
     from: Date | string
-    to: Date | string
+    to?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -11849,7 +11903,7 @@ export namespace Prisma {
     name: string
     description?: string | null
     from: Date | string
-    to: Date | string
+    to?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -11868,7 +11922,7 @@ export namespace Prisma {
     name: string
     description?: string | null
     from: Date | string
-    to: Date | string
+    to?: Date | string | null
     wage?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -11879,7 +11933,7 @@ export namespace Prisma {
     name: string
     description?: string | null
     from: Date | string
-    to: Date | string
+    to?: Date | string | null
     wage?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -11920,7 +11974,7 @@ export namespace Prisma {
     name?: StringFilter<"ProfileWorkExperience"> | string
     description?: StringNullableFilter<"ProfileWorkExperience"> | string | null
     from?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
-    to?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
+    to?: DateTimeNullableFilter<"ProfileWorkExperience"> | Date | string | null
     createdAt?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
     updatedAt?: DateTimeFilter<"ProfileWorkExperience"> | Date | string
   }
@@ -11950,7 +12004,7 @@ export namespace Prisma {
     name?: StringFilter<"ProfileAchievement"> | string
     description?: StringNullableFilter<"ProfileAchievement"> | string | null
     from?: DateTimeFilter<"ProfileAchievement"> | Date | string
-    to?: DateTimeFilter<"ProfileAchievement"> | Date | string
+    to?: DateTimeNullableFilter<"ProfileAchievement"> | Date | string | null
     createdAt?: DateTimeFilter<"ProfileAchievement"> | Date | string
     updatedAt?: DateTimeFilter<"ProfileAchievement"> | Date | string
   }
@@ -11980,7 +12034,7 @@ export namespace Prisma {
     name?: StringFilter<"ProfileProminentWork"> | string
     description?: StringNullableFilter<"ProfileProminentWork"> | string | null
     from?: DateTimeFilter<"ProfileProminentWork"> | Date | string
-    to?: DateTimeFilter<"ProfileProminentWork"> | Date | string
+    to?: DateTimeNullableFilter<"ProfileProminentWork"> | Date | string | null
     wage?: IntNullableFilter<"ProfileProminentWork"> | number | null
     createdAt?: DateTimeFilter<"ProfileProminentWork"> | Date | string
     updatedAt?: DateTimeFilter<"ProfileProminentWork"> | Date | string
@@ -12297,7 +12351,7 @@ export namespace Prisma {
     name: string
     description?: string | null
     from: Date | string
-    to: Date | string
+    to?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -12307,7 +12361,7 @@ export namespace Prisma {
     name: string
     description?: string | null
     from: Date | string
-    to: Date | string
+    to?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -12317,7 +12371,7 @@ export namespace Prisma {
     name: string
     description?: string | null
     from: Date | string
-    to: Date | string
+    to?: Date | string | null
     wage?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -12327,7 +12381,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12337,7 +12391,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12347,7 +12401,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12356,7 +12410,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12366,7 +12420,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12376,7 +12430,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12385,7 +12439,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12396,7 +12450,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12407,7 +12461,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
-    to?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string

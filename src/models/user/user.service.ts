@@ -36,9 +36,9 @@ export class UserService {
   async updateProfile(userId: number, updateUserDto: UpdateUserDto) {
     try {
       let avatar: CloudinaryResponse;
-      let avatarPublicId : string;
+      let avatarPublicId: string;
       if (updateUserDto.avatar && typeof updateUserDto.avatar !== "string") {
-        avatarPublicId = (await this.prisma.user.findFirst({where :{id : userId}})).avatarPublicId;
+        avatarPublicId = (await this.prisma.user.findFirst({ where: { id: userId } })).avatarPublicId;
         avatar = await this.cloudinaryService.uploadFile(updateUserDto.avatar, "knack/users/avatar", "image");
       }
 
@@ -60,10 +60,10 @@ export class UserService {
         }
       });
 
-      if(updateUserDto.avatar && typeof updateUserDto.avatar !== "string" && avatarPublicId){
+      if (updateUserDto.avatar && typeof updateUserDto.avatar !== "string" && avatarPublicId) {
         const removeResult = await this.cloudinaryService.removeFile(avatarPublicId);
-        if(!removeResult) {
-          return new BadRequestException("Can not remove old avatar")
+        if (!removeResult) {
+          return new BadRequestException("Can not remove old avatar");
         }
       }
       return newUser;
@@ -75,6 +75,7 @@ export class UserService {
 
   //!USER'S WORK EXPERIENCE
   async createWorkExperience(userId: number, createWorkExperienceDto: CreateWorkExperienceDto) {
+    console.log(createWorkExperienceDto);
     try {
       return await this.prisma.profileWorkExperience.create({
         data: {
@@ -82,10 +83,11 @@ export class UserService {
           name: createWorkExperienceDto.name,
           description: createWorkExperienceDto.description,
           from: new Date(createWorkExperienceDto.from),
-          to: new Date(createWorkExperienceDto.to)
+          to : createWorkExperienceDto.to !== "" ? new Date(createWorkExperienceDto.to) : null,
         }
       });
     } catch (error) {
+      console.error(error.message);
       return new BadRequestException(error?.message);
     }
   }
@@ -101,7 +103,7 @@ export class UserService {
           name: updateWorkExperienceDto.name,
           description: updateWorkExperienceDto.description,
           from: new Date(updateWorkExperienceDto.from),
-          to: new Date(updateWorkExperienceDto.to)
+          to : updateWorkExperienceDto.to !== "" ? new Date(updateWorkExperienceDto.to) : null,
         }
       });
     } catch (error) {
@@ -117,11 +119,11 @@ export class UserService {
           userId: userId,
           id: id
         }
-      })
+      });
 
-      return "Successfully deleted!"
+      return "Successfully deleted!";
     } catch (error) {
-      return new BadRequestException(error?.message)
+      return new BadRequestException(error?.message);
     }
   }
 
@@ -134,7 +136,7 @@ export class UserService {
           name: createAchievementDto.name,
           description: createAchievementDto.description,
           from: new Date(createAchievementDto.from),
-          to: new Date(createAchievementDto.to)
+          to : createAchievementDto.to !== "" ? new Date(createAchievementDto.to) : null,
         }
       });
 
@@ -155,7 +157,7 @@ export class UserService {
           name: updateAchievementDto.name,
           description: updateAchievementDto.description,
           from: new Date(updateAchievementDto.from),
-          to: new Date(updateAchievementDto.to)
+          to : updateAchievementDto.to !== "" ? new Date(updateAchievementDto.to) : null,
         }
       });
 
@@ -172,11 +174,11 @@ export class UserService {
           userId: userId,
           id: id
         }
-      })
+      });
 
-      return "Successfully deleted!"
+      return "Successfully deleted!";
     } catch (error) {
-      return new BadRequestException(error?.message)
+      return new BadRequestException(error?.message);
     }
   }
 
@@ -192,11 +194,11 @@ export class UserService {
           to: new Date(createProminentWorkDto.to),
           wage: createProminentWorkDto.wage
         }
-      })
+      });
 
-      return prominentWork
+      return prominentWork;
     } catch (error) {
-      return new BadRequestException(error?.message)
+      return new BadRequestException(error?.message);
     }
   }
 
@@ -211,14 +213,14 @@ export class UserService {
           name: updateProminentWorkDto.name,
           description: updateProminentWorkDto.description,
           from: new Date(updateProminentWorkDto.from),
-          to: new Date(updateProminentWorkDto.to),
+          to : updateProminentWorkDto.to !== "" ? new Date(updateProminentWorkDto.to) : null,
           wage: updateProminentWorkDto.wage
         }
-      })
+      });
 
-      return prominentWork
+      return prominentWork;
     } catch (error) {
-      return new BadRequestException(error?.message)
+      return new BadRequestException(error?.message);
     }
   }
 
@@ -229,11 +231,11 @@ export class UserService {
           userId: userId,
           id: id
         }
-      })
+      });
 
-      return "Successfully deleted!"
+      return "Successfully deleted!";
     } catch (error) {
-      return new BadRequestException(error?.message)
+      return new BadRequestException(error?.message);
     }
   }
 }
