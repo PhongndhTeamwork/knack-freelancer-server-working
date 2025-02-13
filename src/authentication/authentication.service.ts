@@ -82,4 +82,15 @@ export class AuthenticationService {
     }
   }
 
+
+  async checkRole(userId : number) {
+    try {
+      const user = await this.prisma.user.findFirst({
+        where : { id: userId}
+      })
+      return {role : user.role};
+    }catch (err) {
+      return new BadRequestException(err?.message);
+    }
+  }
 }
