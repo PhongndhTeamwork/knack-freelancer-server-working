@@ -16,20 +16,21 @@ datasource db {
 }
 
 model User {
-  id            Int     @id @default(autoincrement())
-  name          String?
-  avatar        String?
-  role          Int     @default(1) @db.SmallInt
-  phone         String? @db.VarChar(15)
-  gender        Int?    @db.SmallInt
-  email         String?
-  biography     String?
-  address       String?
-  occupation    String?
-  facebookLink  String? @map("facebook_link")
-  instagramLink String? @map("instagram_link")
-  youtubeLink   String? @map("youtube_link")
-  tiktokLink    String? @map("tiktok_link")
+  id             Int     @id @default(autoincrement())
+  name           String?
+  avatar         String?
+  role           Int     @default(1) @db.SmallInt
+  phone          String? @db.VarChar(15)
+  gender         Int?    @db.SmallInt
+  email          String?
+  biography      String?
+  address        String?
+  occupation     String?
+  facebookLink   String? @map("facebook_link")
+  instagramLink  String? @map("instagram_link")
+  youtubeLink    String? @map("youtube_link")
+  tiktokLink     String? @map("tiktok_link")
+  avatarPublicId String? @map("avatar_public_id")
 
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()

@@ -24,6 +24,14 @@ export class CloudinaryService {
       console.error(error);
       throw new InternalServerErrorException(error.message);
     }
+  }
 
+  async removeFile(publicId: string): Promise<boolean> {
+    try {
+      const result = await cloudinary.uploader.destroy(publicId);
+      return result.result === 'ok';
+    } catch (error) {
+      throw new InternalServerErrorException('Failed to remove the file.');
+    }
   }
 }

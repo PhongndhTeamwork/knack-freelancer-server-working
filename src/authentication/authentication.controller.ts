@@ -34,4 +34,16 @@ export class AuthenticationController {
     return result;
   }
 
+  @Get("check-role")
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  async checkRole(@Req() req: Request) {
+    const user: any = req.user;
+    const result = await this.authenticationService.checkRole(+user.id);
+    if (result instanceof HttpException) {
+      throw result;
+    }
+    return result;
+  }
+
 }
