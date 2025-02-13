@@ -192,7 +192,7 @@ export class UserService {
           description: createProminentWorkDto.description,
           from: new Date(createProminentWorkDto.from),
           to: new Date(createProminentWorkDto.to),
-          wage: createProminentWorkDto.wage
+          wage: +createProminentWorkDto.wage
         }
       });
 
@@ -214,7 +214,7 @@ export class UserService {
           description: updateProminentWorkDto.description,
           from: new Date(updateProminentWorkDto.from),
           to : updateProminentWorkDto.to !== "" ? new Date(updateProminentWorkDto.to) : null,
-          wage: updateProminentWorkDto.wage
+          wage: +updateProminentWorkDto.wage
         }
       });
 
