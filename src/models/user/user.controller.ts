@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpException, Param, Post, Put, Req, UseGuards, UseInterceptors } from "@nestjs/common";
+import { Body, Controller, Delete, Get, HttpException, Param, Post, Put, Req, UseGuards, UseInterceptors } from "@nestjs/common";
 import { UserService } from "./user.service";
 import { ApiBearerAuth, ApiBody, ApiConsumes, ApiTags } from "@nestjs/swagger";
 import { JwtAuthGuard } from "@guard/jwt-auth.guard";
@@ -93,6 +93,21 @@ export class UserController {
     return result
   }
 
+  @Delete("delete-work-experience/:workExperienceId")
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  async deleteWorkExperience(
+    @Req() req: Request,
+    @Param("workExperienceId") workExperienceId: number
+  ) {
+    const user: any = req.user
+    const result = await this.userService.deleteWorkExperience(+user?.id, +workExperienceId)
+    if (result instanceof HttpException) {
+      throw result
+    }
+    return result
+  }
+
   //! ACHIEVEMENTS
   @Post("create-achievement")
   @UseGuards(JwtAuthGuard)
@@ -125,6 +140,21 @@ export class UserController {
     return result
   }
 
+  @Delete("delete-achievement/:achievementId")
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  async deleteAchievement(
+    @Req() req: Request,
+    @Param("achievementId") achievementId: number
+  ) {
+    const user: any = req.user
+    const result = await this.userService.deleteAchievement(+user?.id, +achievementId)
+    if (result instanceof HttpException) {
+      throw result
+    }
+    return result
+  }
+
   //! PROMINENT WORK
   @Post("create-prominent-work")
   @UseGuards(JwtAuthGuard)
@@ -151,6 +181,21 @@ export class UserController {
   ) {
     const user: any = req.user
     const result = await this.userService.updateProminentWork(+user?.id, +prominentWorkId, body)
+    if (result instanceof HttpException) {
+      throw result
+    }
+    return result
+  }
+
+  @Delete("delete-prominent-work/:prominentWorkId")
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  async deleteProminentWork(
+    @Req() req: Request,
+    @Param("prominentWorkId") prominentWorkId: number
+  ) {
+    const user: any = req.user
+    const result = await this.userService.deleteProminentWork(+user?.id, +prominentWorkId)
     if (result instanceof HttpException) {
       throw result
     }

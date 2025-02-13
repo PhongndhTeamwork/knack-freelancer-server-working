@@ -106,6 +106,21 @@ export class UserService {
     }
   }
 
+  async deleteWorkExperience(userId: number, id: number) {
+    try {
+      await this.prisma.profileWorkExperience.delete({
+        where: {
+          userId: userId,
+          id: id
+        }
+      })
+
+      return "Successfully deleted!"
+    } catch (error) {
+      return new BadRequestException(error?.message)
+    }
+  }
+
   //! ACHIEVEMENTS
   async createAchievement(userId: number, createAchievementDto: CreateAchievementDto) {
     try {
@@ -141,6 +156,21 @@ export class UserService {
       })
 
       return achievement
+    } catch (error) {
+      return new BadRequestException(error?.message)
+    }
+  }
+
+  async deleteAchievement(userId: number, id: number) {
+    try {
+      await this.prisma.profileAchievement.delete({
+        where: {
+          userId: userId,
+          id: id
+        }
+      })
+
+      return "Successfully deleted!"
     } catch (error) {
       return new BadRequestException(error?.message)
     }
@@ -183,6 +213,21 @@ export class UserService {
       })
 
       return prominentWork
+    } catch (error) {
+      return new BadRequestException(error?.message)
+    }
+  }
+
+  async deleteProminentWork(userId: number, id: number) {
+    try {
+      await this.prisma.profileProminentWork.delete({
+        where: {
+          userId: userId,
+          id: id
+        }
+      })
+
+      return "Successfully deleted!"
     } catch (error) {
       return new BadRequestException(error?.message)
     }
