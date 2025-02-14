@@ -75,7 +75,6 @@ export class UserService {
 
   //!USER'S WORK EXPERIENCE
   async createWorkExperience(userId: number, createWorkExperienceDto: CreateWorkExperienceDto) {
-    console.log(createWorkExperienceDto);
     try {
       return await this.prisma.profileWorkExperience.create({
         data: {
