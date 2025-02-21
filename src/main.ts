@@ -16,14 +16,7 @@ async function bootstrap() {
   SwaggerModule.setup("api/docs", app, document);
 
   app.enableCors({
-    origin: '*',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    allowedHeaders: 'Content-Type, Authorization',
-    credentials: true,
-  });
-
-  app.enableCors({
-    origin: ['https://knack-freelancer-working.onrender.com/','http://localhost:3000'], // Allow requests from this origin
+    origin: ['https://knack-freelancer-working.onrender.com/','http://localhost:3000','https://knack-freelancer-working.vercel.app/'], // Allow requests from this origin
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed methods
     credentials: true, // Allow cookies if needed
     allowedHeaders: 'Content-Type, Authorization', // Allowed headers
