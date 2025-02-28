@@ -181,17 +181,66 @@ exports.Prisma.ProfileProminentWorkScalarFieldEnum = {
 
 exports.Prisma.PortfolioScalarFieldEnum = {
   id: 'id',
-  skills: 'skills',
+  name: 'name',
+  skillDescription: 'skillDescription',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.FeedbackScalarFieldEnum = {
+exports.Prisma.PortfolioProminentProjectScalarFieldEnum = {
   id: 'id',
-  freelancerId: 'freelancerId',
-  clientId: 'clientId',
-  comment: 'comment',
-  ratingPoint: 'ratingPoint',
+  portfolioId: 'portfolioId',
+  description: 'description',
+  role: 'role',
+  company: 'company',
+  detail: 'detail',
+  from: 'from',
+  to: 'to',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PortfolioProminentProjectImageScalarFieldEnum = {
+  id: 'id',
+  portfolioProminentProjectId: 'portfolioProminentProjectId',
+  image: 'image',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PortfolioCustomerFeedbackScalarFieldEnum = {
+  id: 'id',
+  portfolioId: 'portfolioId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PortfolioAboutSectionScalarFieldEnum = {
+  id: 'id',
+  portfolioId: 'portfolioId',
+  avatar: 'avatar',
+  overview: 'overview',
+  detail: 'detail',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PortfolioWorkExperienceScalarFieldEnum = {
+  id: 'id',
+  portfolioId: 'portfolioId',
+  role: 'role',
+  company: 'company',
+  image: 'image',
+  from: 'from',
+  to: 'to',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PortfolioSkillScalarFieldEnum = {
+  id: 'id',
+  portfolioId: 'portfolioId',
+  name: 'name',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -228,7 +277,12 @@ exports.Prisma.ModelName = {
   ProfileAchievement: 'ProfileAchievement',
   ProfileProminentWork: 'ProfileProminentWork',
   Portfolio: 'Portfolio',
-  Feedback: 'Feedback',
+  PortfolioProminentProject: 'PortfolioProminentProject',
+  PortfolioProminentProjectImage: 'PortfolioProminentProjectImage',
+  PortfolioCustomerFeedback: 'PortfolioCustomerFeedback',
+  PortfolioAboutSection: 'PortfolioAboutSection',
+  PortfolioWorkExperience: 'PortfolioWorkExperience',
+  PortfolioSkill: 'PortfolioSkill',
   Booking: 'Booking'
 };
 

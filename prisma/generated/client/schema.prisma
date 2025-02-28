@@ -101,28 +101,109 @@ model ProfileProminentWork {
 }
 
 model Portfolio {
-  id     Int    @id @default(autoincrement())
-  skills String
+  id               Int     @id @default(autoincrement())
+  name             String
+  skillDescription String? @map("skill_description")
 
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  portfolioProminentProjects PortfolioProminentProject[]
+  portfolioCustomerFeedbacks PortfolioCustomerFeedback[]
+  portfolioAboutSection      PortfolioAboutSection?
+  portfolioWorkExperiences   PortfolioWorkExperience[]
+  portfolioSkills            PortfolioSkill[]
 
   @@map("portfolios")
 }
 
-model Feedback {
-  id           Int     @id @default(autoincrement())
-  freelancerId Int     @map("freelancer_id")
-  clientId     Int     @map("client_id")
-  comment      String?
-  ratingPoint  Int     @map("rating_point")
+model PortfolioProminentProject {
+  id          Int       @id @default(autoincrement())
+  portfolioId Int
+  description String
+  role        String
+  company     String
+  detail      String?
+  from        DateTime  @db.Timestamptz()
+  to          DateTime? @db.Timestamptz()
 
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
 
-  @@index([freelancerId])
-  @@index([clientId])
-  @@map("feedbacks")
+  portfolio                       Portfolio                        @relation(references: [id], fields: [portfolioId])
+  portfolioProminentProjectImages PortfolioProminentProjectImage[]
+
+  @@map("portfolio_prominent_projects")
+}
+
+model PortfolioProminentProjectImage {
+  id                          Int    @id @default(autoincrement())
+  portfolioProminentProjectId Int
+  image                       String
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  portfolioProminentProject PortfolioProminentProject @relation(references: [id], fields: [portfolioProminentProjectId], onDelete: Cascade)
+
+  @@map("portfolio_prominent_project_images")
+}
+
+model PortfolioCustomerFeedback {
+  id          Int @id @default(autoincrement())
+  portfolioId Int
+
+  portfolio Portfolio @relation(references: [id], fields: [portfolioId])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  @@map("portfolio_customer_feedbacks")
+}
+
+model PortfolioAboutSection {
+  id          Int    @id @default(autoincrement())
+  portfolioId Int?   @unique
+  avatar      String
+  overview    String
+  detail      String
+
+  portfolio Portfolio? @relation(references: [id], fields: [portfolioId])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  @@map("portfolio_about_sections")
+}
+
+model PortfolioWorkExperience {
+  id          Int       @id @default(autoincrement())
+  portfolioId Int
+  role        String
+  company     String
+  image       String
+  from        DateTime  @db.Timestamptz()
+  to          DateTime? @db.Timestamptz()
+
+  portfolio Portfolio @relation(references: [id], fields: [portfolioId])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  @@map("portfolio_work_experiences")
+}
+
+model PortfolioSkill {
+  id          Int    @id @default(autoincrement())
+  portfolioId Int
+  name        String
+
+  portfolio Portfolio @relation(references: [id], fields: [portfolioId])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  @@map("portfolio_skills")
 }
 
 model Booking {

@@ -44,10 +44,35 @@ export type ProfileProminentWork = $Result.DefaultSelection<Prisma.$ProfilePromi
  */
 export type Portfolio = $Result.DefaultSelection<Prisma.$PortfolioPayload>
 /**
- * Model Feedback
+ * Model PortfolioProminentProject
  * 
  */
-export type Feedback = $Result.DefaultSelection<Prisma.$FeedbackPayload>
+export type PortfolioProminentProject = $Result.DefaultSelection<Prisma.$PortfolioProminentProjectPayload>
+/**
+ * Model PortfolioProminentProjectImage
+ * 
+ */
+export type PortfolioProminentProjectImage = $Result.DefaultSelection<Prisma.$PortfolioProminentProjectImagePayload>
+/**
+ * Model PortfolioCustomerFeedback
+ * 
+ */
+export type PortfolioCustomerFeedback = $Result.DefaultSelection<Prisma.$PortfolioCustomerFeedbackPayload>
+/**
+ * Model PortfolioAboutSection
+ * 
+ */
+export type PortfolioAboutSection = $Result.DefaultSelection<Prisma.$PortfolioAboutSectionPayload>
+/**
+ * Model PortfolioWorkExperience
+ * 
+ */
+export type PortfolioWorkExperience = $Result.DefaultSelection<Prisma.$PortfolioWorkExperiencePayload>
+/**
+ * Model PortfolioSkill
+ * 
+ */
+export type PortfolioSkill = $Result.DefaultSelection<Prisma.$PortfolioSkillPayload>
 /**
  * Model Booking
  * 
@@ -240,14 +265,64 @@ export class PrismaClient<
   get portfolio(): Prisma.PortfolioDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.feedback`: Exposes CRUD operations for the **Feedback** model.
+   * `prisma.portfolioProminentProject`: Exposes CRUD operations for the **PortfolioProminentProject** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Feedbacks
-    * const feedbacks = await prisma.feedback.findMany()
+    * // Fetch zero or more PortfolioProminentProjects
+    * const portfolioProminentProjects = await prisma.portfolioProminentProject.findMany()
     * ```
     */
-  get feedback(): Prisma.FeedbackDelegate<ExtArgs, ClientOptions>;
+  get portfolioProminentProject(): Prisma.PortfolioProminentProjectDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.portfolioProminentProjectImage`: Exposes CRUD operations for the **PortfolioProminentProjectImage** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PortfolioProminentProjectImages
+    * const portfolioProminentProjectImages = await prisma.portfolioProminentProjectImage.findMany()
+    * ```
+    */
+  get portfolioProminentProjectImage(): Prisma.PortfolioProminentProjectImageDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.portfolioCustomerFeedback`: Exposes CRUD operations for the **PortfolioCustomerFeedback** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PortfolioCustomerFeedbacks
+    * const portfolioCustomerFeedbacks = await prisma.portfolioCustomerFeedback.findMany()
+    * ```
+    */
+  get portfolioCustomerFeedback(): Prisma.PortfolioCustomerFeedbackDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.portfolioAboutSection`: Exposes CRUD operations for the **PortfolioAboutSection** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PortfolioAboutSections
+    * const portfolioAboutSections = await prisma.portfolioAboutSection.findMany()
+    * ```
+    */
+  get portfolioAboutSection(): Prisma.PortfolioAboutSectionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.portfolioWorkExperience`: Exposes CRUD operations for the **PortfolioWorkExperience** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PortfolioWorkExperiences
+    * const portfolioWorkExperiences = await prisma.portfolioWorkExperience.findMany()
+    * ```
+    */
+  get portfolioWorkExperience(): Prisma.PortfolioWorkExperienceDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.portfolioSkill`: Exposes CRUD operations for the **PortfolioSkill** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PortfolioSkills
+    * const portfolioSkills = await prisma.portfolioSkill.findMany()
+    * ```
+    */
+  get portfolioSkill(): Prisma.PortfolioSkillDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.booking`: Exposes CRUD operations for the **Booking** model.
@@ -704,7 +779,12 @@ export namespace Prisma {
     ProfileAchievement: 'ProfileAchievement',
     ProfileProminentWork: 'ProfileProminentWork',
     Portfolio: 'Portfolio',
-    Feedback: 'Feedback',
+    PortfolioProminentProject: 'PortfolioProminentProject',
+    PortfolioProminentProjectImage: 'PortfolioProminentProjectImage',
+    PortfolioCustomerFeedback: 'PortfolioCustomerFeedback',
+    PortfolioAboutSection: 'PortfolioAboutSection',
+    PortfolioWorkExperience: 'PortfolioWorkExperience',
+    PortfolioSkill: 'PortfolioSkill',
     Booking: 'Booking'
   };
 
@@ -721,7 +801,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "user" | "auth" | "profileWorkExperience" | "profileAchievement" | "profileProminentWork" | "portfolio" | "feedback" | "booking"
+      modelProps: "user" | "auth" | "profileWorkExperience" | "profileAchievement" | "profileProminentWork" | "portfolio" | "portfolioProminentProject" | "portfolioProminentProjectImage" | "portfolioCustomerFeedback" | "portfolioAboutSection" | "portfolioWorkExperience" | "portfolioSkill" | "booking"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1169,77 +1249,447 @@ export namespace Prisma {
           }
         }
       }
-      Feedback: {
-        payload: Prisma.$FeedbackPayload<ExtArgs>
-        fields: Prisma.FeedbackFieldRefs
+      PortfolioProminentProject: {
+        payload: Prisma.$PortfolioProminentProjectPayload<ExtArgs>
+        fields: Prisma.PortfolioProminentProjectFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.FeedbackFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeedbackPayload> | null
+            args: Prisma.PortfolioProminentProjectFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.FeedbackFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeedbackPayload>
+            args: Prisma.PortfolioProminentProjectFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectPayload>
           }
           findFirst: {
-            args: Prisma.FeedbackFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeedbackPayload> | null
+            args: Prisma.PortfolioProminentProjectFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.FeedbackFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeedbackPayload>
+            args: Prisma.PortfolioProminentProjectFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectPayload>
           }
           findMany: {
-            args: Prisma.FeedbackFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeedbackPayload>[]
+            args: Prisma.PortfolioProminentProjectFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectPayload>[]
           }
           create: {
-            args: Prisma.FeedbackCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeedbackPayload>
+            args: Prisma.PortfolioProminentProjectCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectPayload>
           }
           createMany: {
-            args: Prisma.FeedbackCreateManyArgs<ExtArgs>
+            args: Prisma.PortfolioProminentProjectCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.FeedbackCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeedbackPayload>[]
+            args: Prisma.PortfolioProminentProjectCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectPayload>[]
           }
           delete: {
-            args: Prisma.FeedbackDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeedbackPayload>
+            args: Prisma.PortfolioProminentProjectDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectPayload>
           }
           update: {
-            args: Prisma.FeedbackUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeedbackPayload>
+            args: Prisma.PortfolioProminentProjectUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectPayload>
           }
           deleteMany: {
-            args: Prisma.FeedbackDeleteManyArgs<ExtArgs>
+            args: Prisma.PortfolioProminentProjectDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.FeedbackUpdateManyArgs<ExtArgs>
+            args: Prisma.PortfolioProminentProjectUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.FeedbackUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeedbackPayload>[]
+            args: Prisma.PortfolioProminentProjectUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectPayload>[]
           }
           upsert: {
-            args: Prisma.FeedbackUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FeedbackPayload>
+            args: Prisma.PortfolioProminentProjectUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectPayload>
           }
           aggregate: {
-            args: Prisma.FeedbackAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateFeedback>
+            args: Prisma.PortfolioProminentProjectAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePortfolioProminentProject>
           }
           groupBy: {
-            args: Prisma.FeedbackGroupByArgs<ExtArgs>
-            result: $Utils.Optional<FeedbackGroupByOutputType>[]
+            args: Prisma.PortfolioProminentProjectGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PortfolioProminentProjectGroupByOutputType>[]
           }
           count: {
-            args: Prisma.FeedbackCountArgs<ExtArgs>
-            result: $Utils.Optional<FeedbackCountAggregateOutputType> | number
+            args: Prisma.PortfolioProminentProjectCountArgs<ExtArgs>
+            result: $Utils.Optional<PortfolioProminentProjectCountAggregateOutputType> | number
+          }
+        }
+      }
+      PortfolioProminentProjectImage: {
+        payload: Prisma.$PortfolioProminentProjectImagePayload<ExtArgs>
+        fields: Prisma.PortfolioProminentProjectImageFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PortfolioProminentProjectImageFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectImagePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PortfolioProminentProjectImageFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectImagePayload>
+          }
+          findFirst: {
+            args: Prisma.PortfolioProminentProjectImageFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectImagePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PortfolioProminentProjectImageFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectImagePayload>
+          }
+          findMany: {
+            args: Prisma.PortfolioProminentProjectImageFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectImagePayload>[]
+          }
+          create: {
+            args: Prisma.PortfolioProminentProjectImageCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectImagePayload>
+          }
+          createMany: {
+            args: Prisma.PortfolioProminentProjectImageCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PortfolioProminentProjectImageCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectImagePayload>[]
+          }
+          delete: {
+            args: Prisma.PortfolioProminentProjectImageDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectImagePayload>
+          }
+          update: {
+            args: Prisma.PortfolioProminentProjectImageUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectImagePayload>
+          }
+          deleteMany: {
+            args: Prisma.PortfolioProminentProjectImageDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PortfolioProminentProjectImageUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PortfolioProminentProjectImageUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectImagePayload>[]
+          }
+          upsert: {
+            args: Prisma.PortfolioProminentProjectImageUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioProminentProjectImagePayload>
+          }
+          aggregate: {
+            args: Prisma.PortfolioProminentProjectImageAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePortfolioProminentProjectImage>
+          }
+          groupBy: {
+            args: Prisma.PortfolioProminentProjectImageGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PortfolioProminentProjectImageGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PortfolioProminentProjectImageCountArgs<ExtArgs>
+            result: $Utils.Optional<PortfolioProminentProjectImageCountAggregateOutputType> | number
+          }
+        }
+      }
+      PortfolioCustomerFeedback: {
+        payload: Prisma.$PortfolioCustomerFeedbackPayload<ExtArgs>
+        fields: Prisma.PortfolioCustomerFeedbackFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PortfolioCustomerFeedbackFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioCustomerFeedbackPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PortfolioCustomerFeedbackFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioCustomerFeedbackPayload>
+          }
+          findFirst: {
+            args: Prisma.PortfolioCustomerFeedbackFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioCustomerFeedbackPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PortfolioCustomerFeedbackFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioCustomerFeedbackPayload>
+          }
+          findMany: {
+            args: Prisma.PortfolioCustomerFeedbackFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioCustomerFeedbackPayload>[]
+          }
+          create: {
+            args: Prisma.PortfolioCustomerFeedbackCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioCustomerFeedbackPayload>
+          }
+          createMany: {
+            args: Prisma.PortfolioCustomerFeedbackCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PortfolioCustomerFeedbackCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioCustomerFeedbackPayload>[]
+          }
+          delete: {
+            args: Prisma.PortfolioCustomerFeedbackDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioCustomerFeedbackPayload>
+          }
+          update: {
+            args: Prisma.PortfolioCustomerFeedbackUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioCustomerFeedbackPayload>
+          }
+          deleteMany: {
+            args: Prisma.PortfolioCustomerFeedbackDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PortfolioCustomerFeedbackUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PortfolioCustomerFeedbackUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioCustomerFeedbackPayload>[]
+          }
+          upsert: {
+            args: Prisma.PortfolioCustomerFeedbackUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioCustomerFeedbackPayload>
+          }
+          aggregate: {
+            args: Prisma.PortfolioCustomerFeedbackAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePortfolioCustomerFeedback>
+          }
+          groupBy: {
+            args: Prisma.PortfolioCustomerFeedbackGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PortfolioCustomerFeedbackGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PortfolioCustomerFeedbackCountArgs<ExtArgs>
+            result: $Utils.Optional<PortfolioCustomerFeedbackCountAggregateOutputType> | number
+          }
+        }
+      }
+      PortfolioAboutSection: {
+        payload: Prisma.$PortfolioAboutSectionPayload<ExtArgs>
+        fields: Prisma.PortfolioAboutSectionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PortfolioAboutSectionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PortfolioAboutSectionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload>
+          }
+          findFirst: {
+            args: Prisma.PortfolioAboutSectionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PortfolioAboutSectionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload>
+          }
+          findMany: {
+            args: Prisma.PortfolioAboutSectionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload>[]
+          }
+          create: {
+            args: Prisma.PortfolioAboutSectionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload>
+          }
+          createMany: {
+            args: Prisma.PortfolioAboutSectionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PortfolioAboutSectionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload>[]
+          }
+          delete: {
+            args: Prisma.PortfolioAboutSectionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload>
+          }
+          update: {
+            args: Prisma.PortfolioAboutSectionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload>
+          }
+          deleteMany: {
+            args: Prisma.PortfolioAboutSectionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PortfolioAboutSectionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PortfolioAboutSectionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload>[]
+          }
+          upsert: {
+            args: Prisma.PortfolioAboutSectionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload>
+          }
+          aggregate: {
+            args: Prisma.PortfolioAboutSectionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePortfolioAboutSection>
+          }
+          groupBy: {
+            args: Prisma.PortfolioAboutSectionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PortfolioAboutSectionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PortfolioAboutSectionCountArgs<ExtArgs>
+            result: $Utils.Optional<PortfolioAboutSectionCountAggregateOutputType> | number
+          }
+        }
+      }
+      PortfolioWorkExperience: {
+        payload: Prisma.$PortfolioWorkExperiencePayload<ExtArgs>
+        fields: Prisma.PortfolioWorkExperienceFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PortfolioWorkExperienceFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioWorkExperiencePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PortfolioWorkExperienceFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioWorkExperiencePayload>
+          }
+          findFirst: {
+            args: Prisma.PortfolioWorkExperienceFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioWorkExperiencePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PortfolioWorkExperienceFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioWorkExperiencePayload>
+          }
+          findMany: {
+            args: Prisma.PortfolioWorkExperienceFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioWorkExperiencePayload>[]
+          }
+          create: {
+            args: Prisma.PortfolioWorkExperienceCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioWorkExperiencePayload>
+          }
+          createMany: {
+            args: Prisma.PortfolioWorkExperienceCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PortfolioWorkExperienceCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioWorkExperiencePayload>[]
+          }
+          delete: {
+            args: Prisma.PortfolioWorkExperienceDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioWorkExperiencePayload>
+          }
+          update: {
+            args: Prisma.PortfolioWorkExperienceUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioWorkExperiencePayload>
+          }
+          deleteMany: {
+            args: Prisma.PortfolioWorkExperienceDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PortfolioWorkExperienceUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PortfolioWorkExperienceUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioWorkExperiencePayload>[]
+          }
+          upsert: {
+            args: Prisma.PortfolioWorkExperienceUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioWorkExperiencePayload>
+          }
+          aggregate: {
+            args: Prisma.PortfolioWorkExperienceAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePortfolioWorkExperience>
+          }
+          groupBy: {
+            args: Prisma.PortfolioWorkExperienceGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PortfolioWorkExperienceGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PortfolioWorkExperienceCountArgs<ExtArgs>
+            result: $Utils.Optional<PortfolioWorkExperienceCountAggregateOutputType> | number
+          }
+        }
+      }
+      PortfolioSkill: {
+        payload: Prisma.$PortfolioSkillPayload<ExtArgs>
+        fields: Prisma.PortfolioSkillFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PortfolioSkillFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioSkillPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PortfolioSkillFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioSkillPayload>
+          }
+          findFirst: {
+            args: Prisma.PortfolioSkillFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioSkillPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PortfolioSkillFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioSkillPayload>
+          }
+          findMany: {
+            args: Prisma.PortfolioSkillFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioSkillPayload>[]
+          }
+          create: {
+            args: Prisma.PortfolioSkillCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioSkillPayload>
+          }
+          createMany: {
+            args: Prisma.PortfolioSkillCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PortfolioSkillCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioSkillPayload>[]
+          }
+          delete: {
+            args: Prisma.PortfolioSkillDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioSkillPayload>
+          }
+          update: {
+            args: Prisma.PortfolioSkillUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioSkillPayload>
+          }
+          deleteMany: {
+            args: Prisma.PortfolioSkillDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PortfolioSkillUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PortfolioSkillUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioSkillPayload>[]
+          }
+          upsert: {
+            args: Prisma.PortfolioSkillUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PortfolioSkillPayload>
+          }
+          aggregate: {
+            args: Prisma.PortfolioSkillAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePortfolioSkill>
+          }
+          groupBy: {
+            args: Prisma.PortfolioSkillGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PortfolioSkillGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PortfolioSkillCountArgs<ExtArgs>
+            result: $Utils.Optional<PortfolioSkillCountAggregateOutputType> | number
           }
         }
       }
@@ -1407,7 +1857,12 @@ export namespace Prisma {
     profileAchievement?: ProfileAchievementOmit
     profileProminentWork?: ProfileProminentWorkOmit
     portfolio?: PortfolioOmit
-    feedback?: FeedbackOmit
+    portfolioProminentProject?: PortfolioProminentProjectOmit
+    portfolioProminentProjectImage?: PortfolioProminentProjectImageOmit
+    portfolioCustomerFeedback?: PortfolioCustomerFeedbackOmit
+    portfolioAboutSection?: PortfolioAboutSectionOmit
+    portfolioWorkExperience?: PortfolioWorkExperienceOmit
+    portfolioSkill?: PortfolioSkillOmit
     booking?: BookingOmit
   }
 
@@ -1544,6 +1999,95 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountProfileProminentWorksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ProfileProminentWorkWhereInput
+  }
+
+
+  /**
+   * Count Type PortfolioCountOutputType
+   */
+
+  export type PortfolioCountOutputType = {
+    portfolioProminentProjects: number
+    portfolioCustomerFeedbacks: number
+    portfolioWorkExperiences: number
+    portfolioSkills: number
+  }
+
+  export type PortfolioCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolioProminentProjects?: boolean | PortfolioCountOutputTypeCountPortfolioProminentProjectsArgs
+    portfolioCustomerFeedbacks?: boolean | PortfolioCountOutputTypeCountPortfolioCustomerFeedbacksArgs
+    portfolioWorkExperiences?: boolean | PortfolioCountOutputTypeCountPortfolioWorkExperiencesArgs
+    portfolioSkills?: boolean | PortfolioCountOutputTypeCountPortfolioSkillsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * PortfolioCountOutputType without action
+   */
+  export type PortfolioCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioCountOutputType
+     */
+    select?: PortfolioCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PortfolioCountOutputType without action
+   */
+  export type PortfolioCountOutputTypeCountPortfolioProminentProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PortfolioProminentProjectWhereInput
+  }
+
+  /**
+   * PortfolioCountOutputType without action
+   */
+  export type PortfolioCountOutputTypeCountPortfolioCustomerFeedbacksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PortfolioCustomerFeedbackWhereInput
+  }
+
+  /**
+   * PortfolioCountOutputType without action
+   */
+  export type PortfolioCountOutputTypeCountPortfolioWorkExperiencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PortfolioWorkExperienceWhereInput
+  }
+
+  /**
+   * PortfolioCountOutputType without action
+   */
+  export type PortfolioCountOutputTypeCountPortfolioSkillsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PortfolioSkillWhereInput
+  }
+
+
+  /**
+   * Count Type PortfolioProminentProjectCountOutputType
+   */
+
+  export type PortfolioProminentProjectCountOutputType = {
+    portfolioProminentProjectImages: number
+  }
+
+  export type PortfolioProminentProjectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolioProminentProjectImages?: boolean | PortfolioProminentProjectCountOutputTypeCountPortfolioProminentProjectImagesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * PortfolioProminentProjectCountOutputType without action
+   */
+  export type PortfolioProminentProjectCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioProminentProjectCountOutputType
+     */
+    select?: PortfolioProminentProjectCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PortfolioProminentProjectCountOutputType without action
+   */
+  export type PortfolioProminentProjectCountOutputTypeCountPortfolioProminentProjectImagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PortfolioProminentProjectImageWhereInput
   }
 
 
@@ -7352,21 +7896,24 @@ export namespace Prisma {
 
   export type PortfolioMinAggregateOutputType = {
     id: number | null
-    skills: string | null
+    name: string | null
+    skillDescription: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
   export type PortfolioMaxAggregateOutputType = {
     id: number | null
-    skills: string | null
+    name: string | null
+    skillDescription: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
   export type PortfolioCountAggregateOutputType = {
     id: number
-    skills: number
+    name: number
+    skillDescription: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -7383,21 +7930,24 @@ export namespace Prisma {
 
   export type PortfolioMinAggregateInputType = {
     id?: true
-    skills?: true
+    name?: true
+    skillDescription?: true
     createdAt?: true
     updatedAt?: true
   }
 
   export type PortfolioMaxAggregateInputType = {
     id?: true
-    skills?: true
+    name?: true
+    skillDescription?: true
     createdAt?: true
     updatedAt?: true
   }
 
   export type PortfolioCountAggregateInputType = {
     id?: true
-    skills?: true
+    name?: true
+    skillDescription?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -7491,7 +8041,8 @@ export namespace Prisma {
 
   export type PortfolioGroupByOutputType = {
     id: number
-    skills: string
+    name: string
+    skillDescription: string | null
     createdAt: Date
     updatedAt: Date
     _count: PortfolioCountAggregateOutputType | null
@@ -7517,40 +8068,67 @@ export namespace Prisma {
 
   export type PortfolioSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    skills?: boolean
+    name?: boolean
+    skillDescription?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    portfolioProminentProjects?: boolean | Portfolio$portfolioProminentProjectsArgs<ExtArgs>
+    portfolioCustomerFeedbacks?: boolean | Portfolio$portfolioCustomerFeedbacksArgs<ExtArgs>
+    portfolioAboutSection?: boolean | Portfolio$portfolioAboutSectionArgs<ExtArgs>
+    portfolioWorkExperiences?: boolean | Portfolio$portfolioWorkExperiencesArgs<ExtArgs>
+    portfolioSkills?: boolean | Portfolio$portfolioSkillsArgs<ExtArgs>
+    _count?: boolean | PortfolioCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["portfolio"]>
 
   export type PortfolioSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    skills?: boolean
+    name?: boolean
+    skillDescription?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["portfolio"]>
 
   export type PortfolioSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    skills?: boolean
+    name?: boolean
+    skillDescription?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["portfolio"]>
 
   export type PortfolioSelectScalar = {
     id?: boolean
-    skills?: boolean
+    name?: boolean
+    skillDescription?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type PortfolioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "skills" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolio"]>
+  export type PortfolioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "skillDescription" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolio"]>
+  export type PortfolioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolioProminentProjects?: boolean | Portfolio$portfolioProminentProjectsArgs<ExtArgs>
+    portfolioCustomerFeedbacks?: boolean | Portfolio$portfolioCustomerFeedbacksArgs<ExtArgs>
+    portfolioAboutSection?: boolean | Portfolio$portfolioAboutSectionArgs<ExtArgs>
+    portfolioWorkExperiences?: boolean | Portfolio$portfolioWorkExperiencesArgs<ExtArgs>
+    portfolioSkills?: boolean | Portfolio$portfolioSkillsArgs<ExtArgs>
+    _count?: boolean | PortfolioCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type PortfolioIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type PortfolioIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $PortfolioPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Portfolio"
-    objects: {}
+    objects: {
+      portfolioProminentProjects: Prisma.$PortfolioProminentProjectPayload<ExtArgs>[]
+      portfolioCustomerFeedbacks: Prisma.$PortfolioCustomerFeedbackPayload<ExtArgs>[]
+      portfolioAboutSection: Prisma.$PortfolioAboutSectionPayload<ExtArgs> | null
+      portfolioWorkExperiences: Prisma.$PortfolioWorkExperiencePayload<ExtArgs>[]
+      portfolioSkills: Prisma.$PortfolioSkillPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      skills: string
+      name: string
+      skillDescription: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["portfolio"]>
@@ -7947,6 +8525,11 @@ export namespace Prisma {
    */
   export interface Prisma__PortfolioClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    portfolioProminentProjects<T extends Portfolio$portfolioProminentProjectsArgs<ExtArgs> = {}>(args?: Subset<T, Portfolio$portfolioProminentProjectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioProminentProjectPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    portfolioCustomerFeedbacks<T extends Portfolio$portfolioCustomerFeedbacksArgs<ExtArgs> = {}>(args?: Subset<T, Portfolio$portfolioCustomerFeedbacksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioCustomerFeedbackPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    portfolioAboutSection<T extends Portfolio$portfolioAboutSectionArgs<ExtArgs> = {}>(args?: Subset<T, Portfolio$portfolioAboutSectionArgs<ExtArgs>>): Prisma__PortfolioAboutSectionClient<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
+    portfolioWorkExperiences<T extends Portfolio$portfolioWorkExperiencesArgs<ExtArgs> = {}>(args?: Subset<T, Portfolio$portfolioWorkExperiencesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioWorkExperiencePayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    portfolioSkills<T extends Portfolio$portfolioSkillsArgs<ExtArgs> = {}>(args?: Subset<T, Portfolio$portfolioSkillsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioSkillPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7977,7 +8560,8 @@ export namespace Prisma {
    */ 
   interface PortfolioFieldRefs {
     readonly id: FieldRef<"Portfolio", 'Int'>
-    readonly skills: FieldRef<"Portfolio", 'String'>
+    readonly name: FieldRef<"Portfolio", 'String'>
+    readonly skillDescription: FieldRef<"Portfolio", 'String'>
     readonly createdAt: FieldRef<"Portfolio", 'DateTime'>
     readonly updatedAt: FieldRef<"Portfolio", 'DateTime'>
   }
@@ -7997,6 +8581,10 @@ export namespace Prisma {
      */
     omit?: PortfolioOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioInclude<ExtArgs> | null
+    /**
      * Filter, which Portfolio to fetch.
      */
     where: PortfolioWhereUniqueInput
@@ -8015,6 +8603,10 @@ export namespace Prisma {
      */
     omit?: PortfolioOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioInclude<ExtArgs> | null
+    /**
      * Filter, which Portfolio to fetch.
      */
     where: PortfolioWhereUniqueInput
@@ -8032,6 +8624,10 @@ export namespace Prisma {
      * Omit specific fields from the Portfolio
      */
     omit?: PortfolioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioInclude<ExtArgs> | null
     /**
      * Filter, which Portfolio to fetch.
      */
@@ -8081,6 +8677,10 @@ export namespace Prisma {
      */
     omit?: PortfolioOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioInclude<ExtArgs> | null
+    /**
      * Filter, which Portfolio to fetch.
      */
     where?: PortfolioWhereInput
@@ -8129,6 +8729,10 @@ export namespace Prisma {
      */
     omit?: PortfolioOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioInclude<ExtArgs> | null
+    /**
      * Filter, which Portfolios to fetch.
      */
     where?: PortfolioWhereInput
@@ -8171,6 +8775,10 @@ export namespace Prisma {
      * Omit specific fields from the Portfolio
      */
     omit?: PortfolioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioInclude<ExtArgs> | null
     /**
      * The data needed to create a Portfolio.
      */
@@ -8219,6 +8827,10 @@ export namespace Prisma {
      * Omit specific fields from the Portfolio
      */
     omit?: PortfolioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioInclude<ExtArgs> | null
     /**
      * The data needed to update a Portfolio.
      */
@@ -8286,6 +8898,10 @@ export namespace Prisma {
      */
     omit?: PortfolioOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioInclude<ExtArgs> | null
+    /**
      * The filter to search for the Portfolio to update in case it exists.
      */
     where: PortfolioWhereUniqueInput
@@ -8312,6 +8928,10 @@ export namespace Prisma {
      */
     omit?: PortfolioOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioInclude<ExtArgs> | null
+    /**
      * Filter which Portfolio to delete.
      */
     where: PortfolioWhereUniqueInput
@@ -8332,6 +8952,121 @@ export namespace Prisma {
   }
 
   /**
+   * Portfolio.portfolioProminentProjects
+   */
+  export type Portfolio$portfolioProminentProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioProminentProject
+     */
+    select?: PortfolioProminentProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioProminentProject
+     */
+    omit?: PortfolioProminentProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioProminentProjectInclude<ExtArgs> | null
+    where?: PortfolioProminentProjectWhereInput
+    orderBy?: PortfolioProminentProjectOrderByWithRelationInput | PortfolioProminentProjectOrderByWithRelationInput[]
+    cursor?: PortfolioProminentProjectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PortfolioProminentProjectScalarFieldEnum | PortfolioProminentProjectScalarFieldEnum[]
+  }
+
+  /**
+   * Portfolio.portfolioCustomerFeedbacks
+   */
+  export type Portfolio$portfolioCustomerFeedbacksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioCustomerFeedback
+     */
+    select?: PortfolioCustomerFeedbackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioCustomerFeedback
+     */
+    omit?: PortfolioCustomerFeedbackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioCustomerFeedbackInclude<ExtArgs> | null
+    where?: PortfolioCustomerFeedbackWhereInput
+    orderBy?: PortfolioCustomerFeedbackOrderByWithRelationInput | PortfolioCustomerFeedbackOrderByWithRelationInput[]
+    cursor?: PortfolioCustomerFeedbackWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PortfolioCustomerFeedbackScalarFieldEnum | PortfolioCustomerFeedbackScalarFieldEnum[]
+  }
+
+  /**
+   * Portfolio.portfolioAboutSection
+   */
+  export type Portfolio$portfolioAboutSectionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioAboutSection
+     */
+    select?: PortfolioAboutSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioAboutSection
+     */
+    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioAboutSectionInclude<ExtArgs> | null
+    where?: PortfolioAboutSectionWhereInput
+  }
+
+  /**
+   * Portfolio.portfolioWorkExperiences
+   */
+  export type Portfolio$portfolioWorkExperiencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioWorkExperience
+     */
+    select?: PortfolioWorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioWorkExperience
+     */
+    omit?: PortfolioWorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioWorkExperienceInclude<ExtArgs> | null
+    where?: PortfolioWorkExperienceWhereInput
+    orderBy?: PortfolioWorkExperienceOrderByWithRelationInput | PortfolioWorkExperienceOrderByWithRelationInput[]
+    cursor?: PortfolioWorkExperienceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PortfolioWorkExperienceScalarFieldEnum | PortfolioWorkExperienceScalarFieldEnum[]
+  }
+
+  /**
+   * Portfolio.portfolioSkills
+   */
+  export type Portfolio$portfolioSkillsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioSkill
+     */
+    select?: PortfolioSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioSkill
+     */
+    omit?: PortfolioSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioSkillInclude<ExtArgs> | null
+    where?: PortfolioSkillWhereInput
+    orderBy?: PortfolioSkillOrderByWithRelationInput | PortfolioSkillOrderByWithRelationInput[]
+    cursor?: PortfolioSkillWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PortfolioSkillScalarFieldEnum | PortfolioSkillScalarFieldEnum[]
+  }
+
+  /**
    * Portfolio without action
    */
   export type PortfolioDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -8343,410 +9078,461 @@ export namespace Prisma {
      * Omit specific fields from the Portfolio
      */
     omit?: PortfolioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model Feedback
+   * Model PortfolioProminentProject
    */
 
-  export type AggregateFeedback = {
-    _count: FeedbackCountAggregateOutputType | null
-    _avg: FeedbackAvgAggregateOutputType | null
-    _sum: FeedbackSumAggregateOutputType | null
-    _min: FeedbackMinAggregateOutputType | null
-    _max: FeedbackMaxAggregateOutputType | null
+  export type AggregatePortfolioProminentProject = {
+    _count: PortfolioProminentProjectCountAggregateOutputType | null
+    _avg: PortfolioProminentProjectAvgAggregateOutputType | null
+    _sum: PortfolioProminentProjectSumAggregateOutputType | null
+    _min: PortfolioProminentProjectMinAggregateOutputType | null
+    _max: PortfolioProminentProjectMaxAggregateOutputType | null
   }
 
-  export type FeedbackAvgAggregateOutputType = {
+  export type PortfolioProminentProjectAvgAggregateOutputType = {
     id: number | null
-    freelancerId: number | null
-    clientId: number | null
-    ratingPoint: number | null
+    portfolioId: number | null
   }
 
-  export type FeedbackSumAggregateOutputType = {
+  export type PortfolioProminentProjectSumAggregateOutputType = {
     id: number | null
-    freelancerId: number | null
-    clientId: number | null
-    ratingPoint: number | null
+    portfolioId: number | null
   }
 
-  export type FeedbackMinAggregateOutputType = {
+  export type PortfolioProminentProjectMinAggregateOutputType = {
     id: number | null
-    freelancerId: number | null
-    clientId: number | null
-    comment: string | null
-    ratingPoint: number | null
+    portfolioId: number | null
+    description: string | null
+    role: string | null
+    company: string | null
+    detail: string | null
+    from: Date | null
+    to: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type FeedbackMaxAggregateOutputType = {
+  export type PortfolioProminentProjectMaxAggregateOutputType = {
     id: number | null
-    freelancerId: number | null
-    clientId: number | null
-    comment: string | null
-    ratingPoint: number | null
+    portfolioId: number | null
+    description: string | null
+    role: string | null
+    company: string | null
+    detail: string | null
+    from: Date | null
+    to: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type FeedbackCountAggregateOutputType = {
+  export type PortfolioProminentProjectCountAggregateOutputType = {
     id: number
-    freelancerId: number
-    clientId: number
-    comment: number
-    ratingPoint: number
+    portfolioId: number
+    description: number
+    role: number
+    company: number
+    detail: number
+    from: number
+    to: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
 
-  export type FeedbackAvgAggregateInputType = {
+  export type PortfolioProminentProjectAvgAggregateInputType = {
     id?: true
-    freelancerId?: true
-    clientId?: true
-    ratingPoint?: true
+    portfolioId?: true
   }
 
-  export type FeedbackSumAggregateInputType = {
+  export type PortfolioProminentProjectSumAggregateInputType = {
     id?: true
-    freelancerId?: true
-    clientId?: true
-    ratingPoint?: true
+    portfolioId?: true
   }
 
-  export type FeedbackMinAggregateInputType = {
+  export type PortfolioProminentProjectMinAggregateInputType = {
     id?: true
-    freelancerId?: true
-    clientId?: true
-    comment?: true
-    ratingPoint?: true
+    portfolioId?: true
+    description?: true
+    role?: true
+    company?: true
+    detail?: true
+    from?: true
+    to?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type FeedbackMaxAggregateInputType = {
+  export type PortfolioProminentProjectMaxAggregateInputType = {
     id?: true
-    freelancerId?: true
-    clientId?: true
-    comment?: true
-    ratingPoint?: true
+    portfolioId?: true
+    description?: true
+    role?: true
+    company?: true
+    detail?: true
+    from?: true
+    to?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type FeedbackCountAggregateInputType = {
+  export type PortfolioProminentProjectCountAggregateInputType = {
     id?: true
-    freelancerId?: true
-    clientId?: true
-    comment?: true
-    ratingPoint?: true
+    portfolioId?: true
+    description?: true
+    role?: true
+    company?: true
+    detail?: true
+    from?: true
+    to?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
   }
 
-  export type FeedbackAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PortfolioProminentProjectAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Feedback to aggregate.
+     * Filter which PortfolioProminentProject to aggregate.
      */
-    where?: FeedbackWhereInput
+    where?: PortfolioProminentProjectWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Feedbacks to fetch.
+     * Determine the order of PortfolioProminentProjects to fetch.
      */
-    orderBy?: FeedbackOrderByWithRelationInput | FeedbackOrderByWithRelationInput[]
+    orderBy?: PortfolioProminentProjectOrderByWithRelationInput | PortfolioProminentProjectOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: FeedbackWhereUniqueInput
+    cursor?: PortfolioProminentProjectWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Feedbacks from the position of the cursor.
+     * Take `±n` PortfolioProminentProjects from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Feedbacks.
+     * Skip the first `n` PortfolioProminentProjects.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Feedbacks
+     * Count returned PortfolioProminentProjects
     **/
-    _count?: true | FeedbackCountAggregateInputType
+    _count?: true | PortfolioProminentProjectCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: FeedbackAvgAggregateInputType
+    _avg?: PortfolioProminentProjectAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: FeedbackSumAggregateInputType
+    _sum?: PortfolioProminentProjectSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: FeedbackMinAggregateInputType
+    _min?: PortfolioProminentProjectMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: FeedbackMaxAggregateInputType
+    _max?: PortfolioProminentProjectMaxAggregateInputType
   }
 
-  export type GetFeedbackAggregateType<T extends FeedbackAggregateArgs> = {
-        [P in keyof T & keyof AggregateFeedback]: P extends '_count' | 'count'
+  export type GetPortfolioProminentProjectAggregateType<T extends PortfolioProminentProjectAggregateArgs> = {
+        [P in keyof T & keyof AggregatePortfolioProminentProject]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateFeedback[P]>
-      : GetScalarType<T[P], AggregateFeedback[P]>
+        : GetScalarType<T[P], AggregatePortfolioProminentProject[P]>
+      : GetScalarType<T[P], AggregatePortfolioProminentProject[P]>
   }
 
 
 
 
-  export type FeedbackGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: FeedbackWhereInput
-    orderBy?: FeedbackOrderByWithAggregationInput | FeedbackOrderByWithAggregationInput[]
-    by: FeedbackScalarFieldEnum[] | FeedbackScalarFieldEnum
-    having?: FeedbackScalarWhereWithAggregatesInput
+  export type PortfolioProminentProjectGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PortfolioProminentProjectWhereInput
+    orderBy?: PortfolioProminentProjectOrderByWithAggregationInput | PortfolioProminentProjectOrderByWithAggregationInput[]
+    by: PortfolioProminentProjectScalarFieldEnum[] | PortfolioProminentProjectScalarFieldEnum
+    having?: PortfolioProminentProjectScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: FeedbackCountAggregateInputType | true
-    _avg?: FeedbackAvgAggregateInputType
-    _sum?: FeedbackSumAggregateInputType
-    _min?: FeedbackMinAggregateInputType
-    _max?: FeedbackMaxAggregateInputType
+    _count?: PortfolioProminentProjectCountAggregateInputType | true
+    _avg?: PortfolioProminentProjectAvgAggregateInputType
+    _sum?: PortfolioProminentProjectSumAggregateInputType
+    _min?: PortfolioProminentProjectMinAggregateInputType
+    _max?: PortfolioProminentProjectMaxAggregateInputType
   }
 
-  export type FeedbackGroupByOutputType = {
+  export type PortfolioProminentProjectGroupByOutputType = {
     id: number
-    freelancerId: number
-    clientId: number
-    comment: string | null
-    ratingPoint: number
+    portfolioId: number
+    description: string
+    role: string
+    company: string
+    detail: string | null
+    from: Date
+    to: Date | null
     createdAt: Date
     updatedAt: Date
-    _count: FeedbackCountAggregateOutputType | null
-    _avg: FeedbackAvgAggregateOutputType | null
-    _sum: FeedbackSumAggregateOutputType | null
-    _min: FeedbackMinAggregateOutputType | null
-    _max: FeedbackMaxAggregateOutputType | null
+    _count: PortfolioProminentProjectCountAggregateOutputType | null
+    _avg: PortfolioProminentProjectAvgAggregateOutputType | null
+    _sum: PortfolioProminentProjectSumAggregateOutputType | null
+    _min: PortfolioProminentProjectMinAggregateOutputType | null
+    _max: PortfolioProminentProjectMaxAggregateOutputType | null
   }
 
-  type GetFeedbackGroupByPayload<T extends FeedbackGroupByArgs> = Prisma.PrismaPromise<
+  type GetPortfolioProminentProjectGroupByPayload<T extends PortfolioProminentProjectGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<FeedbackGroupByOutputType, T['by']> &
+      PickEnumerable<PortfolioProminentProjectGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof FeedbackGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof PortfolioProminentProjectGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], FeedbackGroupByOutputType[P]>
-            : GetScalarType<T[P], FeedbackGroupByOutputType[P]>
+              : GetScalarType<T[P], PortfolioProminentProjectGroupByOutputType[P]>
+            : GetScalarType<T[P], PortfolioProminentProjectGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type FeedbackSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PortfolioProminentProjectSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    freelancerId?: boolean
-    clientId?: boolean
-    comment?: boolean
-    ratingPoint?: boolean
+    portfolioId?: boolean
+    description?: boolean
+    role?: boolean
+    company?: boolean
+    detail?: boolean
+    from?: boolean
+    to?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["feedback"]>
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+    portfolioProminentProjectImages?: boolean | PortfolioProminentProject$portfolioProminentProjectImagesArgs<ExtArgs>
+    _count?: boolean | PortfolioProminentProjectCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["portfolioProminentProject"]>
 
-  export type FeedbackSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PortfolioProminentProjectSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    freelancerId?: boolean
-    clientId?: boolean
-    comment?: boolean
-    ratingPoint?: boolean
+    portfolioId?: boolean
+    description?: boolean
+    role?: boolean
+    company?: boolean
+    detail?: boolean
+    from?: boolean
+    to?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["feedback"]>
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["portfolioProminentProject"]>
 
-  export type FeedbackSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PortfolioProminentProjectSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    freelancerId?: boolean
-    clientId?: boolean
-    comment?: boolean
-    ratingPoint?: boolean
+    portfolioId?: boolean
+    description?: boolean
+    role?: boolean
+    company?: boolean
+    detail?: boolean
+    from?: boolean
+    to?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["feedback"]>
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["portfolioProminentProject"]>
 
-  export type FeedbackSelectScalar = {
+  export type PortfolioProminentProjectSelectScalar = {
     id?: boolean
-    freelancerId?: boolean
-    clientId?: boolean
-    comment?: boolean
-    ratingPoint?: boolean
+    portfolioId?: boolean
+    description?: boolean
+    role?: boolean
+    company?: boolean
+    detail?: boolean
+    from?: boolean
+    to?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type FeedbackOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "freelancerId" | "clientId" | "comment" | "ratingPoint" | "createdAt" | "updatedAt", ExtArgs["result"]["feedback"]>
+  export type PortfolioProminentProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "portfolioId" | "description" | "role" | "company" | "detail" | "from" | "to" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolioProminentProject"]>
+  export type PortfolioProminentProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+    portfolioProminentProjectImages?: boolean | PortfolioProminentProject$portfolioProminentProjectImagesArgs<ExtArgs>
+    _count?: boolean | PortfolioProminentProjectCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type PortfolioProminentProjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }
+  export type PortfolioProminentProjectIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }
 
-  export type $FeedbackPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Feedback"
-    objects: {}
+  export type $PortfolioProminentProjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PortfolioProminentProject"
+    objects: {
+      portfolio: Prisma.$PortfolioPayload<ExtArgs>
+      portfolioProminentProjectImages: Prisma.$PortfolioProminentProjectImagePayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      freelancerId: number
-      clientId: number
-      comment: string | null
-      ratingPoint: number
+      portfolioId: number
+      description: string
+      role: string
+      company: string
+      detail: string | null
+      from: Date
+      to: Date | null
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["feedback"]>
+    }, ExtArgs["result"]["portfolioProminentProject"]>
     composites: {}
   }
 
-  type FeedbackGetPayload<S extends boolean | null | undefined | FeedbackDefaultArgs> = $Result.GetResult<Prisma.$FeedbackPayload, S>
+  type PortfolioProminentProjectGetPayload<S extends boolean | null | undefined | PortfolioProminentProjectDefaultArgs> = $Result.GetResult<Prisma.$PortfolioProminentProjectPayload, S>
 
-  type FeedbackCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<FeedbackFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: FeedbackCountAggregateInputType | true
+  type PortfolioProminentProjectCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PortfolioProminentProjectFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PortfolioProminentProjectCountAggregateInputType | true
     }
 
-  export interface FeedbackDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Feedback'], meta: { name: 'Feedback' } }
+  export interface PortfolioProminentProjectDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PortfolioProminentProject'], meta: { name: 'PortfolioProminentProject' } }
     /**
-     * Find zero or one Feedback that matches the filter.
-     * @param {FeedbackFindUniqueArgs} args - Arguments to find a Feedback
+     * Find zero or one PortfolioProminentProject that matches the filter.
+     * @param {PortfolioProminentProjectFindUniqueArgs} args - Arguments to find a PortfolioProminentProject
      * @example
-     * // Get one Feedback
-     * const feedback = await prisma.feedback.findUnique({
+     * // Get one PortfolioProminentProject
+     * const portfolioProminentProject = await prisma.portfolioProminentProject.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends FeedbackFindUniqueArgs>(args: SelectSubset<T, FeedbackFindUniqueArgs<ExtArgs>>): Prisma__FeedbackClient<$Result.GetResult<Prisma.$FeedbackPayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
+    findUnique<T extends PortfolioProminentProjectFindUniqueArgs>(args: SelectSubset<T, PortfolioProminentProjectFindUniqueArgs<ExtArgs>>): Prisma__PortfolioProminentProjectClient<$Result.GetResult<Prisma.$PortfolioProminentProjectPayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
 
     /**
-     * Find one Feedback that matches the filter or throw an error with `error.code='P2025'`
+     * Find one PortfolioProminentProject that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {FeedbackFindUniqueOrThrowArgs} args - Arguments to find a Feedback
+     * @param {PortfolioProminentProjectFindUniqueOrThrowArgs} args - Arguments to find a PortfolioProminentProject
      * @example
-     * // Get one Feedback
-     * const feedback = await prisma.feedback.findUniqueOrThrow({
+     * // Get one PortfolioProminentProject
+     * const portfolioProminentProject = await prisma.portfolioProminentProject.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends FeedbackFindUniqueOrThrowArgs>(args: SelectSubset<T, FeedbackFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FeedbackClient<$Result.GetResult<Prisma.$FeedbackPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+    findUniqueOrThrow<T extends PortfolioProminentProjectFindUniqueOrThrowArgs>(args: SelectSubset<T, PortfolioProminentProjectFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PortfolioProminentProjectClient<$Result.GetResult<Prisma.$PortfolioProminentProjectPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
 
     /**
-     * Find the first Feedback that matches the filter.
+     * Find the first PortfolioProminentProject that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FeedbackFindFirstArgs} args - Arguments to find a Feedback
+     * @param {PortfolioProminentProjectFindFirstArgs} args - Arguments to find a PortfolioProminentProject
      * @example
-     * // Get one Feedback
-     * const feedback = await prisma.feedback.findFirst({
+     * // Get one PortfolioProminentProject
+     * const portfolioProminentProject = await prisma.portfolioProminentProject.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends FeedbackFindFirstArgs>(args?: SelectSubset<T, FeedbackFindFirstArgs<ExtArgs>>): Prisma__FeedbackClient<$Result.GetResult<Prisma.$FeedbackPayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
+    findFirst<T extends PortfolioProminentProjectFindFirstArgs>(args?: SelectSubset<T, PortfolioProminentProjectFindFirstArgs<ExtArgs>>): Prisma__PortfolioProminentProjectClient<$Result.GetResult<Prisma.$PortfolioProminentProjectPayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
 
     /**
-     * Find the first Feedback that matches the filter or
+     * Find the first PortfolioProminentProject that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FeedbackFindFirstOrThrowArgs} args - Arguments to find a Feedback
+     * @param {PortfolioProminentProjectFindFirstOrThrowArgs} args - Arguments to find a PortfolioProminentProject
      * @example
-     * // Get one Feedback
-     * const feedback = await prisma.feedback.findFirstOrThrow({
+     * // Get one PortfolioProminentProject
+     * const portfolioProminentProject = await prisma.portfolioProminentProject.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends FeedbackFindFirstOrThrowArgs>(args?: SelectSubset<T, FeedbackFindFirstOrThrowArgs<ExtArgs>>): Prisma__FeedbackClient<$Result.GetResult<Prisma.$FeedbackPayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+    findFirstOrThrow<T extends PortfolioProminentProjectFindFirstOrThrowArgs>(args?: SelectSubset<T, PortfolioProminentProjectFindFirstOrThrowArgs<ExtArgs>>): Prisma__PortfolioProminentProjectClient<$Result.GetResult<Prisma.$PortfolioProminentProjectPayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
 
     /**
-     * Find zero or more Feedbacks that matches the filter.
+     * Find zero or more PortfolioProminentProjects that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FeedbackFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {PortfolioProminentProjectFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Feedbacks
-     * const feedbacks = await prisma.feedback.findMany()
+     * // Get all PortfolioProminentProjects
+     * const portfolioProminentProjects = await prisma.portfolioProminentProject.findMany()
      * 
-     * // Get first 10 Feedbacks
-     * const feedbacks = await prisma.feedback.findMany({ take: 10 })
+     * // Get first 10 PortfolioProminentProjects
+     * const portfolioProminentProjects = await prisma.portfolioProminentProject.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const feedbackWithIdOnly = await prisma.feedback.findMany({ select: { id: true } })
+     * const portfolioProminentProjectWithIdOnly = await prisma.portfolioProminentProject.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends FeedbackFindManyArgs>(args?: SelectSubset<T, FeedbackFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeedbackPayload<ExtArgs>, T, "findMany", ClientOptions>>
+    findMany<T extends PortfolioProminentProjectFindManyArgs>(args?: SelectSubset<T, PortfolioProminentProjectFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioProminentProjectPayload<ExtArgs>, T, "findMany", ClientOptions>>
 
     /**
-     * Create a Feedback.
-     * @param {FeedbackCreateArgs} args - Arguments to create a Feedback.
+     * Create a PortfolioProminentProject.
+     * @param {PortfolioProminentProjectCreateArgs} args - Arguments to create a PortfolioProminentProject.
      * @example
-     * // Create one Feedback
-     * const Feedback = await prisma.feedback.create({
+     * // Create one PortfolioProminentProject
+     * const PortfolioProminentProject = await prisma.portfolioProminentProject.create({
      *   data: {
-     *     // ... data to create a Feedback
+     *     // ... data to create a PortfolioProminentProject
      *   }
      * })
      * 
      */
-    create<T extends FeedbackCreateArgs>(args: SelectSubset<T, FeedbackCreateArgs<ExtArgs>>): Prisma__FeedbackClient<$Result.GetResult<Prisma.$FeedbackPayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
+    create<T extends PortfolioProminentProjectCreateArgs>(args: SelectSubset<T, PortfolioProminentProjectCreateArgs<ExtArgs>>): Prisma__PortfolioProminentProjectClient<$Result.GetResult<Prisma.$PortfolioProminentProjectPayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
 
     /**
-     * Create many Feedbacks.
-     * @param {FeedbackCreateManyArgs} args - Arguments to create many Feedbacks.
+     * Create many PortfolioProminentProjects.
+     * @param {PortfolioProminentProjectCreateManyArgs} args - Arguments to create many PortfolioProminentProjects.
      * @example
-     * // Create many Feedbacks
-     * const feedback = await prisma.feedback.createMany({
+     * // Create many PortfolioProminentProjects
+     * const portfolioProminentProject = await prisma.portfolioProminentProject.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends FeedbackCreateManyArgs>(args?: SelectSubset<T, FeedbackCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends PortfolioProminentProjectCreateManyArgs>(args?: SelectSubset<T, PortfolioProminentProjectCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Feedbacks and returns the data saved in the database.
-     * @param {FeedbackCreateManyAndReturnArgs} args - Arguments to create many Feedbacks.
+     * Create many PortfolioProminentProjects and returns the data saved in the database.
+     * @param {PortfolioProminentProjectCreateManyAndReturnArgs} args - Arguments to create many PortfolioProminentProjects.
      * @example
-     * // Create many Feedbacks
-     * const feedback = await prisma.feedback.createManyAndReturn({
+     * // Create many PortfolioProminentProjects
+     * const portfolioProminentProject = await prisma.portfolioProminentProject.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Feedbacks and only return the `id`
-     * const feedbackWithIdOnly = await prisma.feedback.createManyAndReturn({
+     * // Create many PortfolioProminentProjects and only return the `id`
+     * const portfolioProminentProjectWithIdOnly = await prisma.portfolioProminentProject.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -8756,28 +9542,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends FeedbackCreateManyAndReturnArgs>(args?: SelectSubset<T, FeedbackCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeedbackPayload<ExtArgs>, T, "createManyAndReturn", ClientOptions>>
+    createManyAndReturn<T extends PortfolioProminentProjectCreateManyAndReturnArgs>(args?: SelectSubset<T, PortfolioProminentProjectCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioProminentProjectPayload<ExtArgs>, T, "createManyAndReturn", ClientOptions>>
 
     /**
-     * Delete a Feedback.
-     * @param {FeedbackDeleteArgs} args - Arguments to delete one Feedback.
+     * Delete a PortfolioProminentProject.
+     * @param {PortfolioProminentProjectDeleteArgs} args - Arguments to delete one PortfolioProminentProject.
      * @example
-     * // Delete one Feedback
-     * const Feedback = await prisma.feedback.delete({
+     * // Delete one PortfolioProminentProject
+     * const PortfolioProminentProject = await prisma.portfolioProminentProject.delete({
      *   where: {
-     *     // ... filter to delete one Feedback
+     *     // ... filter to delete one PortfolioProminentProject
      *   }
      * })
      * 
      */
-    delete<T extends FeedbackDeleteArgs>(args: SelectSubset<T, FeedbackDeleteArgs<ExtArgs>>): Prisma__FeedbackClient<$Result.GetResult<Prisma.$FeedbackPayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
+    delete<T extends PortfolioProminentProjectDeleteArgs>(args: SelectSubset<T, PortfolioProminentProjectDeleteArgs<ExtArgs>>): Prisma__PortfolioProminentProjectClient<$Result.GetResult<Prisma.$PortfolioProminentProjectPayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
 
     /**
-     * Update one Feedback.
-     * @param {FeedbackUpdateArgs} args - Arguments to update one Feedback.
+     * Update one PortfolioProminentProject.
+     * @param {PortfolioProminentProjectUpdateArgs} args - Arguments to update one PortfolioProminentProject.
      * @example
-     * // Update one Feedback
-     * const feedback = await prisma.feedback.update({
+     * // Update one PortfolioProminentProject
+     * const portfolioProminentProject = await prisma.portfolioProminentProject.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -8787,30 +9573,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends FeedbackUpdateArgs>(args: SelectSubset<T, FeedbackUpdateArgs<ExtArgs>>): Prisma__FeedbackClient<$Result.GetResult<Prisma.$FeedbackPayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
+    update<T extends PortfolioProminentProjectUpdateArgs>(args: SelectSubset<T, PortfolioProminentProjectUpdateArgs<ExtArgs>>): Prisma__PortfolioProminentProjectClient<$Result.GetResult<Prisma.$PortfolioProminentProjectPayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
 
     /**
-     * Delete zero or more Feedbacks.
-     * @param {FeedbackDeleteManyArgs} args - Arguments to filter Feedbacks to delete.
+     * Delete zero or more PortfolioProminentProjects.
+     * @param {PortfolioProminentProjectDeleteManyArgs} args - Arguments to filter PortfolioProminentProjects to delete.
      * @example
-     * // Delete a few Feedbacks
-     * const { count } = await prisma.feedback.deleteMany({
+     * // Delete a few PortfolioProminentProjects
+     * const { count } = await prisma.portfolioProminentProject.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends FeedbackDeleteManyArgs>(args?: SelectSubset<T, FeedbackDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends PortfolioProminentProjectDeleteManyArgs>(args?: SelectSubset<T, PortfolioProminentProjectDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Feedbacks.
+     * Update zero or more PortfolioProminentProjects.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FeedbackUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {PortfolioProminentProjectUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Feedbacks
-     * const feedback = await prisma.feedback.updateMany({
+     * // Update many PortfolioProminentProjects
+     * const portfolioProminentProject = await prisma.portfolioProminentProject.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -8820,14 +9606,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends FeedbackUpdateManyArgs>(args: SelectSubset<T, FeedbackUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends PortfolioProminentProjectUpdateManyArgs>(args: SelectSubset<T, PortfolioProminentProjectUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Feedbacks and returns the data updated in the database.
-     * @param {FeedbackUpdateManyAndReturnArgs} args - Arguments to update many Feedbacks.
+     * Update zero or more PortfolioProminentProjects and returns the data updated in the database.
+     * @param {PortfolioProminentProjectUpdateManyAndReturnArgs} args - Arguments to update many PortfolioProminentProjects.
      * @example
-     * // Update many Feedbacks
-     * const feedback = await prisma.feedback.updateManyAndReturn({
+     * // Update many PortfolioProminentProjects
+     * const portfolioProminentProject = await prisma.portfolioProminentProject.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -8836,8 +9622,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Feedbacks and only return the `id`
-     * const feedbackWithIdOnly = await prisma.feedback.updateManyAndReturn({
+     * // Update zero or more PortfolioProminentProjects and only return the `id`
+     * const portfolioProminentProjectWithIdOnly = await prisma.portfolioProminentProject.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -8850,56 +9636,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends FeedbackUpdateManyAndReturnArgs>(args: SelectSubset<T, FeedbackUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeedbackPayload<ExtArgs>, T, "updateManyAndReturn", ClientOptions>>
+    updateManyAndReturn<T extends PortfolioProminentProjectUpdateManyAndReturnArgs>(args: SelectSubset<T, PortfolioProminentProjectUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioProminentProjectPayload<ExtArgs>, T, "updateManyAndReturn", ClientOptions>>
 
     /**
-     * Create or update one Feedback.
-     * @param {FeedbackUpsertArgs} args - Arguments to update or create a Feedback.
+     * Create or update one PortfolioProminentProject.
+     * @param {PortfolioProminentProjectUpsertArgs} args - Arguments to update or create a PortfolioProminentProject.
      * @example
-     * // Update or create a Feedback
-     * const feedback = await prisma.feedback.upsert({
+     * // Update or create a PortfolioProminentProject
+     * const portfolioProminentProject = await prisma.portfolioProminentProject.upsert({
      *   create: {
-     *     // ... data to create a Feedback
+     *     // ... data to create a PortfolioProminentProject
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Feedback we want to update
+     *     // ... the filter for the PortfolioProminentProject we want to update
      *   }
      * })
      */
-    upsert<T extends FeedbackUpsertArgs>(args: SelectSubset<T, FeedbackUpsertArgs<ExtArgs>>): Prisma__FeedbackClient<$Result.GetResult<Prisma.$FeedbackPayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
+    upsert<T extends PortfolioProminentProjectUpsertArgs>(args: SelectSubset<T, PortfolioProminentProjectUpsertArgs<ExtArgs>>): Prisma__PortfolioProminentProjectClient<$Result.GetResult<Prisma.$PortfolioProminentProjectPayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
 
 
     /**
-     * Count the number of Feedbacks.
+     * Count the number of PortfolioProminentProjects.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FeedbackCountArgs} args - Arguments to filter Feedbacks to count.
+     * @param {PortfolioProminentProjectCountArgs} args - Arguments to filter PortfolioProminentProjects to count.
      * @example
-     * // Count the number of Feedbacks
-     * const count = await prisma.feedback.count({
+     * // Count the number of PortfolioProminentProjects
+     * const count = await prisma.portfolioProminentProject.count({
      *   where: {
-     *     // ... the filter for the Feedbacks we want to count
+     *     // ... the filter for the PortfolioProminentProjects we want to count
      *   }
      * })
     **/
-    count<T extends FeedbackCountArgs>(
-      args?: Subset<T, FeedbackCountArgs>,
+    count<T extends PortfolioProminentProjectCountArgs>(
+      args?: Subset<T, PortfolioProminentProjectCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], FeedbackCountAggregateOutputType>
+          : GetScalarType<T['select'], PortfolioProminentProjectCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Feedback.
+     * Allows you to perform aggregations operations on a PortfolioProminentProject.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FeedbackAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {PortfolioProminentProjectAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -8919,13 +9705,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends FeedbackAggregateArgs>(args: Subset<T, FeedbackAggregateArgs>): Prisma.PrismaPromise<GetFeedbackAggregateType<T>>
+    aggregate<T extends PortfolioProminentProjectAggregateArgs>(args: Subset<T, PortfolioProminentProjectAggregateArgs>): Prisma.PrismaPromise<GetPortfolioProminentProjectAggregateType<T>>
 
     /**
-     * Group by Feedback.
+     * Group by PortfolioProminentProject.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FeedbackGroupByArgs} args - Group by arguments.
+     * @param {PortfolioProminentProjectGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -8940,14 +9726,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends FeedbackGroupByArgs,
+      T extends PortfolioProminentProjectGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: FeedbackGroupByArgs['orderBy'] }
-        : { orderBy?: FeedbackGroupByArgs['orderBy'] },
+        ? { orderBy: PortfolioProminentProjectGroupByArgs['orderBy'] }
+        : { orderBy?: PortfolioProminentProjectGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -8996,21 +9782,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, FeedbackGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFeedbackGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, PortfolioProminentProjectGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPortfolioProminentProjectGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Feedback model
+   * Fields of the PortfolioProminentProject model
    */
-  readonly fields: FeedbackFieldRefs;
+  readonly fields: PortfolioProminentProjectFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Feedback.
+   * The delegate class that acts as a "Promise-like" for PortfolioProminentProject.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__FeedbackClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__PortfolioProminentProjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    portfolio<T extends PortfolioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PortfolioDefaultArgs<ExtArgs>>): Prisma__PortfolioClient<$Result.GetResult<Prisma.$PortfolioPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
+    portfolioProminentProjectImages<T extends PortfolioProminentProject$portfolioProminentProjectImagesArgs<ExtArgs> = {}>(args?: Subset<T, PortfolioProminentProject$portfolioProminentProjectImagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioProminentProjectImagePayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9037,379 +9825,6018 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Feedback model
+   * Fields of the PortfolioProminentProject model
    */ 
-  interface FeedbackFieldRefs {
-    readonly id: FieldRef<"Feedback", 'Int'>
-    readonly freelancerId: FieldRef<"Feedback", 'Int'>
-    readonly clientId: FieldRef<"Feedback", 'Int'>
-    readonly comment: FieldRef<"Feedback", 'String'>
-    readonly ratingPoint: FieldRef<"Feedback", 'Int'>
-    readonly createdAt: FieldRef<"Feedback", 'DateTime'>
-    readonly updatedAt: FieldRef<"Feedback", 'DateTime'>
+  interface PortfolioProminentProjectFieldRefs {
+    readonly id: FieldRef<"PortfolioProminentProject", 'Int'>
+    readonly portfolioId: FieldRef<"PortfolioProminentProject", 'Int'>
+    readonly description: FieldRef<"PortfolioProminentProject", 'String'>
+    readonly role: FieldRef<"PortfolioProminentProject", 'String'>
+    readonly company: FieldRef<"PortfolioProminentProject", 'String'>
+    readonly detail: FieldRef<"PortfolioProminentProject", 'String'>
+    readonly from: FieldRef<"PortfolioProminentProject", 'DateTime'>
+    readonly to: FieldRef<"PortfolioProminentProject", 'DateTime'>
+    readonly createdAt: FieldRef<"PortfolioProminentProject", 'DateTime'>
+    readonly updatedAt: FieldRef<"PortfolioProminentProject", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * Feedback findUnique
+   * PortfolioProminentProject findUnique
    */
-  export type FeedbackFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PortfolioProminentProjectFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Feedback
+     * Select specific fields to fetch from the PortfolioProminentProject
      */
-    select?: FeedbackSelect<ExtArgs> | null
+    select?: PortfolioProminentProjectSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Feedback
+     * Omit specific fields from the PortfolioProminentProject
      */
-    omit?: FeedbackOmit<ExtArgs> | null
+    omit?: PortfolioProminentProjectOmit<ExtArgs> | null
     /**
-     * Filter, which Feedback to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: FeedbackWhereUniqueInput
+    include?: PortfolioProminentProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioProminentProject to fetch.
+     */
+    where: PortfolioProminentProjectWhereUniqueInput
   }
 
   /**
-   * Feedback findUniqueOrThrow
+   * PortfolioProminentProject findUniqueOrThrow
    */
-  export type FeedbackFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PortfolioProminentProjectFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Feedback
+     * Select specific fields to fetch from the PortfolioProminentProject
      */
-    select?: FeedbackSelect<ExtArgs> | null
+    select?: PortfolioProminentProjectSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Feedback
+     * Omit specific fields from the PortfolioProminentProject
      */
-    omit?: FeedbackOmit<ExtArgs> | null
+    omit?: PortfolioProminentProjectOmit<ExtArgs> | null
     /**
-     * Filter, which Feedback to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: FeedbackWhereUniqueInput
+    include?: PortfolioProminentProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioProminentProject to fetch.
+     */
+    where: PortfolioProminentProjectWhereUniqueInput
   }
 
   /**
-   * Feedback findFirst
+   * PortfolioProminentProject findFirst
    */
-  export type FeedbackFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PortfolioProminentProjectFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Feedback
+     * Select specific fields to fetch from the PortfolioProminentProject
      */
-    select?: FeedbackSelect<ExtArgs> | null
+    select?: PortfolioProminentProjectSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Feedback
+     * Omit specific fields from the PortfolioProminentProject
      */
-    omit?: FeedbackOmit<ExtArgs> | null
+    omit?: PortfolioProminentProjectOmit<ExtArgs> | null
     /**
-     * Filter, which Feedback to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: FeedbackWhereInput
+    include?: PortfolioProminentProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioProminentProject to fetch.
+     */
+    where?: PortfolioProminentProjectWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Feedbacks to fetch.
+     * Determine the order of PortfolioProminentProjects to fetch.
      */
-    orderBy?: FeedbackOrderByWithRelationInput | FeedbackOrderByWithRelationInput[]
+    orderBy?: PortfolioProminentProjectOrderByWithRelationInput | PortfolioProminentProjectOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Feedbacks.
+     * Sets the position for searching for PortfolioProminentProjects.
      */
-    cursor?: FeedbackWhereUniqueInput
+    cursor?: PortfolioProminentProjectWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Feedbacks from the position of the cursor.
+     * Take `±n` PortfolioProminentProjects from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Feedbacks.
+     * Skip the first `n` PortfolioProminentProjects.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Feedbacks.
+     * Filter by unique combinations of PortfolioProminentProjects.
      */
-    distinct?: FeedbackScalarFieldEnum | FeedbackScalarFieldEnum[]
+    distinct?: PortfolioProminentProjectScalarFieldEnum | PortfolioProminentProjectScalarFieldEnum[]
   }
 
   /**
-   * Feedback findFirstOrThrow
+   * PortfolioProminentProject findFirstOrThrow
    */
-  export type FeedbackFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PortfolioProminentProjectFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Feedback
+     * Select specific fields to fetch from the PortfolioProminentProject
      */
-    select?: FeedbackSelect<ExtArgs> | null
+    select?: PortfolioProminentProjectSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Feedback
+     * Omit specific fields from the PortfolioProminentProject
      */
-    omit?: FeedbackOmit<ExtArgs> | null
+    omit?: PortfolioProminentProjectOmit<ExtArgs> | null
     /**
-     * Filter, which Feedback to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: FeedbackWhereInput
+    include?: PortfolioProminentProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioProminentProject to fetch.
+     */
+    where?: PortfolioProminentProjectWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Feedbacks to fetch.
+     * Determine the order of PortfolioProminentProjects to fetch.
      */
-    orderBy?: FeedbackOrderByWithRelationInput | FeedbackOrderByWithRelationInput[]
+    orderBy?: PortfolioProminentProjectOrderByWithRelationInput | PortfolioProminentProjectOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Feedbacks.
+     * Sets the position for searching for PortfolioProminentProjects.
      */
-    cursor?: FeedbackWhereUniqueInput
+    cursor?: PortfolioProminentProjectWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Feedbacks from the position of the cursor.
+     * Take `±n` PortfolioProminentProjects from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Feedbacks.
+     * Skip the first `n` PortfolioProminentProjects.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Feedbacks.
+     * Filter by unique combinations of PortfolioProminentProjects.
      */
-    distinct?: FeedbackScalarFieldEnum | FeedbackScalarFieldEnum[]
+    distinct?: PortfolioProminentProjectScalarFieldEnum | PortfolioProminentProjectScalarFieldEnum[]
   }
 
   /**
-   * Feedback findMany
+   * PortfolioProminentProject findMany
    */
-  export type FeedbackFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PortfolioProminentProjectFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Feedback
+     * Select specific fields to fetch from the PortfolioProminentProject
      */
-    select?: FeedbackSelect<ExtArgs> | null
+    select?: PortfolioProminentProjectSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Feedback
+     * Omit specific fields from the PortfolioProminentProject
      */
-    omit?: FeedbackOmit<ExtArgs> | null
+    omit?: PortfolioProminentProjectOmit<ExtArgs> | null
     /**
-     * Filter, which Feedbacks to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: FeedbackWhereInput
+    include?: PortfolioProminentProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioProminentProjects to fetch.
+     */
+    where?: PortfolioProminentProjectWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Feedbacks to fetch.
+     * Determine the order of PortfolioProminentProjects to fetch.
      */
-    orderBy?: FeedbackOrderByWithRelationInput | FeedbackOrderByWithRelationInput[]
+    orderBy?: PortfolioProminentProjectOrderByWithRelationInput | PortfolioProminentProjectOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Feedbacks.
+     * Sets the position for listing PortfolioProminentProjects.
      */
-    cursor?: FeedbackWhereUniqueInput
+    cursor?: PortfolioProminentProjectWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Feedbacks from the position of the cursor.
+     * Take `±n` PortfolioProminentProjects from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Feedbacks.
+     * Skip the first `n` PortfolioProminentProjects.
      */
     skip?: number
-    distinct?: FeedbackScalarFieldEnum | FeedbackScalarFieldEnum[]
+    distinct?: PortfolioProminentProjectScalarFieldEnum | PortfolioProminentProjectScalarFieldEnum[]
   }
 
   /**
-   * Feedback create
+   * PortfolioProminentProject create
    */
-  export type FeedbackCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PortfolioProminentProjectCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Feedback
+     * Select specific fields to fetch from the PortfolioProminentProject
      */
-    select?: FeedbackSelect<ExtArgs> | null
+    select?: PortfolioProminentProjectSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Feedback
+     * Omit specific fields from the PortfolioProminentProject
      */
-    omit?: FeedbackOmit<ExtArgs> | null
+    omit?: PortfolioProminentProjectOmit<ExtArgs> | null
     /**
-     * The data needed to create a Feedback.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<FeedbackCreateInput, FeedbackUncheckedCreateInput>
+    include?: PortfolioProminentProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PortfolioProminentProject.
+     */
+    data: XOR<PortfolioProminentProjectCreateInput, PortfolioProminentProjectUncheckedCreateInput>
   }
 
   /**
-   * Feedback createMany
+   * PortfolioProminentProject createMany
    */
-  export type FeedbackCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PortfolioProminentProjectCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Feedbacks.
+     * The data used to create many PortfolioProminentProjects.
      */
-    data: FeedbackCreateManyInput | FeedbackCreateManyInput[]
+    data: PortfolioProminentProjectCreateManyInput | PortfolioProminentProjectCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Feedback createManyAndReturn
+   * PortfolioProminentProject createManyAndReturn
    */
-  export type FeedbackCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PortfolioProminentProjectCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Feedback
+     * Select specific fields to fetch from the PortfolioProminentProject
      */
-    select?: FeedbackSelectCreateManyAndReturn<ExtArgs> | null
+    select?: PortfolioProminentProjectSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Feedback
+     * Omit specific fields from the PortfolioProminentProject
      */
-    omit?: FeedbackOmit<ExtArgs> | null
+    omit?: PortfolioProminentProjectOmit<ExtArgs> | null
     /**
-     * The data used to create many Feedbacks.
+     * The data used to create many PortfolioProminentProjects.
      */
-    data: FeedbackCreateManyInput | FeedbackCreateManyInput[]
+    data: PortfolioProminentProjectCreateManyInput | PortfolioProminentProjectCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioProminentProjectIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PortfolioProminentProject update
+   */
+  export type PortfolioProminentProjectUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioProminentProject
+     */
+    select?: PortfolioProminentProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioProminentProject
+     */
+    omit?: PortfolioProminentProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioProminentProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PortfolioProminentProject.
+     */
+    data: XOR<PortfolioProminentProjectUpdateInput, PortfolioProminentProjectUncheckedUpdateInput>
+    /**
+     * Choose, which PortfolioProminentProject to update.
+     */
+    where: PortfolioProminentProjectWhereUniqueInput
+  }
+
+  /**
+   * PortfolioProminentProject updateMany
+   */
+  export type PortfolioProminentProjectUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PortfolioProminentProjects.
+     */
+    data: XOR<PortfolioProminentProjectUpdateManyMutationInput, PortfolioProminentProjectUncheckedUpdateManyInput>
+    /**
+     * Filter which PortfolioProminentProjects to update
+     */
+    where?: PortfolioProminentProjectWhereInput
+    /**
+     * Limit how many PortfolioProminentProjects to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PortfolioProminentProject updateManyAndReturn
+   */
+  export type PortfolioProminentProjectUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioProminentProject
+     */
+    select?: PortfolioProminentProjectSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioProminentProject
+     */
+    omit?: PortfolioProminentProjectOmit<ExtArgs> | null
+    /**
+     * The data used to update PortfolioProminentProjects.
+     */
+    data: XOR<PortfolioProminentProjectUpdateManyMutationInput, PortfolioProminentProjectUncheckedUpdateManyInput>
+    /**
+     * Filter which PortfolioProminentProjects to update
+     */
+    where?: PortfolioProminentProjectWhereInput
+    /**
+     * Limit how many PortfolioProminentProjects to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioProminentProjectIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PortfolioProminentProject upsert
+   */
+  export type PortfolioProminentProjectUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioProminentProject
+     */
+    select?: PortfolioProminentProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioProminentProject
+     */
+    omit?: PortfolioProminentProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioProminentProjectInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PortfolioProminentProject to update in case it exists.
+     */
+    where: PortfolioProminentProjectWhereUniqueInput
+    /**
+     * In case the PortfolioProminentProject found by the `where` argument doesn't exist, create a new PortfolioProminentProject with this data.
+     */
+    create: XOR<PortfolioProminentProjectCreateInput, PortfolioProminentProjectUncheckedCreateInput>
+    /**
+     * In case the PortfolioProminentProject was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PortfolioProminentProjectUpdateInput, PortfolioProminentProjectUncheckedUpdateInput>
+  }
+
+  /**
+   * PortfolioProminentProject delete
+   */
+  export type PortfolioProminentProjectDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioProminentProject
+     */
+    select?: PortfolioProminentProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioProminentProject
+     */
+    omit?: PortfolioProminentProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioProminentProjectInclude<ExtArgs> | null
+    /**
+     * Filter which PortfolioProminentProject to delete.
+     */
+    where: PortfolioProminentProjectWhereUniqueInput
+  }
+
+  /**
+   * PortfolioProminentProject deleteMany
+   */
+  export type PortfolioProminentProjectDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PortfolioProminentProjects to delete
+     */
+    where?: PortfolioProminentProjectWhereInput
+    /**
+     * Limit how many PortfolioProminentProjects to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PortfolioProminentProject.portfolioProminentProjectImages
+   */
+  export type PortfolioProminentProject$portfolioProminentProjectImagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioProminentProjectImage
+     */
+    select?: PortfolioProminentProjectImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioProminentProjectImage
+     */
+    omit?: PortfolioProminentProjectImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioProminentProjectImageInclude<ExtArgs> | null
+    where?: PortfolioProminentProjectImageWhereInput
+    orderBy?: PortfolioProminentProjectImageOrderByWithRelationInput | PortfolioProminentProjectImageOrderByWithRelationInput[]
+    cursor?: PortfolioProminentProjectImageWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PortfolioProminentProjectImageScalarFieldEnum | PortfolioProminentProjectImageScalarFieldEnum[]
+  }
+
+  /**
+   * PortfolioProminentProject without action
+   */
+  export type PortfolioProminentProjectDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioProminentProject
+     */
+    select?: PortfolioProminentProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioProminentProject
+     */
+    omit?: PortfolioProminentProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioProminentProjectInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PortfolioProminentProjectImage
+   */
+
+  export type AggregatePortfolioProminentProjectImage = {
+    _count: PortfolioProminentProjectImageCountAggregateOutputType | null
+    _avg: PortfolioProminentProjectImageAvgAggregateOutputType | null
+    _sum: PortfolioProminentProjectImageSumAggregateOutputType | null
+    _min: PortfolioProminentProjectImageMinAggregateOutputType | null
+    _max: PortfolioProminentProjectImageMaxAggregateOutputType | null
+  }
+
+  export type PortfolioProminentProjectImageAvgAggregateOutputType = {
+    id: number | null
+    portfolioProminentProjectId: number | null
+  }
+
+  export type PortfolioProminentProjectImageSumAggregateOutputType = {
+    id: number | null
+    portfolioProminentProjectId: number | null
+  }
+
+  export type PortfolioProminentProjectImageMinAggregateOutputType = {
+    id: number | null
+    portfolioProminentProjectId: number | null
+    image: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PortfolioProminentProjectImageMaxAggregateOutputType = {
+    id: number | null
+    portfolioProminentProjectId: number | null
+    image: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PortfolioProminentProjectImageCountAggregateOutputType = {
+    id: number
+    portfolioProminentProjectId: number
+    image: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type PortfolioProminentProjectImageAvgAggregateInputType = {
+    id?: true
+    portfolioProminentProjectId?: true
+  }
+
+  export type PortfolioProminentProjectImageSumAggregateInputType = {
+    id?: true
+    portfolioProminentProjectId?: true
+  }
+
+  export type PortfolioProminentProjectImageMinAggregateInputType = {
+    id?: true
+    portfolioProminentProjectId?: true
+    image?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PortfolioProminentProjectImageMaxAggregateInputType = {
+    id?: true
+    portfolioProminentProjectId?: true
+    image?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PortfolioProminentProjectImageCountAggregateInputType = {
+    id?: true
+    portfolioProminentProjectId?: true
+    image?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type PortfolioProminentProjectImageAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PortfolioProminentProjectImage to aggregate.
+     */
+    where?: PortfolioProminentProjectImageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioProminentProjectImages to fetch.
+     */
+    orderBy?: PortfolioProminentProjectImageOrderByWithRelationInput | PortfolioProminentProjectImageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PortfolioProminentProjectImageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioProminentProjectImages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioProminentProjectImages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PortfolioProminentProjectImages
+    **/
+    _count?: true | PortfolioProminentProjectImageCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PortfolioProminentProjectImageAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PortfolioProminentProjectImageSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PortfolioProminentProjectImageMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PortfolioProminentProjectImageMaxAggregateInputType
+  }
+
+  export type GetPortfolioProminentProjectImageAggregateType<T extends PortfolioProminentProjectImageAggregateArgs> = {
+        [P in keyof T & keyof AggregatePortfolioProminentProjectImage]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePortfolioProminentProjectImage[P]>
+      : GetScalarType<T[P], AggregatePortfolioProminentProjectImage[P]>
+  }
+
+
+
+
+  export type PortfolioProminentProjectImageGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PortfolioProminentProjectImageWhereInput
+    orderBy?: PortfolioProminentProjectImageOrderByWithAggregationInput | PortfolioProminentProjectImageOrderByWithAggregationInput[]
+    by: PortfolioProminentProjectImageScalarFieldEnum[] | PortfolioProminentProjectImageScalarFieldEnum
+    having?: PortfolioProminentProjectImageScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PortfolioProminentProjectImageCountAggregateInputType | true
+    _avg?: PortfolioProminentProjectImageAvgAggregateInputType
+    _sum?: PortfolioProminentProjectImageSumAggregateInputType
+    _min?: PortfolioProminentProjectImageMinAggregateInputType
+    _max?: PortfolioProminentProjectImageMaxAggregateInputType
+  }
+
+  export type PortfolioProminentProjectImageGroupByOutputType = {
+    id: number
+    portfolioProminentProjectId: number
+    image: string
+    createdAt: Date
+    updatedAt: Date
+    _count: PortfolioProminentProjectImageCountAggregateOutputType | null
+    _avg: PortfolioProminentProjectImageAvgAggregateOutputType | null
+    _sum: PortfolioProminentProjectImageSumAggregateOutputType | null
+    _min: PortfolioProminentProjectImageMinAggregateOutputType | null
+    _max: PortfolioProminentProjectImageMaxAggregateOutputType | null
+  }
+
+  type GetPortfolioProminentProjectImageGroupByPayload<T extends PortfolioProminentProjectImageGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PortfolioProminentProjectImageGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PortfolioProminentProjectImageGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PortfolioProminentProjectImageGroupByOutputType[P]>
+            : GetScalarType<T[P], PortfolioProminentProjectImageGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PortfolioProminentProjectImageSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    portfolioProminentProjectId?: boolean
+    image?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    portfolioProminentProject?: boolean | PortfolioProminentProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["portfolioProminentProjectImage"]>
+
+  export type PortfolioProminentProjectImageSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    portfolioProminentProjectId?: boolean
+    image?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    portfolioProminentProject?: boolean | PortfolioProminentProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["portfolioProminentProjectImage"]>
+
+  export type PortfolioProminentProjectImageSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    portfolioProminentProjectId?: boolean
+    image?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    portfolioProminentProject?: boolean | PortfolioProminentProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["portfolioProminentProjectImage"]>
+
+  export type PortfolioProminentProjectImageSelectScalar = {
+    id?: boolean
+    portfolioProminentProjectId?: boolean
+    image?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type PortfolioProminentProjectImageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "portfolioProminentProjectId" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolioProminentProjectImage"]>
+  export type PortfolioProminentProjectImageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolioProminentProject?: boolean | PortfolioProminentProjectDefaultArgs<ExtArgs>
+  }
+  export type PortfolioProminentProjectImageIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolioProminentProject?: boolean | PortfolioProminentProjectDefaultArgs<ExtArgs>
+  }
+  export type PortfolioProminentProjectImageIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolioProminentProject?: boolean | PortfolioProminentProjectDefaultArgs<ExtArgs>
+  }
+
+  export type $PortfolioProminentProjectImagePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PortfolioProminentProjectImage"
+    objects: {
+      portfolioProminentProject: Prisma.$PortfolioProminentProjectPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      portfolioProminentProjectId: number
+      image: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["portfolioProminentProjectImage"]>
+    composites: {}
+  }
+
+  type PortfolioProminentProjectImageGetPayload<S extends boolean | null | undefined | PortfolioProminentProjectImageDefaultArgs> = $Result.GetResult<Prisma.$PortfolioProminentProjectImagePayload, S>
+
+  type PortfolioProminentProjectImageCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PortfolioProminentProjectImageFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PortfolioProminentProjectImageCountAggregateInputType | true
+    }
+
+  export interface PortfolioProminentProjectImageDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PortfolioProminentProjectImage'], meta: { name: 'PortfolioProminentProjectImage' } }
+    /**
+     * Find zero or one PortfolioProminentProjectImage that matches the filter.
+     * @param {PortfolioProminentProjectImageFindUniqueArgs} args - Arguments to find a PortfolioProminentProjectImage
+     * @example
+     * // Get one PortfolioProminentProjectImage
+     * const portfolioProminentProjectImage = await prisma.portfolioProminentProjectImage.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PortfolioProminentProjectImageFindUniqueArgs>(args: SelectSubset<T, PortfolioProminentProjectImageFindUniqueArgs<ExtArgs>>): Prisma__PortfolioProminentProjectImageClient<$Result.GetResult<Prisma.$PortfolioProminentProjectImagePayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find one PortfolioProminentProjectImage that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PortfolioProminentProjectImageFindUniqueOrThrowArgs} args - Arguments to find a PortfolioProminentProjectImage
+     * @example
+     * // Get one PortfolioProminentProjectImage
+     * const portfolioProminentProjectImage = await prisma.portfolioProminentProjectImage.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PortfolioProminentProjectImageFindUniqueOrThrowArgs>(args: SelectSubset<T, PortfolioProminentProjectImageFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PortfolioProminentProjectImageClient<$Result.GetResult<Prisma.$PortfolioProminentProjectImagePayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first PortfolioProminentProjectImage that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioProminentProjectImageFindFirstArgs} args - Arguments to find a PortfolioProminentProjectImage
+     * @example
+     * // Get one PortfolioProminentProjectImage
+     * const portfolioProminentProjectImage = await prisma.portfolioProminentProjectImage.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PortfolioProminentProjectImageFindFirstArgs>(args?: SelectSubset<T, PortfolioProminentProjectImageFindFirstArgs<ExtArgs>>): Prisma__PortfolioProminentProjectImageClient<$Result.GetResult<Prisma.$PortfolioProminentProjectImagePayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first PortfolioProminentProjectImage that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioProminentProjectImageFindFirstOrThrowArgs} args - Arguments to find a PortfolioProminentProjectImage
+     * @example
+     * // Get one PortfolioProminentProjectImage
+     * const portfolioProminentProjectImage = await prisma.portfolioProminentProjectImage.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PortfolioProminentProjectImageFindFirstOrThrowArgs>(args?: SelectSubset<T, PortfolioProminentProjectImageFindFirstOrThrowArgs<ExtArgs>>): Prisma__PortfolioProminentProjectImageClient<$Result.GetResult<Prisma.$PortfolioProminentProjectImagePayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find zero or more PortfolioProminentProjectImages that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioProminentProjectImageFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PortfolioProminentProjectImages
+     * const portfolioProminentProjectImages = await prisma.portfolioProminentProjectImage.findMany()
+     * 
+     * // Get first 10 PortfolioProminentProjectImages
+     * const portfolioProminentProjectImages = await prisma.portfolioProminentProjectImage.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const portfolioProminentProjectImageWithIdOnly = await prisma.portfolioProminentProjectImage.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PortfolioProminentProjectImageFindManyArgs>(args?: SelectSubset<T, PortfolioProminentProjectImageFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioProminentProjectImagePayload<ExtArgs>, T, "findMany", ClientOptions>>
+
+    /**
+     * Create a PortfolioProminentProjectImage.
+     * @param {PortfolioProminentProjectImageCreateArgs} args - Arguments to create a PortfolioProminentProjectImage.
+     * @example
+     * // Create one PortfolioProminentProjectImage
+     * const PortfolioProminentProjectImage = await prisma.portfolioProminentProjectImage.create({
+     *   data: {
+     *     // ... data to create a PortfolioProminentProjectImage
+     *   }
+     * })
+     * 
+     */
+    create<T extends PortfolioProminentProjectImageCreateArgs>(args: SelectSubset<T, PortfolioProminentProjectImageCreateArgs<ExtArgs>>): Prisma__PortfolioProminentProjectImageClient<$Result.GetResult<Prisma.$PortfolioProminentProjectImagePayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Create many PortfolioProminentProjectImages.
+     * @param {PortfolioProminentProjectImageCreateManyArgs} args - Arguments to create many PortfolioProminentProjectImages.
+     * @example
+     * // Create many PortfolioProminentProjectImages
+     * const portfolioProminentProjectImage = await prisma.portfolioProminentProjectImage.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PortfolioProminentProjectImageCreateManyArgs>(args?: SelectSubset<T, PortfolioProminentProjectImageCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PortfolioProminentProjectImages and returns the data saved in the database.
+     * @param {PortfolioProminentProjectImageCreateManyAndReturnArgs} args - Arguments to create many PortfolioProminentProjectImages.
+     * @example
+     * // Create many PortfolioProminentProjectImages
+     * const portfolioProminentProjectImage = await prisma.portfolioProminentProjectImage.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PortfolioProminentProjectImages and only return the `id`
+     * const portfolioProminentProjectImageWithIdOnly = await prisma.portfolioProminentProjectImage.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PortfolioProminentProjectImageCreateManyAndReturnArgs>(args?: SelectSubset<T, PortfolioProminentProjectImageCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioProminentProjectImagePayload<ExtArgs>, T, "createManyAndReturn", ClientOptions>>
+
+    /**
+     * Delete a PortfolioProminentProjectImage.
+     * @param {PortfolioProminentProjectImageDeleteArgs} args - Arguments to delete one PortfolioProminentProjectImage.
+     * @example
+     * // Delete one PortfolioProminentProjectImage
+     * const PortfolioProminentProjectImage = await prisma.portfolioProminentProjectImage.delete({
+     *   where: {
+     *     // ... filter to delete one PortfolioProminentProjectImage
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PortfolioProminentProjectImageDeleteArgs>(args: SelectSubset<T, PortfolioProminentProjectImageDeleteArgs<ExtArgs>>): Prisma__PortfolioProminentProjectImageClient<$Result.GetResult<Prisma.$PortfolioProminentProjectImagePayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Update one PortfolioProminentProjectImage.
+     * @param {PortfolioProminentProjectImageUpdateArgs} args - Arguments to update one PortfolioProminentProjectImage.
+     * @example
+     * // Update one PortfolioProminentProjectImage
+     * const portfolioProminentProjectImage = await prisma.portfolioProminentProjectImage.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PortfolioProminentProjectImageUpdateArgs>(args: SelectSubset<T, PortfolioProminentProjectImageUpdateArgs<ExtArgs>>): Prisma__PortfolioProminentProjectImageClient<$Result.GetResult<Prisma.$PortfolioProminentProjectImagePayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Delete zero or more PortfolioProminentProjectImages.
+     * @param {PortfolioProminentProjectImageDeleteManyArgs} args - Arguments to filter PortfolioProminentProjectImages to delete.
+     * @example
+     * // Delete a few PortfolioProminentProjectImages
+     * const { count } = await prisma.portfolioProminentProjectImage.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PortfolioProminentProjectImageDeleteManyArgs>(args?: SelectSubset<T, PortfolioProminentProjectImageDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PortfolioProminentProjectImages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioProminentProjectImageUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PortfolioProminentProjectImages
+     * const portfolioProminentProjectImage = await prisma.portfolioProminentProjectImage.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PortfolioProminentProjectImageUpdateManyArgs>(args: SelectSubset<T, PortfolioProminentProjectImageUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PortfolioProminentProjectImages and returns the data updated in the database.
+     * @param {PortfolioProminentProjectImageUpdateManyAndReturnArgs} args - Arguments to update many PortfolioProminentProjectImages.
+     * @example
+     * // Update many PortfolioProminentProjectImages
+     * const portfolioProminentProjectImage = await prisma.portfolioProminentProjectImage.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PortfolioProminentProjectImages and only return the `id`
+     * const portfolioProminentProjectImageWithIdOnly = await prisma.portfolioProminentProjectImage.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PortfolioProminentProjectImageUpdateManyAndReturnArgs>(args: SelectSubset<T, PortfolioProminentProjectImageUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioProminentProjectImagePayload<ExtArgs>, T, "updateManyAndReturn", ClientOptions>>
+
+    /**
+     * Create or update one PortfolioProminentProjectImage.
+     * @param {PortfolioProminentProjectImageUpsertArgs} args - Arguments to update or create a PortfolioProminentProjectImage.
+     * @example
+     * // Update or create a PortfolioProminentProjectImage
+     * const portfolioProminentProjectImage = await prisma.portfolioProminentProjectImage.upsert({
+     *   create: {
+     *     // ... data to create a PortfolioProminentProjectImage
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PortfolioProminentProjectImage we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PortfolioProminentProjectImageUpsertArgs>(args: SelectSubset<T, PortfolioProminentProjectImageUpsertArgs<ExtArgs>>): Prisma__PortfolioProminentProjectImageClient<$Result.GetResult<Prisma.$PortfolioProminentProjectImagePayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
+
+
+    /**
+     * Count the number of PortfolioProminentProjectImages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioProminentProjectImageCountArgs} args - Arguments to filter PortfolioProminentProjectImages to count.
+     * @example
+     * // Count the number of PortfolioProminentProjectImages
+     * const count = await prisma.portfolioProminentProjectImage.count({
+     *   where: {
+     *     // ... the filter for the PortfolioProminentProjectImages we want to count
+     *   }
+     * })
+    **/
+    count<T extends PortfolioProminentProjectImageCountArgs>(
+      args?: Subset<T, PortfolioProminentProjectImageCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PortfolioProminentProjectImageCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PortfolioProminentProjectImage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioProminentProjectImageAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PortfolioProminentProjectImageAggregateArgs>(args: Subset<T, PortfolioProminentProjectImageAggregateArgs>): Prisma.PrismaPromise<GetPortfolioProminentProjectImageAggregateType<T>>
+
+    /**
+     * Group by PortfolioProminentProjectImage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioProminentProjectImageGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PortfolioProminentProjectImageGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PortfolioProminentProjectImageGroupByArgs['orderBy'] }
+        : { orderBy?: PortfolioProminentProjectImageGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PortfolioProminentProjectImageGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPortfolioProminentProjectImageGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PortfolioProminentProjectImage model
+   */
+  readonly fields: PortfolioProminentProjectImageFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PortfolioProminentProjectImage.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PortfolioProminentProjectImageClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    portfolioProminentProject<T extends PortfolioProminentProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PortfolioProminentProjectDefaultArgs<ExtArgs>>): Prisma__PortfolioProminentProjectClient<$Result.GetResult<Prisma.$PortfolioProminentProjectPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PortfolioProminentProjectImage model
+   */ 
+  interface PortfolioProminentProjectImageFieldRefs {
+    readonly id: FieldRef<"PortfolioProminentProjectImage", 'Int'>
+    readonly portfolioProminentProjectId: FieldRef<"PortfolioProminentProjectImage", 'Int'>
+    readonly image: FieldRef<"PortfolioProminentProjectImage", 'String'>
+    readonly createdAt: FieldRef<"PortfolioProminentProjectImage", 'DateTime'>
+    readonly updatedAt: FieldRef<"PortfolioProminentProjectImage", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PortfolioProminentProjectImage findUnique
+   */
+  export type PortfolioProminentProjectImageFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioProminentProjectImage
+     */
+    select?: PortfolioProminentProjectImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioProminentProjectImage
+     */
+    omit?: PortfolioProminentProjectImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioProminentProjectImageInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioProminentProjectImage to fetch.
+     */
+    where: PortfolioProminentProjectImageWhereUniqueInput
+  }
+
+  /**
+   * PortfolioProminentProjectImage findUniqueOrThrow
+   */
+  export type PortfolioProminentProjectImageFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioProminentProjectImage
+     */
+    select?: PortfolioProminentProjectImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioProminentProjectImage
+     */
+    omit?: PortfolioProminentProjectImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioProminentProjectImageInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioProminentProjectImage to fetch.
+     */
+    where: PortfolioProminentProjectImageWhereUniqueInput
+  }
+
+  /**
+   * PortfolioProminentProjectImage findFirst
+   */
+  export type PortfolioProminentProjectImageFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioProminentProjectImage
+     */
+    select?: PortfolioProminentProjectImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioProminentProjectImage
+     */
+    omit?: PortfolioProminentProjectImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioProminentProjectImageInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioProminentProjectImage to fetch.
+     */
+    where?: PortfolioProminentProjectImageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioProminentProjectImages to fetch.
+     */
+    orderBy?: PortfolioProminentProjectImageOrderByWithRelationInput | PortfolioProminentProjectImageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PortfolioProminentProjectImages.
+     */
+    cursor?: PortfolioProminentProjectImageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioProminentProjectImages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioProminentProjectImages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PortfolioProminentProjectImages.
+     */
+    distinct?: PortfolioProminentProjectImageScalarFieldEnum | PortfolioProminentProjectImageScalarFieldEnum[]
+  }
+
+  /**
+   * PortfolioProminentProjectImage findFirstOrThrow
+   */
+  export type PortfolioProminentProjectImageFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioProminentProjectImage
+     */
+    select?: PortfolioProminentProjectImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioProminentProjectImage
+     */
+    omit?: PortfolioProminentProjectImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioProminentProjectImageInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioProminentProjectImage to fetch.
+     */
+    where?: PortfolioProminentProjectImageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioProminentProjectImages to fetch.
+     */
+    orderBy?: PortfolioProminentProjectImageOrderByWithRelationInput | PortfolioProminentProjectImageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PortfolioProminentProjectImages.
+     */
+    cursor?: PortfolioProminentProjectImageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioProminentProjectImages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioProminentProjectImages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PortfolioProminentProjectImages.
+     */
+    distinct?: PortfolioProminentProjectImageScalarFieldEnum | PortfolioProminentProjectImageScalarFieldEnum[]
+  }
+
+  /**
+   * PortfolioProminentProjectImage findMany
+   */
+  export type PortfolioProminentProjectImageFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioProminentProjectImage
+     */
+    select?: PortfolioProminentProjectImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioProminentProjectImage
+     */
+    omit?: PortfolioProminentProjectImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioProminentProjectImageInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioProminentProjectImages to fetch.
+     */
+    where?: PortfolioProminentProjectImageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioProminentProjectImages to fetch.
+     */
+    orderBy?: PortfolioProminentProjectImageOrderByWithRelationInput | PortfolioProminentProjectImageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PortfolioProminentProjectImages.
+     */
+    cursor?: PortfolioProminentProjectImageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioProminentProjectImages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioProminentProjectImages.
+     */
+    skip?: number
+    distinct?: PortfolioProminentProjectImageScalarFieldEnum | PortfolioProminentProjectImageScalarFieldEnum[]
+  }
+
+  /**
+   * PortfolioProminentProjectImage create
+   */
+  export type PortfolioProminentProjectImageCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioProminentProjectImage
+     */
+    select?: PortfolioProminentProjectImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioProminentProjectImage
+     */
+    omit?: PortfolioProminentProjectImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioProminentProjectImageInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PortfolioProminentProjectImage.
+     */
+    data: XOR<PortfolioProminentProjectImageCreateInput, PortfolioProminentProjectImageUncheckedCreateInput>
+  }
+
+  /**
+   * PortfolioProminentProjectImage createMany
+   */
+  export type PortfolioProminentProjectImageCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PortfolioProminentProjectImages.
+     */
+    data: PortfolioProminentProjectImageCreateManyInput | PortfolioProminentProjectImageCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Feedback update
+   * PortfolioProminentProjectImage createManyAndReturn
    */
-  export type FeedbackUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PortfolioProminentProjectImageCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Feedback
+     * Select specific fields to fetch from the PortfolioProminentProjectImage
      */
-    select?: FeedbackSelect<ExtArgs> | null
+    select?: PortfolioProminentProjectImageSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Feedback
+     * Omit specific fields from the PortfolioProminentProjectImage
      */
-    omit?: FeedbackOmit<ExtArgs> | null
+    omit?: PortfolioProminentProjectImageOmit<ExtArgs> | null
     /**
-     * The data needed to update a Feedback.
+     * The data used to create many PortfolioProminentProjectImages.
      */
-    data: XOR<FeedbackUpdateInput, FeedbackUncheckedUpdateInput>
+    data: PortfolioProminentProjectImageCreateManyInput | PortfolioProminentProjectImageCreateManyInput[]
+    skipDuplicates?: boolean
     /**
-     * Choose, which Feedback to update.
+     * Choose, which related nodes to fetch as well
      */
-    where: FeedbackWhereUniqueInput
+    include?: PortfolioProminentProjectImageIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Feedback updateMany
+   * PortfolioProminentProjectImage update
    */
-  export type FeedbackUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PortfolioProminentProjectImageUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Feedbacks.
+     * Select specific fields to fetch from the PortfolioProminentProjectImage
      */
-    data: XOR<FeedbackUpdateManyMutationInput, FeedbackUncheckedUpdateManyInput>
+    select?: PortfolioProminentProjectImageSelect<ExtArgs> | null
     /**
-     * Filter which Feedbacks to update
+     * Omit specific fields from the PortfolioProminentProjectImage
      */
-    where?: FeedbackWhereInput
+    omit?: PortfolioProminentProjectImageOmit<ExtArgs> | null
     /**
-     * Limit how many Feedbacks to update.
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioProminentProjectImageInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PortfolioProminentProjectImage.
+     */
+    data: XOR<PortfolioProminentProjectImageUpdateInput, PortfolioProminentProjectImageUncheckedUpdateInput>
+    /**
+     * Choose, which PortfolioProminentProjectImage to update.
+     */
+    where: PortfolioProminentProjectImageWhereUniqueInput
+  }
+
+  /**
+   * PortfolioProminentProjectImage updateMany
+   */
+  export type PortfolioProminentProjectImageUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PortfolioProminentProjectImages.
+     */
+    data: XOR<PortfolioProminentProjectImageUpdateManyMutationInput, PortfolioProminentProjectImageUncheckedUpdateManyInput>
+    /**
+     * Filter which PortfolioProminentProjectImages to update
+     */
+    where?: PortfolioProminentProjectImageWhereInput
+    /**
+     * Limit how many PortfolioProminentProjectImages to update.
      */
     limit?: number
   }
 
   /**
-   * Feedback updateManyAndReturn
+   * PortfolioProminentProjectImage updateManyAndReturn
    */
-  export type FeedbackUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PortfolioProminentProjectImageUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Feedback
+     * Select specific fields to fetch from the PortfolioProminentProjectImage
      */
-    select?: FeedbackSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: PortfolioProminentProjectImageSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Feedback
+     * Omit specific fields from the PortfolioProminentProjectImage
      */
-    omit?: FeedbackOmit<ExtArgs> | null
+    omit?: PortfolioProminentProjectImageOmit<ExtArgs> | null
     /**
-     * The data used to update Feedbacks.
+     * The data used to update PortfolioProminentProjectImages.
      */
-    data: XOR<FeedbackUpdateManyMutationInput, FeedbackUncheckedUpdateManyInput>
+    data: XOR<PortfolioProminentProjectImageUpdateManyMutationInput, PortfolioProminentProjectImageUncheckedUpdateManyInput>
     /**
-     * Filter which Feedbacks to update
+     * Filter which PortfolioProminentProjectImages to update
      */
-    where?: FeedbackWhereInput
+    where?: PortfolioProminentProjectImageWhereInput
     /**
-     * Limit how many Feedbacks to update.
+     * Limit how many PortfolioProminentProjectImages to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioProminentProjectImageIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PortfolioProminentProjectImage upsert
+   */
+  export type PortfolioProminentProjectImageUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioProminentProjectImage
+     */
+    select?: PortfolioProminentProjectImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioProminentProjectImage
+     */
+    omit?: PortfolioProminentProjectImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioProminentProjectImageInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PortfolioProminentProjectImage to update in case it exists.
+     */
+    where: PortfolioProminentProjectImageWhereUniqueInput
+    /**
+     * In case the PortfolioProminentProjectImage found by the `where` argument doesn't exist, create a new PortfolioProminentProjectImage with this data.
+     */
+    create: XOR<PortfolioProminentProjectImageCreateInput, PortfolioProminentProjectImageUncheckedCreateInput>
+    /**
+     * In case the PortfolioProminentProjectImage was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PortfolioProminentProjectImageUpdateInput, PortfolioProminentProjectImageUncheckedUpdateInput>
+  }
+
+  /**
+   * PortfolioProminentProjectImage delete
+   */
+  export type PortfolioProminentProjectImageDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioProminentProjectImage
+     */
+    select?: PortfolioProminentProjectImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioProminentProjectImage
+     */
+    omit?: PortfolioProminentProjectImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioProminentProjectImageInclude<ExtArgs> | null
+    /**
+     * Filter which PortfolioProminentProjectImage to delete.
+     */
+    where: PortfolioProminentProjectImageWhereUniqueInput
+  }
+
+  /**
+   * PortfolioProminentProjectImage deleteMany
+   */
+  export type PortfolioProminentProjectImageDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PortfolioProminentProjectImages to delete
+     */
+    where?: PortfolioProminentProjectImageWhereInput
+    /**
+     * Limit how many PortfolioProminentProjectImages to delete.
      */
     limit?: number
   }
 
   /**
-   * Feedback upsert
+   * PortfolioProminentProjectImage without action
    */
-  export type FeedbackUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PortfolioProminentProjectImageDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Feedback
+     * Select specific fields to fetch from the PortfolioProminentProjectImage
      */
-    select?: FeedbackSelect<ExtArgs> | null
+    select?: PortfolioProminentProjectImageSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Feedback
+     * Omit specific fields from the PortfolioProminentProjectImage
      */
-    omit?: FeedbackOmit<ExtArgs> | null
+    omit?: PortfolioProminentProjectImageOmit<ExtArgs> | null
     /**
-     * The filter to search for the Feedback to update in case it exists.
+     * Choose, which related nodes to fetch as well
      */
-    where: FeedbackWhereUniqueInput
+    include?: PortfolioProminentProjectImageInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PortfolioCustomerFeedback
+   */
+
+  export type AggregatePortfolioCustomerFeedback = {
+    _count: PortfolioCustomerFeedbackCountAggregateOutputType | null
+    _avg: PortfolioCustomerFeedbackAvgAggregateOutputType | null
+    _sum: PortfolioCustomerFeedbackSumAggregateOutputType | null
+    _min: PortfolioCustomerFeedbackMinAggregateOutputType | null
+    _max: PortfolioCustomerFeedbackMaxAggregateOutputType | null
+  }
+
+  export type PortfolioCustomerFeedbackAvgAggregateOutputType = {
+    id: number | null
+    portfolioId: number | null
+  }
+
+  export type PortfolioCustomerFeedbackSumAggregateOutputType = {
+    id: number | null
+    portfolioId: number | null
+  }
+
+  export type PortfolioCustomerFeedbackMinAggregateOutputType = {
+    id: number | null
+    portfolioId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PortfolioCustomerFeedbackMaxAggregateOutputType = {
+    id: number | null
+    portfolioId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PortfolioCustomerFeedbackCountAggregateOutputType = {
+    id: number
+    portfolioId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type PortfolioCustomerFeedbackAvgAggregateInputType = {
+    id?: true
+    portfolioId?: true
+  }
+
+  export type PortfolioCustomerFeedbackSumAggregateInputType = {
+    id?: true
+    portfolioId?: true
+  }
+
+  export type PortfolioCustomerFeedbackMinAggregateInputType = {
+    id?: true
+    portfolioId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PortfolioCustomerFeedbackMaxAggregateInputType = {
+    id?: true
+    portfolioId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PortfolioCustomerFeedbackCountAggregateInputType = {
+    id?: true
+    portfolioId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type PortfolioCustomerFeedbackAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * In case the Feedback found by the `where` argument doesn't exist, create a new Feedback with this data.
+     * Filter which PortfolioCustomerFeedback to aggregate.
      */
-    create: XOR<FeedbackCreateInput, FeedbackUncheckedCreateInput>
+    where?: PortfolioCustomerFeedbackWhereInput
     /**
-     * In case the Feedback was found with the provided `where` argument, update it with this data.
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioCustomerFeedbacks to fetch.
      */
-    update: XOR<FeedbackUpdateInput, FeedbackUncheckedUpdateInput>
+    orderBy?: PortfolioCustomerFeedbackOrderByWithRelationInput | PortfolioCustomerFeedbackOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PortfolioCustomerFeedbackWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioCustomerFeedbacks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioCustomerFeedbacks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PortfolioCustomerFeedbacks
+    **/
+    _count?: true | PortfolioCustomerFeedbackCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PortfolioCustomerFeedbackAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PortfolioCustomerFeedbackSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PortfolioCustomerFeedbackMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PortfolioCustomerFeedbackMaxAggregateInputType
+  }
+
+  export type GetPortfolioCustomerFeedbackAggregateType<T extends PortfolioCustomerFeedbackAggregateArgs> = {
+        [P in keyof T & keyof AggregatePortfolioCustomerFeedback]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePortfolioCustomerFeedback[P]>
+      : GetScalarType<T[P], AggregatePortfolioCustomerFeedback[P]>
+  }
+
+
+
+
+  export type PortfolioCustomerFeedbackGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PortfolioCustomerFeedbackWhereInput
+    orderBy?: PortfolioCustomerFeedbackOrderByWithAggregationInput | PortfolioCustomerFeedbackOrderByWithAggregationInput[]
+    by: PortfolioCustomerFeedbackScalarFieldEnum[] | PortfolioCustomerFeedbackScalarFieldEnum
+    having?: PortfolioCustomerFeedbackScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PortfolioCustomerFeedbackCountAggregateInputType | true
+    _avg?: PortfolioCustomerFeedbackAvgAggregateInputType
+    _sum?: PortfolioCustomerFeedbackSumAggregateInputType
+    _min?: PortfolioCustomerFeedbackMinAggregateInputType
+    _max?: PortfolioCustomerFeedbackMaxAggregateInputType
+  }
+
+  export type PortfolioCustomerFeedbackGroupByOutputType = {
+    id: number
+    portfolioId: number
+    createdAt: Date
+    updatedAt: Date
+    _count: PortfolioCustomerFeedbackCountAggregateOutputType | null
+    _avg: PortfolioCustomerFeedbackAvgAggregateOutputType | null
+    _sum: PortfolioCustomerFeedbackSumAggregateOutputType | null
+    _min: PortfolioCustomerFeedbackMinAggregateOutputType | null
+    _max: PortfolioCustomerFeedbackMaxAggregateOutputType | null
+  }
+
+  type GetPortfolioCustomerFeedbackGroupByPayload<T extends PortfolioCustomerFeedbackGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PortfolioCustomerFeedbackGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PortfolioCustomerFeedbackGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PortfolioCustomerFeedbackGroupByOutputType[P]>
+            : GetScalarType<T[P], PortfolioCustomerFeedbackGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PortfolioCustomerFeedbackSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    portfolioId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["portfolioCustomerFeedback"]>
+
+  export type PortfolioCustomerFeedbackSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    portfolioId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["portfolioCustomerFeedback"]>
+
+  export type PortfolioCustomerFeedbackSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    portfolioId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["portfolioCustomerFeedback"]>
+
+  export type PortfolioCustomerFeedbackSelectScalar = {
+    id?: boolean
+    portfolioId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type PortfolioCustomerFeedbackOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "portfolioId" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolioCustomerFeedback"]>
+  export type PortfolioCustomerFeedbackInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }
+  export type PortfolioCustomerFeedbackIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }
+  export type PortfolioCustomerFeedbackIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }
+
+  export type $PortfolioCustomerFeedbackPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PortfolioCustomerFeedback"
+    objects: {
+      portfolio: Prisma.$PortfolioPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      portfolioId: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["portfolioCustomerFeedback"]>
+    composites: {}
+  }
+
+  type PortfolioCustomerFeedbackGetPayload<S extends boolean | null | undefined | PortfolioCustomerFeedbackDefaultArgs> = $Result.GetResult<Prisma.$PortfolioCustomerFeedbackPayload, S>
+
+  type PortfolioCustomerFeedbackCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PortfolioCustomerFeedbackFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PortfolioCustomerFeedbackCountAggregateInputType | true
+    }
+
+  export interface PortfolioCustomerFeedbackDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PortfolioCustomerFeedback'], meta: { name: 'PortfolioCustomerFeedback' } }
+    /**
+     * Find zero or one PortfolioCustomerFeedback that matches the filter.
+     * @param {PortfolioCustomerFeedbackFindUniqueArgs} args - Arguments to find a PortfolioCustomerFeedback
+     * @example
+     * // Get one PortfolioCustomerFeedback
+     * const portfolioCustomerFeedback = await prisma.portfolioCustomerFeedback.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PortfolioCustomerFeedbackFindUniqueArgs>(args: SelectSubset<T, PortfolioCustomerFeedbackFindUniqueArgs<ExtArgs>>): Prisma__PortfolioCustomerFeedbackClient<$Result.GetResult<Prisma.$PortfolioCustomerFeedbackPayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find one PortfolioCustomerFeedback that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PortfolioCustomerFeedbackFindUniqueOrThrowArgs} args - Arguments to find a PortfolioCustomerFeedback
+     * @example
+     * // Get one PortfolioCustomerFeedback
+     * const portfolioCustomerFeedback = await prisma.portfolioCustomerFeedback.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PortfolioCustomerFeedbackFindUniqueOrThrowArgs>(args: SelectSubset<T, PortfolioCustomerFeedbackFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PortfolioCustomerFeedbackClient<$Result.GetResult<Prisma.$PortfolioCustomerFeedbackPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first PortfolioCustomerFeedback that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioCustomerFeedbackFindFirstArgs} args - Arguments to find a PortfolioCustomerFeedback
+     * @example
+     * // Get one PortfolioCustomerFeedback
+     * const portfolioCustomerFeedback = await prisma.portfolioCustomerFeedback.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PortfolioCustomerFeedbackFindFirstArgs>(args?: SelectSubset<T, PortfolioCustomerFeedbackFindFirstArgs<ExtArgs>>): Prisma__PortfolioCustomerFeedbackClient<$Result.GetResult<Prisma.$PortfolioCustomerFeedbackPayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first PortfolioCustomerFeedback that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioCustomerFeedbackFindFirstOrThrowArgs} args - Arguments to find a PortfolioCustomerFeedback
+     * @example
+     * // Get one PortfolioCustomerFeedback
+     * const portfolioCustomerFeedback = await prisma.portfolioCustomerFeedback.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PortfolioCustomerFeedbackFindFirstOrThrowArgs>(args?: SelectSubset<T, PortfolioCustomerFeedbackFindFirstOrThrowArgs<ExtArgs>>): Prisma__PortfolioCustomerFeedbackClient<$Result.GetResult<Prisma.$PortfolioCustomerFeedbackPayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find zero or more PortfolioCustomerFeedbacks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioCustomerFeedbackFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PortfolioCustomerFeedbacks
+     * const portfolioCustomerFeedbacks = await prisma.portfolioCustomerFeedback.findMany()
+     * 
+     * // Get first 10 PortfolioCustomerFeedbacks
+     * const portfolioCustomerFeedbacks = await prisma.portfolioCustomerFeedback.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const portfolioCustomerFeedbackWithIdOnly = await prisma.portfolioCustomerFeedback.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PortfolioCustomerFeedbackFindManyArgs>(args?: SelectSubset<T, PortfolioCustomerFeedbackFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioCustomerFeedbackPayload<ExtArgs>, T, "findMany", ClientOptions>>
+
+    /**
+     * Create a PortfolioCustomerFeedback.
+     * @param {PortfolioCustomerFeedbackCreateArgs} args - Arguments to create a PortfolioCustomerFeedback.
+     * @example
+     * // Create one PortfolioCustomerFeedback
+     * const PortfolioCustomerFeedback = await prisma.portfolioCustomerFeedback.create({
+     *   data: {
+     *     // ... data to create a PortfolioCustomerFeedback
+     *   }
+     * })
+     * 
+     */
+    create<T extends PortfolioCustomerFeedbackCreateArgs>(args: SelectSubset<T, PortfolioCustomerFeedbackCreateArgs<ExtArgs>>): Prisma__PortfolioCustomerFeedbackClient<$Result.GetResult<Prisma.$PortfolioCustomerFeedbackPayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Create many PortfolioCustomerFeedbacks.
+     * @param {PortfolioCustomerFeedbackCreateManyArgs} args - Arguments to create many PortfolioCustomerFeedbacks.
+     * @example
+     * // Create many PortfolioCustomerFeedbacks
+     * const portfolioCustomerFeedback = await prisma.portfolioCustomerFeedback.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PortfolioCustomerFeedbackCreateManyArgs>(args?: SelectSubset<T, PortfolioCustomerFeedbackCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PortfolioCustomerFeedbacks and returns the data saved in the database.
+     * @param {PortfolioCustomerFeedbackCreateManyAndReturnArgs} args - Arguments to create many PortfolioCustomerFeedbacks.
+     * @example
+     * // Create many PortfolioCustomerFeedbacks
+     * const portfolioCustomerFeedback = await prisma.portfolioCustomerFeedback.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PortfolioCustomerFeedbacks and only return the `id`
+     * const portfolioCustomerFeedbackWithIdOnly = await prisma.portfolioCustomerFeedback.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PortfolioCustomerFeedbackCreateManyAndReturnArgs>(args?: SelectSubset<T, PortfolioCustomerFeedbackCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioCustomerFeedbackPayload<ExtArgs>, T, "createManyAndReturn", ClientOptions>>
+
+    /**
+     * Delete a PortfolioCustomerFeedback.
+     * @param {PortfolioCustomerFeedbackDeleteArgs} args - Arguments to delete one PortfolioCustomerFeedback.
+     * @example
+     * // Delete one PortfolioCustomerFeedback
+     * const PortfolioCustomerFeedback = await prisma.portfolioCustomerFeedback.delete({
+     *   where: {
+     *     // ... filter to delete one PortfolioCustomerFeedback
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PortfolioCustomerFeedbackDeleteArgs>(args: SelectSubset<T, PortfolioCustomerFeedbackDeleteArgs<ExtArgs>>): Prisma__PortfolioCustomerFeedbackClient<$Result.GetResult<Prisma.$PortfolioCustomerFeedbackPayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Update one PortfolioCustomerFeedback.
+     * @param {PortfolioCustomerFeedbackUpdateArgs} args - Arguments to update one PortfolioCustomerFeedback.
+     * @example
+     * // Update one PortfolioCustomerFeedback
+     * const portfolioCustomerFeedback = await prisma.portfolioCustomerFeedback.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PortfolioCustomerFeedbackUpdateArgs>(args: SelectSubset<T, PortfolioCustomerFeedbackUpdateArgs<ExtArgs>>): Prisma__PortfolioCustomerFeedbackClient<$Result.GetResult<Prisma.$PortfolioCustomerFeedbackPayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Delete zero or more PortfolioCustomerFeedbacks.
+     * @param {PortfolioCustomerFeedbackDeleteManyArgs} args - Arguments to filter PortfolioCustomerFeedbacks to delete.
+     * @example
+     * // Delete a few PortfolioCustomerFeedbacks
+     * const { count } = await prisma.portfolioCustomerFeedback.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PortfolioCustomerFeedbackDeleteManyArgs>(args?: SelectSubset<T, PortfolioCustomerFeedbackDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PortfolioCustomerFeedbacks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioCustomerFeedbackUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PortfolioCustomerFeedbacks
+     * const portfolioCustomerFeedback = await prisma.portfolioCustomerFeedback.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PortfolioCustomerFeedbackUpdateManyArgs>(args: SelectSubset<T, PortfolioCustomerFeedbackUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PortfolioCustomerFeedbacks and returns the data updated in the database.
+     * @param {PortfolioCustomerFeedbackUpdateManyAndReturnArgs} args - Arguments to update many PortfolioCustomerFeedbacks.
+     * @example
+     * // Update many PortfolioCustomerFeedbacks
+     * const portfolioCustomerFeedback = await prisma.portfolioCustomerFeedback.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PortfolioCustomerFeedbacks and only return the `id`
+     * const portfolioCustomerFeedbackWithIdOnly = await prisma.portfolioCustomerFeedback.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PortfolioCustomerFeedbackUpdateManyAndReturnArgs>(args: SelectSubset<T, PortfolioCustomerFeedbackUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioCustomerFeedbackPayload<ExtArgs>, T, "updateManyAndReturn", ClientOptions>>
+
+    /**
+     * Create or update one PortfolioCustomerFeedback.
+     * @param {PortfolioCustomerFeedbackUpsertArgs} args - Arguments to update or create a PortfolioCustomerFeedback.
+     * @example
+     * // Update or create a PortfolioCustomerFeedback
+     * const portfolioCustomerFeedback = await prisma.portfolioCustomerFeedback.upsert({
+     *   create: {
+     *     // ... data to create a PortfolioCustomerFeedback
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PortfolioCustomerFeedback we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PortfolioCustomerFeedbackUpsertArgs>(args: SelectSubset<T, PortfolioCustomerFeedbackUpsertArgs<ExtArgs>>): Prisma__PortfolioCustomerFeedbackClient<$Result.GetResult<Prisma.$PortfolioCustomerFeedbackPayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
+
+
+    /**
+     * Count the number of PortfolioCustomerFeedbacks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioCustomerFeedbackCountArgs} args - Arguments to filter PortfolioCustomerFeedbacks to count.
+     * @example
+     * // Count the number of PortfolioCustomerFeedbacks
+     * const count = await prisma.portfolioCustomerFeedback.count({
+     *   where: {
+     *     // ... the filter for the PortfolioCustomerFeedbacks we want to count
+     *   }
+     * })
+    **/
+    count<T extends PortfolioCustomerFeedbackCountArgs>(
+      args?: Subset<T, PortfolioCustomerFeedbackCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PortfolioCustomerFeedbackCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PortfolioCustomerFeedback.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioCustomerFeedbackAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PortfolioCustomerFeedbackAggregateArgs>(args: Subset<T, PortfolioCustomerFeedbackAggregateArgs>): Prisma.PrismaPromise<GetPortfolioCustomerFeedbackAggregateType<T>>
+
+    /**
+     * Group by PortfolioCustomerFeedback.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioCustomerFeedbackGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PortfolioCustomerFeedbackGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PortfolioCustomerFeedbackGroupByArgs['orderBy'] }
+        : { orderBy?: PortfolioCustomerFeedbackGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PortfolioCustomerFeedbackGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPortfolioCustomerFeedbackGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PortfolioCustomerFeedback model
+   */
+  readonly fields: PortfolioCustomerFeedbackFieldRefs;
   }
 
   /**
-   * Feedback delete
+   * The delegate class that acts as a "Promise-like" for PortfolioCustomerFeedback.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export type FeedbackDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export interface Prisma__PortfolioCustomerFeedbackClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    portfolio<T extends PortfolioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PortfolioDefaultArgs<ExtArgs>>): Prisma__PortfolioClient<$Result.GetResult<Prisma.$PortfolioPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
     /**
-     * Select specific fields to fetch from the Feedback
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
      */
-    select?: FeedbackSelect<ExtArgs> | null
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
     /**
-     * Omit specific fields from the Feedback
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
      */
-    omit?: FeedbackOmit<ExtArgs> | null
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
     /**
-     * Filter which Feedback to delete.
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
      */
-    where: FeedbackWhereUniqueInput
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PortfolioCustomerFeedback model
+   */ 
+  interface PortfolioCustomerFeedbackFieldRefs {
+    readonly id: FieldRef<"PortfolioCustomerFeedback", 'Int'>
+    readonly portfolioId: FieldRef<"PortfolioCustomerFeedback", 'Int'>
+    readonly createdAt: FieldRef<"PortfolioCustomerFeedback", 'DateTime'>
+    readonly updatedAt: FieldRef<"PortfolioCustomerFeedback", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PortfolioCustomerFeedback findUnique
+   */
+  export type PortfolioCustomerFeedbackFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioCustomerFeedback
+     */
+    select?: PortfolioCustomerFeedbackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioCustomerFeedback
+     */
+    omit?: PortfolioCustomerFeedbackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioCustomerFeedbackInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioCustomerFeedback to fetch.
+     */
+    where: PortfolioCustomerFeedbackWhereUniqueInput
   }
 
   /**
-   * Feedback deleteMany
+   * PortfolioCustomerFeedback findUniqueOrThrow
    */
-  export type FeedbackDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PortfolioCustomerFeedbackFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Feedbacks to delete
+     * Select specific fields to fetch from the PortfolioCustomerFeedback
      */
-    where?: FeedbackWhereInput
+    select?: PortfolioCustomerFeedbackSelect<ExtArgs> | null
     /**
-     * Limit how many Feedbacks to delete.
+     * Omit specific fields from the PortfolioCustomerFeedback
+     */
+    omit?: PortfolioCustomerFeedbackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioCustomerFeedbackInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioCustomerFeedback to fetch.
+     */
+    where: PortfolioCustomerFeedbackWhereUniqueInput
+  }
+
+  /**
+   * PortfolioCustomerFeedback findFirst
+   */
+  export type PortfolioCustomerFeedbackFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioCustomerFeedback
+     */
+    select?: PortfolioCustomerFeedbackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioCustomerFeedback
+     */
+    omit?: PortfolioCustomerFeedbackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioCustomerFeedbackInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioCustomerFeedback to fetch.
+     */
+    where?: PortfolioCustomerFeedbackWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioCustomerFeedbacks to fetch.
+     */
+    orderBy?: PortfolioCustomerFeedbackOrderByWithRelationInput | PortfolioCustomerFeedbackOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PortfolioCustomerFeedbacks.
+     */
+    cursor?: PortfolioCustomerFeedbackWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioCustomerFeedbacks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioCustomerFeedbacks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PortfolioCustomerFeedbacks.
+     */
+    distinct?: PortfolioCustomerFeedbackScalarFieldEnum | PortfolioCustomerFeedbackScalarFieldEnum[]
+  }
+
+  /**
+   * PortfolioCustomerFeedback findFirstOrThrow
+   */
+  export type PortfolioCustomerFeedbackFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioCustomerFeedback
+     */
+    select?: PortfolioCustomerFeedbackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioCustomerFeedback
+     */
+    omit?: PortfolioCustomerFeedbackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioCustomerFeedbackInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioCustomerFeedback to fetch.
+     */
+    where?: PortfolioCustomerFeedbackWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioCustomerFeedbacks to fetch.
+     */
+    orderBy?: PortfolioCustomerFeedbackOrderByWithRelationInput | PortfolioCustomerFeedbackOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PortfolioCustomerFeedbacks.
+     */
+    cursor?: PortfolioCustomerFeedbackWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioCustomerFeedbacks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioCustomerFeedbacks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PortfolioCustomerFeedbacks.
+     */
+    distinct?: PortfolioCustomerFeedbackScalarFieldEnum | PortfolioCustomerFeedbackScalarFieldEnum[]
+  }
+
+  /**
+   * PortfolioCustomerFeedback findMany
+   */
+  export type PortfolioCustomerFeedbackFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioCustomerFeedback
+     */
+    select?: PortfolioCustomerFeedbackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioCustomerFeedback
+     */
+    omit?: PortfolioCustomerFeedbackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioCustomerFeedbackInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioCustomerFeedbacks to fetch.
+     */
+    where?: PortfolioCustomerFeedbackWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioCustomerFeedbacks to fetch.
+     */
+    orderBy?: PortfolioCustomerFeedbackOrderByWithRelationInput | PortfolioCustomerFeedbackOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PortfolioCustomerFeedbacks.
+     */
+    cursor?: PortfolioCustomerFeedbackWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioCustomerFeedbacks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioCustomerFeedbacks.
+     */
+    skip?: number
+    distinct?: PortfolioCustomerFeedbackScalarFieldEnum | PortfolioCustomerFeedbackScalarFieldEnum[]
+  }
+
+  /**
+   * PortfolioCustomerFeedback create
+   */
+  export type PortfolioCustomerFeedbackCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioCustomerFeedback
+     */
+    select?: PortfolioCustomerFeedbackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioCustomerFeedback
+     */
+    omit?: PortfolioCustomerFeedbackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioCustomerFeedbackInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PortfolioCustomerFeedback.
+     */
+    data: XOR<PortfolioCustomerFeedbackCreateInput, PortfolioCustomerFeedbackUncheckedCreateInput>
+  }
+
+  /**
+   * PortfolioCustomerFeedback createMany
+   */
+  export type PortfolioCustomerFeedbackCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PortfolioCustomerFeedbacks.
+     */
+    data: PortfolioCustomerFeedbackCreateManyInput | PortfolioCustomerFeedbackCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PortfolioCustomerFeedback createManyAndReturn
+   */
+  export type PortfolioCustomerFeedbackCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioCustomerFeedback
+     */
+    select?: PortfolioCustomerFeedbackSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioCustomerFeedback
+     */
+    omit?: PortfolioCustomerFeedbackOmit<ExtArgs> | null
+    /**
+     * The data used to create many PortfolioCustomerFeedbacks.
+     */
+    data: PortfolioCustomerFeedbackCreateManyInput | PortfolioCustomerFeedbackCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioCustomerFeedbackIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PortfolioCustomerFeedback update
+   */
+  export type PortfolioCustomerFeedbackUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioCustomerFeedback
+     */
+    select?: PortfolioCustomerFeedbackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioCustomerFeedback
+     */
+    omit?: PortfolioCustomerFeedbackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioCustomerFeedbackInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PortfolioCustomerFeedback.
+     */
+    data: XOR<PortfolioCustomerFeedbackUpdateInput, PortfolioCustomerFeedbackUncheckedUpdateInput>
+    /**
+     * Choose, which PortfolioCustomerFeedback to update.
+     */
+    where: PortfolioCustomerFeedbackWhereUniqueInput
+  }
+
+  /**
+   * PortfolioCustomerFeedback updateMany
+   */
+  export type PortfolioCustomerFeedbackUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PortfolioCustomerFeedbacks.
+     */
+    data: XOR<PortfolioCustomerFeedbackUpdateManyMutationInput, PortfolioCustomerFeedbackUncheckedUpdateManyInput>
+    /**
+     * Filter which PortfolioCustomerFeedbacks to update
+     */
+    where?: PortfolioCustomerFeedbackWhereInput
+    /**
+     * Limit how many PortfolioCustomerFeedbacks to update.
      */
     limit?: number
   }
 
   /**
-   * Feedback without action
+   * PortfolioCustomerFeedback updateManyAndReturn
    */
-  export type FeedbackDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PortfolioCustomerFeedbackUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Feedback
+     * Select specific fields to fetch from the PortfolioCustomerFeedback
      */
-    select?: FeedbackSelect<ExtArgs> | null
+    select?: PortfolioCustomerFeedbackSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Feedback
+     * Omit specific fields from the PortfolioCustomerFeedback
      */
-    omit?: FeedbackOmit<ExtArgs> | null
+    omit?: PortfolioCustomerFeedbackOmit<ExtArgs> | null
+    /**
+     * The data used to update PortfolioCustomerFeedbacks.
+     */
+    data: XOR<PortfolioCustomerFeedbackUpdateManyMutationInput, PortfolioCustomerFeedbackUncheckedUpdateManyInput>
+    /**
+     * Filter which PortfolioCustomerFeedbacks to update
+     */
+    where?: PortfolioCustomerFeedbackWhereInput
+    /**
+     * Limit how many PortfolioCustomerFeedbacks to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioCustomerFeedbackIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PortfolioCustomerFeedback upsert
+   */
+  export type PortfolioCustomerFeedbackUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioCustomerFeedback
+     */
+    select?: PortfolioCustomerFeedbackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioCustomerFeedback
+     */
+    omit?: PortfolioCustomerFeedbackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioCustomerFeedbackInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PortfolioCustomerFeedback to update in case it exists.
+     */
+    where: PortfolioCustomerFeedbackWhereUniqueInput
+    /**
+     * In case the PortfolioCustomerFeedback found by the `where` argument doesn't exist, create a new PortfolioCustomerFeedback with this data.
+     */
+    create: XOR<PortfolioCustomerFeedbackCreateInput, PortfolioCustomerFeedbackUncheckedCreateInput>
+    /**
+     * In case the PortfolioCustomerFeedback was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PortfolioCustomerFeedbackUpdateInput, PortfolioCustomerFeedbackUncheckedUpdateInput>
+  }
+
+  /**
+   * PortfolioCustomerFeedback delete
+   */
+  export type PortfolioCustomerFeedbackDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioCustomerFeedback
+     */
+    select?: PortfolioCustomerFeedbackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioCustomerFeedback
+     */
+    omit?: PortfolioCustomerFeedbackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioCustomerFeedbackInclude<ExtArgs> | null
+    /**
+     * Filter which PortfolioCustomerFeedback to delete.
+     */
+    where: PortfolioCustomerFeedbackWhereUniqueInput
+  }
+
+  /**
+   * PortfolioCustomerFeedback deleteMany
+   */
+  export type PortfolioCustomerFeedbackDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PortfolioCustomerFeedbacks to delete
+     */
+    where?: PortfolioCustomerFeedbackWhereInput
+    /**
+     * Limit how many PortfolioCustomerFeedbacks to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PortfolioCustomerFeedback without action
+   */
+  export type PortfolioCustomerFeedbackDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioCustomerFeedback
+     */
+    select?: PortfolioCustomerFeedbackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioCustomerFeedback
+     */
+    omit?: PortfolioCustomerFeedbackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioCustomerFeedbackInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PortfolioAboutSection
+   */
+
+  export type AggregatePortfolioAboutSection = {
+    _count: PortfolioAboutSectionCountAggregateOutputType | null
+    _avg: PortfolioAboutSectionAvgAggregateOutputType | null
+    _sum: PortfolioAboutSectionSumAggregateOutputType | null
+    _min: PortfolioAboutSectionMinAggregateOutputType | null
+    _max: PortfolioAboutSectionMaxAggregateOutputType | null
+  }
+
+  export type PortfolioAboutSectionAvgAggregateOutputType = {
+    id: number | null
+    portfolioId: number | null
+  }
+
+  export type PortfolioAboutSectionSumAggregateOutputType = {
+    id: number | null
+    portfolioId: number | null
+  }
+
+  export type PortfolioAboutSectionMinAggregateOutputType = {
+    id: number | null
+    portfolioId: number | null
+    avatar: string | null
+    overview: string | null
+    detail: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PortfolioAboutSectionMaxAggregateOutputType = {
+    id: number | null
+    portfolioId: number | null
+    avatar: string | null
+    overview: string | null
+    detail: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PortfolioAboutSectionCountAggregateOutputType = {
+    id: number
+    portfolioId: number
+    avatar: number
+    overview: number
+    detail: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type PortfolioAboutSectionAvgAggregateInputType = {
+    id?: true
+    portfolioId?: true
+  }
+
+  export type PortfolioAboutSectionSumAggregateInputType = {
+    id?: true
+    portfolioId?: true
+  }
+
+  export type PortfolioAboutSectionMinAggregateInputType = {
+    id?: true
+    portfolioId?: true
+    avatar?: true
+    overview?: true
+    detail?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PortfolioAboutSectionMaxAggregateInputType = {
+    id?: true
+    portfolioId?: true
+    avatar?: true
+    overview?: true
+    detail?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PortfolioAboutSectionCountAggregateInputType = {
+    id?: true
+    portfolioId?: true
+    avatar?: true
+    overview?: true
+    detail?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type PortfolioAboutSectionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PortfolioAboutSection to aggregate.
+     */
+    where?: PortfolioAboutSectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioAboutSections to fetch.
+     */
+    orderBy?: PortfolioAboutSectionOrderByWithRelationInput | PortfolioAboutSectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PortfolioAboutSectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioAboutSections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioAboutSections.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PortfolioAboutSections
+    **/
+    _count?: true | PortfolioAboutSectionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PortfolioAboutSectionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PortfolioAboutSectionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PortfolioAboutSectionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PortfolioAboutSectionMaxAggregateInputType
+  }
+
+  export type GetPortfolioAboutSectionAggregateType<T extends PortfolioAboutSectionAggregateArgs> = {
+        [P in keyof T & keyof AggregatePortfolioAboutSection]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePortfolioAboutSection[P]>
+      : GetScalarType<T[P], AggregatePortfolioAboutSection[P]>
+  }
+
+
+
+
+  export type PortfolioAboutSectionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PortfolioAboutSectionWhereInput
+    orderBy?: PortfolioAboutSectionOrderByWithAggregationInput | PortfolioAboutSectionOrderByWithAggregationInput[]
+    by: PortfolioAboutSectionScalarFieldEnum[] | PortfolioAboutSectionScalarFieldEnum
+    having?: PortfolioAboutSectionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PortfolioAboutSectionCountAggregateInputType | true
+    _avg?: PortfolioAboutSectionAvgAggregateInputType
+    _sum?: PortfolioAboutSectionSumAggregateInputType
+    _min?: PortfolioAboutSectionMinAggregateInputType
+    _max?: PortfolioAboutSectionMaxAggregateInputType
+  }
+
+  export type PortfolioAboutSectionGroupByOutputType = {
+    id: number
+    portfolioId: number | null
+    avatar: string
+    overview: string
+    detail: string
+    createdAt: Date
+    updatedAt: Date
+    _count: PortfolioAboutSectionCountAggregateOutputType | null
+    _avg: PortfolioAboutSectionAvgAggregateOutputType | null
+    _sum: PortfolioAboutSectionSumAggregateOutputType | null
+    _min: PortfolioAboutSectionMinAggregateOutputType | null
+    _max: PortfolioAboutSectionMaxAggregateOutputType | null
+  }
+
+  type GetPortfolioAboutSectionGroupByPayload<T extends PortfolioAboutSectionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PortfolioAboutSectionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PortfolioAboutSectionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PortfolioAboutSectionGroupByOutputType[P]>
+            : GetScalarType<T[P], PortfolioAboutSectionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PortfolioAboutSectionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    portfolioId?: boolean
+    avatar?: boolean
+    overview?: boolean
+    detail?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    portfolio?: boolean | PortfolioAboutSection$portfolioArgs<ExtArgs>
+  }, ExtArgs["result"]["portfolioAboutSection"]>
+
+  export type PortfolioAboutSectionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    portfolioId?: boolean
+    avatar?: boolean
+    overview?: boolean
+    detail?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    portfolio?: boolean | PortfolioAboutSection$portfolioArgs<ExtArgs>
+  }, ExtArgs["result"]["portfolioAboutSection"]>
+
+  export type PortfolioAboutSectionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    portfolioId?: boolean
+    avatar?: boolean
+    overview?: boolean
+    detail?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    portfolio?: boolean | PortfolioAboutSection$portfolioArgs<ExtArgs>
+  }, ExtArgs["result"]["portfolioAboutSection"]>
+
+  export type PortfolioAboutSectionSelectScalar = {
+    id?: boolean
+    portfolioId?: boolean
+    avatar?: boolean
+    overview?: boolean
+    detail?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type PortfolioAboutSectionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "portfolioId" | "avatar" | "overview" | "detail" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolioAboutSection"]>
+  export type PortfolioAboutSectionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolio?: boolean | PortfolioAboutSection$portfolioArgs<ExtArgs>
+  }
+  export type PortfolioAboutSectionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolio?: boolean | PortfolioAboutSection$portfolioArgs<ExtArgs>
+  }
+  export type PortfolioAboutSectionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolio?: boolean | PortfolioAboutSection$portfolioArgs<ExtArgs>
+  }
+
+  export type $PortfolioAboutSectionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PortfolioAboutSection"
+    objects: {
+      portfolio: Prisma.$PortfolioPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      portfolioId: number | null
+      avatar: string
+      overview: string
+      detail: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["portfolioAboutSection"]>
+    composites: {}
+  }
+
+  type PortfolioAboutSectionGetPayload<S extends boolean | null | undefined | PortfolioAboutSectionDefaultArgs> = $Result.GetResult<Prisma.$PortfolioAboutSectionPayload, S>
+
+  type PortfolioAboutSectionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PortfolioAboutSectionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PortfolioAboutSectionCountAggregateInputType | true
+    }
+
+  export interface PortfolioAboutSectionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PortfolioAboutSection'], meta: { name: 'PortfolioAboutSection' } }
+    /**
+     * Find zero or one PortfolioAboutSection that matches the filter.
+     * @param {PortfolioAboutSectionFindUniqueArgs} args - Arguments to find a PortfolioAboutSection
+     * @example
+     * // Get one PortfolioAboutSection
+     * const portfolioAboutSection = await prisma.portfolioAboutSection.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PortfolioAboutSectionFindUniqueArgs>(args: SelectSubset<T, PortfolioAboutSectionFindUniqueArgs<ExtArgs>>): Prisma__PortfolioAboutSectionClient<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find one PortfolioAboutSection that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PortfolioAboutSectionFindUniqueOrThrowArgs} args - Arguments to find a PortfolioAboutSection
+     * @example
+     * // Get one PortfolioAboutSection
+     * const portfolioAboutSection = await prisma.portfolioAboutSection.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PortfolioAboutSectionFindUniqueOrThrowArgs>(args: SelectSubset<T, PortfolioAboutSectionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PortfolioAboutSectionClient<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first PortfolioAboutSection that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioAboutSectionFindFirstArgs} args - Arguments to find a PortfolioAboutSection
+     * @example
+     * // Get one PortfolioAboutSection
+     * const portfolioAboutSection = await prisma.portfolioAboutSection.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PortfolioAboutSectionFindFirstArgs>(args?: SelectSubset<T, PortfolioAboutSectionFindFirstArgs<ExtArgs>>): Prisma__PortfolioAboutSectionClient<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first PortfolioAboutSection that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioAboutSectionFindFirstOrThrowArgs} args - Arguments to find a PortfolioAboutSection
+     * @example
+     * // Get one PortfolioAboutSection
+     * const portfolioAboutSection = await prisma.portfolioAboutSection.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PortfolioAboutSectionFindFirstOrThrowArgs>(args?: SelectSubset<T, PortfolioAboutSectionFindFirstOrThrowArgs<ExtArgs>>): Prisma__PortfolioAboutSectionClient<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find zero or more PortfolioAboutSections that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioAboutSectionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PortfolioAboutSections
+     * const portfolioAboutSections = await prisma.portfolioAboutSection.findMany()
+     * 
+     * // Get first 10 PortfolioAboutSections
+     * const portfolioAboutSections = await prisma.portfolioAboutSection.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const portfolioAboutSectionWithIdOnly = await prisma.portfolioAboutSection.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PortfolioAboutSectionFindManyArgs>(args?: SelectSubset<T, PortfolioAboutSectionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "findMany", ClientOptions>>
+
+    /**
+     * Create a PortfolioAboutSection.
+     * @param {PortfolioAboutSectionCreateArgs} args - Arguments to create a PortfolioAboutSection.
+     * @example
+     * // Create one PortfolioAboutSection
+     * const PortfolioAboutSection = await prisma.portfolioAboutSection.create({
+     *   data: {
+     *     // ... data to create a PortfolioAboutSection
+     *   }
+     * })
+     * 
+     */
+    create<T extends PortfolioAboutSectionCreateArgs>(args: SelectSubset<T, PortfolioAboutSectionCreateArgs<ExtArgs>>): Prisma__PortfolioAboutSectionClient<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Create many PortfolioAboutSections.
+     * @param {PortfolioAboutSectionCreateManyArgs} args - Arguments to create many PortfolioAboutSections.
+     * @example
+     * // Create many PortfolioAboutSections
+     * const portfolioAboutSection = await prisma.portfolioAboutSection.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PortfolioAboutSectionCreateManyArgs>(args?: SelectSubset<T, PortfolioAboutSectionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PortfolioAboutSections and returns the data saved in the database.
+     * @param {PortfolioAboutSectionCreateManyAndReturnArgs} args - Arguments to create many PortfolioAboutSections.
+     * @example
+     * // Create many PortfolioAboutSections
+     * const portfolioAboutSection = await prisma.portfolioAboutSection.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PortfolioAboutSections and only return the `id`
+     * const portfolioAboutSectionWithIdOnly = await prisma.portfolioAboutSection.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PortfolioAboutSectionCreateManyAndReturnArgs>(args?: SelectSubset<T, PortfolioAboutSectionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "createManyAndReturn", ClientOptions>>
+
+    /**
+     * Delete a PortfolioAboutSection.
+     * @param {PortfolioAboutSectionDeleteArgs} args - Arguments to delete one PortfolioAboutSection.
+     * @example
+     * // Delete one PortfolioAboutSection
+     * const PortfolioAboutSection = await prisma.portfolioAboutSection.delete({
+     *   where: {
+     *     // ... filter to delete one PortfolioAboutSection
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PortfolioAboutSectionDeleteArgs>(args: SelectSubset<T, PortfolioAboutSectionDeleteArgs<ExtArgs>>): Prisma__PortfolioAboutSectionClient<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Update one PortfolioAboutSection.
+     * @param {PortfolioAboutSectionUpdateArgs} args - Arguments to update one PortfolioAboutSection.
+     * @example
+     * // Update one PortfolioAboutSection
+     * const portfolioAboutSection = await prisma.portfolioAboutSection.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PortfolioAboutSectionUpdateArgs>(args: SelectSubset<T, PortfolioAboutSectionUpdateArgs<ExtArgs>>): Prisma__PortfolioAboutSectionClient<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Delete zero or more PortfolioAboutSections.
+     * @param {PortfolioAboutSectionDeleteManyArgs} args - Arguments to filter PortfolioAboutSections to delete.
+     * @example
+     * // Delete a few PortfolioAboutSections
+     * const { count } = await prisma.portfolioAboutSection.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PortfolioAboutSectionDeleteManyArgs>(args?: SelectSubset<T, PortfolioAboutSectionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PortfolioAboutSections.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioAboutSectionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PortfolioAboutSections
+     * const portfolioAboutSection = await prisma.portfolioAboutSection.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PortfolioAboutSectionUpdateManyArgs>(args: SelectSubset<T, PortfolioAboutSectionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PortfolioAboutSections and returns the data updated in the database.
+     * @param {PortfolioAboutSectionUpdateManyAndReturnArgs} args - Arguments to update many PortfolioAboutSections.
+     * @example
+     * // Update many PortfolioAboutSections
+     * const portfolioAboutSection = await prisma.portfolioAboutSection.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PortfolioAboutSections and only return the `id`
+     * const portfolioAboutSectionWithIdOnly = await prisma.portfolioAboutSection.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PortfolioAboutSectionUpdateManyAndReturnArgs>(args: SelectSubset<T, PortfolioAboutSectionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "updateManyAndReturn", ClientOptions>>
+
+    /**
+     * Create or update one PortfolioAboutSection.
+     * @param {PortfolioAboutSectionUpsertArgs} args - Arguments to update or create a PortfolioAboutSection.
+     * @example
+     * // Update or create a PortfolioAboutSection
+     * const portfolioAboutSection = await prisma.portfolioAboutSection.upsert({
+     *   create: {
+     *     // ... data to create a PortfolioAboutSection
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PortfolioAboutSection we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PortfolioAboutSectionUpsertArgs>(args: SelectSubset<T, PortfolioAboutSectionUpsertArgs<ExtArgs>>): Prisma__PortfolioAboutSectionClient<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
+
+
+    /**
+     * Count the number of PortfolioAboutSections.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioAboutSectionCountArgs} args - Arguments to filter PortfolioAboutSections to count.
+     * @example
+     * // Count the number of PortfolioAboutSections
+     * const count = await prisma.portfolioAboutSection.count({
+     *   where: {
+     *     // ... the filter for the PortfolioAboutSections we want to count
+     *   }
+     * })
+    **/
+    count<T extends PortfolioAboutSectionCountArgs>(
+      args?: Subset<T, PortfolioAboutSectionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PortfolioAboutSectionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PortfolioAboutSection.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioAboutSectionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PortfolioAboutSectionAggregateArgs>(args: Subset<T, PortfolioAboutSectionAggregateArgs>): Prisma.PrismaPromise<GetPortfolioAboutSectionAggregateType<T>>
+
+    /**
+     * Group by PortfolioAboutSection.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioAboutSectionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PortfolioAboutSectionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PortfolioAboutSectionGroupByArgs['orderBy'] }
+        : { orderBy?: PortfolioAboutSectionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PortfolioAboutSectionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPortfolioAboutSectionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PortfolioAboutSection model
+   */
+  readonly fields: PortfolioAboutSectionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PortfolioAboutSection.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PortfolioAboutSectionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    portfolio<T extends PortfolioAboutSection$portfolioArgs<ExtArgs> = {}>(args?: Subset<T, PortfolioAboutSection$portfolioArgs<ExtArgs>>): Prisma__PortfolioClient<$Result.GetResult<Prisma.$PortfolioPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PortfolioAboutSection model
+   */ 
+  interface PortfolioAboutSectionFieldRefs {
+    readonly id: FieldRef<"PortfolioAboutSection", 'Int'>
+    readonly portfolioId: FieldRef<"PortfolioAboutSection", 'Int'>
+    readonly avatar: FieldRef<"PortfolioAboutSection", 'String'>
+    readonly overview: FieldRef<"PortfolioAboutSection", 'String'>
+    readonly detail: FieldRef<"PortfolioAboutSection", 'String'>
+    readonly createdAt: FieldRef<"PortfolioAboutSection", 'DateTime'>
+    readonly updatedAt: FieldRef<"PortfolioAboutSection", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PortfolioAboutSection findUnique
+   */
+  export type PortfolioAboutSectionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioAboutSection
+     */
+    select?: PortfolioAboutSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioAboutSection
+     */
+    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioAboutSectionInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioAboutSection to fetch.
+     */
+    where: PortfolioAboutSectionWhereUniqueInput
+  }
+
+  /**
+   * PortfolioAboutSection findUniqueOrThrow
+   */
+  export type PortfolioAboutSectionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioAboutSection
+     */
+    select?: PortfolioAboutSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioAboutSection
+     */
+    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioAboutSectionInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioAboutSection to fetch.
+     */
+    where: PortfolioAboutSectionWhereUniqueInput
+  }
+
+  /**
+   * PortfolioAboutSection findFirst
+   */
+  export type PortfolioAboutSectionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioAboutSection
+     */
+    select?: PortfolioAboutSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioAboutSection
+     */
+    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioAboutSectionInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioAboutSection to fetch.
+     */
+    where?: PortfolioAboutSectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioAboutSections to fetch.
+     */
+    orderBy?: PortfolioAboutSectionOrderByWithRelationInput | PortfolioAboutSectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PortfolioAboutSections.
+     */
+    cursor?: PortfolioAboutSectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioAboutSections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioAboutSections.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PortfolioAboutSections.
+     */
+    distinct?: PortfolioAboutSectionScalarFieldEnum | PortfolioAboutSectionScalarFieldEnum[]
+  }
+
+  /**
+   * PortfolioAboutSection findFirstOrThrow
+   */
+  export type PortfolioAboutSectionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioAboutSection
+     */
+    select?: PortfolioAboutSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioAboutSection
+     */
+    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioAboutSectionInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioAboutSection to fetch.
+     */
+    where?: PortfolioAboutSectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioAboutSections to fetch.
+     */
+    orderBy?: PortfolioAboutSectionOrderByWithRelationInput | PortfolioAboutSectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PortfolioAboutSections.
+     */
+    cursor?: PortfolioAboutSectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioAboutSections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioAboutSections.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PortfolioAboutSections.
+     */
+    distinct?: PortfolioAboutSectionScalarFieldEnum | PortfolioAboutSectionScalarFieldEnum[]
+  }
+
+  /**
+   * PortfolioAboutSection findMany
+   */
+  export type PortfolioAboutSectionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioAboutSection
+     */
+    select?: PortfolioAboutSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioAboutSection
+     */
+    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioAboutSectionInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioAboutSections to fetch.
+     */
+    where?: PortfolioAboutSectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioAboutSections to fetch.
+     */
+    orderBy?: PortfolioAboutSectionOrderByWithRelationInput | PortfolioAboutSectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PortfolioAboutSections.
+     */
+    cursor?: PortfolioAboutSectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioAboutSections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioAboutSections.
+     */
+    skip?: number
+    distinct?: PortfolioAboutSectionScalarFieldEnum | PortfolioAboutSectionScalarFieldEnum[]
+  }
+
+  /**
+   * PortfolioAboutSection create
+   */
+  export type PortfolioAboutSectionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioAboutSection
+     */
+    select?: PortfolioAboutSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioAboutSection
+     */
+    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioAboutSectionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PortfolioAboutSection.
+     */
+    data: XOR<PortfolioAboutSectionCreateInput, PortfolioAboutSectionUncheckedCreateInput>
+  }
+
+  /**
+   * PortfolioAboutSection createMany
+   */
+  export type PortfolioAboutSectionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PortfolioAboutSections.
+     */
+    data: PortfolioAboutSectionCreateManyInput | PortfolioAboutSectionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PortfolioAboutSection createManyAndReturn
+   */
+  export type PortfolioAboutSectionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioAboutSection
+     */
+    select?: PortfolioAboutSectionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioAboutSection
+     */
+    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
+    /**
+     * The data used to create many PortfolioAboutSections.
+     */
+    data: PortfolioAboutSectionCreateManyInput | PortfolioAboutSectionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioAboutSectionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PortfolioAboutSection update
+   */
+  export type PortfolioAboutSectionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioAboutSection
+     */
+    select?: PortfolioAboutSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioAboutSection
+     */
+    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioAboutSectionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PortfolioAboutSection.
+     */
+    data: XOR<PortfolioAboutSectionUpdateInput, PortfolioAboutSectionUncheckedUpdateInput>
+    /**
+     * Choose, which PortfolioAboutSection to update.
+     */
+    where: PortfolioAboutSectionWhereUniqueInput
+  }
+
+  /**
+   * PortfolioAboutSection updateMany
+   */
+  export type PortfolioAboutSectionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PortfolioAboutSections.
+     */
+    data: XOR<PortfolioAboutSectionUpdateManyMutationInput, PortfolioAboutSectionUncheckedUpdateManyInput>
+    /**
+     * Filter which PortfolioAboutSections to update
+     */
+    where?: PortfolioAboutSectionWhereInput
+    /**
+     * Limit how many PortfolioAboutSections to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PortfolioAboutSection updateManyAndReturn
+   */
+  export type PortfolioAboutSectionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioAboutSection
+     */
+    select?: PortfolioAboutSectionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioAboutSection
+     */
+    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
+    /**
+     * The data used to update PortfolioAboutSections.
+     */
+    data: XOR<PortfolioAboutSectionUpdateManyMutationInput, PortfolioAboutSectionUncheckedUpdateManyInput>
+    /**
+     * Filter which PortfolioAboutSections to update
+     */
+    where?: PortfolioAboutSectionWhereInput
+    /**
+     * Limit how many PortfolioAboutSections to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioAboutSectionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PortfolioAboutSection upsert
+   */
+  export type PortfolioAboutSectionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioAboutSection
+     */
+    select?: PortfolioAboutSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioAboutSection
+     */
+    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioAboutSectionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PortfolioAboutSection to update in case it exists.
+     */
+    where: PortfolioAboutSectionWhereUniqueInput
+    /**
+     * In case the PortfolioAboutSection found by the `where` argument doesn't exist, create a new PortfolioAboutSection with this data.
+     */
+    create: XOR<PortfolioAboutSectionCreateInput, PortfolioAboutSectionUncheckedCreateInput>
+    /**
+     * In case the PortfolioAboutSection was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PortfolioAboutSectionUpdateInput, PortfolioAboutSectionUncheckedUpdateInput>
+  }
+
+  /**
+   * PortfolioAboutSection delete
+   */
+  export type PortfolioAboutSectionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioAboutSection
+     */
+    select?: PortfolioAboutSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioAboutSection
+     */
+    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioAboutSectionInclude<ExtArgs> | null
+    /**
+     * Filter which PortfolioAboutSection to delete.
+     */
+    where: PortfolioAboutSectionWhereUniqueInput
+  }
+
+  /**
+   * PortfolioAboutSection deleteMany
+   */
+  export type PortfolioAboutSectionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PortfolioAboutSections to delete
+     */
+    where?: PortfolioAboutSectionWhereInput
+    /**
+     * Limit how many PortfolioAboutSections to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PortfolioAboutSection.portfolio
+   */
+  export type PortfolioAboutSection$portfolioArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Portfolio
+     */
+    select?: PortfolioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Portfolio
+     */
+    omit?: PortfolioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioInclude<ExtArgs> | null
+    where?: PortfolioWhereInput
+  }
+
+  /**
+   * PortfolioAboutSection without action
+   */
+  export type PortfolioAboutSectionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioAboutSection
+     */
+    select?: PortfolioAboutSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioAboutSection
+     */
+    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioAboutSectionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PortfolioWorkExperience
+   */
+
+  export type AggregatePortfolioWorkExperience = {
+    _count: PortfolioWorkExperienceCountAggregateOutputType | null
+    _avg: PortfolioWorkExperienceAvgAggregateOutputType | null
+    _sum: PortfolioWorkExperienceSumAggregateOutputType | null
+    _min: PortfolioWorkExperienceMinAggregateOutputType | null
+    _max: PortfolioWorkExperienceMaxAggregateOutputType | null
+  }
+
+  export type PortfolioWorkExperienceAvgAggregateOutputType = {
+    id: number | null
+    portfolioId: number | null
+  }
+
+  export type PortfolioWorkExperienceSumAggregateOutputType = {
+    id: number | null
+    portfolioId: number | null
+  }
+
+  export type PortfolioWorkExperienceMinAggregateOutputType = {
+    id: number | null
+    portfolioId: number | null
+    role: string | null
+    company: string | null
+    image: string | null
+    from: Date | null
+    to: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PortfolioWorkExperienceMaxAggregateOutputType = {
+    id: number | null
+    portfolioId: number | null
+    role: string | null
+    company: string | null
+    image: string | null
+    from: Date | null
+    to: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PortfolioWorkExperienceCountAggregateOutputType = {
+    id: number
+    portfolioId: number
+    role: number
+    company: number
+    image: number
+    from: number
+    to: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type PortfolioWorkExperienceAvgAggregateInputType = {
+    id?: true
+    portfolioId?: true
+  }
+
+  export type PortfolioWorkExperienceSumAggregateInputType = {
+    id?: true
+    portfolioId?: true
+  }
+
+  export type PortfolioWorkExperienceMinAggregateInputType = {
+    id?: true
+    portfolioId?: true
+    role?: true
+    company?: true
+    image?: true
+    from?: true
+    to?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PortfolioWorkExperienceMaxAggregateInputType = {
+    id?: true
+    portfolioId?: true
+    role?: true
+    company?: true
+    image?: true
+    from?: true
+    to?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PortfolioWorkExperienceCountAggregateInputType = {
+    id?: true
+    portfolioId?: true
+    role?: true
+    company?: true
+    image?: true
+    from?: true
+    to?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type PortfolioWorkExperienceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PortfolioWorkExperience to aggregate.
+     */
+    where?: PortfolioWorkExperienceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioWorkExperiences to fetch.
+     */
+    orderBy?: PortfolioWorkExperienceOrderByWithRelationInput | PortfolioWorkExperienceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PortfolioWorkExperienceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioWorkExperiences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioWorkExperiences.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PortfolioWorkExperiences
+    **/
+    _count?: true | PortfolioWorkExperienceCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PortfolioWorkExperienceAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PortfolioWorkExperienceSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PortfolioWorkExperienceMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PortfolioWorkExperienceMaxAggregateInputType
+  }
+
+  export type GetPortfolioWorkExperienceAggregateType<T extends PortfolioWorkExperienceAggregateArgs> = {
+        [P in keyof T & keyof AggregatePortfolioWorkExperience]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePortfolioWorkExperience[P]>
+      : GetScalarType<T[P], AggregatePortfolioWorkExperience[P]>
+  }
+
+
+
+
+  export type PortfolioWorkExperienceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PortfolioWorkExperienceWhereInput
+    orderBy?: PortfolioWorkExperienceOrderByWithAggregationInput | PortfolioWorkExperienceOrderByWithAggregationInput[]
+    by: PortfolioWorkExperienceScalarFieldEnum[] | PortfolioWorkExperienceScalarFieldEnum
+    having?: PortfolioWorkExperienceScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PortfolioWorkExperienceCountAggregateInputType | true
+    _avg?: PortfolioWorkExperienceAvgAggregateInputType
+    _sum?: PortfolioWorkExperienceSumAggregateInputType
+    _min?: PortfolioWorkExperienceMinAggregateInputType
+    _max?: PortfolioWorkExperienceMaxAggregateInputType
+  }
+
+  export type PortfolioWorkExperienceGroupByOutputType = {
+    id: number
+    portfolioId: number
+    role: string
+    company: string
+    image: string
+    from: Date
+    to: Date | null
+    createdAt: Date
+    updatedAt: Date
+    _count: PortfolioWorkExperienceCountAggregateOutputType | null
+    _avg: PortfolioWorkExperienceAvgAggregateOutputType | null
+    _sum: PortfolioWorkExperienceSumAggregateOutputType | null
+    _min: PortfolioWorkExperienceMinAggregateOutputType | null
+    _max: PortfolioWorkExperienceMaxAggregateOutputType | null
+  }
+
+  type GetPortfolioWorkExperienceGroupByPayload<T extends PortfolioWorkExperienceGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PortfolioWorkExperienceGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PortfolioWorkExperienceGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PortfolioWorkExperienceGroupByOutputType[P]>
+            : GetScalarType<T[P], PortfolioWorkExperienceGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PortfolioWorkExperienceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    portfolioId?: boolean
+    role?: boolean
+    company?: boolean
+    image?: boolean
+    from?: boolean
+    to?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["portfolioWorkExperience"]>
+
+  export type PortfolioWorkExperienceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    portfolioId?: boolean
+    role?: boolean
+    company?: boolean
+    image?: boolean
+    from?: boolean
+    to?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["portfolioWorkExperience"]>
+
+  export type PortfolioWorkExperienceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    portfolioId?: boolean
+    role?: boolean
+    company?: boolean
+    image?: boolean
+    from?: boolean
+    to?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["portfolioWorkExperience"]>
+
+  export type PortfolioWorkExperienceSelectScalar = {
+    id?: boolean
+    portfolioId?: boolean
+    role?: boolean
+    company?: boolean
+    image?: boolean
+    from?: boolean
+    to?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type PortfolioWorkExperienceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "portfolioId" | "role" | "company" | "image" | "from" | "to" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolioWorkExperience"]>
+  export type PortfolioWorkExperienceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }
+  export type PortfolioWorkExperienceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }
+  export type PortfolioWorkExperienceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }
+
+  export type $PortfolioWorkExperiencePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PortfolioWorkExperience"
+    objects: {
+      portfolio: Prisma.$PortfolioPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      portfolioId: number
+      role: string
+      company: string
+      image: string
+      from: Date
+      to: Date | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["portfolioWorkExperience"]>
+    composites: {}
+  }
+
+  type PortfolioWorkExperienceGetPayload<S extends boolean | null | undefined | PortfolioWorkExperienceDefaultArgs> = $Result.GetResult<Prisma.$PortfolioWorkExperiencePayload, S>
+
+  type PortfolioWorkExperienceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PortfolioWorkExperienceFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PortfolioWorkExperienceCountAggregateInputType | true
+    }
+
+  export interface PortfolioWorkExperienceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PortfolioWorkExperience'], meta: { name: 'PortfolioWorkExperience' } }
+    /**
+     * Find zero or one PortfolioWorkExperience that matches the filter.
+     * @param {PortfolioWorkExperienceFindUniqueArgs} args - Arguments to find a PortfolioWorkExperience
+     * @example
+     * // Get one PortfolioWorkExperience
+     * const portfolioWorkExperience = await prisma.portfolioWorkExperience.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PortfolioWorkExperienceFindUniqueArgs>(args: SelectSubset<T, PortfolioWorkExperienceFindUniqueArgs<ExtArgs>>): Prisma__PortfolioWorkExperienceClient<$Result.GetResult<Prisma.$PortfolioWorkExperiencePayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find one PortfolioWorkExperience that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PortfolioWorkExperienceFindUniqueOrThrowArgs} args - Arguments to find a PortfolioWorkExperience
+     * @example
+     * // Get one PortfolioWorkExperience
+     * const portfolioWorkExperience = await prisma.portfolioWorkExperience.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PortfolioWorkExperienceFindUniqueOrThrowArgs>(args: SelectSubset<T, PortfolioWorkExperienceFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PortfolioWorkExperienceClient<$Result.GetResult<Prisma.$PortfolioWorkExperiencePayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first PortfolioWorkExperience that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioWorkExperienceFindFirstArgs} args - Arguments to find a PortfolioWorkExperience
+     * @example
+     * // Get one PortfolioWorkExperience
+     * const portfolioWorkExperience = await prisma.portfolioWorkExperience.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PortfolioWorkExperienceFindFirstArgs>(args?: SelectSubset<T, PortfolioWorkExperienceFindFirstArgs<ExtArgs>>): Prisma__PortfolioWorkExperienceClient<$Result.GetResult<Prisma.$PortfolioWorkExperiencePayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first PortfolioWorkExperience that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioWorkExperienceFindFirstOrThrowArgs} args - Arguments to find a PortfolioWorkExperience
+     * @example
+     * // Get one PortfolioWorkExperience
+     * const portfolioWorkExperience = await prisma.portfolioWorkExperience.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PortfolioWorkExperienceFindFirstOrThrowArgs>(args?: SelectSubset<T, PortfolioWorkExperienceFindFirstOrThrowArgs<ExtArgs>>): Prisma__PortfolioWorkExperienceClient<$Result.GetResult<Prisma.$PortfolioWorkExperiencePayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find zero or more PortfolioWorkExperiences that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioWorkExperienceFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PortfolioWorkExperiences
+     * const portfolioWorkExperiences = await prisma.portfolioWorkExperience.findMany()
+     * 
+     * // Get first 10 PortfolioWorkExperiences
+     * const portfolioWorkExperiences = await prisma.portfolioWorkExperience.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const portfolioWorkExperienceWithIdOnly = await prisma.portfolioWorkExperience.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PortfolioWorkExperienceFindManyArgs>(args?: SelectSubset<T, PortfolioWorkExperienceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioWorkExperiencePayload<ExtArgs>, T, "findMany", ClientOptions>>
+
+    /**
+     * Create a PortfolioWorkExperience.
+     * @param {PortfolioWorkExperienceCreateArgs} args - Arguments to create a PortfolioWorkExperience.
+     * @example
+     * // Create one PortfolioWorkExperience
+     * const PortfolioWorkExperience = await prisma.portfolioWorkExperience.create({
+     *   data: {
+     *     // ... data to create a PortfolioWorkExperience
+     *   }
+     * })
+     * 
+     */
+    create<T extends PortfolioWorkExperienceCreateArgs>(args: SelectSubset<T, PortfolioWorkExperienceCreateArgs<ExtArgs>>): Prisma__PortfolioWorkExperienceClient<$Result.GetResult<Prisma.$PortfolioWorkExperiencePayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Create many PortfolioWorkExperiences.
+     * @param {PortfolioWorkExperienceCreateManyArgs} args - Arguments to create many PortfolioWorkExperiences.
+     * @example
+     * // Create many PortfolioWorkExperiences
+     * const portfolioWorkExperience = await prisma.portfolioWorkExperience.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PortfolioWorkExperienceCreateManyArgs>(args?: SelectSubset<T, PortfolioWorkExperienceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PortfolioWorkExperiences and returns the data saved in the database.
+     * @param {PortfolioWorkExperienceCreateManyAndReturnArgs} args - Arguments to create many PortfolioWorkExperiences.
+     * @example
+     * // Create many PortfolioWorkExperiences
+     * const portfolioWorkExperience = await prisma.portfolioWorkExperience.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PortfolioWorkExperiences and only return the `id`
+     * const portfolioWorkExperienceWithIdOnly = await prisma.portfolioWorkExperience.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PortfolioWorkExperienceCreateManyAndReturnArgs>(args?: SelectSubset<T, PortfolioWorkExperienceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioWorkExperiencePayload<ExtArgs>, T, "createManyAndReturn", ClientOptions>>
+
+    /**
+     * Delete a PortfolioWorkExperience.
+     * @param {PortfolioWorkExperienceDeleteArgs} args - Arguments to delete one PortfolioWorkExperience.
+     * @example
+     * // Delete one PortfolioWorkExperience
+     * const PortfolioWorkExperience = await prisma.portfolioWorkExperience.delete({
+     *   where: {
+     *     // ... filter to delete one PortfolioWorkExperience
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PortfolioWorkExperienceDeleteArgs>(args: SelectSubset<T, PortfolioWorkExperienceDeleteArgs<ExtArgs>>): Prisma__PortfolioWorkExperienceClient<$Result.GetResult<Prisma.$PortfolioWorkExperiencePayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Update one PortfolioWorkExperience.
+     * @param {PortfolioWorkExperienceUpdateArgs} args - Arguments to update one PortfolioWorkExperience.
+     * @example
+     * // Update one PortfolioWorkExperience
+     * const portfolioWorkExperience = await prisma.portfolioWorkExperience.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PortfolioWorkExperienceUpdateArgs>(args: SelectSubset<T, PortfolioWorkExperienceUpdateArgs<ExtArgs>>): Prisma__PortfolioWorkExperienceClient<$Result.GetResult<Prisma.$PortfolioWorkExperiencePayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Delete zero or more PortfolioWorkExperiences.
+     * @param {PortfolioWorkExperienceDeleteManyArgs} args - Arguments to filter PortfolioWorkExperiences to delete.
+     * @example
+     * // Delete a few PortfolioWorkExperiences
+     * const { count } = await prisma.portfolioWorkExperience.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PortfolioWorkExperienceDeleteManyArgs>(args?: SelectSubset<T, PortfolioWorkExperienceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PortfolioWorkExperiences.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioWorkExperienceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PortfolioWorkExperiences
+     * const portfolioWorkExperience = await prisma.portfolioWorkExperience.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PortfolioWorkExperienceUpdateManyArgs>(args: SelectSubset<T, PortfolioWorkExperienceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PortfolioWorkExperiences and returns the data updated in the database.
+     * @param {PortfolioWorkExperienceUpdateManyAndReturnArgs} args - Arguments to update many PortfolioWorkExperiences.
+     * @example
+     * // Update many PortfolioWorkExperiences
+     * const portfolioWorkExperience = await prisma.portfolioWorkExperience.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PortfolioWorkExperiences and only return the `id`
+     * const portfolioWorkExperienceWithIdOnly = await prisma.portfolioWorkExperience.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PortfolioWorkExperienceUpdateManyAndReturnArgs>(args: SelectSubset<T, PortfolioWorkExperienceUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioWorkExperiencePayload<ExtArgs>, T, "updateManyAndReturn", ClientOptions>>
+
+    /**
+     * Create or update one PortfolioWorkExperience.
+     * @param {PortfolioWorkExperienceUpsertArgs} args - Arguments to update or create a PortfolioWorkExperience.
+     * @example
+     * // Update or create a PortfolioWorkExperience
+     * const portfolioWorkExperience = await prisma.portfolioWorkExperience.upsert({
+     *   create: {
+     *     // ... data to create a PortfolioWorkExperience
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PortfolioWorkExperience we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PortfolioWorkExperienceUpsertArgs>(args: SelectSubset<T, PortfolioWorkExperienceUpsertArgs<ExtArgs>>): Prisma__PortfolioWorkExperienceClient<$Result.GetResult<Prisma.$PortfolioWorkExperiencePayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
+
+
+    /**
+     * Count the number of PortfolioWorkExperiences.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioWorkExperienceCountArgs} args - Arguments to filter PortfolioWorkExperiences to count.
+     * @example
+     * // Count the number of PortfolioWorkExperiences
+     * const count = await prisma.portfolioWorkExperience.count({
+     *   where: {
+     *     // ... the filter for the PortfolioWorkExperiences we want to count
+     *   }
+     * })
+    **/
+    count<T extends PortfolioWorkExperienceCountArgs>(
+      args?: Subset<T, PortfolioWorkExperienceCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PortfolioWorkExperienceCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PortfolioWorkExperience.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioWorkExperienceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PortfolioWorkExperienceAggregateArgs>(args: Subset<T, PortfolioWorkExperienceAggregateArgs>): Prisma.PrismaPromise<GetPortfolioWorkExperienceAggregateType<T>>
+
+    /**
+     * Group by PortfolioWorkExperience.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioWorkExperienceGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PortfolioWorkExperienceGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PortfolioWorkExperienceGroupByArgs['orderBy'] }
+        : { orderBy?: PortfolioWorkExperienceGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PortfolioWorkExperienceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPortfolioWorkExperienceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PortfolioWorkExperience model
+   */
+  readonly fields: PortfolioWorkExperienceFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PortfolioWorkExperience.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PortfolioWorkExperienceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    portfolio<T extends PortfolioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PortfolioDefaultArgs<ExtArgs>>): Prisma__PortfolioClient<$Result.GetResult<Prisma.$PortfolioPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PortfolioWorkExperience model
+   */ 
+  interface PortfolioWorkExperienceFieldRefs {
+    readonly id: FieldRef<"PortfolioWorkExperience", 'Int'>
+    readonly portfolioId: FieldRef<"PortfolioWorkExperience", 'Int'>
+    readonly role: FieldRef<"PortfolioWorkExperience", 'String'>
+    readonly company: FieldRef<"PortfolioWorkExperience", 'String'>
+    readonly image: FieldRef<"PortfolioWorkExperience", 'String'>
+    readonly from: FieldRef<"PortfolioWorkExperience", 'DateTime'>
+    readonly to: FieldRef<"PortfolioWorkExperience", 'DateTime'>
+    readonly createdAt: FieldRef<"PortfolioWorkExperience", 'DateTime'>
+    readonly updatedAt: FieldRef<"PortfolioWorkExperience", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PortfolioWorkExperience findUnique
+   */
+  export type PortfolioWorkExperienceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioWorkExperience
+     */
+    select?: PortfolioWorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioWorkExperience
+     */
+    omit?: PortfolioWorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioWorkExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioWorkExperience to fetch.
+     */
+    where: PortfolioWorkExperienceWhereUniqueInput
+  }
+
+  /**
+   * PortfolioWorkExperience findUniqueOrThrow
+   */
+  export type PortfolioWorkExperienceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioWorkExperience
+     */
+    select?: PortfolioWorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioWorkExperience
+     */
+    omit?: PortfolioWorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioWorkExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioWorkExperience to fetch.
+     */
+    where: PortfolioWorkExperienceWhereUniqueInput
+  }
+
+  /**
+   * PortfolioWorkExperience findFirst
+   */
+  export type PortfolioWorkExperienceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioWorkExperience
+     */
+    select?: PortfolioWorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioWorkExperience
+     */
+    omit?: PortfolioWorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioWorkExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioWorkExperience to fetch.
+     */
+    where?: PortfolioWorkExperienceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioWorkExperiences to fetch.
+     */
+    orderBy?: PortfolioWorkExperienceOrderByWithRelationInput | PortfolioWorkExperienceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PortfolioWorkExperiences.
+     */
+    cursor?: PortfolioWorkExperienceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioWorkExperiences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioWorkExperiences.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PortfolioWorkExperiences.
+     */
+    distinct?: PortfolioWorkExperienceScalarFieldEnum | PortfolioWorkExperienceScalarFieldEnum[]
+  }
+
+  /**
+   * PortfolioWorkExperience findFirstOrThrow
+   */
+  export type PortfolioWorkExperienceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioWorkExperience
+     */
+    select?: PortfolioWorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioWorkExperience
+     */
+    omit?: PortfolioWorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioWorkExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioWorkExperience to fetch.
+     */
+    where?: PortfolioWorkExperienceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioWorkExperiences to fetch.
+     */
+    orderBy?: PortfolioWorkExperienceOrderByWithRelationInput | PortfolioWorkExperienceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PortfolioWorkExperiences.
+     */
+    cursor?: PortfolioWorkExperienceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioWorkExperiences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioWorkExperiences.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PortfolioWorkExperiences.
+     */
+    distinct?: PortfolioWorkExperienceScalarFieldEnum | PortfolioWorkExperienceScalarFieldEnum[]
+  }
+
+  /**
+   * PortfolioWorkExperience findMany
+   */
+  export type PortfolioWorkExperienceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioWorkExperience
+     */
+    select?: PortfolioWorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioWorkExperience
+     */
+    omit?: PortfolioWorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioWorkExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioWorkExperiences to fetch.
+     */
+    where?: PortfolioWorkExperienceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioWorkExperiences to fetch.
+     */
+    orderBy?: PortfolioWorkExperienceOrderByWithRelationInput | PortfolioWorkExperienceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PortfolioWorkExperiences.
+     */
+    cursor?: PortfolioWorkExperienceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioWorkExperiences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioWorkExperiences.
+     */
+    skip?: number
+    distinct?: PortfolioWorkExperienceScalarFieldEnum | PortfolioWorkExperienceScalarFieldEnum[]
+  }
+
+  /**
+   * PortfolioWorkExperience create
+   */
+  export type PortfolioWorkExperienceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioWorkExperience
+     */
+    select?: PortfolioWorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioWorkExperience
+     */
+    omit?: PortfolioWorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioWorkExperienceInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PortfolioWorkExperience.
+     */
+    data: XOR<PortfolioWorkExperienceCreateInput, PortfolioWorkExperienceUncheckedCreateInput>
+  }
+
+  /**
+   * PortfolioWorkExperience createMany
+   */
+  export type PortfolioWorkExperienceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PortfolioWorkExperiences.
+     */
+    data: PortfolioWorkExperienceCreateManyInput | PortfolioWorkExperienceCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PortfolioWorkExperience createManyAndReturn
+   */
+  export type PortfolioWorkExperienceCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioWorkExperience
+     */
+    select?: PortfolioWorkExperienceSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioWorkExperience
+     */
+    omit?: PortfolioWorkExperienceOmit<ExtArgs> | null
+    /**
+     * The data used to create many PortfolioWorkExperiences.
+     */
+    data: PortfolioWorkExperienceCreateManyInput | PortfolioWorkExperienceCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioWorkExperienceIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PortfolioWorkExperience update
+   */
+  export type PortfolioWorkExperienceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioWorkExperience
+     */
+    select?: PortfolioWorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioWorkExperience
+     */
+    omit?: PortfolioWorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioWorkExperienceInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PortfolioWorkExperience.
+     */
+    data: XOR<PortfolioWorkExperienceUpdateInput, PortfolioWorkExperienceUncheckedUpdateInput>
+    /**
+     * Choose, which PortfolioWorkExperience to update.
+     */
+    where: PortfolioWorkExperienceWhereUniqueInput
+  }
+
+  /**
+   * PortfolioWorkExperience updateMany
+   */
+  export type PortfolioWorkExperienceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PortfolioWorkExperiences.
+     */
+    data: XOR<PortfolioWorkExperienceUpdateManyMutationInput, PortfolioWorkExperienceUncheckedUpdateManyInput>
+    /**
+     * Filter which PortfolioWorkExperiences to update
+     */
+    where?: PortfolioWorkExperienceWhereInput
+    /**
+     * Limit how many PortfolioWorkExperiences to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PortfolioWorkExperience updateManyAndReturn
+   */
+  export type PortfolioWorkExperienceUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioWorkExperience
+     */
+    select?: PortfolioWorkExperienceSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioWorkExperience
+     */
+    omit?: PortfolioWorkExperienceOmit<ExtArgs> | null
+    /**
+     * The data used to update PortfolioWorkExperiences.
+     */
+    data: XOR<PortfolioWorkExperienceUpdateManyMutationInput, PortfolioWorkExperienceUncheckedUpdateManyInput>
+    /**
+     * Filter which PortfolioWorkExperiences to update
+     */
+    where?: PortfolioWorkExperienceWhereInput
+    /**
+     * Limit how many PortfolioWorkExperiences to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioWorkExperienceIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PortfolioWorkExperience upsert
+   */
+  export type PortfolioWorkExperienceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioWorkExperience
+     */
+    select?: PortfolioWorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioWorkExperience
+     */
+    omit?: PortfolioWorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioWorkExperienceInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PortfolioWorkExperience to update in case it exists.
+     */
+    where: PortfolioWorkExperienceWhereUniqueInput
+    /**
+     * In case the PortfolioWorkExperience found by the `where` argument doesn't exist, create a new PortfolioWorkExperience with this data.
+     */
+    create: XOR<PortfolioWorkExperienceCreateInput, PortfolioWorkExperienceUncheckedCreateInput>
+    /**
+     * In case the PortfolioWorkExperience was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PortfolioWorkExperienceUpdateInput, PortfolioWorkExperienceUncheckedUpdateInput>
+  }
+
+  /**
+   * PortfolioWorkExperience delete
+   */
+  export type PortfolioWorkExperienceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioWorkExperience
+     */
+    select?: PortfolioWorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioWorkExperience
+     */
+    omit?: PortfolioWorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioWorkExperienceInclude<ExtArgs> | null
+    /**
+     * Filter which PortfolioWorkExperience to delete.
+     */
+    where: PortfolioWorkExperienceWhereUniqueInput
+  }
+
+  /**
+   * PortfolioWorkExperience deleteMany
+   */
+  export type PortfolioWorkExperienceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PortfolioWorkExperiences to delete
+     */
+    where?: PortfolioWorkExperienceWhereInput
+    /**
+     * Limit how many PortfolioWorkExperiences to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PortfolioWorkExperience without action
+   */
+  export type PortfolioWorkExperienceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioWorkExperience
+     */
+    select?: PortfolioWorkExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioWorkExperience
+     */
+    omit?: PortfolioWorkExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioWorkExperienceInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PortfolioSkill
+   */
+
+  export type AggregatePortfolioSkill = {
+    _count: PortfolioSkillCountAggregateOutputType | null
+    _avg: PortfolioSkillAvgAggregateOutputType | null
+    _sum: PortfolioSkillSumAggregateOutputType | null
+    _min: PortfolioSkillMinAggregateOutputType | null
+    _max: PortfolioSkillMaxAggregateOutputType | null
+  }
+
+  export type PortfolioSkillAvgAggregateOutputType = {
+    id: number | null
+    portfolioId: number | null
+  }
+
+  export type PortfolioSkillSumAggregateOutputType = {
+    id: number | null
+    portfolioId: number | null
+  }
+
+  export type PortfolioSkillMinAggregateOutputType = {
+    id: number | null
+    portfolioId: number | null
+    name: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PortfolioSkillMaxAggregateOutputType = {
+    id: number | null
+    portfolioId: number | null
+    name: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PortfolioSkillCountAggregateOutputType = {
+    id: number
+    portfolioId: number
+    name: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type PortfolioSkillAvgAggregateInputType = {
+    id?: true
+    portfolioId?: true
+  }
+
+  export type PortfolioSkillSumAggregateInputType = {
+    id?: true
+    portfolioId?: true
+  }
+
+  export type PortfolioSkillMinAggregateInputType = {
+    id?: true
+    portfolioId?: true
+    name?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PortfolioSkillMaxAggregateInputType = {
+    id?: true
+    portfolioId?: true
+    name?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PortfolioSkillCountAggregateInputType = {
+    id?: true
+    portfolioId?: true
+    name?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type PortfolioSkillAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PortfolioSkill to aggregate.
+     */
+    where?: PortfolioSkillWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioSkills to fetch.
+     */
+    orderBy?: PortfolioSkillOrderByWithRelationInput | PortfolioSkillOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PortfolioSkillWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioSkills from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioSkills.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PortfolioSkills
+    **/
+    _count?: true | PortfolioSkillCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PortfolioSkillAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PortfolioSkillSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PortfolioSkillMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PortfolioSkillMaxAggregateInputType
+  }
+
+  export type GetPortfolioSkillAggregateType<T extends PortfolioSkillAggregateArgs> = {
+        [P in keyof T & keyof AggregatePortfolioSkill]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePortfolioSkill[P]>
+      : GetScalarType<T[P], AggregatePortfolioSkill[P]>
+  }
+
+
+
+
+  export type PortfolioSkillGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PortfolioSkillWhereInput
+    orderBy?: PortfolioSkillOrderByWithAggregationInput | PortfolioSkillOrderByWithAggregationInput[]
+    by: PortfolioSkillScalarFieldEnum[] | PortfolioSkillScalarFieldEnum
+    having?: PortfolioSkillScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PortfolioSkillCountAggregateInputType | true
+    _avg?: PortfolioSkillAvgAggregateInputType
+    _sum?: PortfolioSkillSumAggregateInputType
+    _min?: PortfolioSkillMinAggregateInputType
+    _max?: PortfolioSkillMaxAggregateInputType
+  }
+
+  export type PortfolioSkillGroupByOutputType = {
+    id: number
+    portfolioId: number
+    name: string
+    createdAt: Date
+    updatedAt: Date
+    _count: PortfolioSkillCountAggregateOutputType | null
+    _avg: PortfolioSkillAvgAggregateOutputType | null
+    _sum: PortfolioSkillSumAggregateOutputType | null
+    _min: PortfolioSkillMinAggregateOutputType | null
+    _max: PortfolioSkillMaxAggregateOutputType | null
+  }
+
+  type GetPortfolioSkillGroupByPayload<T extends PortfolioSkillGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PortfolioSkillGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PortfolioSkillGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PortfolioSkillGroupByOutputType[P]>
+            : GetScalarType<T[P], PortfolioSkillGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PortfolioSkillSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    portfolioId?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["portfolioSkill"]>
+
+  export type PortfolioSkillSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    portfolioId?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["portfolioSkill"]>
+
+  export type PortfolioSkillSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    portfolioId?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["portfolioSkill"]>
+
+  export type PortfolioSkillSelectScalar = {
+    id?: boolean
+    portfolioId?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type PortfolioSkillOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "portfolioId" | "name" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolioSkill"]>
+  export type PortfolioSkillInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }
+  export type PortfolioSkillIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }
+  export type PortfolioSkillIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
+  }
+
+  export type $PortfolioSkillPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PortfolioSkill"
+    objects: {
+      portfolio: Prisma.$PortfolioPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      portfolioId: number
+      name: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["portfolioSkill"]>
+    composites: {}
+  }
+
+  type PortfolioSkillGetPayload<S extends boolean | null | undefined | PortfolioSkillDefaultArgs> = $Result.GetResult<Prisma.$PortfolioSkillPayload, S>
+
+  type PortfolioSkillCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PortfolioSkillFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PortfolioSkillCountAggregateInputType | true
+    }
+
+  export interface PortfolioSkillDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PortfolioSkill'], meta: { name: 'PortfolioSkill' } }
+    /**
+     * Find zero or one PortfolioSkill that matches the filter.
+     * @param {PortfolioSkillFindUniqueArgs} args - Arguments to find a PortfolioSkill
+     * @example
+     * // Get one PortfolioSkill
+     * const portfolioSkill = await prisma.portfolioSkill.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PortfolioSkillFindUniqueArgs>(args: SelectSubset<T, PortfolioSkillFindUniqueArgs<ExtArgs>>): Prisma__PortfolioSkillClient<$Result.GetResult<Prisma.$PortfolioSkillPayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find one PortfolioSkill that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PortfolioSkillFindUniqueOrThrowArgs} args - Arguments to find a PortfolioSkill
+     * @example
+     * // Get one PortfolioSkill
+     * const portfolioSkill = await prisma.portfolioSkill.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PortfolioSkillFindUniqueOrThrowArgs>(args: SelectSubset<T, PortfolioSkillFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PortfolioSkillClient<$Result.GetResult<Prisma.$PortfolioSkillPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first PortfolioSkill that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioSkillFindFirstArgs} args - Arguments to find a PortfolioSkill
+     * @example
+     * // Get one PortfolioSkill
+     * const portfolioSkill = await prisma.portfolioSkill.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PortfolioSkillFindFirstArgs>(args?: SelectSubset<T, PortfolioSkillFindFirstArgs<ExtArgs>>): Prisma__PortfolioSkillClient<$Result.GetResult<Prisma.$PortfolioSkillPayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first PortfolioSkill that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioSkillFindFirstOrThrowArgs} args - Arguments to find a PortfolioSkill
+     * @example
+     * // Get one PortfolioSkill
+     * const portfolioSkill = await prisma.portfolioSkill.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PortfolioSkillFindFirstOrThrowArgs>(args?: SelectSubset<T, PortfolioSkillFindFirstOrThrowArgs<ExtArgs>>): Prisma__PortfolioSkillClient<$Result.GetResult<Prisma.$PortfolioSkillPayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find zero or more PortfolioSkills that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioSkillFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PortfolioSkills
+     * const portfolioSkills = await prisma.portfolioSkill.findMany()
+     * 
+     * // Get first 10 PortfolioSkills
+     * const portfolioSkills = await prisma.portfolioSkill.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const portfolioSkillWithIdOnly = await prisma.portfolioSkill.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PortfolioSkillFindManyArgs>(args?: SelectSubset<T, PortfolioSkillFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioSkillPayload<ExtArgs>, T, "findMany", ClientOptions>>
+
+    /**
+     * Create a PortfolioSkill.
+     * @param {PortfolioSkillCreateArgs} args - Arguments to create a PortfolioSkill.
+     * @example
+     * // Create one PortfolioSkill
+     * const PortfolioSkill = await prisma.portfolioSkill.create({
+     *   data: {
+     *     // ... data to create a PortfolioSkill
+     *   }
+     * })
+     * 
+     */
+    create<T extends PortfolioSkillCreateArgs>(args: SelectSubset<T, PortfolioSkillCreateArgs<ExtArgs>>): Prisma__PortfolioSkillClient<$Result.GetResult<Prisma.$PortfolioSkillPayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Create many PortfolioSkills.
+     * @param {PortfolioSkillCreateManyArgs} args - Arguments to create many PortfolioSkills.
+     * @example
+     * // Create many PortfolioSkills
+     * const portfolioSkill = await prisma.portfolioSkill.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PortfolioSkillCreateManyArgs>(args?: SelectSubset<T, PortfolioSkillCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PortfolioSkills and returns the data saved in the database.
+     * @param {PortfolioSkillCreateManyAndReturnArgs} args - Arguments to create many PortfolioSkills.
+     * @example
+     * // Create many PortfolioSkills
+     * const portfolioSkill = await prisma.portfolioSkill.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PortfolioSkills and only return the `id`
+     * const portfolioSkillWithIdOnly = await prisma.portfolioSkill.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PortfolioSkillCreateManyAndReturnArgs>(args?: SelectSubset<T, PortfolioSkillCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioSkillPayload<ExtArgs>, T, "createManyAndReturn", ClientOptions>>
+
+    /**
+     * Delete a PortfolioSkill.
+     * @param {PortfolioSkillDeleteArgs} args - Arguments to delete one PortfolioSkill.
+     * @example
+     * // Delete one PortfolioSkill
+     * const PortfolioSkill = await prisma.portfolioSkill.delete({
+     *   where: {
+     *     // ... filter to delete one PortfolioSkill
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PortfolioSkillDeleteArgs>(args: SelectSubset<T, PortfolioSkillDeleteArgs<ExtArgs>>): Prisma__PortfolioSkillClient<$Result.GetResult<Prisma.$PortfolioSkillPayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Update one PortfolioSkill.
+     * @param {PortfolioSkillUpdateArgs} args - Arguments to update one PortfolioSkill.
+     * @example
+     * // Update one PortfolioSkill
+     * const portfolioSkill = await prisma.portfolioSkill.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PortfolioSkillUpdateArgs>(args: SelectSubset<T, PortfolioSkillUpdateArgs<ExtArgs>>): Prisma__PortfolioSkillClient<$Result.GetResult<Prisma.$PortfolioSkillPayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Delete zero or more PortfolioSkills.
+     * @param {PortfolioSkillDeleteManyArgs} args - Arguments to filter PortfolioSkills to delete.
+     * @example
+     * // Delete a few PortfolioSkills
+     * const { count } = await prisma.portfolioSkill.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PortfolioSkillDeleteManyArgs>(args?: SelectSubset<T, PortfolioSkillDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PortfolioSkills.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioSkillUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PortfolioSkills
+     * const portfolioSkill = await prisma.portfolioSkill.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PortfolioSkillUpdateManyArgs>(args: SelectSubset<T, PortfolioSkillUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PortfolioSkills and returns the data updated in the database.
+     * @param {PortfolioSkillUpdateManyAndReturnArgs} args - Arguments to update many PortfolioSkills.
+     * @example
+     * // Update many PortfolioSkills
+     * const portfolioSkill = await prisma.portfolioSkill.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PortfolioSkills and only return the `id`
+     * const portfolioSkillWithIdOnly = await prisma.portfolioSkill.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PortfolioSkillUpdateManyAndReturnArgs>(args: SelectSubset<T, PortfolioSkillUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioSkillPayload<ExtArgs>, T, "updateManyAndReturn", ClientOptions>>
+
+    /**
+     * Create or update one PortfolioSkill.
+     * @param {PortfolioSkillUpsertArgs} args - Arguments to update or create a PortfolioSkill.
+     * @example
+     * // Update or create a PortfolioSkill
+     * const portfolioSkill = await prisma.portfolioSkill.upsert({
+     *   create: {
+     *     // ... data to create a PortfolioSkill
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PortfolioSkill we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PortfolioSkillUpsertArgs>(args: SelectSubset<T, PortfolioSkillUpsertArgs<ExtArgs>>): Prisma__PortfolioSkillClient<$Result.GetResult<Prisma.$PortfolioSkillPayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
+
+
+    /**
+     * Count the number of PortfolioSkills.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioSkillCountArgs} args - Arguments to filter PortfolioSkills to count.
+     * @example
+     * // Count the number of PortfolioSkills
+     * const count = await prisma.portfolioSkill.count({
+     *   where: {
+     *     // ... the filter for the PortfolioSkills we want to count
+     *   }
+     * })
+    **/
+    count<T extends PortfolioSkillCountArgs>(
+      args?: Subset<T, PortfolioSkillCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PortfolioSkillCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PortfolioSkill.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioSkillAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PortfolioSkillAggregateArgs>(args: Subset<T, PortfolioSkillAggregateArgs>): Prisma.PrismaPromise<GetPortfolioSkillAggregateType<T>>
+
+    /**
+     * Group by PortfolioSkill.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PortfolioSkillGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PortfolioSkillGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PortfolioSkillGroupByArgs['orderBy'] }
+        : { orderBy?: PortfolioSkillGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PortfolioSkillGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPortfolioSkillGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PortfolioSkill model
+   */
+  readonly fields: PortfolioSkillFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PortfolioSkill.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PortfolioSkillClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    portfolio<T extends PortfolioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PortfolioDefaultArgs<ExtArgs>>): Prisma__PortfolioClient<$Result.GetResult<Prisma.$PortfolioPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PortfolioSkill model
+   */ 
+  interface PortfolioSkillFieldRefs {
+    readonly id: FieldRef<"PortfolioSkill", 'Int'>
+    readonly portfolioId: FieldRef<"PortfolioSkill", 'Int'>
+    readonly name: FieldRef<"PortfolioSkill", 'String'>
+    readonly createdAt: FieldRef<"PortfolioSkill", 'DateTime'>
+    readonly updatedAt: FieldRef<"PortfolioSkill", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PortfolioSkill findUnique
+   */
+  export type PortfolioSkillFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioSkill
+     */
+    select?: PortfolioSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioSkill
+     */
+    omit?: PortfolioSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioSkillInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioSkill to fetch.
+     */
+    where: PortfolioSkillWhereUniqueInput
+  }
+
+  /**
+   * PortfolioSkill findUniqueOrThrow
+   */
+  export type PortfolioSkillFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioSkill
+     */
+    select?: PortfolioSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioSkill
+     */
+    omit?: PortfolioSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioSkillInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioSkill to fetch.
+     */
+    where: PortfolioSkillWhereUniqueInput
+  }
+
+  /**
+   * PortfolioSkill findFirst
+   */
+  export type PortfolioSkillFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioSkill
+     */
+    select?: PortfolioSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioSkill
+     */
+    omit?: PortfolioSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioSkillInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioSkill to fetch.
+     */
+    where?: PortfolioSkillWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioSkills to fetch.
+     */
+    orderBy?: PortfolioSkillOrderByWithRelationInput | PortfolioSkillOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PortfolioSkills.
+     */
+    cursor?: PortfolioSkillWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioSkills from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioSkills.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PortfolioSkills.
+     */
+    distinct?: PortfolioSkillScalarFieldEnum | PortfolioSkillScalarFieldEnum[]
+  }
+
+  /**
+   * PortfolioSkill findFirstOrThrow
+   */
+  export type PortfolioSkillFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioSkill
+     */
+    select?: PortfolioSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioSkill
+     */
+    omit?: PortfolioSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioSkillInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioSkill to fetch.
+     */
+    where?: PortfolioSkillWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioSkills to fetch.
+     */
+    orderBy?: PortfolioSkillOrderByWithRelationInput | PortfolioSkillOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PortfolioSkills.
+     */
+    cursor?: PortfolioSkillWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioSkills from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioSkills.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PortfolioSkills.
+     */
+    distinct?: PortfolioSkillScalarFieldEnum | PortfolioSkillScalarFieldEnum[]
+  }
+
+  /**
+   * PortfolioSkill findMany
+   */
+  export type PortfolioSkillFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioSkill
+     */
+    select?: PortfolioSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioSkill
+     */
+    omit?: PortfolioSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioSkillInclude<ExtArgs> | null
+    /**
+     * Filter, which PortfolioSkills to fetch.
+     */
+    where?: PortfolioSkillWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PortfolioSkills to fetch.
+     */
+    orderBy?: PortfolioSkillOrderByWithRelationInput | PortfolioSkillOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PortfolioSkills.
+     */
+    cursor?: PortfolioSkillWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PortfolioSkills from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PortfolioSkills.
+     */
+    skip?: number
+    distinct?: PortfolioSkillScalarFieldEnum | PortfolioSkillScalarFieldEnum[]
+  }
+
+  /**
+   * PortfolioSkill create
+   */
+  export type PortfolioSkillCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioSkill
+     */
+    select?: PortfolioSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioSkill
+     */
+    omit?: PortfolioSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioSkillInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PortfolioSkill.
+     */
+    data: XOR<PortfolioSkillCreateInput, PortfolioSkillUncheckedCreateInput>
+  }
+
+  /**
+   * PortfolioSkill createMany
+   */
+  export type PortfolioSkillCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PortfolioSkills.
+     */
+    data: PortfolioSkillCreateManyInput | PortfolioSkillCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PortfolioSkill createManyAndReturn
+   */
+  export type PortfolioSkillCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioSkill
+     */
+    select?: PortfolioSkillSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioSkill
+     */
+    omit?: PortfolioSkillOmit<ExtArgs> | null
+    /**
+     * The data used to create many PortfolioSkills.
+     */
+    data: PortfolioSkillCreateManyInput | PortfolioSkillCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioSkillIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PortfolioSkill update
+   */
+  export type PortfolioSkillUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioSkill
+     */
+    select?: PortfolioSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioSkill
+     */
+    omit?: PortfolioSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioSkillInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PortfolioSkill.
+     */
+    data: XOR<PortfolioSkillUpdateInput, PortfolioSkillUncheckedUpdateInput>
+    /**
+     * Choose, which PortfolioSkill to update.
+     */
+    where: PortfolioSkillWhereUniqueInput
+  }
+
+  /**
+   * PortfolioSkill updateMany
+   */
+  export type PortfolioSkillUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PortfolioSkills.
+     */
+    data: XOR<PortfolioSkillUpdateManyMutationInput, PortfolioSkillUncheckedUpdateManyInput>
+    /**
+     * Filter which PortfolioSkills to update
+     */
+    where?: PortfolioSkillWhereInput
+    /**
+     * Limit how many PortfolioSkills to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PortfolioSkill updateManyAndReturn
+   */
+  export type PortfolioSkillUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioSkill
+     */
+    select?: PortfolioSkillSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioSkill
+     */
+    omit?: PortfolioSkillOmit<ExtArgs> | null
+    /**
+     * The data used to update PortfolioSkills.
+     */
+    data: XOR<PortfolioSkillUpdateManyMutationInput, PortfolioSkillUncheckedUpdateManyInput>
+    /**
+     * Filter which PortfolioSkills to update
+     */
+    where?: PortfolioSkillWhereInput
+    /**
+     * Limit how many PortfolioSkills to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioSkillIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PortfolioSkill upsert
+   */
+  export type PortfolioSkillUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioSkill
+     */
+    select?: PortfolioSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioSkill
+     */
+    omit?: PortfolioSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioSkillInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PortfolioSkill to update in case it exists.
+     */
+    where: PortfolioSkillWhereUniqueInput
+    /**
+     * In case the PortfolioSkill found by the `where` argument doesn't exist, create a new PortfolioSkill with this data.
+     */
+    create: XOR<PortfolioSkillCreateInput, PortfolioSkillUncheckedCreateInput>
+    /**
+     * In case the PortfolioSkill was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PortfolioSkillUpdateInput, PortfolioSkillUncheckedUpdateInput>
+  }
+
+  /**
+   * PortfolioSkill delete
+   */
+  export type PortfolioSkillDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioSkill
+     */
+    select?: PortfolioSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioSkill
+     */
+    omit?: PortfolioSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioSkillInclude<ExtArgs> | null
+    /**
+     * Filter which PortfolioSkill to delete.
+     */
+    where: PortfolioSkillWhereUniqueInput
+  }
+
+  /**
+   * PortfolioSkill deleteMany
+   */
+  export type PortfolioSkillDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PortfolioSkills to delete
+     */
+    where?: PortfolioSkillWhereInput
+    /**
+     * Limit how many PortfolioSkills to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PortfolioSkill without action
+   */
+  export type PortfolioSkillDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PortfolioSkill
+     */
+    select?: PortfolioSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PortfolioSkill
+     */
+    omit?: PortfolioSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioSkillInclude<ExtArgs> | null
   }
 
 
@@ -10560,7 +16987,8 @@ export namespace Prisma {
 
   export const PortfolioScalarFieldEnum: {
     id: 'id',
-    skills: 'skills',
+    name: 'name',
+    skillDescription: 'skillDescription',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -10568,17 +16996,80 @@ export namespace Prisma {
   export type PortfolioScalarFieldEnum = (typeof PortfolioScalarFieldEnum)[keyof typeof PortfolioScalarFieldEnum]
 
 
-  export const FeedbackScalarFieldEnum: {
+  export const PortfolioProminentProjectScalarFieldEnum: {
     id: 'id',
-    freelancerId: 'freelancerId',
-    clientId: 'clientId',
-    comment: 'comment',
-    ratingPoint: 'ratingPoint',
+    portfolioId: 'portfolioId',
+    description: 'description',
+    role: 'role',
+    company: 'company',
+    detail: 'detail',
+    from: 'from',
+    to: 'to',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
-  export type FeedbackScalarFieldEnum = (typeof FeedbackScalarFieldEnum)[keyof typeof FeedbackScalarFieldEnum]
+  export type PortfolioProminentProjectScalarFieldEnum = (typeof PortfolioProminentProjectScalarFieldEnum)[keyof typeof PortfolioProminentProjectScalarFieldEnum]
+
+
+  export const PortfolioProminentProjectImageScalarFieldEnum: {
+    id: 'id',
+    portfolioProminentProjectId: 'portfolioProminentProjectId',
+    image: 'image',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type PortfolioProminentProjectImageScalarFieldEnum = (typeof PortfolioProminentProjectImageScalarFieldEnum)[keyof typeof PortfolioProminentProjectImageScalarFieldEnum]
+
+
+  export const PortfolioCustomerFeedbackScalarFieldEnum: {
+    id: 'id',
+    portfolioId: 'portfolioId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type PortfolioCustomerFeedbackScalarFieldEnum = (typeof PortfolioCustomerFeedbackScalarFieldEnum)[keyof typeof PortfolioCustomerFeedbackScalarFieldEnum]
+
+
+  export const PortfolioAboutSectionScalarFieldEnum: {
+    id: 'id',
+    portfolioId: 'portfolioId',
+    avatar: 'avatar',
+    overview: 'overview',
+    detail: 'detail',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type PortfolioAboutSectionScalarFieldEnum = (typeof PortfolioAboutSectionScalarFieldEnum)[keyof typeof PortfolioAboutSectionScalarFieldEnum]
+
+
+  export const PortfolioWorkExperienceScalarFieldEnum: {
+    id: 'id',
+    portfolioId: 'portfolioId',
+    role: 'role',
+    company: 'company',
+    image: 'image',
+    from: 'from',
+    to: 'to',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type PortfolioWorkExperienceScalarFieldEnum = (typeof PortfolioWorkExperienceScalarFieldEnum)[keyof typeof PortfolioWorkExperienceScalarFieldEnum]
+
+
+  export const PortfolioSkillScalarFieldEnum: {
+    id: 'id',
+    portfolioId: 'portfolioId',
+    name: 'name',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type PortfolioSkillScalarFieldEnum = (typeof PortfolioSkillScalarFieldEnum)[keyof typeof PortfolioSkillScalarFieldEnum]
 
 
   export const BookingScalarFieldEnum: {
@@ -11098,16 +17589,28 @@ export namespace Prisma {
     OR?: PortfolioWhereInput[]
     NOT?: PortfolioWhereInput | PortfolioWhereInput[]
     id?: IntFilter<"Portfolio"> | number
-    skills?: StringFilter<"Portfolio"> | string
+    name?: StringFilter<"Portfolio"> | string
+    skillDescription?: StringNullableFilter<"Portfolio"> | string | null
     createdAt?: DateTimeFilter<"Portfolio"> | Date | string
     updatedAt?: DateTimeFilter<"Portfolio"> | Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectListRelationFilter
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackListRelationFilter
+    portfolioAboutSection?: XOR<PortfolioAboutSectionNullableScalarRelationFilter, PortfolioAboutSectionWhereInput> | null
+    portfolioWorkExperiences?: PortfolioWorkExperienceListRelationFilter
+    portfolioSkills?: PortfolioSkillListRelationFilter
   }
 
   export type PortfolioOrderByWithRelationInput = {
     id?: SortOrder
-    skills?: SortOrder
+    name?: SortOrder
+    skillDescription?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    portfolioProminentProjects?: PortfolioProminentProjectOrderByRelationAggregateInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackOrderByRelationAggregateInput
+    portfolioAboutSection?: PortfolioAboutSectionOrderByWithRelationInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceOrderByRelationAggregateInput
+    portfolioSkills?: PortfolioSkillOrderByRelationAggregateInput
   }
 
   export type PortfolioWhereUniqueInput = Prisma.AtLeast<{
@@ -11115,14 +17618,21 @@ export namespace Prisma {
     AND?: PortfolioWhereInput | PortfolioWhereInput[]
     OR?: PortfolioWhereInput[]
     NOT?: PortfolioWhereInput | PortfolioWhereInput[]
-    skills?: StringFilter<"Portfolio"> | string
+    name?: StringFilter<"Portfolio"> | string
+    skillDescription?: StringNullableFilter<"Portfolio"> | string | null
     createdAt?: DateTimeFilter<"Portfolio"> | Date | string
     updatedAt?: DateTimeFilter<"Portfolio"> | Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectListRelationFilter
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackListRelationFilter
+    portfolioAboutSection?: XOR<PortfolioAboutSectionNullableScalarRelationFilter, PortfolioAboutSectionWhereInput> | null
+    portfolioWorkExperiences?: PortfolioWorkExperienceListRelationFilter
+    portfolioSkills?: PortfolioSkillListRelationFilter
   }, "id">
 
   export type PortfolioOrderByWithAggregationInput = {
     id?: SortOrder
-    skills?: SortOrder
+    name?: SortOrder
+    skillDescription?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: PortfolioCountOrderByAggregateInput
@@ -11137,73 +17647,405 @@ export namespace Prisma {
     OR?: PortfolioScalarWhereWithAggregatesInput[]
     NOT?: PortfolioScalarWhereWithAggregatesInput | PortfolioScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Portfolio"> | number
-    skills?: StringWithAggregatesFilter<"Portfolio"> | string
+    name?: StringWithAggregatesFilter<"Portfolio"> | string
+    skillDescription?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Portfolio"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Portfolio"> | Date | string
   }
 
-  export type FeedbackWhereInput = {
-    AND?: FeedbackWhereInput | FeedbackWhereInput[]
-    OR?: FeedbackWhereInput[]
-    NOT?: FeedbackWhereInput | FeedbackWhereInput[]
-    id?: IntFilter<"Feedback"> | number
-    freelancerId?: IntFilter<"Feedback"> | number
-    clientId?: IntFilter<"Feedback"> | number
-    comment?: StringNullableFilter<"Feedback"> | string | null
-    ratingPoint?: IntFilter<"Feedback"> | number
-    createdAt?: DateTimeFilter<"Feedback"> | Date | string
-    updatedAt?: DateTimeFilter<"Feedback"> | Date | string
+  export type PortfolioProminentProjectWhereInput = {
+    AND?: PortfolioProminentProjectWhereInput | PortfolioProminentProjectWhereInput[]
+    OR?: PortfolioProminentProjectWhereInput[]
+    NOT?: PortfolioProminentProjectWhereInput | PortfolioProminentProjectWhereInput[]
+    id?: IntFilter<"PortfolioProminentProject"> | number
+    portfolioId?: IntFilter<"PortfolioProminentProject"> | number
+    description?: StringFilter<"PortfolioProminentProject"> | string
+    role?: StringFilter<"PortfolioProminentProject"> | string
+    company?: StringFilter<"PortfolioProminentProject"> | string
+    detail?: StringNullableFilter<"PortfolioProminentProject"> | string | null
+    from?: DateTimeFilter<"PortfolioProminentProject"> | Date | string
+    to?: DateTimeNullableFilter<"PortfolioProminentProject"> | Date | string | null
+    createdAt?: DateTimeFilter<"PortfolioProminentProject"> | Date | string
+    updatedAt?: DateTimeFilter<"PortfolioProminentProject"> | Date | string
+    portfolio?: XOR<PortfolioScalarRelationFilter, PortfolioWhereInput>
+    portfolioProminentProjectImages?: PortfolioProminentProjectImageListRelationFilter
   }
 
-  export type FeedbackOrderByWithRelationInput = {
+  export type PortfolioProminentProjectOrderByWithRelationInput = {
     id?: SortOrder
-    freelancerId?: SortOrder
-    clientId?: SortOrder
-    comment?: SortOrderInput | SortOrder
-    ratingPoint?: SortOrder
+    portfolioId?: SortOrder
+    description?: SortOrder
+    role?: SortOrder
+    company?: SortOrder
+    detail?: SortOrderInput | SortOrder
+    from?: SortOrder
+    to?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    portfolio?: PortfolioOrderByWithRelationInput
+    portfolioProminentProjectImages?: PortfolioProminentProjectImageOrderByRelationAggregateInput
   }
 
-  export type FeedbackWhereUniqueInput = Prisma.AtLeast<{
+  export type PortfolioProminentProjectWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: FeedbackWhereInput | FeedbackWhereInput[]
-    OR?: FeedbackWhereInput[]
-    NOT?: FeedbackWhereInput | FeedbackWhereInput[]
-    freelancerId?: IntFilter<"Feedback"> | number
-    clientId?: IntFilter<"Feedback"> | number
-    comment?: StringNullableFilter<"Feedback"> | string | null
-    ratingPoint?: IntFilter<"Feedback"> | number
-    createdAt?: DateTimeFilter<"Feedback"> | Date | string
-    updatedAt?: DateTimeFilter<"Feedback"> | Date | string
+    AND?: PortfolioProminentProjectWhereInput | PortfolioProminentProjectWhereInput[]
+    OR?: PortfolioProminentProjectWhereInput[]
+    NOT?: PortfolioProminentProjectWhereInput | PortfolioProminentProjectWhereInput[]
+    portfolioId?: IntFilter<"PortfolioProminentProject"> | number
+    description?: StringFilter<"PortfolioProminentProject"> | string
+    role?: StringFilter<"PortfolioProminentProject"> | string
+    company?: StringFilter<"PortfolioProminentProject"> | string
+    detail?: StringNullableFilter<"PortfolioProminentProject"> | string | null
+    from?: DateTimeFilter<"PortfolioProminentProject"> | Date | string
+    to?: DateTimeNullableFilter<"PortfolioProminentProject"> | Date | string | null
+    createdAt?: DateTimeFilter<"PortfolioProminentProject"> | Date | string
+    updatedAt?: DateTimeFilter<"PortfolioProminentProject"> | Date | string
+    portfolio?: XOR<PortfolioScalarRelationFilter, PortfolioWhereInput>
+    portfolioProminentProjectImages?: PortfolioProminentProjectImageListRelationFilter
   }, "id">
 
-  export type FeedbackOrderByWithAggregationInput = {
+  export type PortfolioProminentProjectOrderByWithAggregationInput = {
     id?: SortOrder
-    freelancerId?: SortOrder
-    clientId?: SortOrder
-    comment?: SortOrderInput | SortOrder
-    ratingPoint?: SortOrder
+    portfolioId?: SortOrder
+    description?: SortOrder
+    role?: SortOrder
+    company?: SortOrder
+    detail?: SortOrderInput | SortOrder
+    from?: SortOrder
+    to?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: FeedbackCountOrderByAggregateInput
-    _avg?: FeedbackAvgOrderByAggregateInput
-    _max?: FeedbackMaxOrderByAggregateInput
-    _min?: FeedbackMinOrderByAggregateInput
-    _sum?: FeedbackSumOrderByAggregateInput
+    _count?: PortfolioProminentProjectCountOrderByAggregateInput
+    _avg?: PortfolioProminentProjectAvgOrderByAggregateInput
+    _max?: PortfolioProminentProjectMaxOrderByAggregateInput
+    _min?: PortfolioProminentProjectMinOrderByAggregateInput
+    _sum?: PortfolioProminentProjectSumOrderByAggregateInput
   }
 
-  export type FeedbackScalarWhereWithAggregatesInput = {
-    AND?: FeedbackScalarWhereWithAggregatesInput | FeedbackScalarWhereWithAggregatesInput[]
-    OR?: FeedbackScalarWhereWithAggregatesInput[]
-    NOT?: FeedbackScalarWhereWithAggregatesInput | FeedbackScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Feedback"> | number
-    freelancerId?: IntWithAggregatesFilter<"Feedback"> | number
-    clientId?: IntWithAggregatesFilter<"Feedback"> | number
-    comment?: StringNullableWithAggregatesFilter<"Feedback"> | string | null
-    ratingPoint?: IntWithAggregatesFilter<"Feedback"> | number
-    createdAt?: DateTimeWithAggregatesFilter<"Feedback"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Feedback"> | Date | string
+  export type PortfolioProminentProjectScalarWhereWithAggregatesInput = {
+    AND?: PortfolioProminentProjectScalarWhereWithAggregatesInput | PortfolioProminentProjectScalarWhereWithAggregatesInput[]
+    OR?: PortfolioProminentProjectScalarWhereWithAggregatesInput[]
+    NOT?: PortfolioProminentProjectScalarWhereWithAggregatesInput | PortfolioProminentProjectScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"PortfolioProminentProject"> | number
+    portfolioId?: IntWithAggregatesFilter<"PortfolioProminentProject"> | number
+    description?: StringWithAggregatesFilter<"PortfolioProminentProject"> | string
+    role?: StringWithAggregatesFilter<"PortfolioProminentProject"> | string
+    company?: StringWithAggregatesFilter<"PortfolioProminentProject"> | string
+    detail?: StringNullableWithAggregatesFilter<"PortfolioProminentProject"> | string | null
+    from?: DateTimeWithAggregatesFilter<"PortfolioProminentProject"> | Date | string
+    to?: DateTimeNullableWithAggregatesFilter<"PortfolioProminentProject"> | Date | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"PortfolioProminentProject"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"PortfolioProminentProject"> | Date | string
+  }
+
+  export type PortfolioProminentProjectImageWhereInput = {
+    AND?: PortfolioProminentProjectImageWhereInput | PortfolioProminentProjectImageWhereInput[]
+    OR?: PortfolioProminentProjectImageWhereInput[]
+    NOT?: PortfolioProminentProjectImageWhereInput | PortfolioProminentProjectImageWhereInput[]
+    id?: IntFilter<"PortfolioProminentProjectImage"> | number
+    portfolioProminentProjectId?: IntFilter<"PortfolioProminentProjectImage"> | number
+    image?: StringFilter<"PortfolioProminentProjectImage"> | string
+    createdAt?: DateTimeFilter<"PortfolioProminentProjectImage"> | Date | string
+    updatedAt?: DateTimeFilter<"PortfolioProminentProjectImage"> | Date | string
+    portfolioProminentProject?: XOR<PortfolioProminentProjectScalarRelationFilter, PortfolioProminentProjectWhereInput>
+  }
+
+  export type PortfolioProminentProjectImageOrderByWithRelationInput = {
+    id?: SortOrder
+    portfolioProminentProjectId?: SortOrder
+    image?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    portfolioProminentProject?: PortfolioProminentProjectOrderByWithRelationInput
+  }
+
+  export type PortfolioProminentProjectImageWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: PortfolioProminentProjectImageWhereInput | PortfolioProminentProjectImageWhereInput[]
+    OR?: PortfolioProminentProjectImageWhereInput[]
+    NOT?: PortfolioProminentProjectImageWhereInput | PortfolioProminentProjectImageWhereInput[]
+    portfolioProminentProjectId?: IntFilter<"PortfolioProminentProjectImage"> | number
+    image?: StringFilter<"PortfolioProminentProjectImage"> | string
+    createdAt?: DateTimeFilter<"PortfolioProminentProjectImage"> | Date | string
+    updatedAt?: DateTimeFilter<"PortfolioProminentProjectImage"> | Date | string
+    portfolioProminentProject?: XOR<PortfolioProminentProjectScalarRelationFilter, PortfolioProminentProjectWhereInput>
+  }, "id">
+
+  export type PortfolioProminentProjectImageOrderByWithAggregationInput = {
+    id?: SortOrder
+    portfolioProminentProjectId?: SortOrder
+    image?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: PortfolioProminentProjectImageCountOrderByAggregateInput
+    _avg?: PortfolioProminentProjectImageAvgOrderByAggregateInput
+    _max?: PortfolioProminentProjectImageMaxOrderByAggregateInput
+    _min?: PortfolioProminentProjectImageMinOrderByAggregateInput
+    _sum?: PortfolioProminentProjectImageSumOrderByAggregateInput
+  }
+
+  export type PortfolioProminentProjectImageScalarWhereWithAggregatesInput = {
+    AND?: PortfolioProminentProjectImageScalarWhereWithAggregatesInput | PortfolioProminentProjectImageScalarWhereWithAggregatesInput[]
+    OR?: PortfolioProminentProjectImageScalarWhereWithAggregatesInput[]
+    NOT?: PortfolioProminentProjectImageScalarWhereWithAggregatesInput | PortfolioProminentProjectImageScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"PortfolioProminentProjectImage"> | number
+    portfolioProminentProjectId?: IntWithAggregatesFilter<"PortfolioProminentProjectImage"> | number
+    image?: StringWithAggregatesFilter<"PortfolioProminentProjectImage"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"PortfolioProminentProjectImage"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"PortfolioProminentProjectImage"> | Date | string
+  }
+
+  export type PortfolioCustomerFeedbackWhereInput = {
+    AND?: PortfolioCustomerFeedbackWhereInput | PortfolioCustomerFeedbackWhereInput[]
+    OR?: PortfolioCustomerFeedbackWhereInput[]
+    NOT?: PortfolioCustomerFeedbackWhereInput | PortfolioCustomerFeedbackWhereInput[]
+    id?: IntFilter<"PortfolioCustomerFeedback"> | number
+    portfolioId?: IntFilter<"PortfolioCustomerFeedback"> | number
+    createdAt?: DateTimeFilter<"PortfolioCustomerFeedback"> | Date | string
+    updatedAt?: DateTimeFilter<"PortfolioCustomerFeedback"> | Date | string
+    portfolio?: XOR<PortfolioScalarRelationFilter, PortfolioWhereInput>
+  }
+
+  export type PortfolioCustomerFeedbackOrderByWithRelationInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    portfolio?: PortfolioOrderByWithRelationInput
+  }
+
+  export type PortfolioCustomerFeedbackWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: PortfolioCustomerFeedbackWhereInput | PortfolioCustomerFeedbackWhereInput[]
+    OR?: PortfolioCustomerFeedbackWhereInput[]
+    NOT?: PortfolioCustomerFeedbackWhereInput | PortfolioCustomerFeedbackWhereInput[]
+    portfolioId?: IntFilter<"PortfolioCustomerFeedback"> | number
+    createdAt?: DateTimeFilter<"PortfolioCustomerFeedback"> | Date | string
+    updatedAt?: DateTimeFilter<"PortfolioCustomerFeedback"> | Date | string
+    portfolio?: XOR<PortfolioScalarRelationFilter, PortfolioWhereInput>
+  }, "id">
+
+  export type PortfolioCustomerFeedbackOrderByWithAggregationInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: PortfolioCustomerFeedbackCountOrderByAggregateInput
+    _avg?: PortfolioCustomerFeedbackAvgOrderByAggregateInput
+    _max?: PortfolioCustomerFeedbackMaxOrderByAggregateInput
+    _min?: PortfolioCustomerFeedbackMinOrderByAggregateInput
+    _sum?: PortfolioCustomerFeedbackSumOrderByAggregateInput
+  }
+
+  export type PortfolioCustomerFeedbackScalarWhereWithAggregatesInput = {
+    AND?: PortfolioCustomerFeedbackScalarWhereWithAggregatesInput | PortfolioCustomerFeedbackScalarWhereWithAggregatesInput[]
+    OR?: PortfolioCustomerFeedbackScalarWhereWithAggregatesInput[]
+    NOT?: PortfolioCustomerFeedbackScalarWhereWithAggregatesInput | PortfolioCustomerFeedbackScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"PortfolioCustomerFeedback"> | number
+    portfolioId?: IntWithAggregatesFilter<"PortfolioCustomerFeedback"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"PortfolioCustomerFeedback"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"PortfolioCustomerFeedback"> | Date | string
+  }
+
+  export type PortfolioAboutSectionWhereInput = {
+    AND?: PortfolioAboutSectionWhereInput | PortfolioAboutSectionWhereInput[]
+    OR?: PortfolioAboutSectionWhereInput[]
+    NOT?: PortfolioAboutSectionWhereInput | PortfolioAboutSectionWhereInput[]
+    id?: IntFilter<"PortfolioAboutSection"> | number
+    portfolioId?: IntNullableFilter<"PortfolioAboutSection"> | number | null
+    avatar?: StringFilter<"PortfolioAboutSection"> | string
+    overview?: StringFilter<"PortfolioAboutSection"> | string
+    detail?: StringFilter<"PortfolioAboutSection"> | string
+    createdAt?: DateTimeFilter<"PortfolioAboutSection"> | Date | string
+    updatedAt?: DateTimeFilter<"PortfolioAboutSection"> | Date | string
+    portfolio?: XOR<PortfolioNullableScalarRelationFilter, PortfolioWhereInput> | null
+  }
+
+  export type PortfolioAboutSectionOrderByWithRelationInput = {
+    id?: SortOrder
+    portfolioId?: SortOrderInput | SortOrder
+    avatar?: SortOrder
+    overview?: SortOrder
+    detail?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    portfolio?: PortfolioOrderByWithRelationInput
+  }
+
+  export type PortfolioAboutSectionWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    portfolioId?: number
+    AND?: PortfolioAboutSectionWhereInput | PortfolioAboutSectionWhereInput[]
+    OR?: PortfolioAboutSectionWhereInput[]
+    NOT?: PortfolioAboutSectionWhereInput | PortfolioAboutSectionWhereInput[]
+    avatar?: StringFilter<"PortfolioAboutSection"> | string
+    overview?: StringFilter<"PortfolioAboutSection"> | string
+    detail?: StringFilter<"PortfolioAboutSection"> | string
+    createdAt?: DateTimeFilter<"PortfolioAboutSection"> | Date | string
+    updatedAt?: DateTimeFilter<"PortfolioAboutSection"> | Date | string
+    portfolio?: XOR<PortfolioNullableScalarRelationFilter, PortfolioWhereInput> | null
+  }, "id" | "portfolioId">
+
+  export type PortfolioAboutSectionOrderByWithAggregationInput = {
+    id?: SortOrder
+    portfolioId?: SortOrderInput | SortOrder
+    avatar?: SortOrder
+    overview?: SortOrder
+    detail?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: PortfolioAboutSectionCountOrderByAggregateInput
+    _avg?: PortfolioAboutSectionAvgOrderByAggregateInput
+    _max?: PortfolioAboutSectionMaxOrderByAggregateInput
+    _min?: PortfolioAboutSectionMinOrderByAggregateInput
+    _sum?: PortfolioAboutSectionSumOrderByAggregateInput
+  }
+
+  export type PortfolioAboutSectionScalarWhereWithAggregatesInput = {
+    AND?: PortfolioAboutSectionScalarWhereWithAggregatesInput | PortfolioAboutSectionScalarWhereWithAggregatesInput[]
+    OR?: PortfolioAboutSectionScalarWhereWithAggregatesInput[]
+    NOT?: PortfolioAboutSectionScalarWhereWithAggregatesInput | PortfolioAboutSectionScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"PortfolioAboutSection"> | number
+    portfolioId?: IntNullableWithAggregatesFilter<"PortfolioAboutSection"> | number | null
+    avatar?: StringWithAggregatesFilter<"PortfolioAboutSection"> | string
+    overview?: StringWithAggregatesFilter<"PortfolioAboutSection"> | string
+    detail?: StringWithAggregatesFilter<"PortfolioAboutSection"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"PortfolioAboutSection"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"PortfolioAboutSection"> | Date | string
+  }
+
+  export type PortfolioWorkExperienceWhereInput = {
+    AND?: PortfolioWorkExperienceWhereInput | PortfolioWorkExperienceWhereInput[]
+    OR?: PortfolioWorkExperienceWhereInput[]
+    NOT?: PortfolioWorkExperienceWhereInput | PortfolioWorkExperienceWhereInput[]
+    id?: IntFilter<"PortfolioWorkExperience"> | number
+    portfolioId?: IntFilter<"PortfolioWorkExperience"> | number
+    role?: StringFilter<"PortfolioWorkExperience"> | string
+    company?: StringFilter<"PortfolioWorkExperience"> | string
+    image?: StringFilter<"PortfolioWorkExperience"> | string
+    from?: DateTimeFilter<"PortfolioWorkExperience"> | Date | string
+    to?: DateTimeNullableFilter<"PortfolioWorkExperience"> | Date | string | null
+    createdAt?: DateTimeFilter<"PortfolioWorkExperience"> | Date | string
+    updatedAt?: DateTimeFilter<"PortfolioWorkExperience"> | Date | string
+    portfolio?: XOR<PortfolioScalarRelationFilter, PortfolioWhereInput>
+  }
+
+  export type PortfolioWorkExperienceOrderByWithRelationInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+    role?: SortOrder
+    company?: SortOrder
+    image?: SortOrder
+    from?: SortOrder
+    to?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    portfolio?: PortfolioOrderByWithRelationInput
+  }
+
+  export type PortfolioWorkExperienceWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: PortfolioWorkExperienceWhereInput | PortfolioWorkExperienceWhereInput[]
+    OR?: PortfolioWorkExperienceWhereInput[]
+    NOT?: PortfolioWorkExperienceWhereInput | PortfolioWorkExperienceWhereInput[]
+    portfolioId?: IntFilter<"PortfolioWorkExperience"> | number
+    role?: StringFilter<"PortfolioWorkExperience"> | string
+    company?: StringFilter<"PortfolioWorkExperience"> | string
+    image?: StringFilter<"PortfolioWorkExperience"> | string
+    from?: DateTimeFilter<"PortfolioWorkExperience"> | Date | string
+    to?: DateTimeNullableFilter<"PortfolioWorkExperience"> | Date | string | null
+    createdAt?: DateTimeFilter<"PortfolioWorkExperience"> | Date | string
+    updatedAt?: DateTimeFilter<"PortfolioWorkExperience"> | Date | string
+    portfolio?: XOR<PortfolioScalarRelationFilter, PortfolioWhereInput>
+  }, "id">
+
+  export type PortfolioWorkExperienceOrderByWithAggregationInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+    role?: SortOrder
+    company?: SortOrder
+    image?: SortOrder
+    from?: SortOrder
+    to?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: PortfolioWorkExperienceCountOrderByAggregateInput
+    _avg?: PortfolioWorkExperienceAvgOrderByAggregateInput
+    _max?: PortfolioWorkExperienceMaxOrderByAggregateInput
+    _min?: PortfolioWorkExperienceMinOrderByAggregateInput
+    _sum?: PortfolioWorkExperienceSumOrderByAggregateInput
+  }
+
+  export type PortfolioWorkExperienceScalarWhereWithAggregatesInput = {
+    AND?: PortfolioWorkExperienceScalarWhereWithAggregatesInput | PortfolioWorkExperienceScalarWhereWithAggregatesInput[]
+    OR?: PortfolioWorkExperienceScalarWhereWithAggregatesInput[]
+    NOT?: PortfolioWorkExperienceScalarWhereWithAggregatesInput | PortfolioWorkExperienceScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"PortfolioWorkExperience"> | number
+    portfolioId?: IntWithAggregatesFilter<"PortfolioWorkExperience"> | number
+    role?: StringWithAggregatesFilter<"PortfolioWorkExperience"> | string
+    company?: StringWithAggregatesFilter<"PortfolioWorkExperience"> | string
+    image?: StringWithAggregatesFilter<"PortfolioWorkExperience"> | string
+    from?: DateTimeWithAggregatesFilter<"PortfolioWorkExperience"> | Date | string
+    to?: DateTimeNullableWithAggregatesFilter<"PortfolioWorkExperience"> | Date | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"PortfolioWorkExperience"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"PortfolioWorkExperience"> | Date | string
+  }
+
+  export type PortfolioSkillWhereInput = {
+    AND?: PortfolioSkillWhereInput | PortfolioSkillWhereInput[]
+    OR?: PortfolioSkillWhereInput[]
+    NOT?: PortfolioSkillWhereInput | PortfolioSkillWhereInput[]
+    id?: IntFilter<"PortfolioSkill"> | number
+    portfolioId?: IntFilter<"PortfolioSkill"> | number
+    name?: StringFilter<"PortfolioSkill"> | string
+    createdAt?: DateTimeFilter<"PortfolioSkill"> | Date | string
+    updatedAt?: DateTimeFilter<"PortfolioSkill"> | Date | string
+    portfolio?: XOR<PortfolioScalarRelationFilter, PortfolioWhereInput>
+  }
+
+  export type PortfolioSkillOrderByWithRelationInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    portfolio?: PortfolioOrderByWithRelationInput
+  }
+
+  export type PortfolioSkillWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: PortfolioSkillWhereInput | PortfolioSkillWhereInput[]
+    OR?: PortfolioSkillWhereInput[]
+    NOT?: PortfolioSkillWhereInput | PortfolioSkillWhereInput[]
+    portfolioId?: IntFilter<"PortfolioSkill"> | number
+    name?: StringFilter<"PortfolioSkill"> | string
+    createdAt?: DateTimeFilter<"PortfolioSkill"> | Date | string
+    updatedAt?: DateTimeFilter<"PortfolioSkill"> | Date | string
+    portfolio?: XOR<PortfolioScalarRelationFilter, PortfolioWhereInput>
+  }, "id">
+
+  export type PortfolioSkillOrderByWithAggregationInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: PortfolioSkillCountOrderByAggregateInput
+    _avg?: PortfolioSkillAvgOrderByAggregateInput
+    _max?: PortfolioSkillMaxOrderByAggregateInput
+    _min?: PortfolioSkillMinOrderByAggregateInput
+    _sum?: PortfolioSkillSumOrderByAggregateInput
+  }
+
+  export type PortfolioSkillScalarWhereWithAggregatesInput = {
+    AND?: PortfolioSkillScalarWhereWithAggregatesInput | PortfolioSkillScalarWhereWithAggregatesInput[]
+    OR?: PortfolioSkillScalarWhereWithAggregatesInput[]
+    NOT?: PortfolioSkillScalarWhereWithAggregatesInput | PortfolioSkillScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"PortfolioSkill"> | number
+    portfolioId?: IntWithAggregatesFilter<"PortfolioSkill"> | number
+    name?: StringWithAggregatesFilter<"PortfolioSkill"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"PortfolioSkill"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"PortfolioSkill"> | Date | string
   }
 
   export type BookingWhereInput = {
@@ -11694,114 +18536,460 @@ export namespace Prisma {
   }
 
   export type PortfolioCreateInput = {
-    skills: string
+    name: string
+    skillDescription?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectCreateNestedManyWithoutPortfolioInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackCreateNestedManyWithoutPortfolioInput
+    portfolioAboutSection?: PortfolioAboutSectionCreateNestedOneWithoutPortfolioInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceCreateNestedManyWithoutPortfolioInput
+    portfolioSkills?: PortfolioSkillCreateNestedManyWithoutPortfolioInput
   }
 
   export type PortfolioUncheckedCreateInput = {
     id?: number
-    skills: string
+    name: string
+    skillDescription?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectUncheckedCreateNestedManyWithoutPortfolioInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedCreateNestedManyWithoutPortfolioInput
+    portfolioAboutSection?: PortfolioAboutSectionUncheckedCreateNestedOneWithoutPortfolioInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedCreateNestedManyWithoutPortfolioInput
+    portfolioSkills?: PortfolioSkillUncheckedCreateNestedManyWithoutPortfolioInput
   }
 
   export type PortfolioUpdateInput = {
-    skills?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectUpdateManyWithoutPortfolioNestedInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUpdateManyWithoutPortfolioNestedInput
+    portfolioAboutSection?: PortfolioAboutSectionUpdateOneWithoutPortfolioNestedInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceUpdateManyWithoutPortfolioNestedInput
+    portfolioSkills?: PortfolioSkillUpdateManyWithoutPortfolioNestedInput
   }
 
   export type PortfolioUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    skills?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioNestedInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedUpdateManyWithoutPortfolioNestedInput
+    portfolioAboutSection?: PortfolioAboutSectionUncheckedUpdateOneWithoutPortfolioNestedInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedUpdateManyWithoutPortfolioNestedInput
+    portfolioSkills?: PortfolioSkillUncheckedUpdateManyWithoutPortfolioNestedInput
   }
 
   export type PortfolioCreateManyInput = {
     id?: number
-    skills: string
+    name: string
+    skillDescription?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type PortfolioUpdateManyMutationInput = {
-    skills?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PortfolioUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    skills?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type FeedbackCreateInput = {
-    freelancerId: number
-    clientId: number
-    comment?: string | null
-    ratingPoint: number
+  export type PortfolioProminentProjectCreateInput = {
+    description: string
+    role: string
+    company: string
+    detail?: string | null
+    from: Date | string
+    to?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    portfolio: PortfolioCreateNestedOneWithoutPortfolioProminentProjectsInput
+    portfolioProminentProjectImages?: PortfolioProminentProjectImageCreateNestedManyWithoutPortfolioProminentProjectInput
   }
 
-  export type FeedbackUncheckedCreateInput = {
+  export type PortfolioProminentProjectUncheckedCreateInput = {
     id?: number
-    freelancerId: number
-    clientId: number
-    comment?: string | null
-    ratingPoint: number
+    portfolioId: number
+    description: string
+    role: string
+    company: string
+    detail?: string | null
+    from: Date | string
+    to?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    portfolioProminentProjectImages?: PortfolioProminentProjectImageUncheckedCreateNestedManyWithoutPortfolioProminentProjectInput
   }
 
-  export type FeedbackUpdateInput = {
-    freelancerId?: IntFieldUpdateOperationsInput | number
-    clientId?: IntFieldUpdateOperationsInput | number
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
-    ratingPoint?: IntFieldUpdateOperationsInput | number
+  export type PortfolioProminentProjectUpdateInput = {
+    description?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolio?: PortfolioUpdateOneRequiredWithoutPortfolioProminentProjectsNestedInput
+    portfolioProminentProjectImages?: PortfolioProminentProjectImageUpdateManyWithoutPortfolioProminentProjectNestedInput
   }
 
-  export type FeedbackUncheckedUpdateInput = {
+  export type PortfolioProminentProjectUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    freelancerId?: IntFieldUpdateOperationsInput | number
-    clientId?: IntFieldUpdateOperationsInput | number
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
-    ratingPoint?: IntFieldUpdateOperationsInput | number
+    portfolioId?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolioProminentProjectImages?: PortfolioProminentProjectImageUncheckedUpdateManyWithoutPortfolioProminentProjectNestedInput
   }
 
-  export type FeedbackCreateManyInput = {
+  export type PortfolioProminentProjectCreateManyInput = {
     id?: number
-    freelancerId: number
-    clientId: number
-    comment?: string | null
-    ratingPoint: number
+    portfolioId: number
+    description: string
+    role: string
+    company: string
+    detail?: string | null
+    from: Date | string
+    to?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type FeedbackUpdateManyMutationInput = {
-    freelancerId?: IntFieldUpdateOperationsInput | number
-    clientId?: IntFieldUpdateOperationsInput | number
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
-    ratingPoint?: IntFieldUpdateOperationsInput | number
+  export type PortfolioProminentProjectUpdateManyMutationInput = {
+    description?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type FeedbackUncheckedUpdateManyInput = {
+  export type PortfolioProminentProjectUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    freelancerId?: IntFieldUpdateOperationsInput | number
-    clientId?: IntFieldUpdateOperationsInput | number
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
-    ratingPoint?: IntFieldUpdateOperationsInput | number
+    portfolioId?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioProminentProjectImageCreateInput = {
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolioProminentProject: PortfolioProminentProjectCreateNestedOneWithoutPortfolioProminentProjectImagesInput
+  }
+
+  export type PortfolioProminentProjectImageUncheckedCreateInput = {
+    id?: number
+    portfolioProminentProjectId: number
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioProminentProjectImageUpdateInput = {
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolioProminentProject?: PortfolioProminentProjectUpdateOneRequiredWithoutPortfolioProminentProjectImagesNestedInput
+  }
+
+  export type PortfolioProminentProjectImageUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    portfolioProminentProjectId?: IntFieldUpdateOperationsInput | number
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioProminentProjectImageCreateManyInput = {
+    id?: number
+    portfolioProminentProjectId: number
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioProminentProjectImageUpdateManyMutationInput = {
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioProminentProjectImageUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    portfolioProminentProjectId?: IntFieldUpdateOperationsInput | number
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioCustomerFeedbackCreateInput = {
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolio: PortfolioCreateNestedOneWithoutPortfolioCustomerFeedbacksInput
+  }
+
+  export type PortfolioCustomerFeedbackUncheckedCreateInput = {
+    id?: number
+    portfolioId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioCustomerFeedbackUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolio?: PortfolioUpdateOneRequiredWithoutPortfolioCustomerFeedbacksNestedInput
+  }
+
+  export type PortfolioCustomerFeedbackUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    portfolioId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioCustomerFeedbackCreateManyInput = {
+    id?: number
+    portfolioId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioCustomerFeedbackUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioCustomerFeedbackUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    portfolioId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioAboutSectionCreateInput = {
+    avatar: string
+    overview: string
+    detail: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolio?: PortfolioCreateNestedOneWithoutPortfolioAboutSectionInput
+  }
+
+  export type PortfolioAboutSectionUncheckedCreateInput = {
+    id?: number
+    portfolioId?: number | null
+    avatar: string
+    overview: string
+    detail: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioAboutSectionUpdateInput = {
+    avatar?: StringFieldUpdateOperationsInput | string
+    overview?: StringFieldUpdateOperationsInput | string
+    detail?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolio?: PortfolioUpdateOneWithoutPortfolioAboutSectionNestedInput
+  }
+
+  export type PortfolioAboutSectionUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    portfolioId?: NullableIntFieldUpdateOperationsInput | number | null
+    avatar?: StringFieldUpdateOperationsInput | string
+    overview?: StringFieldUpdateOperationsInput | string
+    detail?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioAboutSectionCreateManyInput = {
+    id?: number
+    portfolioId?: number | null
+    avatar: string
+    overview: string
+    detail: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioAboutSectionUpdateManyMutationInput = {
+    avatar?: StringFieldUpdateOperationsInput | string
+    overview?: StringFieldUpdateOperationsInput | string
+    detail?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioAboutSectionUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    portfolioId?: NullableIntFieldUpdateOperationsInput | number | null
+    avatar?: StringFieldUpdateOperationsInput | string
+    overview?: StringFieldUpdateOperationsInput | string
+    detail?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioWorkExperienceCreateInput = {
+    role: string
+    company: string
+    image: string
+    from: Date | string
+    to?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolio: PortfolioCreateNestedOneWithoutPortfolioWorkExperiencesInput
+  }
+
+  export type PortfolioWorkExperienceUncheckedCreateInput = {
+    id?: number
+    portfolioId: number
+    role: string
+    company: string
+    image: string
+    from: Date | string
+    to?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioWorkExperienceUpdateInput = {
+    role?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolio?: PortfolioUpdateOneRequiredWithoutPortfolioWorkExperiencesNestedInput
+  }
+
+  export type PortfolioWorkExperienceUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    portfolioId?: IntFieldUpdateOperationsInput | number
+    role?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioWorkExperienceCreateManyInput = {
+    id?: number
+    portfolioId: number
+    role: string
+    company: string
+    image: string
+    from: Date | string
+    to?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioWorkExperienceUpdateManyMutationInput = {
+    role?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioWorkExperienceUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    portfolioId?: IntFieldUpdateOperationsInput | number
+    role?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioSkillCreateInput = {
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolio: PortfolioCreateNestedOneWithoutPortfolioSkillsInput
+  }
+
+  export type PortfolioSkillUncheckedCreateInput = {
+    id?: number
+    portfolioId: number
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioSkillUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolio?: PortfolioUpdateOneRequiredWithoutPortfolioSkillsNestedInput
+  }
+
+  export type PortfolioSkillUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    portfolioId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioSkillCreateManyInput = {
+    id?: number
+    portfolioId: number
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioSkillUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioSkillUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    portfolioId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12316,9 +19504,55 @@ export namespace Prisma {
     wage?: SortOrder
   }
 
+  export type PortfolioProminentProjectListRelationFilter = {
+    every?: PortfolioProminentProjectWhereInput
+    some?: PortfolioProminentProjectWhereInput
+    none?: PortfolioProminentProjectWhereInput
+  }
+
+  export type PortfolioCustomerFeedbackListRelationFilter = {
+    every?: PortfolioCustomerFeedbackWhereInput
+    some?: PortfolioCustomerFeedbackWhereInput
+    none?: PortfolioCustomerFeedbackWhereInput
+  }
+
+  export type PortfolioAboutSectionNullableScalarRelationFilter = {
+    is?: PortfolioAboutSectionWhereInput | null
+    isNot?: PortfolioAboutSectionWhereInput | null
+  }
+
+  export type PortfolioWorkExperienceListRelationFilter = {
+    every?: PortfolioWorkExperienceWhereInput
+    some?: PortfolioWorkExperienceWhereInput
+    none?: PortfolioWorkExperienceWhereInput
+  }
+
+  export type PortfolioSkillListRelationFilter = {
+    every?: PortfolioSkillWhereInput
+    some?: PortfolioSkillWhereInput
+    none?: PortfolioSkillWhereInput
+  }
+
+  export type PortfolioProminentProjectOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PortfolioCustomerFeedbackOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PortfolioWorkExperienceOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PortfolioSkillOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type PortfolioCountOrderByAggregateInput = {
     id?: SortOrder
-    skills?: SortOrder
+    name?: SortOrder
+    skillDescription?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -12329,14 +19563,16 @@ export namespace Prisma {
 
   export type PortfolioMaxOrderByAggregateInput = {
     id?: SortOrder
-    skills?: SortOrder
+    name?: SortOrder
+    skillDescription?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type PortfolioMinOrderByAggregateInput = {
     id?: SortOrder
-    skills?: SortOrder
+    name?: SortOrder
+    skillDescription?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -12345,48 +19581,263 @@ export namespace Prisma {
     id?: SortOrder
   }
 
-  export type FeedbackCountOrderByAggregateInput = {
+  export type PortfolioScalarRelationFilter = {
+    is?: PortfolioWhereInput
+    isNot?: PortfolioWhereInput
+  }
+
+  export type PortfolioProminentProjectImageListRelationFilter = {
+    every?: PortfolioProminentProjectImageWhereInput
+    some?: PortfolioProminentProjectImageWhereInput
+    none?: PortfolioProminentProjectImageWhereInput
+  }
+
+  export type PortfolioProminentProjectImageOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PortfolioProminentProjectCountOrderByAggregateInput = {
     id?: SortOrder
-    freelancerId?: SortOrder
-    clientId?: SortOrder
-    comment?: SortOrder
-    ratingPoint?: SortOrder
+    portfolioId?: SortOrder
+    description?: SortOrder
+    role?: SortOrder
+    company?: SortOrder
+    detail?: SortOrder
+    from?: SortOrder
+    to?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type FeedbackAvgOrderByAggregateInput = {
+  export type PortfolioProminentProjectAvgOrderByAggregateInput = {
     id?: SortOrder
-    freelancerId?: SortOrder
-    clientId?: SortOrder
-    ratingPoint?: SortOrder
+    portfolioId?: SortOrder
   }
 
-  export type FeedbackMaxOrderByAggregateInput = {
+  export type PortfolioProminentProjectMaxOrderByAggregateInput = {
     id?: SortOrder
-    freelancerId?: SortOrder
-    clientId?: SortOrder
-    comment?: SortOrder
-    ratingPoint?: SortOrder
+    portfolioId?: SortOrder
+    description?: SortOrder
+    role?: SortOrder
+    company?: SortOrder
+    detail?: SortOrder
+    from?: SortOrder
+    to?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type FeedbackMinOrderByAggregateInput = {
+  export type PortfolioProminentProjectMinOrderByAggregateInput = {
     id?: SortOrder
-    freelancerId?: SortOrder
-    clientId?: SortOrder
-    comment?: SortOrder
-    ratingPoint?: SortOrder
+    portfolioId?: SortOrder
+    description?: SortOrder
+    role?: SortOrder
+    company?: SortOrder
+    detail?: SortOrder
+    from?: SortOrder
+    to?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type FeedbackSumOrderByAggregateInput = {
+  export type PortfolioProminentProjectSumOrderByAggregateInput = {
     id?: SortOrder
-    freelancerId?: SortOrder
-    clientId?: SortOrder
-    ratingPoint?: SortOrder
+    portfolioId?: SortOrder
+  }
+
+  export type PortfolioProminentProjectScalarRelationFilter = {
+    is?: PortfolioProminentProjectWhereInput
+    isNot?: PortfolioProminentProjectWhereInput
+  }
+
+  export type PortfolioProminentProjectImageCountOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioProminentProjectId?: SortOrder
+    image?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PortfolioProminentProjectImageAvgOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioProminentProjectId?: SortOrder
+  }
+
+  export type PortfolioProminentProjectImageMaxOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioProminentProjectId?: SortOrder
+    image?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PortfolioProminentProjectImageMinOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioProminentProjectId?: SortOrder
+    image?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PortfolioProminentProjectImageSumOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioProminentProjectId?: SortOrder
+  }
+
+  export type PortfolioCustomerFeedbackCountOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PortfolioCustomerFeedbackAvgOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+  }
+
+  export type PortfolioCustomerFeedbackMaxOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PortfolioCustomerFeedbackMinOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PortfolioCustomerFeedbackSumOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+  }
+
+  export type PortfolioNullableScalarRelationFilter = {
+    is?: PortfolioWhereInput | null
+    isNot?: PortfolioWhereInput | null
+  }
+
+  export type PortfolioAboutSectionCountOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+    avatar?: SortOrder
+    overview?: SortOrder
+    detail?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PortfolioAboutSectionAvgOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+  }
+
+  export type PortfolioAboutSectionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+    avatar?: SortOrder
+    overview?: SortOrder
+    detail?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PortfolioAboutSectionMinOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+    avatar?: SortOrder
+    overview?: SortOrder
+    detail?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PortfolioAboutSectionSumOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+  }
+
+  export type PortfolioWorkExperienceCountOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+    role?: SortOrder
+    company?: SortOrder
+    image?: SortOrder
+    from?: SortOrder
+    to?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PortfolioWorkExperienceAvgOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+  }
+
+  export type PortfolioWorkExperienceMaxOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+    role?: SortOrder
+    company?: SortOrder
+    image?: SortOrder
+    from?: SortOrder
+    to?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PortfolioWorkExperienceMinOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+    role?: SortOrder
+    company?: SortOrder
+    image?: SortOrder
+    from?: SortOrder
+    to?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PortfolioWorkExperienceSumOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+  }
+
+  export type PortfolioSkillCountOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PortfolioSkillAvgOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+  }
+
+  export type PortfolioSkillMaxOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PortfolioSkillMinOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PortfolioSkillSumOrderByAggregateInput = {
+    id?: SortOrder
+    portfolioId?: SortOrder
   }
 
   export type DecimalFilter<$PrismaModel = never> = {
@@ -12655,6 +20106,334 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutProfileProminentWorksInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutProfileProminentWorksInput, UserUpdateWithoutProfileProminentWorksInput>, UserUncheckedUpdateWithoutProfileProminentWorksInput>
+  }
+
+  export type PortfolioProminentProjectCreateNestedManyWithoutPortfolioInput = {
+    create?: XOR<PortfolioProminentProjectCreateWithoutPortfolioInput, PortfolioProminentProjectUncheckedCreateWithoutPortfolioInput> | PortfolioProminentProjectCreateWithoutPortfolioInput[] | PortfolioProminentProjectUncheckedCreateWithoutPortfolioInput[]
+    connectOrCreate?: PortfolioProminentProjectCreateOrConnectWithoutPortfolioInput | PortfolioProminentProjectCreateOrConnectWithoutPortfolioInput[]
+    createMany?: PortfolioProminentProjectCreateManyPortfolioInputEnvelope
+    connect?: PortfolioProminentProjectWhereUniqueInput | PortfolioProminentProjectWhereUniqueInput[]
+  }
+
+  export type PortfolioCustomerFeedbackCreateNestedManyWithoutPortfolioInput = {
+    create?: XOR<PortfolioCustomerFeedbackCreateWithoutPortfolioInput, PortfolioCustomerFeedbackUncheckedCreateWithoutPortfolioInput> | PortfolioCustomerFeedbackCreateWithoutPortfolioInput[] | PortfolioCustomerFeedbackUncheckedCreateWithoutPortfolioInput[]
+    connectOrCreate?: PortfolioCustomerFeedbackCreateOrConnectWithoutPortfolioInput | PortfolioCustomerFeedbackCreateOrConnectWithoutPortfolioInput[]
+    createMany?: PortfolioCustomerFeedbackCreateManyPortfolioInputEnvelope
+    connect?: PortfolioCustomerFeedbackWhereUniqueInput | PortfolioCustomerFeedbackWhereUniqueInput[]
+  }
+
+  export type PortfolioAboutSectionCreateNestedOneWithoutPortfolioInput = {
+    create?: XOR<PortfolioAboutSectionCreateWithoutPortfolioInput, PortfolioAboutSectionUncheckedCreateWithoutPortfolioInput>
+    connectOrCreate?: PortfolioAboutSectionCreateOrConnectWithoutPortfolioInput
+    connect?: PortfolioAboutSectionWhereUniqueInput
+  }
+
+  export type PortfolioWorkExperienceCreateNestedManyWithoutPortfolioInput = {
+    create?: XOR<PortfolioWorkExperienceCreateWithoutPortfolioInput, PortfolioWorkExperienceUncheckedCreateWithoutPortfolioInput> | PortfolioWorkExperienceCreateWithoutPortfolioInput[] | PortfolioWorkExperienceUncheckedCreateWithoutPortfolioInput[]
+    connectOrCreate?: PortfolioWorkExperienceCreateOrConnectWithoutPortfolioInput | PortfolioWorkExperienceCreateOrConnectWithoutPortfolioInput[]
+    createMany?: PortfolioWorkExperienceCreateManyPortfolioInputEnvelope
+    connect?: PortfolioWorkExperienceWhereUniqueInput | PortfolioWorkExperienceWhereUniqueInput[]
+  }
+
+  export type PortfolioSkillCreateNestedManyWithoutPortfolioInput = {
+    create?: XOR<PortfolioSkillCreateWithoutPortfolioInput, PortfolioSkillUncheckedCreateWithoutPortfolioInput> | PortfolioSkillCreateWithoutPortfolioInput[] | PortfolioSkillUncheckedCreateWithoutPortfolioInput[]
+    connectOrCreate?: PortfolioSkillCreateOrConnectWithoutPortfolioInput | PortfolioSkillCreateOrConnectWithoutPortfolioInput[]
+    createMany?: PortfolioSkillCreateManyPortfolioInputEnvelope
+    connect?: PortfolioSkillWhereUniqueInput | PortfolioSkillWhereUniqueInput[]
+  }
+
+  export type PortfolioProminentProjectUncheckedCreateNestedManyWithoutPortfolioInput = {
+    create?: XOR<PortfolioProminentProjectCreateWithoutPortfolioInput, PortfolioProminentProjectUncheckedCreateWithoutPortfolioInput> | PortfolioProminentProjectCreateWithoutPortfolioInput[] | PortfolioProminentProjectUncheckedCreateWithoutPortfolioInput[]
+    connectOrCreate?: PortfolioProminentProjectCreateOrConnectWithoutPortfolioInput | PortfolioProminentProjectCreateOrConnectWithoutPortfolioInput[]
+    createMany?: PortfolioProminentProjectCreateManyPortfolioInputEnvelope
+    connect?: PortfolioProminentProjectWhereUniqueInput | PortfolioProminentProjectWhereUniqueInput[]
+  }
+
+  export type PortfolioCustomerFeedbackUncheckedCreateNestedManyWithoutPortfolioInput = {
+    create?: XOR<PortfolioCustomerFeedbackCreateWithoutPortfolioInput, PortfolioCustomerFeedbackUncheckedCreateWithoutPortfolioInput> | PortfolioCustomerFeedbackCreateWithoutPortfolioInput[] | PortfolioCustomerFeedbackUncheckedCreateWithoutPortfolioInput[]
+    connectOrCreate?: PortfolioCustomerFeedbackCreateOrConnectWithoutPortfolioInput | PortfolioCustomerFeedbackCreateOrConnectWithoutPortfolioInput[]
+    createMany?: PortfolioCustomerFeedbackCreateManyPortfolioInputEnvelope
+    connect?: PortfolioCustomerFeedbackWhereUniqueInput | PortfolioCustomerFeedbackWhereUniqueInput[]
+  }
+
+  export type PortfolioAboutSectionUncheckedCreateNestedOneWithoutPortfolioInput = {
+    create?: XOR<PortfolioAboutSectionCreateWithoutPortfolioInput, PortfolioAboutSectionUncheckedCreateWithoutPortfolioInput>
+    connectOrCreate?: PortfolioAboutSectionCreateOrConnectWithoutPortfolioInput
+    connect?: PortfolioAboutSectionWhereUniqueInput
+  }
+
+  export type PortfolioWorkExperienceUncheckedCreateNestedManyWithoutPortfolioInput = {
+    create?: XOR<PortfolioWorkExperienceCreateWithoutPortfolioInput, PortfolioWorkExperienceUncheckedCreateWithoutPortfolioInput> | PortfolioWorkExperienceCreateWithoutPortfolioInput[] | PortfolioWorkExperienceUncheckedCreateWithoutPortfolioInput[]
+    connectOrCreate?: PortfolioWorkExperienceCreateOrConnectWithoutPortfolioInput | PortfolioWorkExperienceCreateOrConnectWithoutPortfolioInput[]
+    createMany?: PortfolioWorkExperienceCreateManyPortfolioInputEnvelope
+    connect?: PortfolioWorkExperienceWhereUniqueInput | PortfolioWorkExperienceWhereUniqueInput[]
+  }
+
+  export type PortfolioSkillUncheckedCreateNestedManyWithoutPortfolioInput = {
+    create?: XOR<PortfolioSkillCreateWithoutPortfolioInput, PortfolioSkillUncheckedCreateWithoutPortfolioInput> | PortfolioSkillCreateWithoutPortfolioInput[] | PortfolioSkillUncheckedCreateWithoutPortfolioInput[]
+    connectOrCreate?: PortfolioSkillCreateOrConnectWithoutPortfolioInput | PortfolioSkillCreateOrConnectWithoutPortfolioInput[]
+    createMany?: PortfolioSkillCreateManyPortfolioInputEnvelope
+    connect?: PortfolioSkillWhereUniqueInput | PortfolioSkillWhereUniqueInput[]
+  }
+
+  export type PortfolioProminentProjectUpdateManyWithoutPortfolioNestedInput = {
+    create?: XOR<PortfolioProminentProjectCreateWithoutPortfolioInput, PortfolioProminentProjectUncheckedCreateWithoutPortfolioInput> | PortfolioProminentProjectCreateWithoutPortfolioInput[] | PortfolioProminentProjectUncheckedCreateWithoutPortfolioInput[]
+    connectOrCreate?: PortfolioProminentProjectCreateOrConnectWithoutPortfolioInput | PortfolioProminentProjectCreateOrConnectWithoutPortfolioInput[]
+    upsert?: PortfolioProminentProjectUpsertWithWhereUniqueWithoutPortfolioInput | PortfolioProminentProjectUpsertWithWhereUniqueWithoutPortfolioInput[]
+    createMany?: PortfolioProminentProjectCreateManyPortfolioInputEnvelope
+    set?: PortfolioProminentProjectWhereUniqueInput | PortfolioProminentProjectWhereUniqueInput[]
+    disconnect?: PortfolioProminentProjectWhereUniqueInput | PortfolioProminentProjectWhereUniqueInput[]
+    delete?: PortfolioProminentProjectWhereUniqueInput | PortfolioProminentProjectWhereUniqueInput[]
+    connect?: PortfolioProminentProjectWhereUniqueInput | PortfolioProminentProjectWhereUniqueInput[]
+    update?: PortfolioProminentProjectUpdateWithWhereUniqueWithoutPortfolioInput | PortfolioProminentProjectUpdateWithWhereUniqueWithoutPortfolioInput[]
+    updateMany?: PortfolioProminentProjectUpdateManyWithWhereWithoutPortfolioInput | PortfolioProminentProjectUpdateManyWithWhereWithoutPortfolioInput[]
+    deleteMany?: PortfolioProminentProjectScalarWhereInput | PortfolioProminentProjectScalarWhereInput[]
+  }
+
+  export type PortfolioCustomerFeedbackUpdateManyWithoutPortfolioNestedInput = {
+    create?: XOR<PortfolioCustomerFeedbackCreateWithoutPortfolioInput, PortfolioCustomerFeedbackUncheckedCreateWithoutPortfolioInput> | PortfolioCustomerFeedbackCreateWithoutPortfolioInput[] | PortfolioCustomerFeedbackUncheckedCreateWithoutPortfolioInput[]
+    connectOrCreate?: PortfolioCustomerFeedbackCreateOrConnectWithoutPortfolioInput | PortfolioCustomerFeedbackCreateOrConnectWithoutPortfolioInput[]
+    upsert?: PortfolioCustomerFeedbackUpsertWithWhereUniqueWithoutPortfolioInput | PortfolioCustomerFeedbackUpsertWithWhereUniqueWithoutPortfolioInput[]
+    createMany?: PortfolioCustomerFeedbackCreateManyPortfolioInputEnvelope
+    set?: PortfolioCustomerFeedbackWhereUniqueInput | PortfolioCustomerFeedbackWhereUniqueInput[]
+    disconnect?: PortfolioCustomerFeedbackWhereUniqueInput | PortfolioCustomerFeedbackWhereUniqueInput[]
+    delete?: PortfolioCustomerFeedbackWhereUniqueInput | PortfolioCustomerFeedbackWhereUniqueInput[]
+    connect?: PortfolioCustomerFeedbackWhereUniqueInput | PortfolioCustomerFeedbackWhereUniqueInput[]
+    update?: PortfolioCustomerFeedbackUpdateWithWhereUniqueWithoutPortfolioInput | PortfolioCustomerFeedbackUpdateWithWhereUniqueWithoutPortfolioInput[]
+    updateMany?: PortfolioCustomerFeedbackUpdateManyWithWhereWithoutPortfolioInput | PortfolioCustomerFeedbackUpdateManyWithWhereWithoutPortfolioInput[]
+    deleteMany?: PortfolioCustomerFeedbackScalarWhereInput | PortfolioCustomerFeedbackScalarWhereInput[]
+  }
+
+  export type PortfolioAboutSectionUpdateOneWithoutPortfolioNestedInput = {
+    create?: XOR<PortfolioAboutSectionCreateWithoutPortfolioInput, PortfolioAboutSectionUncheckedCreateWithoutPortfolioInput>
+    connectOrCreate?: PortfolioAboutSectionCreateOrConnectWithoutPortfolioInput
+    upsert?: PortfolioAboutSectionUpsertWithoutPortfolioInput
+    disconnect?: PortfolioAboutSectionWhereInput | boolean
+    delete?: PortfolioAboutSectionWhereInput | boolean
+    connect?: PortfolioAboutSectionWhereUniqueInput
+    update?: XOR<XOR<PortfolioAboutSectionUpdateToOneWithWhereWithoutPortfolioInput, PortfolioAboutSectionUpdateWithoutPortfolioInput>, PortfolioAboutSectionUncheckedUpdateWithoutPortfolioInput>
+  }
+
+  export type PortfolioWorkExperienceUpdateManyWithoutPortfolioNestedInput = {
+    create?: XOR<PortfolioWorkExperienceCreateWithoutPortfolioInput, PortfolioWorkExperienceUncheckedCreateWithoutPortfolioInput> | PortfolioWorkExperienceCreateWithoutPortfolioInput[] | PortfolioWorkExperienceUncheckedCreateWithoutPortfolioInput[]
+    connectOrCreate?: PortfolioWorkExperienceCreateOrConnectWithoutPortfolioInput | PortfolioWorkExperienceCreateOrConnectWithoutPortfolioInput[]
+    upsert?: PortfolioWorkExperienceUpsertWithWhereUniqueWithoutPortfolioInput | PortfolioWorkExperienceUpsertWithWhereUniqueWithoutPortfolioInput[]
+    createMany?: PortfolioWorkExperienceCreateManyPortfolioInputEnvelope
+    set?: PortfolioWorkExperienceWhereUniqueInput | PortfolioWorkExperienceWhereUniqueInput[]
+    disconnect?: PortfolioWorkExperienceWhereUniqueInput | PortfolioWorkExperienceWhereUniqueInput[]
+    delete?: PortfolioWorkExperienceWhereUniqueInput | PortfolioWorkExperienceWhereUniqueInput[]
+    connect?: PortfolioWorkExperienceWhereUniqueInput | PortfolioWorkExperienceWhereUniqueInput[]
+    update?: PortfolioWorkExperienceUpdateWithWhereUniqueWithoutPortfolioInput | PortfolioWorkExperienceUpdateWithWhereUniqueWithoutPortfolioInput[]
+    updateMany?: PortfolioWorkExperienceUpdateManyWithWhereWithoutPortfolioInput | PortfolioWorkExperienceUpdateManyWithWhereWithoutPortfolioInput[]
+    deleteMany?: PortfolioWorkExperienceScalarWhereInput | PortfolioWorkExperienceScalarWhereInput[]
+  }
+
+  export type PortfolioSkillUpdateManyWithoutPortfolioNestedInput = {
+    create?: XOR<PortfolioSkillCreateWithoutPortfolioInput, PortfolioSkillUncheckedCreateWithoutPortfolioInput> | PortfolioSkillCreateWithoutPortfolioInput[] | PortfolioSkillUncheckedCreateWithoutPortfolioInput[]
+    connectOrCreate?: PortfolioSkillCreateOrConnectWithoutPortfolioInput | PortfolioSkillCreateOrConnectWithoutPortfolioInput[]
+    upsert?: PortfolioSkillUpsertWithWhereUniqueWithoutPortfolioInput | PortfolioSkillUpsertWithWhereUniqueWithoutPortfolioInput[]
+    createMany?: PortfolioSkillCreateManyPortfolioInputEnvelope
+    set?: PortfolioSkillWhereUniqueInput | PortfolioSkillWhereUniqueInput[]
+    disconnect?: PortfolioSkillWhereUniqueInput | PortfolioSkillWhereUniqueInput[]
+    delete?: PortfolioSkillWhereUniqueInput | PortfolioSkillWhereUniqueInput[]
+    connect?: PortfolioSkillWhereUniqueInput | PortfolioSkillWhereUniqueInput[]
+    update?: PortfolioSkillUpdateWithWhereUniqueWithoutPortfolioInput | PortfolioSkillUpdateWithWhereUniqueWithoutPortfolioInput[]
+    updateMany?: PortfolioSkillUpdateManyWithWhereWithoutPortfolioInput | PortfolioSkillUpdateManyWithWhereWithoutPortfolioInput[]
+    deleteMany?: PortfolioSkillScalarWhereInput | PortfolioSkillScalarWhereInput[]
+  }
+
+  export type PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioNestedInput = {
+    create?: XOR<PortfolioProminentProjectCreateWithoutPortfolioInput, PortfolioProminentProjectUncheckedCreateWithoutPortfolioInput> | PortfolioProminentProjectCreateWithoutPortfolioInput[] | PortfolioProminentProjectUncheckedCreateWithoutPortfolioInput[]
+    connectOrCreate?: PortfolioProminentProjectCreateOrConnectWithoutPortfolioInput | PortfolioProminentProjectCreateOrConnectWithoutPortfolioInput[]
+    upsert?: PortfolioProminentProjectUpsertWithWhereUniqueWithoutPortfolioInput | PortfolioProminentProjectUpsertWithWhereUniqueWithoutPortfolioInput[]
+    createMany?: PortfolioProminentProjectCreateManyPortfolioInputEnvelope
+    set?: PortfolioProminentProjectWhereUniqueInput | PortfolioProminentProjectWhereUniqueInput[]
+    disconnect?: PortfolioProminentProjectWhereUniqueInput | PortfolioProminentProjectWhereUniqueInput[]
+    delete?: PortfolioProminentProjectWhereUniqueInput | PortfolioProminentProjectWhereUniqueInput[]
+    connect?: PortfolioProminentProjectWhereUniqueInput | PortfolioProminentProjectWhereUniqueInput[]
+    update?: PortfolioProminentProjectUpdateWithWhereUniqueWithoutPortfolioInput | PortfolioProminentProjectUpdateWithWhereUniqueWithoutPortfolioInput[]
+    updateMany?: PortfolioProminentProjectUpdateManyWithWhereWithoutPortfolioInput | PortfolioProminentProjectUpdateManyWithWhereWithoutPortfolioInput[]
+    deleteMany?: PortfolioProminentProjectScalarWhereInput | PortfolioProminentProjectScalarWhereInput[]
+  }
+
+  export type PortfolioCustomerFeedbackUncheckedUpdateManyWithoutPortfolioNestedInput = {
+    create?: XOR<PortfolioCustomerFeedbackCreateWithoutPortfolioInput, PortfolioCustomerFeedbackUncheckedCreateWithoutPortfolioInput> | PortfolioCustomerFeedbackCreateWithoutPortfolioInput[] | PortfolioCustomerFeedbackUncheckedCreateWithoutPortfolioInput[]
+    connectOrCreate?: PortfolioCustomerFeedbackCreateOrConnectWithoutPortfolioInput | PortfolioCustomerFeedbackCreateOrConnectWithoutPortfolioInput[]
+    upsert?: PortfolioCustomerFeedbackUpsertWithWhereUniqueWithoutPortfolioInput | PortfolioCustomerFeedbackUpsertWithWhereUniqueWithoutPortfolioInput[]
+    createMany?: PortfolioCustomerFeedbackCreateManyPortfolioInputEnvelope
+    set?: PortfolioCustomerFeedbackWhereUniqueInput | PortfolioCustomerFeedbackWhereUniqueInput[]
+    disconnect?: PortfolioCustomerFeedbackWhereUniqueInput | PortfolioCustomerFeedbackWhereUniqueInput[]
+    delete?: PortfolioCustomerFeedbackWhereUniqueInput | PortfolioCustomerFeedbackWhereUniqueInput[]
+    connect?: PortfolioCustomerFeedbackWhereUniqueInput | PortfolioCustomerFeedbackWhereUniqueInput[]
+    update?: PortfolioCustomerFeedbackUpdateWithWhereUniqueWithoutPortfolioInput | PortfolioCustomerFeedbackUpdateWithWhereUniqueWithoutPortfolioInput[]
+    updateMany?: PortfolioCustomerFeedbackUpdateManyWithWhereWithoutPortfolioInput | PortfolioCustomerFeedbackUpdateManyWithWhereWithoutPortfolioInput[]
+    deleteMany?: PortfolioCustomerFeedbackScalarWhereInput | PortfolioCustomerFeedbackScalarWhereInput[]
+  }
+
+  export type PortfolioAboutSectionUncheckedUpdateOneWithoutPortfolioNestedInput = {
+    create?: XOR<PortfolioAboutSectionCreateWithoutPortfolioInput, PortfolioAboutSectionUncheckedCreateWithoutPortfolioInput>
+    connectOrCreate?: PortfolioAboutSectionCreateOrConnectWithoutPortfolioInput
+    upsert?: PortfolioAboutSectionUpsertWithoutPortfolioInput
+    disconnect?: PortfolioAboutSectionWhereInput | boolean
+    delete?: PortfolioAboutSectionWhereInput | boolean
+    connect?: PortfolioAboutSectionWhereUniqueInput
+    update?: XOR<XOR<PortfolioAboutSectionUpdateToOneWithWhereWithoutPortfolioInput, PortfolioAboutSectionUpdateWithoutPortfolioInput>, PortfolioAboutSectionUncheckedUpdateWithoutPortfolioInput>
+  }
+
+  export type PortfolioWorkExperienceUncheckedUpdateManyWithoutPortfolioNestedInput = {
+    create?: XOR<PortfolioWorkExperienceCreateWithoutPortfolioInput, PortfolioWorkExperienceUncheckedCreateWithoutPortfolioInput> | PortfolioWorkExperienceCreateWithoutPortfolioInput[] | PortfolioWorkExperienceUncheckedCreateWithoutPortfolioInput[]
+    connectOrCreate?: PortfolioWorkExperienceCreateOrConnectWithoutPortfolioInput | PortfolioWorkExperienceCreateOrConnectWithoutPortfolioInput[]
+    upsert?: PortfolioWorkExperienceUpsertWithWhereUniqueWithoutPortfolioInput | PortfolioWorkExperienceUpsertWithWhereUniqueWithoutPortfolioInput[]
+    createMany?: PortfolioWorkExperienceCreateManyPortfolioInputEnvelope
+    set?: PortfolioWorkExperienceWhereUniqueInput | PortfolioWorkExperienceWhereUniqueInput[]
+    disconnect?: PortfolioWorkExperienceWhereUniqueInput | PortfolioWorkExperienceWhereUniqueInput[]
+    delete?: PortfolioWorkExperienceWhereUniqueInput | PortfolioWorkExperienceWhereUniqueInput[]
+    connect?: PortfolioWorkExperienceWhereUniqueInput | PortfolioWorkExperienceWhereUniqueInput[]
+    update?: PortfolioWorkExperienceUpdateWithWhereUniqueWithoutPortfolioInput | PortfolioWorkExperienceUpdateWithWhereUniqueWithoutPortfolioInput[]
+    updateMany?: PortfolioWorkExperienceUpdateManyWithWhereWithoutPortfolioInput | PortfolioWorkExperienceUpdateManyWithWhereWithoutPortfolioInput[]
+    deleteMany?: PortfolioWorkExperienceScalarWhereInput | PortfolioWorkExperienceScalarWhereInput[]
+  }
+
+  export type PortfolioSkillUncheckedUpdateManyWithoutPortfolioNestedInput = {
+    create?: XOR<PortfolioSkillCreateWithoutPortfolioInput, PortfolioSkillUncheckedCreateWithoutPortfolioInput> | PortfolioSkillCreateWithoutPortfolioInput[] | PortfolioSkillUncheckedCreateWithoutPortfolioInput[]
+    connectOrCreate?: PortfolioSkillCreateOrConnectWithoutPortfolioInput | PortfolioSkillCreateOrConnectWithoutPortfolioInput[]
+    upsert?: PortfolioSkillUpsertWithWhereUniqueWithoutPortfolioInput | PortfolioSkillUpsertWithWhereUniqueWithoutPortfolioInput[]
+    createMany?: PortfolioSkillCreateManyPortfolioInputEnvelope
+    set?: PortfolioSkillWhereUniqueInput | PortfolioSkillWhereUniqueInput[]
+    disconnect?: PortfolioSkillWhereUniqueInput | PortfolioSkillWhereUniqueInput[]
+    delete?: PortfolioSkillWhereUniqueInput | PortfolioSkillWhereUniqueInput[]
+    connect?: PortfolioSkillWhereUniqueInput | PortfolioSkillWhereUniqueInput[]
+    update?: PortfolioSkillUpdateWithWhereUniqueWithoutPortfolioInput | PortfolioSkillUpdateWithWhereUniqueWithoutPortfolioInput[]
+    updateMany?: PortfolioSkillUpdateManyWithWhereWithoutPortfolioInput | PortfolioSkillUpdateManyWithWhereWithoutPortfolioInput[]
+    deleteMany?: PortfolioSkillScalarWhereInput | PortfolioSkillScalarWhereInput[]
+  }
+
+  export type PortfolioCreateNestedOneWithoutPortfolioProminentProjectsInput = {
+    create?: XOR<PortfolioCreateWithoutPortfolioProminentProjectsInput, PortfolioUncheckedCreateWithoutPortfolioProminentProjectsInput>
+    connectOrCreate?: PortfolioCreateOrConnectWithoutPortfolioProminentProjectsInput
+    connect?: PortfolioWhereUniqueInput
+  }
+
+  export type PortfolioProminentProjectImageCreateNestedManyWithoutPortfolioProminentProjectInput = {
+    create?: XOR<PortfolioProminentProjectImageCreateWithoutPortfolioProminentProjectInput, PortfolioProminentProjectImageUncheckedCreateWithoutPortfolioProminentProjectInput> | PortfolioProminentProjectImageCreateWithoutPortfolioProminentProjectInput[] | PortfolioProminentProjectImageUncheckedCreateWithoutPortfolioProminentProjectInput[]
+    connectOrCreate?: PortfolioProminentProjectImageCreateOrConnectWithoutPortfolioProminentProjectInput | PortfolioProminentProjectImageCreateOrConnectWithoutPortfolioProminentProjectInput[]
+    createMany?: PortfolioProminentProjectImageCreateManyPortfolioProminentProjectInputEnvelope
+    connect?: PortfolioProminentProjectImageWhereUniqueInput | PortfolioProminentProjectImageWhereUniqueInput[]
+  }
+
+  export type PortfolioProminentProjectImageUncheckedCreateNestedManyWithoutPortfolioProminentProjectInput = {
+    create?: XOR<PortfolioProminentProjectImageCreateWithoutPortfolioProminentProjectInput, PortfolioProminentProjectImageUncheckedCreateWithoutPortfolioProminentProjectInput> | PortfolioProminentProjectImageCreateWithoutPortfolioProminentProjectInput[] | PortfolioProminentProjectImageUncheckedCreateWithoutPortfolioProminentProjectInput[]
+    connectOrCreate?: PortfolioProminentProjectImageCreateOrConnectWithoutPortfolioProminentProjectInput | PortfolioProminentProjectImageCreateOrConnectWithoutPortfolioProminentProjectInput[]
+    createMany?: PortfolioProminentProjectImageCreateManyPortfolioProminentProjectInputEnvelope
+    connect?: PortfolioProminentProjectImageWhereUniqueInput | PortfolioProminentProjectImageWhereUniqueInput[]
+  }
+
+  export type PortfolioUpdateOneRequiredWithoutPortfolioProminentProjectsNestedInput = {
+    create?: XOR<PortfolioCreateWithoutPortfolioProminentProjectsInput, PortfolioUncheckedCreateWithoutPortfolioProminentProjectsInput>
+    connectOrCreate?: PortfolioCreateOrConnectWithoutPortfolioProminentProjectsInput
+    upsert?: PortfolioUpsertWithoutPortfolioProminentProjectsInput
+    connect?: PortfolioWhereUniqueInput
+    update?: XOR<XOR<PortfolioUpdateToOneWithWhereWithoutPortfolioProminentProjectsInput, PortfolioUpdateWithoutPortfolioProminentProjectsInput>, PortfolioUncheckedUpdateWithoutPortfolioProminentProjectsInput>
+  }
+
+  export type PortfolioProminentProjectImageUpdateManyWithoutPortfolioProminentProjectNestedInput = {
+    create?: XOR<PortfolioProminentProjectImageCreateWithoutPortfolioProminentProjectInput, PortfolioProminentProjectImageUncheckedCreateWithoutPortfolioProminentProjectInput> | PortfolioProminentProjectImageCreateWithoutPortfolioProminentProjectInput[] | PortfolioProminentProjectImageUncheckedCreateWithoutPortfolioProminentProjectInput[]
+    connectOrCreate?: PortfolioProminentProjectImageCreateOrConnectWithoutPortfolioProminentProjectInput | PortfolioProminentProjectImageCreateOrConnectWithoutPortfolioProminentProjectInput[]
+    upsert?: PortfolioProminentProjectImageUpsertWithWhereUniqueWithoutPortfolioProminentProjectInput | PortfolioProminentProjectImageUpsertWithWhereUniqueWithoutPortfolioProminentProjectInput[]
+    createMany?: PortfolioProminentProjectImageCreateManyPortfolioProminentProjectInputEnvelope
+    set?: PortfolioProminentProjectImageWhereUniqueInput | PortfolioProminentProjectImageWhereUniqueInput[]
+    disconnect?: PortfolioProminentProjectImageWhereUniqueInput | PortfolioProminentProjectImageWhereUniqueInput[]
+    delete?: PortfolioProminentProjectImageWhereUniqueInput | PortfolioProminentProjectImageWhereUniqueInput[]
+    connect?: PortfolioProminentProjectImageWhereUniqueInput | PortfolioProminentProjectImageWhereUniqueInput[]
+    update?: PortfolioProminentProjectImageUpdateWithWhereUniqueWithoutPortfolioProminentProjectInput | PortfolioProminentProjectImageUpdateWithWhereUniqueWithoutPortfolioProminentProjectInput[]
+    updateMany?: PortfolioProminentProjectImageUpdateManyWithWhereWithoutPortfolioProminentProjectInput | PortfolioProminentProjectImageUpdateManyWithWhereWithoutPortfolioProminentProjectInput[]
+    deleteMany?: PortfolioProminentProjectImageScalarWhereInput | PortfolioProminentProjectImageScalarWhereInput[]
+  }
+
+  export type PortfolioProminentProjectImageUncheckedUpdateManyWithoutPortfolioProminentProjectNestedInput = {
+    create?: XOR<PortfolioProminentProjectImageCreateWithoutPortfolioProminentProjectInput, PortfolioProminentProjectImageUncheckedCreateWithoutPortfolioProminentProjectInput> | PortfolioProminentProjectImageCreateWithoutPortfolioProminentProjectInput[] | PortfolioProminentProjectImageUncheckedCreateWithoutPortfolioProminentProjectInput[]
+    connectOrCreate?: PortfolioProminentProjectImageCreateOrConnectWithoutPortfolioProminentProjectInput | PortfolioProminentProjectImageCreateOrConnectWithoutPortfolioProminentProjectInput[]
+    upsert?: PortfolioProminentProjectImageUpsertWithWhereUniqueWithoutPortfolioProminentProjectInput | PortfolioProminentProjectImageUpsertWithWhereUniqueWithoutPortfolioProminentProjectInput[]
+    createMany?: PortfolioProminentProjectImageCreateManyPortfolioProminentProjectInputEnvelope
+    set?: PortfolioProminentProjectImageWhereUniqueInput | PortfolioProminentProjectImageWhereUniqueInput[]
+    disconnect?: PortfolioProminentProjectImageWhereUniqueInput | PortfolioProminentProjectImageWhereUniqueInput[]
+    delete?: PortfolioProminentProjectImageWhereUniqueInput | PortfolioProminentProjectImageWhereUniqueInput[]
+    connect?: PortfolioProminentProjectImageWhereUniqueInput | PortfolioProminentProjectImageWhereUniqueInput[]
+    update?: PortfolioProminentProjectImageUpdateWithWhereUniqueWithoutPortfolioProminentProjectInput | PortfolioProminentProjectImageUpdateWithWhereUniqueWithoutPortfolioProminentProjectInput[]
+    updateMany?: PortfolioProminentProjectImageUpdateManyWithWhereWithoutPortfolioProminentProjectInput | PortfolioProminentProjectImageUpdateManyWithWhereWithoutPortfolioProminentProjectInput[]
+    deleteMany?: PortfolioProminentProjectImageScalarWhereInput | PortfolioProminentProjectImageScalarWhereInput[]
+  }
+
+  export type PortfolioProminentProjectCreateNestedOneWithoutPortfolioProminentProjectImagesInput = {
+    create?: XOR<PortfolioProminentProjectCreateWithoutPortfolioProminentProjectImagesInput, PortfolioProminentProjectUncheckedCreateWithoutPortfolioProminentProjectImagesInput>
+    connectOrCreate?: PortfolioProminentProjectCreateOrConnectWithoutPortfolioProminentProjectImagesInput
+    connect?: PortfolioProminentProjectWhereUniqueInput
+  }
+
+  export type PortfolioProminentProjectUpdateOneRequiredWithoutPortfolioProminentProjectImagesNestedInput = {
+    create?: XOR<PortfolioProminentProjectCreateWithoutPortfolioProminentProjectImagesInput, PortfolioProminentProjectUncheckedCreateWithoutPortfolioProminentProjectImagesInput>
+    connectOrCreate?: PortfolioProminentProjectCreateOrConnectWithoutPortfolioProminentProjectImagesInput
+    upsert?: PortfolioProminentProjectUpsertWithoutPortfolioProminentProjectImagesInput
+    connect?: PortfolioProminentProjectWhereUniqueInput
+    update?: XOR<XOR<PortfolioProminentProjectUpdateToOneWithWhereWithoutPortfolioProminentProjectImagesInput, PortfolioProminentProjectUpdateWithoutPortfolioProminentProjectImagesInput>, PortfolioProminentProjectUncheckedUpdateWithoutPortfolioProminentProjectImagesInput>
+  }
+
+  export type PortfolioCreateNestedOneWithoutPortfolioCustomerFeedbacksInput = {
+    create?: XOR<PortfolioCreateWithoutPortfolioCustomerFeedbacksInput, PortfolioUncheckedCreateWithoutPortfolioCustomerFeedbacksInput>
+    connectOrCreate?: PortfolioCreateOrConnectWithoutPortfolioCustomerFeedbacksInput
+    connect?: PortfolioWhereUniqueInput
+  }
+
+  export type PortfolioUpdateOneRequiredWithoutPortfolioCustomerFeedbacksNestedInput = {
+    create?: XOR<PortfolioCreateWithoutPortfolioCustomerFeedbacksInput, PortfolioUncheckedCreateWithoutPortfolioCustomerFeedbacksInput>
+    connectOrCreate?: PortfolioCreateOrConnectWithoutPortfolioCustomerFeedbacksInput
+    upsert?: PortfolioUpsertWithoutPortfolioCustomerFeedbacksInput
+    connect?: PortfolioWhereUniqueInput
+    update?: XOR<XOR<PortfolioUpdateToOneWithWhereWithoutPortfolioCustomerFeedbacksInput, PortfolioUpdateWithoutPortfolioCustomerFeedbacksInput>, PortfolioUncheckedUpdateWithoutPortfolioCustomerFeedbacksInput>
+  }
+
+  export type PortfolioCreateNestedOneWithoutPortfolioAboutSectionInput = {
+    create?: XOR<PortfolioCreateWithoutPortfolioAboutSectionInput, PortfolioUncheckedCreateWithoutPortfolioAboutSectionInput>
+    connectOrCreate?: PortfolioCreateOrConnectWithoutPortfolioAboutSectionInput
+    connect?: PortfolioWhereUniqueInput
+  }
+
+  export type PortfolioUpdateOneWithoutPortfolioAboutSectionNestedInput = {
+    create?: XOR<PortfolioCreateWithoutPortfolioAboutSectionInput, PortfolioUncheckedCreateWithoutPortfolioAboutSectionInput>
+    connectOrCreate?: PortfolioCreateOrConnectWithoutPortfolioAboutSectionInput
+    upsert?: PortfolioUpsertWithoutPortfolioAboutSectionInput
+    disconnect?: PortfolioWhereInput | boolean
+    delete?: PortfolioWhereInput | boolean
+    connect?: PortfolioWhereUniqueInput
+    update?: XOR<XOR<PortfolioUpdateToOneWithWhereWithoutPortfolioAboutSectionInput, PortfolioUpdateWithoutPortfolioAboutSectionInput>, PortfolioUncheckedUpdateWithoutPortfolioAboutSectionInput>
+  }
+
+  export type PortfolioCreateNestedOneWithoutPortfolioWorkExperiencesInput = {
+    create?: XOR<PortfolioCreateWithoutPortfolioWorkExperiencesInput, PortfolioUncheckedCreateWithoutPortfolioWorkExperiencesInput>
+    connectOrCreate?: PortfolioCreateOrConnectWithoutPortfolioWorkExperiencesInput
+    connect?: PortfolioWhereUniqueInput
+  }
+
+  export type PortfolioUpdateOneRequiredWithoutPortfolioWorkExperiencesNestedInput = {
+    create?: XOR<PortfolioCreateWithoutPortfolioWorkExperiencesInput, PortfolioUncheckedCreateWithoutPortfolioWorkExperiencesInput>
+    connectOrCreate?: PortfolioCreateOrConnectWithoutPortfolioWorkExperiencesInput
+    upsert?: PortfolioUpsertWithoutPortfolioWorkExperiencesInput
+    connect?: PortfolioWhereUniqueInput
+    update?: XOR<XOR<PortfolioUpdateToOneWithWhereWithoutPortfolioWorkExperiencesInput, PortfolioUpdateWithoutPortfolioWorkExperiencesInput>, PortfolioUncheckedUpdateWithoutPortfolioWorkExperiencesInput>
+  }
+
+  export type PortfolioCreateNestedOneWithoutPortfolioSkillsInput = {
+    create?: XOR<PortfolioCreateWithoutPortfolioSkillsInput, PortfolioUncheckedCreateWithoutPortfolioSkillsInput>
+    connectOrCreate?: PortfolioCreateOrConnectWithoutPortfolioSkillsInput
+    connect?: PortfolioWhereUniqueInput
+  }
+
+  export type PortfolioUpdateOneRequiredWithoutPortfolioSkillsNestedInput = {
+    create?: XOR<PortfolioCreateWithoutPortfolioSkillsInput, PortfolioUncheckedCreateWithoutPortfolioSkillsInput>
+    connectOrCreate?: PortfolioCreateOrConnectWithoutPortfolioSkillsInput
+    upsert?: PortfolioUpsertWithoutPortfolioSkillsInput
+    connect?: PortfolioWhereUniqueInput
+    update?: XOR<XOR<PortfolioUpdateToOneWithWhereWithoutPortfolioSkillsInput, PortfolioUpdateWithoutPortfolioSkillsInput>, PortfolioUncheckedUpdateWithoutPortfolioSkillsInput>
   }
 
   export type DecimalFieldUpdateOperationsInput = {
@@ -13366,6 +21145,708 @@ export namespace Prisma {
     profileAchievements?: ProfileAchievementUncheckedUpdateManyWithoutUserNestedInput
   }
 
+  export type PortfolioProminentProjectCreateWithoutPortfolioInput = {
+    description: string
+    role: string
+    company: string
+    detail?: string | null
+    from: Date | string
+    to?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolioProminentProjectImages?: PortfolioProminentProjectImageCreateNestedManyWithoutPortfolioProminentProjectInput
+  }
+
+  export type PortfolioProminentProjectUncheckedCreateWithoutPortfolioInput = {
+    id?: number
+    description: string
+    role: string
+    company: string
+    detail?: string | null
+    from: Date | string
+    to?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolioProminentProjectImages?: PortfolioProminentProjectImageUncheckedCreateNestedManyWithoutPortfolioProminentProjectInput
+  }
+
+  export type PortfolioProminentProjectCreateOrConnectWithoutPortfolioInput = {
+    where: PortfolioProminentProjectWhereUniqueInput
+    create: XOR<PortfolioProminentProjectCreateWithoutPortfolioInput, PortfolioProminentProjectUncheckedCreateWithoutPortfolioInput>
+  }
+
+  export type PortfolioProminentProjectCreateManyPortfolioInputEnvelope = {
+    data: PortfolioProminentProjectCreateManyPortfolioInput | PortfolioProminentProjectCreateManyPortfolioInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PortfolioCustomerFeedbackCreateWithoutPortfolioInput = {
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioCustomerFeedbackUncheckedCreateWithoutPortfolioInput = {
+    id?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioCustomerFeedbackCreateOrConnectWithoutPortfolioInput = {
+    where: PortfolioCustomerFeedbackWhereUniqueInput
+    create: XOR<PortfolioCustomerFeedbackCreateWithoutPortfolioInput, PortfolioCustomerFeedbackUncheckedCreateWithoutPortfolioInput>
+  }
+
+  export type PortfolioCustomerFeedbackCreateManyPortfolioInputEnvelope = {
+    data: PortfolioCustomerFeedbackCreateManyPortfolioInput | PortfolioCustomerFeedbackCreateManyPortfolioInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PortfolioAboutSectionCreateWithoutPortfolioInput = {
+    avatar: string
+    overview: string
+    detail: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioAboutSectionUncheckedCreateWithoutPortfolioInput = {
+    id?: number
+    avatar: string
+    overview: string
+    detail: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioAboutSectionCreateOrConnectWithoutPortfolioInput = {
+    where: PortfolioAboutSectionWhereUniqueInput
+    create: XOR<PortfolioAboutSectionCreateWithoutPortfolioInput, PortfolioAboutSectionUncheckedCreateWithoutPortfolioInput>
+  }
+
+  export type PortfolioWorkExperienceCreateWithoutPortfolioInput = {
+    role: string
+    company: string
+    image: string
+    from: Date | string
+    to?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioWorkExperienceUncheckedCreateWithoutPortfolioInput = {
+    id?: number
+    role: string
+    company: string
+    image: string
+    from: Date | string
+    to?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioWorkExperienceCreateOrConnectWithoutPortfolioInput = {
+    where: PortfolioWorkExperienceWhereUniqueInput
+    create: XOR<PortfolioWorkExperienceCreateWithoutPortfolioInput, PortfolioWorkExperienceUncheckedCreateWithoutPortfolioInput>
+  }
+
+  export type PortfolioWorkExperienceCreateManyPortfolioInputEnvelope = {
+    data: PortfolioWorkExperienceCreateManyPortfolioInput | PortfolioWorkExperienceCreateManyPortfolioInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PortfolioSkillCreateWithoutPortfolioInput = {
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioSkillUncheckedCreateWithoutPortfolioInput = {
+    id?: number
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioSkillCreateOrConnectWithoutPortfolioInput = {
+    where: PortfolioSkillWhereUniqueInput
+    create: XOR<PortfolioSkillCreateWithoutPortfolioInput, PortfolioSkillUncheckedCreateWithoutPortfolioInput>
+  }
+
+  export type PortfolioSkillCreateManyPortfolioInputEnvelope = {
+    data: PortfolioSkillCreateManyPortfolioInput | PortfolioSkillCreateManyPortfolioInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PortfolioProminentProjectUpsertWithWhereUniqueWithoutPortfolioInput = {
+    where: PortfolioProminentProjectWhereUniqueInput
+    update: XOR<PortfolioProminentProjectUpdateWithoutPortfolioInput, PortfolioProminentProjectUncheckedUpdateWithoutPortfolioInput>
+    create: XOR<PortfolioProminentProjectCreateWithoutPortfolioInput, PortfolioProminentProjectUncheckedCreateWithoutPortfolioInput>
+  }
+
+  export type PortfolioProminentProjectUpdateWithWhereUniqueWithoutPortfolioInput = {
+    where: PortfolioProminentProjectWhereUniqueInput
+    data: XOR<PortfolioProminentProjectUpdateWithoutPortfolioInput, PortfolioProminentProjectUncheckedUpdateWithoutPortfolioInput>
+  }
+
+  export type PortfolioProminentProjectUpdateManyWithWhereWithoutPortfolioInput = {
+    where: PortfolioProminentProjectScalarWhereInput
+    data: XOR<PortfolioProminentProjectUpdateManyMutationInput, PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioInput>
+  }
+
+  export type PortfolioProminentProjectScalarWhereInput = {
+    AND?: PortfolioProminentProjectScalarWhereInput | PortfolioProminentProjectScalarWhereInput[]
+    OR?: PortfolioProminentProjectScalarWhereInput[]
+    NOT?: PortfolioProminentProjectScalarWhereInput | PortfolioProminentProjectScalarWhereInput[]
+    id?: IntFilter<"PortfolioProminentProject"> | number
+    portfolioId?: IntFilter<"PortfolioProminentProject"> | number
+    description?: StringFilter<"PortfolioProminentProject"> | string
+    role?: StringFilter<"PortfolioProminentProject"> | string
+    company?: StringFilter<"PortfolioProminentProject"> | string
+    detail?: StringNullableFilter<"PortfolioProminentProject"> | string | null
+    from?: DateTimeFilter<"PortfolioProminentProject"> | Date | string
+    to?: DateTimeNullableFilter<"PortfolioProminentProject"> | Date | string | null
+    createdAt?: DateTimeFilter<"PortfolioProminentProject"> | Date | string
+    updatedAt?: DateTimeFilter<"PortfolioProminentProject"> | Date | string
+  }
+
+  export type PortfolioCustomerFeedbackUpsertWithWhereUniqueWithoutPortfolioInput = {
+    where: PortfolioCustomerFeedbackWhereUniqueInput
+    update: XOR<PortfolioCustomerFeedbackUpdateWithoutPortfolioInput, PortfolioCustomerFeedbackUncheckedUpdateWithoutPortfolioInput>
+    create: XOR<PortfolioCustomerFeedbackCreateWithoutPortfolioInput, PortfolioCustomerFeedbackUncheckedCreateWithoutPortfolioInput>
+  }
+
+  export type PortfolioCustomerFeedbackUpdateWithWhereUniqueWithoutPortfolioInput = {
+    where: PortfolioCustomerFeedbackWhereUniqueInput
+    data: XOR<PortfolioCustomerFeedbackUpdateWithoutPortfolioInput, PortfolioCustomerFeedbackUncheckedUpdateWithoutPortfolioInput>
+  }
+
+  export type PortfolioCustomerFeedbackUpdateManyWithWhereWithoutPortfolioInput = {
+    where: PortfolioCustomerFeedbackScalarWhereInput
+    data: XOR<PortfolioCustomerFeedbackUpdateManyMutationInput, PortfolioCustomerFeedbackUncheckedUpdateManyWithoutPortfolioInput>
+  }
+
+  export type PortfolioCustomerFeedbackScalarWhereInput = {
+    AND?: PortfolioCustomerFeedbackScalarWhereInput | PortfolioCustomerFeedbackScalarWhereInput[]
+    OR?: PortfolioCustomerFeedbackScalarWhereInput[]
+    NOT?: PortfolioCustomerFeedbackScalarWhereInput | PortfolioCustomerFeedbackScalarWhereInput[]
+    id?: IntFilter<"PortfolioCustomerFeedback"> | number
+    portfolioId?: IntFilter<"PortfolioCustomerFeedback"> | number
+    createdAt?: DateTimeFilter<"PortfolioCustomerFeedback"> | Date | string
+    updatedAt?: DateTimeFilter<"PortfolioCustomerFeedback"> | Date | string
+  }
+
+  export type PortfolioAboutSectionUpsertWithoutPortfolioInput = {
+    update: XOR<PortfolioAboutSectionUpdateWithoutPortfolioInput, PortfolioAboutSectionUncheckedUpdateWithoutPortfolioInput>
+    create: XOR<PortfolioAboutSectionCreateWithoutPortfolioInput, PortfolioAboutSectionUncheckedCreateWithoutPortfolioInput>
+    where?: PortfolioAboutSectionWhereInput
+  }
+
+  export type PortfolioAboutSectionUpdateToOneWithWhereWithoutPortfolioInput = {
+    where?: PortfolioAboutSectionWhereInput
+    data: XOR<PortfolioAboutSectionUpdateWithoutPortfolioInput, PortfolioAboutSectionUncheckedUpdateWithoutPortfolioInput>
+  }
+
+  export type PortfolioAboutSectionUpdateWithoutPortfolioInput = {
+    avatar?: StringFieldUpdateOperationsInput | string
+    overview?: StringFieldUpdateOperationsInput | string
+    detail?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioAboutSectionUncheckedUpdateWithoutPortfolioInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    avatar?: StringFieldUpdateOperationsInput | string
+    overview?: StringFieldUpdateOperationsInput | string
+    detail?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioWorkExperienceUpsertWithWhereUniqueWithoutPortfolioInput = {
+    where: PortfolioWorkExperienceWhereUniqueInput
+    update: XOR<PortfolioWorkExperienceUpdateWithoutPortfolioInput, PortfolioWorkExperienceUncheckedUpdateWithoutPortfolioInput>
+    create: XOR<PortfolioWorkExperienceCreateWithoutPortfolioInput, PortfolioWorkExperienceUncheckedCreateWithoutPortfolioInput>
+  }
+
+  export type PortfolioWorkExperienceUpdateWithWhereUniqueWithoutPortfolioInput = {
+    where: PortfolioWorkExperienceWhereUniqueInput
+    data: XOR<PortfolioWorkExperienceUpdateWithoutPortfolioInput, PortfolioWorkExperienceUncheckedUpdateWithoutPortfolioInput>
+  }
+
+  export type PortfolioWorkExperienceUpdateManyWithWhereWithoutPortfolioInput = {
+    where: PortfolioWorkExperienceScalarWhereInput
+    data: XOR<PortfolioWorkExperienceUpdateManyMutationInput, PortfolioWorkExperienceUncheckedUpdateManyWithoutPortfolioInput>
+  }
+
+  export type PortfolioWorkExperienceScalarWhereInput = {
+    AND?: PortfolioWorkExperienceScalarWhereInput | PortfolioWorkExperienceScalarWhereInput[]
+    OR?: PortfolioWorkExperienceScalarWhereInput[]
+    NOT?: PortfolioWorkExperienceScalarWhereInput | PortfolioWorkExperienceScalarWhereInput[]
+    id?: IntFilter<"PortfolioWorkExperience"> | number
+    portfolioId?: IntFilter<"PortfolioWorkExperience"> | number
+    role?: StringFilter<"PortfolioWorkExperience"> | string
+    company?: StringFilter<"PortfolioWorkExperience"> | string
+    image?: StringFilter<"PortfolioWorkExperience"> | string
+    from?: DateTimeFilter<"PortfolioWorkExperience"> | Date | string
+    to?: DateTimeNullableFilter<"PortfolioWorkExperience"> | Date | string | null
+    createdAt?: DateTimeFilter<"PortfolioWorkExperience"> | Date | string
+    updatedAt?: DateTimeFilter<"PortfolioWorkExperience"> | Date | string
+  }
+
+  export type PortfolioSkillUpsertWithWhereUniqueWithoutPortfolioInput = {
+    where: PortfolioSkillWhereUniqueInput
+    update: XOR<PortfolioSkillUpdateWithoutPortfolioInput, PortfolioSkillUncheckedUpdateWithoutPortfolioInput>
+    create: XOR<PortfolioSkillCreateWithoutPortfolioInput, PortfolioSkillUncheckedCreateWithoutPortfolioInput>
+  }
+
+  export type PortfolioSkillUpdateWithWhereUniqueWithoutPortfolioInput = {
+    where: PortfolioSkillWhereUniqueInput
+    data: XOR<PortfolioSkillUpdateWithoutPortfolioInput, PortfolioSkillUncheckedUpdateWithoutPortfolioInput>
+  }
+
+  export type PortfolioSkillUpdateManyWithWhereWithoutPortfolioInput = {
+    where: PortfolioSkillScalarWhereInput
+    data: XOR<PortfolioSkillUpdateManyMutationInput, PortfolioSkillUncheckedUpdateManyWithoutPortfolioInput>
+  }
+
+  export type PortfolioSkillScalarWhereInput = {
+    AND?: PortfolioSkillScalarWhereInput | PortfolioSkillScalarWhereInput[]
+    OR?: PortfolioSkillScalarWhereInput[]
+    NOT?: PortfolioSkillScalarWhereInput | PortfolioSkillScalarWhereInput[]
+    id?: IntFilter<"PortfolioSkill"> | number
+    portfolioId?: IntFilter<"PortfolioSkill"> | number
+    name?: StringFilter<"PortfolioSkill"> | string
+    createdAt?: DateTimeFilter<"PortfolioSkill"> | Date | string
+    updatedAt?: DateTimeFilter<"PortfolioSkill"> | Date | string
+  }
+
+  export type PortfolioCreateWithoutPortfolioProminentProjectsInput = {
+    name: string
+    skillDescription?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackCreateNestedManyWithoutPortfolioInput
+    portfolioAboutSection?: PortfolioAboutSectionCreateNestedOneWithoutPortfolioInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceCreateNestedManyWithoutPortfolioInput
+    portfolioSkills?: PortfolioSkillCreateNestedManyWithoutPortfolioInput
+  }
+
+  export type PortfolioUncheckedCreateWithoutPortfolioProminentProjectsInput = {
+    id?: number
+    name: string
+    skillDescription?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedCreateNestedManyWithoutPortfolioInput
+    portfolioAboutSection?: PortfolioAboutSectionUncheckedCreateNestedOneWithoutPortfolioInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedCreateNestedManyWithoutPortfolioInput
+    portfolioSkills?: PortfolioSkillUncheckedCreateNestedManyWithoutPortfolioInput
+  }
+
+  export type PortfolioCreateOrConnectWithoutPortfolioProminentProjectsInput = {
+    where: PortfolioWhereUniqueInput
+    create: XOR<PortfolioCreateWithoutPortfolioProminentProjectsInput, PortfolioUncheckedCreateWithoutPortfolioProminentProjectsInput>
+  }
+
+  export type PortfolioProminentProjectImageCreateWithoutPortfolioProminentProjectInput = {
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioProminentProjectImageUncheckedCreateWithoutPortfolioProminentProjectInput = {
+    id?: number
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioProminentProjectImageCreateOrConnectWithoutPortfolioProminentProjectInput = {
+    where: PortfolioProminentProjectImageWhereUniqueInput
+    create: XOR<PortfolioProminentProjectImageCreateWithoutPortfolioProminentProjectInput, PortfolioProminentProjectImageUncheckedCreateWithoutPortfolioProminentProjectInput>
+  }
+
+  export type PortfolioProminentProjectImageCreateManyPortfolioProminentProjectInputEnvelope = {
+    data: PortfolioProminentProjectImageCreateManyPortfolioProminentProjectInput | PortfolioProminentProjectImageCreateManyPortfolioProminentProjectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PortfolioUpsertWithoutPortfolioProminentProjectsInput = {
+    update: XOR<PortfolioUpdateWithoutPortfolioProminentProjectsInput, PortfolioUncheckedUpdateWithoutPortfolioProminentProjectsInput>
+    create: XOR<PortfolioCreateWithoutPortfolioProminentProjectsInput, PortfolioUncheckedCreateWithoutPortfolioProminentProjectsInput>
+    where?: PortfolioWhereInput
+  }
+
+  export type PortfolioUpdateToOneWithWhereWithoutPortfolioProminentProjectsInput = {
+    where?: PortfolioWhereInput
+    data: XOR<PortfolioUpdateWithoutPortfolioProminentProjectsInput, PortfolioUncheckedUpdateWithoutPortfolioProminentProjectsInput>
+  }
+
+  export type PortfolioUpdateWithoutPortfolioProminentProjectsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUpdateManyWithoutPortfolioNestedInput
+    portfolioAboutSection?: PortfolioAboutSectionUpdateOneWithoutPortfolioNestedInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceUpdateManyWithoutPortfolioNestedInput
+    portfolioSkills?: PortfolioSkillUpdateManyWithoutPortfolioNestedInput
+  }
+
+  export type PortfolioUncheckedUpdateWithoutPortfolioProminentProjectsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedUpdateManyWithoutPortfolioNestedInput
+    portfolioAboutSection?: PortfolioAboutSectionUncheckedUpdateOneWithoutPortfolioNestedInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedUpdateManyWithoutPortfolioNestedInput
+    portfolioSkills?: PortfolioSkillUncheckedUpdateManyWithoutPortfolioNestedInput
+  }
+
+  export type PortfolioProminentProjectImageUpsertWithWhereUniqueWithoutPortfolioProminentProjectInput = {
+    where: PortfolioProminentProjectImageWhereUniqueInput
+    update: XOR<PortfolioProminentProjectImageUpdateWithoutPortfolioProminentProjectInput, PortfolioProminentProjectImageUncheckedUpdateWithoutPortfolioProminentProjectInput>
+    create: XOR<PortfolioProminentProjectImageCreateWithoutPortfolioProminentProjectInput, PortfolioProminentProjectImageUncheckedCreateWithoutPortfolioProminentProjectInput>
+  }
+
+  export type PortfolioProminentProjectImageUpdateWithWhereUniqueWithoutPortfolioProminentProjectInput = {
+    where: PortfolioProminentProjectImageWhereUniqueInput
+    data: XOR<PortfolioProminentProjectImageUpdateWithoutPortfolioProminentProjectInput, PortfolioProminentProjectImageUncheckedUpdateWithoutPortfolioProminentProjectInput>
+  }
+
+  export type PortfolioProminentProjectImageUpdateManyWithWhereWithoutPortfolioProminentProjectInput = {
+    where: PortfolioProminentProjectImageScalarWhereInput
+    data: XOR<PortfolioProminentProjectImageUpdateManyMutationInput, PortfolioProminentProjectImageUncheckedUpdateManyWithoutPortfolioProminentProjectInput>
+  }
+
+  export type PortfolioProminentProjectImageScalarWhereInput = {
+    AND?: PortfolioProminentProjectImageScalarWhereInput | PortfolioProminentProjectImageScalarWhereInput[]
+    OR?: PortfolioProminentProjectImageScalarWhereInput[]
+    NOT?: PortfolioProminentProjectImageScalarWhereInput | PortfolioProminentProjectImageScalarWhereInput[]
+    id?: IntFilter<"PortfolioProminentProjectImage"> | number
+    portfolioProminentProjectId?: IntFilter<"PortfolioProminentProjectImage"> | number
+    image?: StringFilter<"PortfolioProminentProjectImage"> | string
+    createdAt?: DateTimeFilter<"PortfolioProminentProjectImage"> | Date | string
+    updatedAt?: DateTimeFilter<"PortfolioProminentProjectImage"> | Date | string
+  }
+
+  export type PortfolioProminentProjectCreateWithoutPortfolioProminentProjectImagesInput = {
+    description: string
+    role: string
+    company: string
+    detail?: string | null
+    from: Date | string
+    to?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolio: PortfolioCreateNestedOneWithoutPortfolioProminentProjectsInput
+  }
+
+  export type PortfolioProminentProjectUncheckedCreateWithoutPortfolioProminentProjectImagesInput = {
+    id?: number
+    portfolioId: number
+    description: string
+    role: string
+    company: string
+    detail?: string | null
+    from: Date | string
+    to?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioProminentProjectCreateOrConnectWithoutPortfolioProminentProjectImagesInput = {
+    where: PortfolioProminentProjectWhereUniqueInput
+    create: XOR<PortfolioProminentProjectCreateWithoutPortfolioProminentProjectImagesInput, PortfolioProminentProjectUncheckedCreateWithoutPortfolioProminentProjectImagesInput>
+  }
+
+  export type PortfolioProminentProjectUpsertWithoutPortfolioProminentProjectImagesInput = {
+    update: XOR<PortfolioProminentProjectUpdateWithoutPortfolioProminentProjectImagesInput, PortfolioProminentProjectUncheckedUpdateWithoutPortfolioProminentProjectImagesInput>
+    create: XOR<PortfolioProminentProjectCreateWithoutPortfolioProminentProjectImagesInput, PortfolioProminentProjectUncheckedCreateWithoutPortfolioProminentProjectImagesInput>
+    where?: PortfolioProminentProjectWhereInput
+  }
+
+  export type PortfolioProminentProjectUpdateToOneWithWhereWithoutPortfolioProminentProjectImagesInput = {
+    where?: PortfolioProminentProjectWhereInput
+    data: XOR<PortfolioProminentProjectUpdateWithoutPortfolioProminentProjectImagesInput, PortfolioProminentProjectUncheckedUpdateWithoutPortfolioProminentProjectImagesInput>
+  }
+
+  export type PortfolioProminentProjectUpdateWithoutPortfolioProminentProjectImagesInput = {
+    description?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolio?: PortfolioUpdateOneRequiredWithoutPortfolioProminentProjectsNestedInput
+  }
+
+  export type PortfolioProminentProjectUncheckedUpdateWithoutPortfolioProminentProjectImagesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    portfolioId?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioCreateWithoutPortfolioCustomerFeedbacksInput = {
+    name: string
+    skillDescription?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectCreateNestedManyWithoutPortfolioInput
+    portfolioAboutSection?: PortfolioAboutSectionCreateNestedOneWithoutPortfolioInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceCreateNestedManyWithoutPortfolioInput
+    portfolioSkills?: PortfolioSkillCreateNestedManyWithoutPortfolioInput
+  }
+
+  export type PortfolioUncheckedCreateWithoutPortfolioCustomerFeedbacksInput = {
+    id?: number
+    name: string
+    skillDescription?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectUncheckedCreateNestedManyWithoutPortfolioInput
+    portfolioAboutSection?: PortfolioAboutSectionUncheckedCreateNestedOneWithoutPortfolioInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedCreateNestedManyWithoutPortfolioInput
+    portfolioSkills?: PortfolioSkillUncheckedCreateNestedManyWithoutPortfolioInput
+  }
+
+  export type PortfolioCreateOrConnectWithoutPortfolioCustomerFeedbacksInput = {
+    where: PortfolioWhereUniqueInput
+    create: XOR<PortfolioCreateWithoutPortfolioCustomerFeedbacksInput, PortfolioUncheckedCreateWithoutPortfolioCustomerFeedbacksInput>
+  }
+
+  export type PortfolioUpsertWithoutPortfolioCustomerFeedbacksInput = {
+    update: XOR<PortfolioUpdateWithoutPortfolioCustomerFeedbacksInput, PortfolioUncheckedUpdateWithoutPortfolioCustomerFeedbacksInput>
+    create: XOR<PortfolioCreateWithoutPortfolioCustomerFeedbacksInput, PortfolioUncheckedCreateWithoutPortfolioCustomerFeedbacksInput>
+    where?: PortfolioWhereInput
+  }
+
+  export type PortfolioUpdateToOneWithWhereWithoutPortfolioCustomerFeedbacksInput = {
+    where?: PortfolioWhereInput
+    data: XOR<PortfolioUpdateWithoutPortfolioCustomerFeedbacksInput, PortfolioUncheckedUpdateWithoutPortfolioCustomerFeedbacksInput>
+  }
+
+  export type PortfolioUpdateWithoutPortfolioCustomerFeedbacksInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectUpdateManyWithoutPortfolioNestedInput
+    portfolioAboutSection?: PortfolioAboutSectionUpdateOneWithoutPortfolioNestedInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceUpdateManyWithoutPortfolioNestedInput
+    portfolioSkills?: PortfolioSkillUpdateManyWithoutPortfolioNestedInput
+  }
+
+  export type PortfolioUncheckedUpdateWithoutPortfolioCustomerFeedbacksInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioNestedInput
+    portfolioAboutSection?: PortfolioAboutSectionUncheckedUpdateOneWithoutPortfolioNestedInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedUpdateManyWithoutPortfolioNestedInput
+    portfolioSkills?: PortfolioSkillUncheckedUpdateManyWithoutPortfolioNestedInput
+  }
+
+  export type PortfolioCreateWithoutPortfolioAboutSectionInput = {
+    name: string
+    skillDescription?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectCreateNestedManyWithoutPortfolioInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackCreateNestedManyWithoutPortfolioInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceCreateNestedManyWithoutPortfolioInput
+    portfolioSkills?: PortfolioSkillCreateNestedManyWithoutPortfolioInput
+  }
+
+  export type PortfolioUncheckedCreateWithoutPortfolioAboutSectionInput = {
+    id?: number
+    name: string
+    skillDescription?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectUncheckedCreateNestedManyWithoutPortfolioInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedCreateNestedManyWithoutPortfolioInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedCreateNestedManyWithoutPortfolioInput
+    portfolioSkills?: PortfolioSkillUncheckedCreateNestedManyWithoutPortfolioInput
+  }
+
+  export type PortfolioCreateOrConnectWithoutPortfolioAboutSectionInput = {
+    where: PortfolioWhereUniqueInput
+    create: XOR<PortfolioCreateWithoutPortfolioAboutSectionInput, PortfolioUncheckedCreateWithoutPortfolioAboutSectionInput>
+  }
+
+  export type PortfolioUpsertWithoutPortfolioAboutSectionInput = {
+    update: XOR<PortfolioUpdateWithoutPortfolioAboutSectionInput, PortfolioUncheckedUpdateWithoutPortfolioAboutSectionInput>
+    create: XOR<PortfolioCreateWithoutPortfolioAboutSectionInput, PortfolioUncheckedCreateWithoutPortfolioAboutSectionInput>
+    where?: PortfolioWhereInput
+  }
+
+  export type PortfolioUpdateToOneWithWhereWithoutPortfolioAboutSectionInput = {
+    where?: PortfolioWhereInput
+    data: XOR<PortfolioUpdateWithoutPortfolioAboutSectionInput, PortfolioUncheckedUpdateWithoutPortfolioAboutSectionInput>
+  }
+
+  export type PortfolioUpdateWithoutPortfolioAboutSectionInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectUpdateManyWithoutPortfolioNestedInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUpdateManyWithoutPortfolioNestedInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceUpdateManyWithoutPortfolioNestedInput
+    portfolioSkills?: PortfolioSkillUpdateManyWithoutPortfolioNestedInput
+  }
+
+  export type PortfolioUncheckedUpdateWithoutPortfolioAboutSectionInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioNestedInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedUpdateManyWithoutPortfolioNestedInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedUpdateManyWithoutPortfolioNestedInput
+    portfolioSkills?: PortfolioSkillUncheckedUpdateManyWithoutPortfolioNestedInput
+  }
+
+  export type PortfolioCreateWithoutPortfolioWorkExperiencesInput = {
+    name: string
+    skillDescription?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectCreateNestedManyWithoutPortfolioInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackCreateNestedManyWithoutPortfolioInput
+    portfolioAboutSection?: PortfolioAboutSectionCreateNestedOneWithoutPortfolioInput
+    portfolioSkills?: PortfolioSkillCreateNestedManyWithoutPortfolioInput
+  }
+
+  export type PortfolioUncheckedCreateWithoutPortfolioWorkExperiencesInput = {
+    id?: number
+    name: string
+    skillDescription?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectUncheckedCreateNestedManyWithoutPortfolioInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedCreateNestedManyWithoutPortfolioInput
+    portfolioAboutSection?: PortfolioAboutSectionUncheckedCreateNestedOneWithoutPortfolioInput
+    portfolioSkills?: PortfolioSkillUncheckedCreateNestedManyWithoutPortfolioInput
+  }
+
+  export type PortfolioCreateOrConnectWithoutPortfolioWorkExperiencesInput = {
+    where: PortfolioWhereUniqueInput
+    create: XOR<PortfolioCreateWithoutPortfolioWorkExperiencesInput, PortfolioUncheckedCreateWithoutPortfolioWorkExperiencesInput>
+  }
+
+  export type PortfolioUpsertWithoutPortfolioWorkExperiencesInput = {
+    update: XOR<PortfolioUpdateWithoutPortfolioWorkExperiencesInput, PortfolioUncheckedUpdateWithoutPortfolioWorkExperiencesInput>
+    create: XOR<PortfolioCreateWithoutPortfolioWorkExperiencesInput, PortfolioUncheckedCreateWithoutPortfolioWorkExperiencesInput>
+    where?: PortfolioWhereInput
+  }
+
+  export type PortfolioUpdateToOneWithWhereWithoutPortfolioWorkExperiencesInput = {
+    where?: PortfolioWhereInput
+    data: XOR<PortfolioUpdateWithoutPortfolioWorkExperiencesInput, PortfolioUncheckedUpdateWithoutPortfolioWorkExperiencesInput>
+  }
+
+  export type PortfolioUpdateWithoutPortfolioWorkExperiencesInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectUpdateManyWithoutPortfolioNestedInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUpdateManyWithoutPortfolioNestedInput
+    portfolioAboutSection?: PortfolioAboutSectionUpdateOneWithoutPortfolioNestedInput
+    portfolioSkills?: PortfolioSkillUpdateManyWithoutPortfolioNestedInput
+  }
+
+  export type PortfolioUncheckedUpdateWithoutPortfolioWorkExperiencesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioNestedInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedUpdateManyWithoutPortfolioNestedInput
+    portfolioAboutSection?: PortfolioAboutSectionUncheckedUpdateOneWithoutPortfolioNestedInput
+    portfolioSkills?: PortfolioSkillUncheckedUpdateManyWithoutPortfolioNestedInput
+  }
+
+  export type PortfolioCreateWithoutPortfolioSkillsInput = {
+    name: string
+    skillDescription?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectCreateNestedManyWithoutPortfolioInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackCreateNestedManyWithoutPortfolioInput
+    portfolioAboutSection?: PortfolioAboutSectionCreateNestedOneWithoutPortfolioInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceCreateNestedManyWithoutPortfolioInput
+  }
+
+  export type PortfolioUncheckedCreateWithoutPortfolioSkillsInput = {
+    id?: number
+    name: string
+    skillDescription?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectUncheckedCreateNestedManyWithoutPortfolioInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedCreateNestedManyWithoutPortfolioInput
+    portfolioAboutSection?: PortfolioAboutSectionUncheckedCreateNestedOneWithoutPortfolioInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedCreateNestedManyWithoutPortfolioInput
+  }
+
+  export type PortfolioCreateOrConnectWithoutPortfolioSkillsInput = {
+    where: PortfolioWhereUniqueInput
+    create: XOR<PortfolioCreateWithoutPortfolioSkillsInput, PortfolioUncheckedCreateWithoutPortfolioSkillsInput>
+  }
+
+  export type PortfolioUpsertWithoutPortfolioSkillsInput = {
+    update: XOR<PortfolioUpdateWithoutPortfolioSkillsInput, PortfolioUncheckedUpdateWithoutPortfolioSkillsInput>
+    create: XOR<PortfolioCreateWithoutPortfolioSkillsInput, PortfolioUncheckedCreateWithoutPortfolioSkillsInput>
+    where?: PortfolioWhereInput
+  }
+
+  export type PortfolioUpdateToOneWithWhereWithoutPortfolioSkillsInput = {
+    where?: PortfolioWhereInput
+    data: XOR<PortfolioUpdateWithoutPortfolioSkillsInput, PortfolioUncheckedUpdateWithoutPortfolioSkillsInput>
+  }
+
+  export type PortfolioUpdateWithoutPortfolioSkillsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectUpdateManyWithoutPortfolioNestedInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUpdateManyWithoutPortfolioNestedInput
+    portfolioAboutSection?: PortfolioAboutSectionUpdateOneWithoutPortfolioNestedInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceUpdateManyWithoutPortfolioNestedInput
+  }
+
+  export type PortfolioUncheckedUpdateWithoutPortfolioSkillsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioNestedInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedUpdateManyWithoutPortfolioNestedInput
+    portfolioAboutSection?: PortfolioAboutSectionUncheckedUpdateOneWithoutPortfolioNestedInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedUpdateManyWithoutPortfolioNestedInput
+  }
+
   export type ProfileWorkExperienceCreateManyUserInput = {
     id?: number
     name: string
@@ -13483,6 +21964,175 @@ export namespace Prisma {
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     wage?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioProminentProjectCreateManyPortfolioInput = {
+    id?: number
+    description: string
+    role: string
+    company: string
+    detail?: string | null
+    from: Date | string
+    to?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioCustomerFeedbackCreateManyPortfolioInput = {
+    id?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioWorkExperienceCreateManyPortfolioInput = {
+    id?: number
+    role: string
+    company: string
+    image: string
+    from: Date | string
+    to?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioSkillCreateManyPortfolioInput = {
+    id?: number
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioProminentProjectUpdateWithoutPortfolioInput = {
+    description?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolioProminentProjectImages?: PortfolioProminentProjectImageUpdateManyWithoutPortfolioProminentProjectNestedInput
+  }
+
+  export type PortfolioProminentProjectUncheckedUpdateWithoutPortfolioInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolioProminentProjectImages?: PortfolioProminentProjectImageUncheckedUpdateManyWithoutPortfolioProminentProjectNestedInput
+  }
+
+  export type PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioCustomerFeedbackUpdateWithoutPortfolioInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioCustomerFeedbackUncheckedUpdateWithoutPortfolioInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioCustomerFeedbackUncheckedUpdateManyWithoutPortfolioInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioWorkExperienceUpdateWithoutPortfolioInput = {
+    role?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioWorkExperienceUncheckedUpdateWithoutPortfolioInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    role?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioWorkExperienceUncheckedUpdateManyWithoutPortfolioInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    role?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    from?: DateTimeFieldUpdateOperationsInput | Date | string
+    to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioSkillUpdateWithoutPortfolioInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioSkillUncheckedUpdateWithoutPortfolioInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioSkillUncheckedUpdateManyWithoutPortfolioInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioProminentProjectImageCreateManyPortfolioProminentProjectInput = {
+    id?: number
+    image: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioProminentProjectImageUpdateWithoutPortfolioProminentProjectInput = {
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioProminentProjectImageUncheckedUpdateWithoutPortfolioProminentProjectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioProminentProjectImageUncheckedUpdateManyWithoutPortfolioProminentProjectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
