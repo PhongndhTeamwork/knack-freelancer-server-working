@@ -38,6 +38,7 @@ model User {
   profileWorkExperiences ProfileWorkExperience[]
   profileAchievements    ProfileAchievement[]
   profileProminentWorks  ProfileProminentWork[]
+  portfolios  Portfolio[]
 
   @@unique([email])
   @@map("users")
@@ -102,12 +103,14 @@ model ProfileProminentWork {
 
 model Portfolio {
   id               Int     @id @default(autoincrement())
-  name             String
+  name             String?
   skillDescription String? @map("skill_description")
+  userId Int @map("user_id")
 
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
 
+  user User @relation(references: [id], fields: [userId])
   portfolioProminentProjects PortfolioProminentProject[]
   portfolioCustomerFeedbacks PortfolioCustomerFeedback[]
   portfolioAboutSection      PortfolioAboutSection?
@@ -220,7 +223,7 @@ model Booking {
   @@map("bookings")
 }
 
-// npx prisma migrate dev --name init
+// npx prisma migrate dev --name SupplementSomeInsufficientConditions
 // npx prisma migrate reset
 // npx prisma migrate deploy
 // npx prisma migrate generate

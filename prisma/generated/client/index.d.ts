@@ -1961,12 +1961,14 @@ export namespace Prisma {
     profileWorkExperiences: number
     profileAchievements: number
     profileProminentWorks: number
+    portfolios: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     profileWorkExperiences?: boolean | UserCountOutputTypeCountProfileWorkExperiencesArgs
     profileAchievements?: boolean | UserCountOutputTypeCountProfileAchievementsArgs
     profileProminentWorks?: boolean | UserCountOutputTypeCountProfileProminentWorksArgs
+    portfolios?: boolean | UserCountOutputTypeCountPortfoliosArgs
   }
 
   // Custom InputTypes
@@ -1999,6 +2001,13 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountProfileProminentWorksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ProfileProminentWorkWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountPortfoliosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PortfolioWhereInput
   }
 
 
@@ -2400,6 +2409,7 @@ export namespace Prisma {
     profileWorkExperiences?: boolean | User$profileWorkExperiencesArgs<ExtArgs>
     profileAchievements?: boolean | User$profileAchievementsArgs<ExtArgs>
     profileProminentWorks?: boolean | User$profileProminentWorksArgs<ExtArgs>
+    portfolios?: boolean | User$portfoliosArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -2468,6 +2478,7 @@ export namespace Prisma {
     profileWorkExperiences?: boolean | User$profileWorkExperiencesArgs<ExtArgs>
     profileAchievements?: boolean | User$profileAchievementsArgs<ExtArgs>
     profileProminentWorks?: boolean | User$profileProminentWorksArgs<ExtArgs>
+    portfolios?: boolean | User$portfoliosArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2479,6 +2490,7 @@ export namespace Prisma {
       profileWorkExperiences: Prisma.$ProfileWorkExperiencePayload<ExtArgs>[]
       profileAchievements: Prisma.$ProfileAchievementPayload<ExtArgs>[]
       profileProminentWorks: Prisma.$ProfileProminentWorkPayload<ExtArgs>[]
+      portfolios: Prisma.$PortfolioPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -2895,6 +2907,7 @@ export namespace Prisma {
     profileWorkExperiences<T extends User$profileWorkExperiencesArgs<ExtArgs> = {}>(args?: Subset<T, User$profileWorkExperiencesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileWorkExperiencePayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     profileAchievements<T extends User$profileAchievementsArgs<ExtArgs> = {}>(args?: Subset<T, User$profileAchievementsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileAchievementPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     profileProminentWorks<T extends User$profileProminentWorksArgs<ExtArgs> = {}>(args?: Subset<T, User$profileProminentWorksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileProminentWorkPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    portfolios<T extends User$portfoliosArgs<ExtArgs> = {}>(args?: Subset<T, User$portfoliosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3398,6 +3411,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ProfileProminentWorkScalarFieldEnum | ProfileProminentWorkScalarFieldEnum[]
+  }
+
+  /**
+   * User.portfolios
+   */
+  export type User$portfoliosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Portfolio
+     */
+    select?: PortfolioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Portfolio
+     */
+    omit?: PortfolioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioInclude<ExtArgs> | null
+    where?: PortfolioWhereInput
+    orderBy?: PortfolioOrderByWithRelationInput | PortfolioOrderByWithRelationInput[]
+    cursor?: PortfolioWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PortfolioScalarFieldEnum | PortfolioScalarFieldEnum[]
   }
 
   /**
@@ -7888,16 +7925,19 @@ export namespace Prisma {
 
   export type PortfolioAvgAggregateOutputType = {
     id: number | null
+    userId: number | null
   }
 
   export type PortfolioSumAggregateOutputType = {
     id: number | null
+    userId: number | null
   }
 
   export type PortfolioMinAggregateOutputType = {
     id: number | null
     name: string | null
     skillDescription: string | null
+    userId: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -7906,6 +7946,7 @@ export namespace Prisma {
     id: number | null
     name: string | null
     skillDescription: string | null
+    userId: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -7914,6 +7955,7 @@ export namespace Prisma {
     id: number
     name: number
     skillDescription: number
+    userId: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -7922,16 +7964,19 @@ export namespace Prisma {
 
   export type PortfolioAvgAggregateInputType = {
     id?: true
+    userId?: true
   }
 
   export type PortfolioSumAggregateInputType = {
     id?: true
+    userId?: true
   }
 
   export type PortfolioMinAggregateInputType = {
     id?: true
     name?: true
     skillDescription?: true
+    userId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -7940,6 +7985,7 @@ export namespace Prisma {
     id?: true
     name?: true
     skillDescription?: true
+    userId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -7948,6 +7994,7 @@ export namespace Prisma {
     id?: true
     name?: true
     skillDescription?: true
+    userId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -8041,8 +8088,9 @@ export namespace Prisma {
 
   export type PortfolioGroupByOutputType = {
     id: number
-    name: string
+    name: string | null
     skillDescription: string | null
+    userId: number
     createdAt: Date
     updatedAt: Date
     _count: PortfolioCountAggregateOutputType | null
@@ -8070,8 +8118,10 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     skillDescription?: boolean
+    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
     portfolioProminentProjects?: boolean | Portfolio$portfolioProminentProjectsArgs<ExtArgs>
     portfolioCustomerFeedbacks?: boolean | Portfolio$portfolioCustomerFeedbacksArgs<ExtArgs>
     portfolioAboutSection?: boolean | Portfolio$portfolioAboutSectionArgs<ExtArgs>
@@ -8084,28 +8134,34 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     skillDescription?: boolean
+    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["portfolio"]>
 
   export type PortfolioSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     skillDescription?: boolean
+    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["portfolio"]>
 
   export type PortfolioSelectScalar = {
     id?: boolean
     name?: boolean
     skillDescription?: boolean
+    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type PortfolioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "skillDescription" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolio"]>
+  export type PortfolioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "skillDescription" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolio"]>
   export type PortfolioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
     portfolioProminentProjects?: boolean | Portfolio$portfolioProminentProjectsArgs<ExtArgs>
     portfolioCustomerFeedbacks?: boolean | Portfolio$portfolioCustomerFeedbacksArgs<ExtArgs>
     portfolioAboutSection?: boolean | Portfolio$portfolioAboutSectionArgs<ExtArgs>
@@ -8113,12 +8169,17 @@ export namespace Prisma {
     portfolioSkills?: boolean | Portfolio$portfolioSkillsArgs<ExtArgs>
     _count?: boolean | PortfolioCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type PortfolioIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type PortfolioIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type PortfolioIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type PortfolioIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
 
   export type $PortfolioPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Portfolio"
     objects: {
+      user: Prisma.$UserPayload<ExtArgs>
       portfolioProminentProjects: Prisma.$PortfolioProminentProjectPayload<ExtArgs>[]
       portfolioCustomerFeedbacks: Prisma.$PortfolioCustomerFeedbackPayload<ExtArgs>[]
       portfolioAboutSection: Prisma.$PortfolioAboutSectionPayload<ExtArgs> | null
@@ -8127,8 +8188,9 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      name: string
+      name: string | null
       skillDescription: string | null
+      userId: number
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["portfolio"]>
@@ -8525,6 +8587,7 @@ export namespace Prisma {
    */
   export interface Prisma__PortfolioClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
     portfolioProminentProjects<T extends Portfolio$portfolioProminentProjectsArgs<ExtArgs> = {}>(args?: Subset<T, Portfolio$portfolioProminentProjectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioProminentProjectPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     portfolioCustomerFeedbacks<T extends Portfolio$portfolioCustomerFeedbacksArgs<ExtArgs> = {}>(args?: Subset<T, Portfolio$portfolioCustomerFeedbacksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioCustomerFeedbackPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     portfolioAboutSection<T extends Portfolio$portfolioAboutSectionArgs<ExtArgs> = {}>(args?: Subset<T, Portfolio$portfolioAboutSectionArgs<ExtArgs>>): Prisma__PortfolioAboutSectionClient<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
@@ -8562,6 +8625,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Portfolio", 'Int'>
     readonly name: FieldRef<"Portfolio", 'String'>
     readonly skillDescription: FieldRef<"Portfolio", 'String'>
+    readonly userId: FieldRef<"Portfolio", 'Int'>
     readonly createdAt: FieldRef<"Portfolio", 'DateTime'>
     readonly updatedAt: FieldRef<"Portfolio", 'DateTime'>
   }
@@ -8813,6 +8877,10 @@ export namespace Prisma {
      */
     data: PortfolioCreateManyInput | PortfolioCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -8883,6 +8951,10 @@ export namespace Prisma {
      * Limit how many Portfolios to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PortfolioIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -16989,6 +17061,7 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     skillDescription: 'skillDescription',
+    userId: 'userId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -17210,6 +17283,7 @@ export namespace Prisma {
     profileWorkExperiences?: ProfileWorkExperienceListRelationFilter
     profileAchievements?: ProfileAchievementListRelationFilter
     profileProminentWorks?: ProfileProminentWorkListRelationFilter
+    portfolios?: PortfolioListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -17233,6 +17307,7 @@ export namespace Prisma {
     profileWorkExperiences?: ProfileWorkExperienceOrderByRelationAggregateInput
     profileAchievements?: ProfileAchievementOrderByRelationAggregateInput
     profileProminentWorks?: ProfileProminentWorkOrderByRelationAggregateInput
+    portfolios?: PortfolioOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -17259,6 +17334,7 @@ export namespace Prisma {
     profileWorkExperiences?: ProfileWorkExperienceListRelationFilter
     profileAchievements?: ProfileAchievementListRelationFilter
     profileProminentWorks?: ProfileProminentWorkListRelationFilter
+    portfolios?: PortfolioListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -17589,10 +17665,12 @@ export namespace Prisma {
     OR?: PortfolioWhereInput[]
     NOT?: PortfolioWhereInput | PortfolioWhereInput[]
     id?: IntFilter<"Portfolio"> | number
-    name?: StringFilter<"Portfolio"> | string
+    name?: StringNullableFilter<"Portfolio"> | string | null
     skillDescription?: StringNullableFilter<"Portfolio"> | string | null
+    userId?: IntFilter<"Portfolio"> | number
     createdAt?: DateTimeFilter<"Portfolio"> | Date | string
     updatedAt?: DateTimeFilter<"Portfolio"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     portfolioProminentProjects?: PortfolioProminentProjectListRelationFilter
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackListRelationFilter
     portfolioAboutSection?: XOR<PortfolioAboutSectionNullableScalarRelationFilter, PortfolioAboutSectionWhereInput> | null
@@ -17602,10 +17680,12 @@ export namespace Prisma {
 
   export type PortfolioOrderByWithRelationInput = {
     id?: SortOrder
-    name?: SortOrder
+    name?: SortOrderInput | SortOrder
     skillDescription?: SortOrderInput | SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
     portfolioProminentProjects?: PortfolioProminentProjectOrderByRelationAggregateInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackOrderByRelationAggregateInput
     portfolioAboutSection?: PortfolioAboutSectionOrderByWithRelationInput
@@ -17618,10 +17698,12 @@ export namespace Prisma {
     AND?: PortfolioWhereInput | PortfolioWhereInput[]
     OR?: PortfolioWhereInput[]
     NOT?: PortfolioWhereInput | PortfolioWhereInput[]
-    name?: StringFilter<"Portfolio"> | string
+    name?: StringNullableFilter<"Portfolio"> | string | null
     skillDescription?: StringNullableFilter<"Portfolio"> | string | null
+    userId?: IntFilter<"Portfolio"> | number
     createdAt?: DateTimeFilter<"Portfolio"> | Date | string
     updatedAt?: DateTimeFilter<"Portfolio"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     portfolioProminentProjects?: PortfolioProminentProjectListRelationFilter
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackListRelationFilter
     portfolioAboutSection?: XOR<PortfolioAboutSectionNullableScalarRelationFilter, PortfolioAboutSectionWhereInput> | null
@@ -17631,8 +17713,9 @@ export namespace Prisma {
 
   export type PortfolioOrderByWithAggregationInput = {
     id?: SortOrder
-    name?: SortOrder
+    name?: SortOrderInput | SortOrder
     skillDescription?: SortOrderInput | SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: PortfolioCountOrderByAggregateInput
@@ -17647,8 +17730,9 @@ export namespace Prisma {
     OR?: PortfolioScalarWhereWithAggregatesInput[]
     NOT?: PortfolioScalarWhereWithAggregatesInput | PortfolioScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Portfolio"> | number
-    name?: StringWithAggregatesFilter<"Portfolio"> | string
+    name?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
     skillDescription?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
+    userId?: IntWithAggregatesFilter<"Portfolio"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Portfolio"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Portfolio"> | Date | string
   }
@@ -18127,6 +18211,7 @@ export namespace Prisma {
     profileWorkExperiences?: ProfileWorkExperienceCreateNestedManyWithoutUserInput
     profileAchievements?: ProfileAchievementCreateNestedManyWithoutUserInput
     profileProminentWorks?: ProfileProminentWorkCreateNestedManyWithoutUserInput
+    portfolios?: PortfolioCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -18150,6 +18235,7 @@ export namespace Prisma {
     profileWorkExperiences?: ProfileWorkExperienceUncheckedCreateNestedManyWithoutUserInput
     profileAchievements?: ProfileAchievementUncheckedCreateNestedManyWithoutUserInput
     profileProminentWorks?: ProfileProminentWorkUncheckedCreateNestedManyWithoutUserInput
+    portfolios?: PortfolioUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -18172,6 +18258,7 @@ export namespace Prisma {
     profileWorkExperiences?: ProfileWorkExperienceUpdateManyWithoutUserNestedInput
     profileAchievements?: ProfileAchievementUpdateManyWithoutUserNestedInput
     profileProminentWorks?: ProfileProminentWorkUpdateManyWithoutUserNestedInput
+    portfolios?: PortfolioUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -18195,6 +18282,7 @@ export namespace Prisma {
     profileWorkExperiences?: ProfileWorkExperienceUncheckedUpdateManyWithoutUserNestedInput
     profileAchievements?: ProfileAchievementUncheckedUpdateManyWithoutUserNestedInput
     profileProminentWorks?: ProfileProminentWorkUncheckedUpdateManyWithoutUserNestedInput
+    portfolios?: PortfolioUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -18536,10 +18624,11 @@ export namespace Prisma {
   }
 
   export type PortfolioCreateInput = {
-    name: string
+    name?: string | null
     skillDescription?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutPortfoliosInput
     portfolioProminentProjects?: PortfolioProminentProjectCreateNestedManyWithoutPortfolioInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackCreateNestedManyWithoutPortfolioInput
     portfolioAboutSection?: PortfolioAboutSectionCreateNestedOneWithoutPortfolioInput
@@ -18549,8 +18638,9 @@ export namespace Prisma {
 
   export type PortfolioUncheckedCreateInput = {
     id?: number
-    name: string
+    name?: string | null
     skillDescription?: string | null
+    userId: number
     createdAt?: Date | string
     updatedAt?: Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedCreateNestedManyWithoutPortfolioInput
@@ -18561,10 +18651,11 @@ export namespace Prisma {
   }
 
   export type PortfolioUpdateInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutPortfoliosNestedInput
     portfolioProminentProjects?: PortfolioProminentProjectUpdateManyWithoutPortfolioNestedInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUpdateManyWithoutPortfolioNestedInput
     portfolioAboutSection?: PortfolioAboutSectionUpdateOneWithoutPortfolioNestedInput
@@ -18574,8 +18665,9 @@ export namespace Prisma {
 
   export type PortfolioUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioNestedInput
@@ -18587,14 +18679,15 @@ export namespace Prisma {
 
   export type PortfolioCreateManyInput = {
     id?: number
-    name: string
+    name?: string | null
     skillDescription?: string | null
+    userId: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type PortfolioUpdateManyMutationInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -18602,8 +18695,9 @@ export namespace Prisma {
 
   export type PortfolioUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -19120,6 +19214,12 @@ export namespace Prisma {
     none?: ProfileProminentWorkWhereInput
   }
 
+  export type PortfolioListRelationFilter = {
+    every?: PortfolioWhereInput
+    some?: PortfolioWhereInput
+    none?: PortfolioWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -19134,6 +19234,10 @@ export namespace Prisma {
   }
 
   export type ProfileProminentWorkOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PortfolioOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -19553,18 +19657,21 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     skillDescription?: SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type PortfolioAvgOrderByAggregateInput = {
     id?: SortOrder
+    userId?: SortOrder
   }
 
   export type PortfolioMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     skillDescription?: SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -19573,12 +19680,14 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     skillDescription?: SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type PortfolioSumOrderByAggregateInput = {
     id?: SortOrder
+    userId?: SortOrder
   }
 
   export type PortfolioScalarRelationFilter = {
@@ -19929,6 +20038,13 @@ export namespace Prisma {
     connect?: ProfileProminentWorkWhereUniqueInput | ProfileProminentWorkWhereUniqueInput[]
   }
 
+  export type PortfolioCreateNestedManyWithoutUserInput = {
+    create?: XOR<PortfolioCreateWithoutUserInput, PortfolioUncheckedCreateWithoutUserInput> | PortfolioCreateWithoutUserInput[] | PortfolioUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PortfolioCreateOrConnectWithoutUserInput | PortfolioCreateOrConnectWithoutUserInput[]
+    createMany?: PortfolioCreateManyUserInputEnvelope
+    connect?: PortfolioWhereUniqueInput | PortfolioWhereUniqueInput[]
+  }
+
   export type ProfileWorkExperienceUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<ProfileWorkExperienceCreateWithoutUserInput, ProfileWorkExperienceUncheckedCreateWithoutUserInput> | ProfileWorkExperienceCreateWithoutUserInput[] | ProfileWorkExperienceUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ProfileWorkExperienceCreateOrConnectWithoutUserInput | ProfileWorkExperienceCreateOrConnectWithoutUserInput[]
@@ -19948,6 +20064,13 @@ export namespace Prisma {
     connectOrCreate?: ProfileProminentWorkCreateOrConnectWithoutUserInput | ProfileProminentWorkCreateOrConnectWithoutUserInput[]
     createMany?: ProfileProminentWorkCreateManyUserInputEnvelope
     connect?: ProfileProminentWorkWhereUniqueInput | ProfileProminentWorkWhereUniqueInput[]
+  }
+
+  export type PortfolioUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<PortfolioCreateWithoutUserInput, PortfolioUncheckedCreateWithoutUserInput> | PortfolioCreateWithoutUserInput[] | PortfolioUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PortfolioCreateOrConnectWithoutUserInput | PortfolioCreateOrConnectWithoutUserInput[]
+    createMany?: PortfolioCreateManyUserInputEnvelope
+    connect?: PortfolioWhereUniqueInput | PortfolioWhereUniqueInput[]
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -20016,6 +20139,20 @@ export namespace Prisma {
     deleteMany?: ProfileProminentWorkScalarWhereInput | ProfileProminentWorkScalarWhereInput[]
   }
 
+  export type PortfolioUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PortfolioCreateWithoutUserInput, PortfolioUncheckedCreateWithoutUserInput> | PortfolioCreateWithoutUserInput[] | PortfolioUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PortfolioCreateOrConnectWithoutUserInput | PortfolioCreateOrConnectWithoutUserInput[]
+    upsert?: PortfolioUpsertWithWhereUniqueWithoutUserInput | PortfolioUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PortfolioCreateManyUserInputEnvelope
+    set?: PortfolioWhereUniqueInput | PortfolioWhereUniqueInput[]
+    disconnect?: PortfolioWhereUniqueInput | PortfolioWhereUniqueInput[]
+    delete?: PortfolioWhereUniqueInput | PortfolioWhereUniqueInput[]
+    connect?: PortfolioWhereUniqueInput | PortfolioWhereUniqueInput[]
+    update?: PortfolioUpdateWithWhereUniqueWithoutUserInput | PortfolioUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PortfolioUpdateManyWithWhereWithoutUserInput | PortfolioUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PortfolioScalarWhereInput | PortfolioScalarWhereInput[]
+  }
+
   export type ProfileWorkExperienceUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<ProfileWorkExperienceCreateWithoutUserInput, ProfileWorkExperienceUncheckedCreateWithoutUserInput> | ProfileWorkExperienceCreateWithoutUserInput[] | ProfileWorkExperienceUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ProfileWorkExperienceCreateOrConnectWithoutUserInput | ProfileWorkExperienceCreateOrConnectWithoutUserInput[]
@@ -20056,6 +20193,20 @@ export namespace Prisma {
     update?: ProfileProminentWorkUpdateWithWhereUniqueWithoutUserInput | ProfileProminentWorkUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: ProfileProminentWorkUpdateManyWithWhereWithoutUserInput | ProfileProminentWorkUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: ProfileProminentWorkScalarWhereInput | ProfileProminentWorkScalarWhereInput[]
+  }
+
+  export type PortfolioUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PortfolioCreateWithoutUserInput, PortfolioUncheckedCreateWithoutUserInput> | PortfolioCreateWithoutUserInput[] | PortfolioUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PortfolioCreateOrConnectWithoutUserInput | PortfolioCreateOrConnectWithoutUserInput[]
+    upsert?: PortfolioUpsertWithWhereUniqueWithoutUserInput | PortfolioUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PortfolioCreateManyUserInputEnvelope
+    set?: PortfolioWhereUniqueInput | PortfolioWhereUniqueInput[]
+    disconnect?: PortfolioWhereUniqueInput | PortfolioWhereUniqueInput[]
+    delete?: PortfolioWhereUniqueInput | PortfolioWhereUniqueInput[]
+    connect?: PortfolioWhereUniqueInput | PortfolioWhereUniqueInput[]
+    update?: PortfolioUpdateWithWhereUniqueWithoutUserInput | PortfolioUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PortfolioUpdateManyWithWhereWithoutUserInput | PortfolioUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PortfolioScalarWhereInput | PortfolioScalarWhereInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -20106,6 +20257,12 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutProfileProminentWorksInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutProfileProminentWorksInput, UserUpdateWithoutProfileProminentWorksInput>, UserUncheckedUpdateWithoutProfileProminentWorksInput>
+  }
+
+  export type UserCreateNestedOneWithoutPortfoliosInput = {
+    create?: XOR<UserCreateWithoutPortfoliosInput, UserUncheckedCreateWithoutPortfoliosInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPortfoliosInput
+    connect?: UserWhereUniqueInput
   }
 
   export type PortfolioProminentProjectCreateNestedManyWithoutPortfolioInput = {
@@ -20174,6 +20331,14 @@ export namespace Prisma {
     connectOrCreate?: PortfolioSkillCreateOrConnectWithoutPortfolioInput | PortfolioSkillCreateOrConnectWithoutPortfolioInput[]
     createMany?: PortfolioSkillCreateManyPortfolioInputEnvelope
     connect?: PortfolioSkillWhereUniqueInput | PortfolioSkillWhereUniqueInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutPortfoliosNestedInput = {
+    create?: XOR<UserCreateWithoutPortfoliosInput, UserUncheckedCreateWithoutPortfoliosInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPortfoliosInput
+    upsert?: UserUpsertWithoutPortfoliosInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPortfoliosInput, UserUpdateWithoutPortfoliosInput>, UserUncheckedUpdateWithoutPortfoliosInput>
   }
 
   export type PortfolioProminentProjectUpdateManyWithoutPortfolioNestedInput = {
@@ -20748,6 +20913,41 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type PortfolioCreateWithoutUserInput = {
+    name?: string | null
+    skillDescription?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectCreateNestedManyWithoutPortfolioInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackCreateNestedManyWithoutPortfolioInput
+    portfolioAboutSection?: PortfolioAboutSectionCreateNestedOneWithoutPortfolioInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceCreateNestedManyWithoutPortfolioInput
+    portfolioSkills?: PortfolioSkillCreateNestedManyWithoutPortfolioInput
+  }
+
+  export type PortfolioUncheckedCreateWithoutUserInput = {
+    id?: number
+    name?: string | null
+    skillDescription?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectUncheckedCreateNestedManyWithoutPortfolioInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedCreateNestedManyWithoutPortfolioInput
+    portfolioAboutSection?: PortfolioAboutSectionUncheckedCreateNestedOneWithoutPortfolioInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedCreateNestedManyWithoutPortfolioInput
+    portfolioSkills?: PortfolioSkillUncheckedCreateNestedManyWithoutPortfolioInput
+  }
+
+  export type PortfolioCreateOrConnectWithoutUserInput = {
+    where: PortfolioWhereUniqueInput
+    create: XOR<PortfolioCreateWithoutUserInput, PortfolioUncheckedCreateWithoutUserInput>
+  }
+
+  export type PortfolioCreateManyUserInputEnvelope = {
+    data: PortfolioCreateManyUserInput | PortfolioCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
   export type ProfileWorkExperienceUpsertWithWhereUniqueWithoutUserInput = {
     where: ProfileWorkExperienceWhereUniqueInput
     update: XOR<ProfileWorkExperienceUpdateWithoutUserInput, ProfileWorkExperienceUncheckedUpdateWithoutUserInput>
@@ -20839,6 +21039,34 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"ProfileProminentWork"> | Date | string
   }
 
+  export type PortfolioUpsertWithWhereUniqueWithoutUserInput = {
+    where: PortfolioWhereUniqueInput
+    update: XOR<PortfolioUpdateWithoutUserInput, PortfolioUncheckedUpdateWithoutUserInput>
+    create: XOR<PortfolioCreateWithoutUserInput, PortfolioUncheckedCreateWithoutUserInput>
+  }
+
+  export type PortfolioUpdateWithWhereUniqueWithoutUserInput = {
+    where: PortfolioWhereUniqueInput
+    data: XOR<PortfolioUpdateWithoutUserInput, PortfolioUncheckedUpdateWithoutUserInput>
+  }
+
+  export type PortfolioUpdateManyWithWhereWithoutUserInput = {
+    where: PortfolioScalarWhereInput
+    data: XOR<PortfolioUpdateManyMutationInput, PortfolioUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type PortfolioScalarWhereInput = {
+    AND?: PortfolioScalarWhereInput | PortfolioScalarWhereInput[]
+    OR?: PortfolioScalarWhereInput[]
+    NOT?: PortfolioScalarWhereInput | PortfolioScalarWhereInput[]
+    id?: IntFilter<"Portfolio"> | number
+    name?: StringNullableFilter<"Portfolio"> | string | null
+    skillDescription?: StringNullableFilter<"Portfolio"> | string | null
+    userId?: IntFilter<"Portfolio"> | number
+    createdAt?: DateTimeFilter<"Portfolio"> | Date | string
+    updatedAt?: DateTimeFilter<"Portfolio"> | Date | string
+  }
+
   export type UserCreateWithoutProfileWorkExperiencesInput = {
     name?: string | null
     avatar?: string | null
@@ -20858,6 +21086,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     profileAchievements?: ProfileAchievementCreateNestedManyWithoutUserInput
     profileProminentWorks?: ProfileProminentWorkCreateNestedManyWithoutUserInput
+    portfolios?: PortfolioCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutProfileWorkExperiencesInput = {
@@ -20880,6 +21109,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     profileAchievements?: ProfileAchievementUncheckedCreateNestedManyWithoutUserInput
     profileProminentWorks?: ProfileProminentWorkUncheckedCreateNestedManyWithoutUserInput
+    portfolios?: PortfolioUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutProfileWorkExperiencesInput = {
@@ -20917,6 +21147,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileAchievements?: ProfileAchievementUpdateManyWithoutUserNestedInput
     profileProminentWorks?: ProfileProminentWorkUpdateManyWithoutUserNestedInput
+    portfolios?: PortfolioUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutProfileWorkExperiencesInput = {
@@ -20939,6 +21170,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileAchievements?: ProfileAchievementUncheckedUpdateManyWithoutUserNestedInput
     profileProminentWorks?: ProfileProminentWorkUncheckedUpdateManyWithoutUserNestedInput
+    portfolios?: PortfolioUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutProfileAchievementsInput = {
@@ -20960,6 +21192,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     profileWorkExperiences?: ProfileWorkExperienceCreateNestedManyWithoutUserInput
     profileProminentWorks?: ProfileProminentWorkCreateNestedManyWithoutUserInput
+    portfolios?: PortfolioCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutProfileAchievementsInput = {
@@ -20982,6 +21215,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     profileWorkExperiences?: ProfileWorkExperienceUncheckedCreateNestedManyWithoutUserInput
     profileProminentWorks?: ProfileProminentWorkUncheckedCreateNestedManyWithoutUserInput
+    portfolios?: PortfolioUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutProfileAchievementsInput = {
@@ -21019,6 +21253,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileWorkExperiences?: ProfileWorkExperienceUpdateManyWithoutUserNestedInput
     profileProminentWorks?: ProfileProminentWorkUpdateManyWithoutUserNestedInput
+    portfolios?: PortfolioUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutProfileAchievementsInput = {
@@ -21041,6 +21276,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileWorkExperiences?: ProfileWorkExperienceUncheckedUpdateManyWithoutUserNestedInput
     profileProminentWorks?: ProfileProminentWorkUncheckedUpdateManyWithoutUserNestedInput
+    portfolios?: PortfolioUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutProfileProminentWorksInput = {
@@ -21062,6 +21298,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     profileWorkExperiences?: ProfileWorkExperienceCreateNestedManyWithoutUserInput
     profileAchievements?: ProfileAchievementCreateNestedManyWithoutUserInput
+    portfolios?: PortfolioCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutProfileProminentWorksInput = {
@@ -21084,6 +21321,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     profileWorkExperiences?: ProfileWorkExperienceUncheckedCreateNestedManyWithoutUserInput
     profileAchievements?: ProfileAchievementUncheckedCreateNestedManyWithoutUserInput
+    portfolios?: PortfolioUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutProfileProminentWorksInput = {
@@ -21121,6 +21359,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileWorkExperiences?: ProfileWorkExperienceUpdateManyWithoutUserNestedInput
     profileAchievements?: ProfileAchievementUpdateManyWithoutUserNestedInput
+    portfolios?: PortfolioUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutProfileProminentWorksInput = {
@@ -21143,6 +21382,57 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileWorkExperiences?: ProfileWorkExperienceUncheckedUpdateManyWithoutUserNestedInput
     profileAchievements?: ProfileAchievementUncheckedUpdateManyWithoutUserNestedInput
+    portfolios?: PortfolioUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutPortfoliosInput = {
+    name?: string | null
+    avatar?: string | null
+    role?: number
+    phone?: string | null
+    gender?: number | null
+    email?: string | null
+    biography?: string | null
+    address?: string | null
+    occupation?: string | null
+    facebookLink?: string | null
+    instagramLink?: string | null
+    youtubeLink?: string | null
+    tiktokLink?: string | null
+    avatarPublicId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    profileWorkExperiences?: ProfileWorkExperienceCreateNestedManyWithoutUserInput
+    profileAchievements?: ProfileAchievementCreateNestedManyWithoutUserInput
+    profileProminentWorks?: ProfileProminentWorkCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutPortfoliosInput = {
+    id?: number
+    name?: string | null
+    avatar?: string | null
+    role?: number
+    phone?: string | null
+    gender?: number | null
+    email?: string | null
+    biography?: string | null
+    address?: string | null
+    occupation?: string | null
+    facebookLink?: string | null
+    instagramLink?: string | null
+    youtubeLink?: string | null
+    tiktokLink?: string | null
+    avatarPublicId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    profileWorkExperiences?: ProfileWorkExperienceUncheckedCreateNestedManyWithoutUserInput
+    profileAchievements?: ProfileAchievementUncheckedCreateNestedManyWithoutUserInput
+    profileProminentWorks?: ProfileProminentWorkUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutPortfoliosInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutPortfoliosInput, UserUncheckedCreateWithoutPortfoliosInput>
   }
 
   export type PortfolioProminentProjectCreateWithoutPortfolioInput = {
@@ -21275,6 +21565,62 @@ export namespace Prisma {
   export type PortfolioSkillCreateManyPortfolioInputEnvelope = {
     data: PortfolioSkillCreateManyPortfolioInput | PortfolioSkillCreateManyPortfolioInput[]
     skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutPortfoliosInput = {
+    update: XOR<UserUpdateWithoutPortfoliosInput, UserUncheckedUpdateWithoutPortfoliosInput>
+    create: XOR<UserCreateWithoutPortfoliosInput, UserUncheckedCreateWithoutPortfoliosInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutPortfoliosInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutPortfoliosInput, UserUncheckedUpdateWithoutPortfoliosInput>
+  }
+
+  export type UserUpdateWithoutPortfoliosInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: IntFieldUpdateOperationsInput | number
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableIntFieldUpdateOperationsInput | number | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    biography?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookLink?: NullableStringFieldUpdateOperationsInput | string | null
+    instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    profileWorkExperiences?: ProfileWorkExperienceUpdateManyWithoutUserNestedInput
+    profileAchievements?: ProfileAchievementUpdateManyWithoutUserNestedInput
+    profileProminentWorks?: ProfileProminentWorkUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutPortfoliosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: IntFieldUpdateOperationsInput | number
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableIntFieldUpdateOperationsInput | number | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    biography?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookLink?: NullableStringFieldUpdateOperationsInput | string | null
+    instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    profileWorkExperiences?: ProfileWorkExperienceUncheckedUpdateManyWithoutUserNestedInput
+    profileAchievements?: ProfileAchievementUncheckedUpdateManyWithoutUserNestedInput
+    profileProminentWorks?: ProfileProminentWorkUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type PortfolioProminentProjectUpsertWithWhereUniqueWithoutPortfolioInput = {
@@ -21422,10 +21768,11 @@ export namespace Prisma {
   }
 
   export type PortfolioCreateWithoutPortfolioProminentProjectsInput = {
-    name: string
+    name?: string | null
     skillDescription?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutPortfoliosInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackCreateNestedManyWithoutPortfolioInput
     portfolioAboutSection?: PortfolioAboutSectionCreateNestedOneWithoutPortfolioInput
     portfolioWorkExperiences?: PortfolioWorkExperienceCreateNestedManyWithoutPortfolioInput
@@ -21434,8 +21781,9 @@ export namespace Prisma {
 
   export type PortfolioUncheckedCreateWithoutPortfolioProminentProjectsInput = {
     id?: number
-    name: string
+    name?: string | null
     skillDescription?: string | null
+    userId: number
     createdAt?: Date | string
     updatedAt?: Date | string
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedCreateNestedManyWithoutPortfolioInput
@@ -21484,10 +21832,11 @@ export namespace Prisma {
   }
 
   export type PortfolioUpdateWithoutPortfolioProminentProjectsInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutPortfoliosNestedInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUpdateManyWithoutPortfolioNestedInput
     portfolioAboutSection?: PortfolioAboutSectionUpdateOneWithoutPortfolioNestedInput
     portfolioWorkExperiences?: PortfolioWorkExperienceUpdateManyWithoutPortfolioNestedInput
@@ -21496,8 +21845,9 @@ export namespace Prisma {
 
   export type PortfolioUncheckedUpdateWithoutPortfolioProminentProjectsInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedUpdateManyWithoutPortfolioNestedInput
@@ -21600,10 +21950,11 @@ export namespace Prisma {
   }
 
   export type PortfolioCreateWithoutPortfolioCustomerFeedbacksInput = {
-    name: string
+    name?: string | null
     skillDescription?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutPortfoliosInput
     portfolioProminentProjects?: PortfolioProminentProjectCreateNestedManyWithoutPortfolioInput
     portfolioAboutSection?: PortfolioAboutSectionCreateNestedOneWithoutPortfolioInput
     portfolioWorkExperiences?: PortfolioWorkExperienceCreateNestedManyWithoutPortfolioInput
@@ -21612,8 +21963,9 @@ export namespace Prisma {
 
   export type PortfolioUncheckedCreateWithoutPortfolioCustomerFeedbacksInput = {
     id?: number
-    name: string
+    name?: string | null
     skillDescription?: string | null
+    userId: number
     createdAt?: Date | string
     updatedAt?: Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedCreateNestedManyWithoutPortfolioInput
@@ -21639,10 +21991,11 @@ export namespace Prisma {
   }
 
   export type PortfolioUpdateWithoutPortfolioCustomerFeedbacksInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutPortfoliosNestedInput
     portfolioProminentProjects?: PortfolioProminentProjectUpdateManyWithoutPortfolioNestedInput
     portfolioAboutSection?: PortfolioAboutSectionUpdateOneWithoutPortfolioNestedInput
     portfolioWorkExperiences?: PortfolioWorkExperienceUpdateManyWithoutPortfolioNestedInput
@@ -21651,8 +22004,9 @@ export namespace Prisma {
 
   export type PortfolioUncheckedUpdateWithoutPortfolioCustomerFeedbacksInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioNestedInput
@@ -21662,10 +22016,11 @@ export namespace Prisma {
   }
 
   export type PortfolioCreateWithoutPortfolioAboutSectionInput = {
-    name: string
+    name?: string | null
     skillDescription?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutPortfoliosInput
     portfolioProminentProjects?: PortfolioProminentProjectCreateNestedManyWithoutPortfolioInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackCreateNestedManyWithoutPortfolioInput
     portfolioWorkExperiences?: PortfolioWorkExperienceCreateNestedManyWithoutPortfolioInput
@@ -21674,8 +22029,9 @@ export namespace Prisma {
 
   export type PortfolioUncheckedCreateWithoutPortfolioAboutSectionInput = {
     id?: number
-    name: string
+    name?: string | null
     skillDescription?: string | null
+    userId: number
     createdAt?: Date | string
     updatedAt?: Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedCreateNestedManyWithoutPortfolioInput
@@ -21701,10 +22057,11 @@ export namespace Prisma {
   }
 
   export type PortfolioUpdateWithoutPortfolioAboutSectionInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutPortfoliosNestedInput
     portfolioProminentProjects?: PortfolioProminentProjectUpdateManyWithoutPortfolioNestedInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUpdateManyWithoutPortfolioNestedInput
     portfolioWorkExperiences?: PortfolioWorkExperienceUpdateManyWithoutPortfolioNestedInput
@@ -21713,8 +22070,9 @@ export namespace Prisma {
 
   export type PortfolioUncheckedUpdateWithoutPortfolioAboutSectionInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioNestedInput
@@ -21724,10 +22082,11 @@ export namespace Prisma {
   }
 
   export type PortfolioCreateWithoutPortfolioWorkExperiencesInput = {
-    name: string
+    name?: string | null
     skillDescription?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutPortfoliosInput
     portfolioProminentProjects?: PortfolioProminentProjectCreateNestedManyWithoutPortfolioInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackCreateNestedManyWithoutPortfolioInput
     portfolioAboutSection?: PortfolioAboutSectionCreateNestedOneWithoutPortfolioInput
@@ -21736,8 +22095,9 @@ export namespace Prisma {
 
   export type PortfolioUncheckedCreateWithoutPortfolioWorkExperiencesInput = {
     id?: number
-    name: string
+    name?: string | null
     skillDescription?: string | null
+    userId: number
     createdAt?: Date | string
     updatedAt?: Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedCreateNestedManyWithoutPortfolioInput
@@ -21763,10 +22123,11 @@ export namespace Prisma {
   }
 
   export type PortfolioUpdateWithoutPortfolioWorkExperiencesInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutPortfoliosNestedInput
     portfolioProminentProjects?: PortfolioProminentProjectUpdateManyWithoutPortfolioNestedInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUpdateManyWithoutPortfolioNestedInput
     portfolioAboutSection?: PortfolioAboutSectionUpdateOneWithoutPortfolioNestedInput
@@ -21775,8 +22136,9 @@ export namespace Prisma {
 
   export type PortfolioUncheckedUpdateWithoutPortfolioWorkExperiencesInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioNestedInput
@@ -21786,10 +22148,11 @@ export namespace Prisma {
   }
 
   export type PortfolioCreateWithoutPortfolioSkillsInput = {
-    name: string
+    name?: string | null
     skillDescription?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutPortfoliosInput
     portfolioProminentProjects?: PortfolioProminentProjectCreateNestedManyWithoutPortfolioInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackCreateNestedManyWithoutPortfolioInput
     portfolioAboutSection?: PortfolioAboutSectionCreateNestedOneWithoutPortfolioInput
@@ -21798,8 +22161,9 @@ export namespace Prisma {
 
   export type PortfolioUncheckedCreateWithoutPortfolioSkillsInput = {
     id?: number
-    name: string
+    name?: string | null
     skillDescription?: string | null
+    userId: number
     createdAt?: Date | string
     updatedAt?: Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedCreateNestedManyWithoutPortfolioInput
@@ -21825,10 +22189,11 @@ export namespace Prisma {
   }
 
   export type PortfolioUpdateWithoutPortfolioSkillsInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutPortfoliosNestedInput
     portfolioProminentProjects?: PortfolioProminentProjectUpdateManyWithoutPortfolioNestedInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUpdateManyWithoutPortfolioNestedInput
     portfolioAboutSection?: PortfolioAboutSectionUpdateOneWithoutPortfolioNestedInput
@@ -21837,8 +22202,9 @@ export namespace Prisma {
 
   export type PortfolioUncheckedUpdateWithoutPortfolioSkillsInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioNestedInput
@@ -21874,6 +22240,14 @@ export namespace Prisma {
     from: Date | string
     to?: Date | string | null
     wage?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PortfolioCreateManyUserInput = {
+    id?: number
+    name?: string | null
+    skillDescription?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -21964,6 +22338,39 @@ export namespace Prisma {
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     wage?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PortfolioUpdateWithoutUserInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectUpdateManyWithoutPortfolioNestedInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUpdateManyWithoutPortfolioNestedInput
+    portfolioAboutSection?: PortfolioAboutSectionUpdateOneWithoutPortfolioNestedInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceUpdateManyWithoutPortfolioNestedInput
+    portfolioSkills?: PortfolioSkillUpdateManyWithoutPortfolioNestedInput
+  }
+
+  export type PortfolioUncheckedUpdateWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    portfolioProminentProjects?: PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioNestedInput
+    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedUpdateManyWithoutPortfolioNestedInput
+    portfolioAboutSection?: PortfolioAboutSectionUncheckedUpdateOneWithoutPortfolioNestedInput
+    portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedUpdateManyWithoutPortfolioNestedInput
+    portfolioSkills?: PortfolioSkillUncheckedUpdateManyWithoutPortfolioNestedInput
+  }
+
+  export type PortfolioUncheckedUpdateManyWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

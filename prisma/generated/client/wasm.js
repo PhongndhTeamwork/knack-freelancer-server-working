@@ -183,6 +183,7 @@ exports.Prisma.PortfolioScalarFieldEnum = {
   id: 'id',
   name: 'name',
   skillDescription: 'skillDescription',
+  userId: 'userId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
