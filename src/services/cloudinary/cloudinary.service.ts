@@ -1,4 +1,4 @@
-import { Injectable, InternalServerErrorException } from "@nestjs/common";
+import { HttpException, Injectable, InternalServerErrorException } from "@nestjs/common";
 import { CloudinaryResponse } from "@type/cloudinary.type";
 import { v2 as cloudinary } from "cloudinary";
 import * as streamifier from "streamifier";
@@ -26,12 +26,12 @@ export class CloudinaryService {
     }
   }
 
-  async removeFile(publicId: string): Promise<boolean> {
+  async removeFile(publicId: string): Promise<boolean | HttpException> {
     try {
       const result = await cloudinary.uploader.destroy(publicId);
       return result.result === 'ok';
     } catch (error) {
-      throw new InternalServerErrorException('Failed to remove the file.');
+      return new InternalServerErrorException('Failed to remove the file.');
     }
   }
 }

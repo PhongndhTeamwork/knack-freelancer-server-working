@@ -106,6 +106,10 @@ model Portfolio {
   name             String?
   skillDescription String? @map("skill_description")
   userId           Int     @map("user_id")
+  overview         String?
+  detail           String?
+  avatar           String?
+  avatarPublicId   String? @map("avatar_public_id")
 
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
@@ -113,7 +117,6 @@ model Portfolio {
   user                       User                        @relation(references: [id], fields: [userId])
   portfolioProminentProjects PortfolioProminentProject[]
   portfolioCustomerFeedbacks PortfolioCustomerFeedback[]
-  portfolioAboutSection      PortfolioAboutSection?
   portfolioWorkExperiences   PortfolioWorkExperience[]
   portfolioSkills            PortfolioSkill[]
 
@@ -123,6 +126,7 @@ model Portfolio {
 model PortfolioProminentProject {
   id          Int       @id @default(autoincrement())
   portfolioId Int
+  name        String
   description String
   role        String
   company     String
@@ -133,8 +137,8 @@ model PortfolioProminentProject {
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
 
-  portfolio                       Portfolio                        @relation(references: [id], fields: [portfolioId])
-  portfolioProminentProjectImages PortfolioProminentProjectImage[]
+  portfolio Portfolio                        @relation(references: [id], fields: [portfolioId])
+  images    PortfolioProminentProjectImage[]
 
   @@map("portfolio_prominent_projects")
 }
@@ -143,6 +147,7 @@ model PortfolioProminentProjectImage {
   id                          Int    @id @default(autoincrement())
   portfolioProminentProjectId Int
   image                       String
+  imagePublicId               String @map("image_public_id")
 
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
@@ -153,8 +158,14 @@ model PortfolioProminentProjectImage {
 }
 
 model PortfolioCustomerFeedback {
-  id          Int @id @default(autoincrement())
-  portfolioId Int
+  id               Int     @id @default(autoincrement())
+  portfolioId      Int
+  star             Int
+  comment          String
+  customerName     String? @map("customer_name")
+  companyName      String? @map("company_name")
+  customerPosition String? @map("customer_position")
+  image            String?
 
   portfolio Portfolio @relation(references: [id], fields: [portfolioId])
 
@@ -164,27 +175,12 @@ model PortfolioCustomerFeedback {
   @@map("portfolio_customer_feedbacks")
 }
 
-model PortfolioAboutSection {
-  id          Int    @id @default(autoincrement())
-  portfolioId Int?   @unique
-  avatar      String
-  overview    String
-  detail      String
-
-  portfolio Portfolio? @relation(references: [id], fields: [portfolioId])
-
-  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
-  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
-
-  @@map("portfolio_about_sections")
-}
-
 model PortfolioWorkExperience {
   id          Int       @id @default(autoincrement())
   portfolioId Int
   role        String
   company     String
-  image       String
+  image       String?
   from        DateTime  @db.Timestamptz()
   to          DateTime? @db.Timestamptz()
 

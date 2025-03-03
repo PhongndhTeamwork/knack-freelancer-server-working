@@ -13,9 +13,9 @@ export class TransformInterceptor implements NestInterceptor {
           message: data
         };
       }
-      if(typeof data === "object") {
-        delete data?.id;
-      }
+      // if(typeof data === "object") {
+      //   delete data?.id;
+      // }
       return { statusCode: statusCode, data: data };
     }));
   }

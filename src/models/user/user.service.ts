@@ -13,7 +13,7 @@ import { UpdateProminentWorkDto } from "./dto/update-prominent-work.dto";
 @Injectable()
 export class UserService {
   constructor(
-    private prisma: PrismaService,
+    private readonly prisma: PrismaService,
     private readonly cloudinaryService: CloudinaryService
   ) {
 
@@ -24,8 +24,9 @@ export class UserService {
       return await this.prisma.user.findFirst({
         where: { id: id },
         include: {
-          profileWorkExperiences: true,
-          profileAchievements: true, profileProminentWorks: true
+          profileWorkExperiences: {orderBy : {id : 'asc'}},
+          profileAchievements: {orderBy : {id : 'asc'}},
+          profileProminentWorks: {orderBy : {id : 'asc'}},
         }
       });
     } catch (error) {
@@ -73,7 +74,7 @@ export class UserService {
     }
   }
 
-  //!USER'S WORK EXPERIENCE
+  //* USER'S WORK EXPERIENCE
   async createWorkExperience(userId: number, createWorkExperienceDto: CreateWorkExperienceDto) {
     try {
       return await this.prisma.profileWorkExperience.create({
@@ -126,7 +127,7 @@ export class UserService {
     }
   }
 
-  //! ACHIEVEMENTS
+  //* ACHIEVEMENTS
   async createAchievement(userId: number, createAchievementDto: CreateAchievementDto) {
     try {
       const achievement = await this.prisma.profileAchievement.create({
@@ -181,7 +182,7 @@ export class UserService {
     }
   }
 
-  //! PROMINENT WORK
+  //* PROMINENT WORK
   async createProminentWork(userId: number, createProminentWorkDto: CreateProminentWorkDto) {
     try {
       const prominentWork = await this.prisma.profileProminentWork.create({

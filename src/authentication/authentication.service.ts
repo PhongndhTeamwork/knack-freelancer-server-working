@@ -56,12 +56,12 @@ export class AuthenticationService {
 
       return {
         token: this.jwtService.sign({
-          id: foundUser.id
+          id: foundUser.id,
+          role : foundUser.role
         }),
         hasFillInfo: hasFillInfo
       };
     } catch (err) {
-      console.log(err);
       return new BadRequestException(err?.message);
     }
   }

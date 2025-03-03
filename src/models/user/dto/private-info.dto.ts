@@ -12,7 +12,7 @@ export class PrivateInfoDto {
   name: string;
 
   @IsOptional()
-  @IsObject() // File type validation depends on your implementation
+  @IsObject()
   mainImage?: Express.Multer.File;
 
 

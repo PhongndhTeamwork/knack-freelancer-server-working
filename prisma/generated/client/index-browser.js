@@ -184,6 +184,10 @@ exports.Prisma.PortfolioScalarFieldEnum = {
   name: 'name',
   skillDescription: 'skillDescription',
   userId: 'userId',
+  overview: 'overview',
+  detail: 'detail',
+  avatar: 'avatar',
+  avatarPublicId: 'avatarPublicId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -191,6 +195,7 @@ exports.Prisma.PortfolioScalarFieldEnum = {
 exports.Prisma.PortfolioProminentProjectScalarFieldEnum = {
   id: 'id',
   portfolioId: 'portfolioId',
+  name: 'name',
   description: 'description',
   role: 'role',
   company: 'company',
@@ -205,6 +210,7 @@ exports.Prisma.PortfolioProminentProjectImageScalarFieldEnum = {
   id: 'id',
   portfolioProminentProjectId: 'portfolioProminentProjectId',
   image: 'image',
+  imagePublicId: 'imagePublicId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -212,16 +218,12 @@ exports.Prisma.PortfolioProminentProjectImageScalarFieldEnum = {
 exports.Prisma.PortfolioCustomerFeedbackScalarFieldEnum = {
   id: 'id',
   portfolioId: 'portfolioId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.PortfolioAboutSectionScalarFieldEnum = {
-  id: 'id',
-  portfolioId: 'portfolioId',
-  avatar: 'avatar',
-  overview: 'overview',
-  detail: 'detail',
+  star: 'star',
+  comment: 'comment',
+  customerName: 'customerName',
+  companyName: 'companyName',
+  customerPosition: 'customerPosition',
+  image: 'image',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -281,7 +283,6 @@ exports.Prisma.ModelName = {
   PortfolioProminentProject: 'PortfolioProminentProject',
   PortfolioProminentProjectImage: 'PortfolioProminentProjectImage',
   PortfolioCustomerFeedback: 'PortfolioCustomerFeedback',
-  PortfolioAboutSection: 'PortfolioAboutSection',
   PortfolioWorkExperience: 'PortfolioWorkExperience',
   PortfolioSkill: 'PortfolioSkill',
   Booking: 'Booking'

@@ -61,7 +61,7 @@ export class UserController {
     return result
   }
 
-  //! WORK EXPERIENCE
+  //* WORK EXPERIENCE
   @Post("create-work-experience")
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
@@ -108,7 +108,7 @@ export class UserController {
     return result
   }
 
-  //! ACHIEVEMENTS
+  //* ACHIEVEMENTS
   @Post("create-achievement")
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
@@ -155,7 +155,7 @@ export class UserController {
     return result
   }
 
-  //! PROMINENT WORK
+  //* PROMINENT WORK
   @Post("create-prominent-work")
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()

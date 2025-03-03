@@ -59,11 +59,6 @@ export type PortfolioProminentProjectImage = $Result.DefaultSelection<Prisma.$Po
  */
 export type PortfolioCustomerFeedback = $Result.DefaultSelection<Prisma.$PortfolioCustomerFeedbackPayload>
 /**
- * Model PortfolioAboutSection
- * 
- */
-export type PortfolioAboutSection = $Result.DefaultSelection<Prisma.$PortfolioAboutSectionPayload>
-/**
  * Model PortfolioWorkExperience
  * 
  */
@@ -293,16 +288,6 @@ export class PrismaClient<
     * ```
     */
   get portfolioCustomerFeedback(): Prisma.PortfolioCustomerFeedbackDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.portfolioAboutSection`: Exposes CRUD operations for the **PortfolioAboutSection** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more PortfolioAboutSections
-    * const portfolioAboutSections = await prisma.portfolioAboutSection.findMany()
-    * ```
-    */
-  get portfolioAboutSection(): Prisma.PortfolioAboutSectionDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.portfolioWorkExperience`: Exposes CRUD operations for the **PortfolioWorkExperience** model.
@@ -782,7 +767,6 @@ export namespace Prisma {
     PortfolioProminentProject: 'PortfolioProminentProject',
     PortfolioProminentProjectImage: 'PortfolioProminentProjectImage',
     PortfolioCustomerFeedback: 'PortfolioCustomerFeedback',
-    PortfolioAboutSection: 'PortfolioAboutSection',
     PortfolioWorkExperience: 'PortfolioWorkExperience',
     PortfolioSkill: 'PortfolioSkill',
     Booking: 'Booking'
@@ -801,7 +785,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "user" | "auth" | "profileWorkExperience" | "profileAchievement" | "profileProminentWork" | "portfolio" | "portfolioProminentProject" | "portfolioProminentProjectImage" | "portfolioCustomerFeedback" | "portfolioAboutSection" | "portfolioWorkExperience" | "portfolioSkill" | "booking"
+      modelProps: "user" | "auth" | "profileWorkExperience" | "profileAchievement" | "profileProminentWork" | "portfolio" | "portfolioProminentProject" | "portfolioProminentProjectImage" | "portfolioCustomerFeedback" | "portfolioWorkExperience" | "portfolioSkill" | "booking"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1471,80 +1455,6 @@ export namespace Prisma {
           }
         }
       }
-      PortfolioAboutSection: {
-        payload: Prisma.$PortfolioAboutSectionPayload<ExtArgs>
-        fields: Prisma.PortfolioAboutSectionFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.PortfolioAboutSectionFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.PortfolioAboutSectionFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload>
-          }
-          findFirst: {
-            args: Prisma.PortfolioAboutSectionFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.PortfolioAboutSectionFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload>
-          }
-          findMany: {
-            args: Prisma.PortfolioAboutSectionFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload>[]
-          }
-          create: {
-            args: Prisma.PortfolioAboutSectionCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload>
-          }
-          createMany: {
-            args: Prisma.PortfolioAboutSectionCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.PortfolioAboutSectionCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload>[]
-          }
-          delete: {
-            args: Prisma.PortfolioAboutSectionDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload>
-          }
-          update: {
-            args: Prisma.PortfolioAboutSectionUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload>
-          }
-          deleteMany: {
-            args: Prisma.PortfolioAboutSectionDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.PortfolioAboutSectionUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.PortfolioAboutSectionUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload>[]
-          }
-          upsert: {
-            args: Prisma.PortfolioAboutSectionUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PortfolioAboutSectionPayload>
-          }
-          aggregate: {
-            args: Prisma.PortfolioAboutSectionAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregatePortfolioAboutSection>
-          }
-          groupBy: {
-            args: Prisma.PortfolioAboutSectionGroupByArgs<ExtArgs>
-            result: $Utils.Optional<PortfolioAboutSectionGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.PortfolioAboutSectionCountArgs<ExtArgs>
-            result: $Utils.Optional<PortfolioAboutSectionCountAggregateOutputType> | number
-          }
-        }
-      }
       PortfolioWorkExperience: {
         payload: Prisma.$PortfolioWorkExperiencePayload<ExtArgs>
         fields: Prisma.PortfolioWorkExperienceFieldRefs
@@ -1860,7 +1770,6 @@ export namespace Prisma {
     portfolioProminentProject?: PortfolioProminentProjectOmit
     portfolioProminentProjectImage?: PortfolioProminentProjectImageOmit
     portfolioCustomerFeedback?: PortfolioCustomerFeedbackOmit
-    portfolioAboutSection?: PortfolioAboutSectionOmit
     portfolioWorkExperience?: PortfolioWorkExperienceOmit
     portfolioSkill?: PortfolioSkillOmit
     booking?: BookingOmit
@@ -2074,11 +1983,11 @@ export namespace Prisma {
    */
 
   export type PortfolioProminentProjectCountOutputType = {
-    portfolioProminentProjectImages: number
+    images: number
   }
 
   export type PortfolioProminentProjectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    portfolioProminentProjectImages?: boolean | PortfolioProminentProjectCountOutputTypeCountPortfolioProminentProjectImagesArgs
+    images?: boolean | PortfolioProminentProjectCountOutputTypeCountImagesArgs
   }
 
   // Custom InputTypes
@@ -2095,7 +2004,7 @@ export namespace Prisma {
   /**
    * PortfolioProminentProjectCountOutputType without action
    */
-  export type PortfolioProminentProjectCountOutputTypeCountPortfolioProminentProjectImagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PortfolioProminentProjectCountOutputTypeCountImagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PortfolioProminentProjectImageWhereInput
   }
 
@@ -7938,6 +7847,10 @@ export namespace Prisma {
     name: string | null
     skillDescription: string | null
     userId: number | null
+    overview: string | null
+    detail: string | null
+    avatar: string | null
+    avatarPublicId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -7947,6 +7860,10 @@ export namespace Prisma {
     name: string | null
     skillDescription: string | null
     userId: number | null
+    overview: string | null
+    detail: string | null
+    avatar: string | null
+    avatarPublicId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -7956,6 +7873,10 @@ export namespace Prisma {
     name: number
     skillDescription: number
     userId: number
+    overview: number
+    detail: number
+    avatar: number
+    avatarPublicId: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -7977,6 +7898,10 @@ export namespace Prisma {
     name?: true
     skillDescription?: true
     userId?: true
+    overview?: true
+    detail?: true
+    avatar?: true
+    avatarPublicId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -7986,6 +7911,10 @@ export namespace Prisma {
     name?: true
     skillDescription?: true
     userId?: true
+    overview?: true
+    detail?: true
+    avatar?: true
+    avatarPublicId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -7995,6 +7924,10 @@ export namespace Prisma {
     name?: true
     skillDescription?: true
     userId?: true
+    overview?: true
+    detail?: true
+    avatar?: true
+    avatarPublicId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -8091,6 +8024,10 @@ export namespace Prisma {
     name: string | null
     skillDescription: string | null
     userId: number
+    overview: string | null
+    detail: string | null
+    avatar: string | null
+    avatarPublicId: string | null
     createdAt: Date
     updatedAt: Date
     _count: PortfolioCountAggregateOutputType | null
@@ -8119,12 +8056,15 @@ export namespace Prisma {
     name?: boolean
     skillDescription?: boolean
     userId?: boolean
+    overview?: boolean
+    detail?: boolean
+    avatar?: boolean
+    avatarPublicId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     portfolioProminentProjects?: boolean | Portfolio$portfolioProminentProjectsArgs<ExtArgs>
     portfolioCustomerFeedbacks?: boolean | Portfolio$portfolioCustomerFeedbacksArgs<ExtArgs>
-    portfolioAboutSection?: boolean | Portfolio$portfolioAboutSectionArgs<ExtArgs>
     portfolioWorkExperiences?: boolean | Portfolio$portfolioWorkExperiencesArgs<ExtArgs>
     portfolioSkills?: boolean | Portfolio$portfolioSkillsArgs<ExtArgs>
     _count?: boolean | PortfolioCountOutputTypeDefaultArgs<ExtArgs>
@@ -8135,6 +8075,10 @@ export namespace Prisma {
     name?: boolean
     skillDescription?: boolean
     userId?: boolean
+    overview?: boolean
+    detail?: boolean
+    avatar?: boolean
+    avatarPublicId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -8145,6 +8089,10 @@ export namespace Prisma {
     name?: boolean
     skillDescription?: boolean
     userId?: boolean
+    overview?: boolean
+    detail?: boolean
+    avatar?: boolean
+    avatarPublicId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -8155,16 +8103,19 @@ export namespace Prisma {
     name?: boolean
     skillDescription?: boolean
     userId?: boolean
+    overview?: boolean
+    detail?: boolean
+    avatar?: boolean
+    avatarPublicId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type PortfolioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "skillDescription" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolio"]>
+  export type PortfolioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "skillDescription" | "userId" | "overview" | "detail" | "avatar" | "avatarPublicId" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolio"]>
   export type PortfolioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     portfolioProminentProjects?: boolean | Portfolio$portfolioProminentProjectsArgs<ExtArgs>
     portfolioCustomerFeedbacks?: boolean | Portfolio$portfolioCustomerFeedbacksArgs<ExtArgs>
-    portfolioAboutSection?: boolean | Portfolio$portfolioAboutSectionArgs<ExtArgs>
     portfolioWorkExperiences?: boolean | Portfolio$portfolioWorkExperiencesArgs<ExtArgs>
     portfolioSkills?: boolean | Portfolio$portfolioSkillsArgs<ExtArgs>
     _count?: boolean | PortfolioCountOutputTypeDefaultArgs<ExtArgs>
@@ -8182,7 +8133,6 @@ export namespace Prisma {
       user: Prisma.$UserPayload<ExtArgs>
       portfolioProminentProjects: Prisma.$PortfolioProminentProjectPayload<ExtArgs>[]
       portfolioCustomerFeedbacks: Prisma.$PortfolioCustomerFeedbackPayload<ExtArgs>[]
-      portfolioAboutSection: Prisma.$PortfolioAboutSectionPayload<ExtArgs> | null
       portfolioWorkExperiences: Prisma.$PortfolioWorkExperiencePayload<ExtArgs>[]
       portfolioSkills: Prisma.$PortfolioSkillPayload<ExtArgs>[]
     }
@@ -8191,6 +8141,10 @@ export namespace Prisma {
       name: string | null
       skillDescription: string | null
       userId: number
+      overview: string | null
+      detail: string | null
+      avatar: string | null
+      avatarPublicId: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["portfolio"]>
@@ -8590,7 +8544,6 @@ export namespace Prisma {
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
     portfolioProminentProjects<T extends Portfolio$portfolioProminentProjectsArgs<ExtArgs> = {}>(args?: Subset<T, Portfolio$portfolioProminentProjectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioProminentProjectPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     portfolioCustomerFeedbacks<T extends Portfolio$portfolioCustomerFeedbacksArgs<ExtArgs> = {}>(args?: Subset<T, Portfolio$portfolioCustomerFeedbacksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioCustomerFeedbackPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
-    portfolioAboutSection<T extends Portfolio$portfolioAboutSectionArgs<ExtArgs> = {}>(args?: Subset<T, Portfolio$portfolioAboutSectionArgs<ExtArgs>>): Prisma__PortfolioAboutSectionClient<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
     portfolioWorkExperiences<T extends Portfolio$portfolioWorkExperiencesArgs<ExtArgs> = {}>(args?: Subset<T, Portfolio$portfolioWorkExperiencesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioWorkExperiencePayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     portfolioSkills<T extends Portfolio$portfolioSkillsArgs<ExtArgs> = {}>(args?: Subset<T, Portfolio$portfolioSkillsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioSkillPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     /**
@@ -8626,6 +8579,10 @@ export namespace Prisma {
     readonly name: FieldRef<"Portfolio", 'String'>
     readonly skillDescription: FieldRef<"Portfolio", 'String'>
     readonly userId: FieldRef<"Portfolio", 'Int'>
+    readonly overview: FieldRef<"Portfolio", 'String'>
+    readonly detail: FieldRef<"Portfolio", 'String'>
+    readonly avatar: FieldRef<"Portfolio", 'String'>
+    readonly avatarPublicId: FieldRef<"Portfolio", 'String'>
     readonly createdAt: FieldRef<"Portfolio", 'DateTime'>
     readonly updatedAt: FieldRef<"Portfolio", 'DateTime'>
   }
@@ -9072,25 +9029,6 @@ export namespace Prisma {
   }
 
   /**
-   * Portfolio.portfolioAboutSection
-   */
-  export type Portfolio$portfolioAboutSectionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PortfolioAboutSection
-     */
-    select?: PortfolioAboutSectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the PortfolioAboutSection
-     */
-    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PortfolioAboutSectionInclude<ExtArgs> | null
-    where?: PortfolioAboutSectionWhereInput
-  }
-
-  /**
    * Portfolio.portfolioWorkExperiences
    */
   export type Portfolio$portfolioWorkExperiencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9182,6 +9120,7 @@ export namespace Prisma {
   export type PortfolioProminentProjectMinAggregateOutputType = {
     id: number | null
     portfolioId: number | null
+    name: string | null
     description: string | null
     role: string | null
     company: string | null
@@ -9195,6 +9134,7 @@ export namespace Prisma {
   export type PortfolioProminentProjectMaxAggregateOutputType = {
     id: number | null
     portfolioId: number | null
+    name: string | null
     description: string | null
     role: string | null
     company: string | null
@@ -9208,6 +9148,7 @@ export namespace Prisma {
   export type PortfolioProminentProjectCountAggregateOutputType = {
     id: number
     portfolioId: number
+    name: number
     description: number
     role: number
     company: number
@@ -9233,6 +9174,7 @@ export namespace Prisma {
   export type PortfolioProminentProjectMinAggregateInputType = {
     id?: true
     portfolioId?: true
+    name?: true
     description?: true
     role?: true
     company?: true
@@ -9246,6 +9188,7 @@ export namespace Prisma {
   export type PortfolioProminentProjectMaxAggregateInputType = {
     id?: true
     portfolioId?: true
+    name?: true
     description?: true
     role?: true
     company?: true
@@ -9259,6 +9202,7 @@ export namespace Prisma {
   export type PortfolioProminentProjectCountAggregateInputType = {
     id?: true
     portfolioId?: true
+    name?: true
     description?: true
     role?: true
     company?: true
@@ -9359,6 +9303,7 @@ export namespace Prisma {
   export type PortfolioProminentProjectGroupByOutputType = {
     id: number
     portfolioId: number
+    name: string
     description: string
     role: string
     company: string
@@ -9391,6 +9336,7 @@ export namespace Prisma {
   export type PortfolioProminentProjectSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     portfolioId?: boolean
+    name?: boolean
     description?: boolean
     role?: boolean
     company?: boolean
@@ -9400,13 +9346,14 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
-    portfolioProminentProjectImages?: boolean | PortfolioProminentProject$portfolioProminentProjectImagesArgs<ExtArgs>
+    images?: boolean | PortfolioProminentProject$imagesArgs<ExtArgs>
     _count?: boolean | PortfolioProminentProjectCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["portfolioProminentProject"]>
 
   export type PortfolioProminentProjectSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     portfolioId?: boolean
+    name?: boolean
     description?: boolean
     role?: boolean
     company?: boolean
@@ -9421,6 +9368,7 @@ export namespace Prisma {
   export type PortfolioProminentProjectSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     portfolioId?: boolean
+    name?: boolean
     description?: boolean
     role?: boolean
     company?: boolean
@@ -9435,6 +9383,7 @@ export namespace Prisma {
   export type PortfolioProminentProjectSelectScalar = {
     id?: boolean
     portfolioId?: boolean
+    name?: boolean
     description?: boolean
     role?: boolean
     company?: boolean
@@ -9445,10 +9394,10 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type PortfolioProminentProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "portfolioId" | "description" | "role" | "company" | "detail" | "from" | "to" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolioProminentProject"]>
+  export type PortfolioProminentProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "portfolioId" | "name" | "description" | "role" | "company" | "detail" | "from" | "to" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolioProminentProject"]>
   export type PortfolioProminentProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
-    portfolioProminentProjectImages?: boolean | PortfolioProminentProject$portfolioProminentProjectImagesArgs<ExtArgs>
+    images?: boolean | PortfolioProminentProject$imagesArgs<ExtArgs>
     _count?: boolean | PortfolioProminentProjectCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type PortfolioProminentProjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9462,11 +9411,12 @@ export namespace Prisma {
     name: "PortfolioProminentProject"
     objects: {
       portfolio: Prisma.$PortfolioPayload<ExtArgs>
-      portfolioProminentProjectImages: Prisma.$PortfolioProminentProjectImagePayload<ExtArgs>[]
+      images: Prisma.$PortfolioProminentProjectImagePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       portfolioId: number
+      name: string
       description: string
       role: string
       company: string
@@ -9870,7 +9820,7 @@ export namespace Prisma {
   export interface Prisma__PortfolioProminentProjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     portfolio<T extends PortfolioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PortfolioDefaultArgs<ExtArgs>>): Prisma__PortfolioClient<$Result.GetResult<Prisma.$PortfolioPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
-    portfolioProminentProjectImages<T extends PortfolioProminentProject$portfolioProminentProjectImagesArgs<ExtArgs> = {}>(args?: Subset<T, PortfolioProminentProject$portfolioProminentProjectImagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioProminentProjectImagePayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    images<T extends PortfolioProminentProject$imagesArgs<ExtArgs> = {}>(args?: Subset<T, PortfolioProminentProject$imagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioProminentProjectImagePayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9902,6 +9852,7 @@ export namespace Prisma {
   interface PortfolioProminentProjectFieldRefs {
     readonly id: FieldRef<"PortfolioProminentProject", 'Int'>
     readonly portfolioId: FieldRef<"PortfolioProminentProject", 'Int'>
+    readonly name: FieldRef<"PortfolioProminentProject", 'String'>
     readonly description: FieldRef<"PortfolioProminentProject", 'String'>
     readonly role: FieldRef<"PortfolioProminentProject", 'String'>
     readonly company: FieldRef<"PortfolioProminentProject", 'String'>
@@ -10306,9 +10257,9 @@ export namespace Prisma {
   }
 
   /**
-   * PortfolioProminentProject.portfolioProminentProjectImages
+   * PortfolioProminentProject.images
    */
-  export type PortfolioProminentProject$portfolioProminentProjectImagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PortfolioProminentProject$imagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the PortfolioProminentProjectImage
      */
@@ -10374,6 +10325,7 @@ export namespace Prisma {
     id: number | null
     portfolioProminentProjectId: number | null
     image: string | null
+    imagePublicId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -10382,6 +10334,7 @@ export namespace Prisma {
     id: number | null
     portfolioProminentProjectId: number | null
     image: string | null
+    imagePublicId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -10390,6 +10343,7 @@ export namespace Prisma {
     id: number
     portfolioProminentProjectId: number
     image: number
+    imagePublicId: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -10410,6 +10364,7 @@ export namespace Prisma {
     id?: true
     portfolioProminentProjectId?: true
     image?: true
+    imagePublicId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -10418,6 +10373,7 @@ export namespace Prisma {
     id?: true
     portfolioProminentProjectId?: true
     image?: true
+    imagePublicId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -10426,6 +10382,7 @@ export namespace Prisma {
     id?: true
     portfolioProminentProjectId?: true
     image?: true
+    imagePublicId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -10521,6 +10478,7 @@ export namespace Prisma {
     id: number
     portfolioProminentProjectId: number
     image: string
+    imagePublicId: string
     createdAt: Date
     updatedAt: Date
     _count: PortfolioProminentProjectImageCountAggregateOutputType | null
@@ -10548,6 +10506,7 @@ export namespace Prisma {
     id?: boolean
     portfolioProminentProjectId?: boolean
     image?: boolean
+    imagePublicId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     portfolioProminentProject?: boolean | PortfolioProminentProjectDefaultArgs<ExtArgs>
@@ -10557,6 +10516,7 @@ export namespace Prisma {
     id?: boolean
     portfolioProminentProjectId?: boolean
     image?: boolean
+    imagePublicId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     portfolioProminentProject?: boolean | PortfolioProminentProjectDefaultArgs<ExtArgs>
@@ -10566,6 +10526,7 @@ export namespace Prisma {
     id?: boolean
     portfolioProminentProjectId?: boolean
     image?: boolean
+    imagePublicId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     portfolioProminentProject?: boolean | PortfolioProminentProjectDefaultArgs<ExtArgs>
@@ -10575,11 +10536,12 @@ export namespace Prisma {
     id?: boolean
     portfolioProminentProjectId?: boolean
     image?: boolean
+    imagePublicId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type PortfolioProminentProjectImageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "portfolioProminentProjectId" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolioProminentProjectImage"]>
+  export type PortfolioProminentProjectImageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "portfolioProminentProjectId" | "image" | "imagePublicId" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolioProminentProjectImage"]>
   export type PortfolioProminentProjectImageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     portfolioProminentProject?: boolean | PortfolioProminentProjectDefaultArgs<ExtArgs>
   }
@@ -10599,6 +10561,7 @@ export namespace Prisma {
       id: number
       portfolioProminentProjectId: number
       image: string
+      imagePublicId: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["portfolioProminentProjectImage"]>
@@ -11028,6 +10991,7 @@ export namespace Prisma {
     readonly id: FieldRef<"PortfolioProminentProjectImage", 'Int'>
     readonly portfolioProminentProjectId: FieldRef<"PortfolioProminentProjectImage", 'Int'>
     readonly image: FieldRef<"PortfolioProminentProjectImage", 'String'>
+    readonly imagePublicId: FieldRef<"PortfolioProminentProjectImage", 'String'>
     readonly createdAt: FieldRef<"PortfolioProminentProjectImage", 'DateTime'>
     readonly updatedAt: FieldRef<"PortfolioProminentProjectImage", 'DateTime'>
   }
@@ -11459,16 +11423,24 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackAvgAggregateOutputType = {
     id: number | null
     portfolioId: number | null
+    star: number | null
   }
 
   export type PortfolioCustomerFeedbackSumAggregateOutputType = {
     id: number | null
     portfolioId: number | null
+    star: number | null
   }
 
   export type PortfolioCustomerFeedbackMinAggregateOutputType = {
     id: number | null
     portfolioId: number | null
+    star: number | null
+    comment: string | null
+    customerName: string | null
+    companyName: string | null
+    customerPosition: string | null
+    image: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -11476,6 +11448,12 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackMaxAggregateOutputType = {
     id: number | null
     portfolioId: number | null
+    star: number | null
+    comment: string | null
+    customerName: string | null
+    companyName: string | null
+    customerPosition: string | null
+    image: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -11483,6 +11461,12 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackCountAggregateOutputType = {
     id: number
     portfolioId: number
+    star: number
+    comment: number
+    customerName: number
+    companyName: number
+    customerPosition: number
+    image: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -11492,16 +11476,24 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackAvgAggregateInputType = {
     id?: true
     portfolioId?: true
+    star?: true
   }
 
   export type PortfolioCustomerFeedbackSumAggregateInputType = {
     id?: true
     portfolioId?: true
+    star?: true
   }
 
   export type PortfolioCustomerFeedbackMinAggregateInputType = {
     id?: true
     portfolioId?: true
+    star?: true
+    comment?: true
+    customerName?: true
+    companyName?: true
+    customerPosition?: true
+    image?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -11509,6 +11501,12 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackMaxAggregateInputType = {
     id?: true
     portfolioId?: true
+    star?: true
+    comment?: true
+    customerName?: true
+    companyName?: true
+    customerPosition?: true
+    image?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -11516,6 +11514,12 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackCountAggregateInputType = {
     id?: true
     portfolioId?: true
+    star?: true
+    comment?: true
+    customerName?: true
+    companyName?: true
+    customerPosition?: true
+    image?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -11610,6 +11614,12 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackGroupByOutputType = {
     id: number
     portfolioId: number
+    star: number
+    comment: string
+    customerName: string | null
+    companyName: string | null
+    customerPosition: string | null
+    image: string | null
     createdAt: Date
     updatedAt: Date
     _count: PortfolioCustomerFeedbackCountAggregateOutputType | null
@@ -11636,6 +11646,12 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     portfolioId?: boolean
+    star?: boolean
+    comment?: boolean
+    customerName?: boolean
+    companyName?: boolean
+    customerPosition?: boolean
+    image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
@@ -11644,6 +11660,12 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     portfolioId?: boolean
+    star?: boolean
+    comment?: boolean
+    customerName?: boolean
+    companyName?: boolean
+    customerPosition?: boolean
+    image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
@@ -11652,6 +11674,12 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     portfolioId?: boolean
+    star?: boolean
+    comment?: boolean
+    customerName?: boolean
+    companyName?: boolean
+    customerPosition?: boolean
+    image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
@@ -11660,11 +11688,17 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackSelectScalar = {
     id?: boolean
     portfolioId?: boolean
+    star?: boolean
+    comment?: boolean
+    customerName?: boolean
+    companyName?: boolean
+    customerPosition?: boolean
+    image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type PortfolioCustomerFeedbackOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "portfolioId" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolioCustomerFeedback"]>
+  export type PortfolioCustomerFeedbackOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "portfolioId" | "star" | "comment" | "customerName" | "companyName" | "customerPosition" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolioCustomerFeedback"]>
   export type PortfolioCustomerFeedbackInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     portfolio?: boolean | PortfolioDefaultArgs<ExtArgs>
   }
@@ -11683,6 +11717,12 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       portfolioId: number
+      star: number
+      comment: string
+      customerName: string | null
+      companyName: string | null
+      customerPosition: string | null
+      image: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["portfolioCustomerFeedback"]>
@@ -12111,6 +12151,12 @@ export namespace Prisma {
   interface PortfolioCustomerFeedbackFieldRefs {
     readonly id: FieldRef<"PortfolioCustomerFeedback", 'Int'>
     readonly portfolioId: FieldRef<"PortfolioCustomerFeedback", 'Int'>
+    readonly star: FieldRef<"PortfolioCustomerFeedback", 'Int'>
+    readonly comment: FieldRef<"PortfolioCustomerFeedback", 'String'>
+    readonly customerName: FieldRef<"PortfolioCustomerFeedback", 'String'>
+    readonly companyName: FieldRef<"PortfolioCustomerFeedback", 'String'>
+    readonly customerPosition: FieldRef<"PortfolioCustomerFeedback", 'String'>
+    readonly image: FieldRef<"PortfolioCustomerFeedback", 'String'>
     readonly createdAt: FieldRef<"PortfolioCustomerFeedback", 'DateTime'>
     readonly updatedAt: FieldRef<"PortfolioCustomerFeedback", 'DateTime'>
   }
@@ -12528,1147 +12574,6 @@ export namespace Prisma {
 
 
   /**
-   * Model PortfolioAboutSection
-   */
-
-  export type AggregatePortfolioAboutSection = {
-    _count: PortfolioAboutSectionCountAggregateOutputType | null
-    _avg: PortfolioAboutSectionAvgAggregateOutputType | null
-    _sum: PortfolioAboutSectionSumAggregateOutputType | null
-    _min: PortfolioAboutSectionMinAggregateOutputType | null
-    _max: PortfolioAboutSectionMaxAggregateOutputType | null
-  }
-
-  export type PortfolioAboutSectionAvgAggregateOutputType = {
-    id: number | null
-    portfolioId: number | null
-  }
-
-  export type PortfolioAboutSectionSumAggregateOutputType = {
-    id: number | null
-    portfolioId: number | null
-  }
-
-  export type PortfolioAboutSectionMinAggregateOutputType = {
-    id: number | null
-    portfolioId: number | null
-    avatar: string | null
-    overview: string | null
-    detail: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type PortfolioAboutSectionMaxAggregateOutputType = {
-    id: number | null
-    portfolioId: number | null
-    avatar: string | null
-    overview: string | null
-    detail: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type PortfolioAboutSectionCountAggregateOutputType = {
-    id: number
-    portfolioId: number
-    avatar: number
-    overview: number
-    detail: number
-    createdAt: number
-    updatedAt: number
-    _all: number
-  }
-
-
-  export type PortfolioAboutSectionAvgAggregateInputType = {
-    id?: true
-    portfolioId?: true
-  }
-
-  export type PortfolioAboutSectionSumAggregateInputType = {
-    id?: true
-    portfolioId?: true
-  }
-
-  export type PortfolioAboutSectionMinAggregateInputType = {
-    id?: true
-    portfolioId?: true
-    avatar?: true
-    overview?: true
-    detail?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type PortfolioAboutSectionMaxAggregateInputType = {
-    id?: true
-    portfolioId?: true
-    avatar?: true
-    overview?: true
-    detail?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type PortfolioAboutSectionCountAggregateInputType = {
-    id?: true
-    portfolioId?: true
-    avatar?: true
-    overview?: true
-    detail?: true
-    createdAt?: true
-    updatedAt?: true
-    _all?: true
-  }
-
-  export type PortfolioAboutSectionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which PortfolioAboutSection to aggregate.
-     */
-    where?: PortfolioAboutSectionWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of PortfolioAboutSections to fetch.
-     */
-    orderBy?: PortfolioAboutSectionOrderByWithRelationInput | PortfolioAboutSectionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: PortfolioAboutSectionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` PortfolioAboutSections from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` PortfolioAboutSections.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned PortfolioAboutSections
-    **/
-    _count?: true | PortfolioAboutSectionCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: PortfolioAboutSectionAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: PortfolioAboutSectionSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: PortfolioAboutSectionMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: PortfolioAboutSectionMaxAggregateInputType
-  }
-
-  export type GetPortfolioAboutSectionAggregateType<T extends PortfolioAboutSectionAggregateArgs> = {
-        [P in keyof T & keyof AggregatePortfolioAboutSection]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregatePortfolioAboutSection[P]>
-      : GetScalarType<T[P], AggregatePortfolioAboutSection[P]>
-  }
-
-
-
-
-  export type PortfolioAboutSectionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PortfolioAboutSectionWhereInput
-    orderBy?: PortfolioAboutSectionOrderByWithAggregationInput | PortfolioAboutSectionOrderByWithAggregationInput[]
-    by: PortfolioAboutSectionScalarFieldEnum[] | PortfolioAboutSectionScalarFieldEnum
-    having?: PortfolioAboutSectionScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: PortfolioAboutSectionCountAggregateInputType | true
-    _avg?: PortfolioAboutSectionAvgAggregateInputType
-    _sum?: PortfolioAboutSectionSumAggregateInputType
-    _min?: PortfolioAboutSectionMinAggregateInputType
-    _max?: PortfolioAboutSectionMaxAggregateInputType
-  }
-
-  export type PortfolioAboutSectionGroupByOutputType = {
-    id: number
-    portfolioId: number | null
-    avatar: string
-    overview: string
-    detail: string
-    createdAt: Date
-    updatedAt: Date
-    _count: PortfolioAboutSectionCountAggregateOutputType | null
-    _avg: PortfolioAboutSectionAvgAggregateOutputType | null
-    _sum: PortfolioAboutSectionSumAggregateOutputType | null
-    _min: PortfolioAboutSectionMinAggregateOutputType | null
-    _max: PortfolioAboutSectionMaxAggregateOutputType | null
-  }
-
-  type GetPortfolioAboutSectionGroupByPayload<T extends PortfolioAboutSectionGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<PortfolioAboutSectionGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof PortfolioAboutSectionGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], PortfolioAboutSectionGroupByOutputType[P]>
-            : GetScalarType<T[P], PortfolioAboutSectionGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type PortfolioAboutSectionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    portfolioId?: boolean
-    avatar?: boolean
-    overview?: boolean
-    detail?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    portfolio?: boolean | PortfolioAboutSection$portfolioArgs<ExtArgs>
-  }, ExtArgs["result"]["portfolioAboutSection"]>
-
-  export type PortfolioAboutSectionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    portfolioId?: boolean
-    avatar?: boolean
-    overview?: boolean
-    detail?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    portfolio?: boolean | PortfolioAboutSection$portfolioArgs<ExtArgs>
-  }, ExtArgs["result"]["portfolioAboutSection"]>
-
-  export type PortfolioAboutSectionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    portfolioId?: boolean
-    avatar?: boolean
-    overview?: boolean
-    detail?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    portfolio?: boolean | PortfolioAboutSection$portfolioArgs<ExtArgs>
-  }, ExtArgs["result"]["portfolioAboutSection"]>
-
-  export type PortfolioAboutSectionSelectScalar = {
-    id?: boolean
-    portfolioId?: boolean
-    avatar?: boolean
-    overview?: boolean
-    detail?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }
-
-  export type PortfolioAboutSectionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "portfolioId" | "avatar" | "overview" | "detail" | "createdAt" | "updatedAt", ExtArgs["result"]["portfolioAboutSection"]>
-  export type PortfolioAboutSectionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    portfolio?: boolean | PortfolioAboutSection$portfolioArgs<ExtArgs>
-  }
-  export type PortfolioAboutSectionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    portfolio?: boolean | PortfolioAboutSection$portfolioArgs<ExtArgs>
-  }
-  export type PortfolioAboutSectionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    portfolio?: boolean | PortfolioAboutSection$portfolioArgs<ExtArgs>
-  }
-
-  export type $PortfolioAboutSectionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "PortfolioAboutSection"
-    objects: {
-      portfolio: Prisma.$PortfolioPayload<ExtArgs> | null
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      portfolioId: number | null
-      avatar: string
-      overview: string
-      detail: string
-      createdAt: Date
-      updatedAt: Date
-    }, ExtArgs["result"]["portfolioAboutSection"]>
-    composites: {}
-  }
-
-  type PortfolioAboutSectionGetPayload<S extends boolean | null | undefined | PortfolioAboutSectionDefaultArgs> = $Result.GetResult<Prisma.$PortfolioAboutSectionPayload, S>
-
-  type PortfolioAboutSectionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<PortfolioAboutSectionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: PortfolioAboutSectionCountAggregateInputType | true
-    }
-
-  export interface PortfolioAboutSectionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PortfolioAboutSection'], meta: { name: 'PortfolioAboutSection' } }
-    /**
-     * Find zero or one PortfolioAboutSection that matches the filter.
-     * @param {PortfolioAboutSectionFindUniqueArgs} args - Arguments to find a PortfolioAboutSection
-     * @example
-     * // Get one PortfolioAboutSection
-     * const portfolioAboutSection = await prisma.portfolioAboutSection.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends PortfolioAboutSectionFindUniqueArgs>(args: SelectSubset<T, PortfolioAboutSectionFindUniqueArgs<ExtArgs>>): Prisma__PortfolioAboutSectionClient<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
-
-    /**
-     * Find one PortfolioAboutSection that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {PortfolioAboutSectionFindUniqueOrThrowArgs} args - Arguments to find a PortfolioAboutSection
-     * @example
-     * // Get one PortfolioAboutSection
-     * const portfolioAboutSection = await prisma.portfolioAboutSection.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends PortfolioAboutSectionFindUniqueOrThrowArgs>(args: SelectSubset<T, PortfolioAboutSectionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PortfolioAboutSectionClient<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
-
-    /**
-     * Find the first PortfolioAboutSection that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PortfolioAboutSectionFindFirstArgs} args - Arguments to find a PortfolioAboutSection
-     * @example
-     * // Get one PortfolioAboutSection
-     * const portfolioAboutSection = await prisma.portfolioAboutSection.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends PortfolioAboutSectionFindFirstArgs>(args?: SelectSubset<T, PortfolioAboutSectionFindFirstArgs<ExtArgs>>): Prisma__PortfolioAboutSectionClient<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
-
-    /**
-     * Find the first PortfolioAboutSection that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PortfolioAboutSectionFindFirstOrThrowArgs} args - Arguments to find a PortfolioAboutSection
-     * @example
-     * // Get one PortfolioAboutSection
-     * const portfolioAboutSection = await prisma.portfolioAboutSection.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends PortfolioAboutSectionFindFirstOrThrowArgs>(args?: SelectSubset<T, PortfolioAboutSectionFindFirstOrThrowArgs<ExtArgs>>): Prisma__PortfolioAboutSectionClient<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
-
-    /**
-     * Find zero or more PortfolioAboutSections that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PortfolioAboutSectionFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all PortfolioAboutSections
-     * const portfolioAboutSections = await prisma.portfolioAboutSection.findMany()
-     * 
-     * // Get first 10 PortfolioAboutSections
-     * const portfolioAboutSections = await prisma.portfolioAboutSection.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const portfolioAboutSectionWithIdOnly = await prisma.portfolioAboutSection.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends PortfolioAboutSectionFindManyArgs>(args?: SelectSubset<T, PortfolioAboutSectionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "findMany", ClientOptions>>
-
-    /**
-     * Create a PortfolioAboutSection.
-     * @param {PortfolioAboutSectionCreateArgs} args - Arguments to create a PortfolioAboutSection.
-     * @example
-     * // Create one PortfolioAboutSection
-     * const PortfolioAboutSection = await prisma.portfolioAboutSection.create({
-     *   data: {
-     *     // ... data to create a PortfolioAboutSection
-     *   }
-     * })
-     * 
-     */
-    create<T extends PortfolioAboutSectionCreateArgs>(args: SelectSubset<T, PortfolioAboutSectionCreateArgs<ExtArgs>>): Prisma__PortfolioAboutSectionClient<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
-
-    /**
-     * Create many PortfolioAboutSections.
-     * @param {PortfolioAboutSectionCreateManyArgs} args - Arguments to create many PortfolioAboutSections.
-     * @example
-     * // Create many PortfolioAboutSections
-     * const portfolioAboutSection = await prisma.portfolioAboutSection.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends PortfolioAboutSectionCreateManyArgs>(args?: SelectSubset<T, PortfolioAboutSectionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many PortfolioAboutSections and returns the data saved in the database.
-     * @param {PortfolioAboutSectionCreateManyAndReturnArgs} args - Arguments to create many PortfolioAboutSections.
-     * @example
-     * // Create many PortfolioAboutSections
-     * const portfolioAboutSection = await prisma.portfolioAboutSection.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many PortfolioAboutSections and only return the `id`
-     * const portfolioAboutSectionWithIdOnly = await prisma.portfolioAboutSection.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends PortfolioAboutSectionCreateManyAndReturnArgs>(args?: SelectSubset<T, PortfolioAboutSectionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "createManyAndReturn", ClientOptions>>
-
-    /**
-     * Delete a PortfolioAboutSection.
-     * @param {PortfolioAboutSectionDeleteArgs} args - Arguments to delete one PortfolioAboutSection.
-     * @example
-     * // Delete one PortfolioAboutSection
-     * const PortfolioAboutSection = await prisma.portfolioAboutSection.delete({
-     *   where: {
-     *     // ... filter to delete one PortfolioAboutSection
-     *   }
-     * })
-     * 
-     */
-    delete<T extends PortfolioAboutSectionDeleteArgs>(args: SelectSubset<T, PortfolioAboutSectionDeleteArgs<ExtArgs>>): Prisma__PortfolioAboutSectionClient<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
-
-    /**
-     * Update one PortfolioAboutSection.
-     * @param {PortfolioAboutSectionUpdateArgs} args - Arguments to update one PortfolioAboutSection.
-     * @example
-     * // Update one PortfolioAboutSection
-     * const portfolioAboutSection = await prisma.portfolioAboutSection.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends PortfolioAboutSectionUpdateArgs>(args: SelectSubset<T, PortfolioAboutSectionUpdateArgs<ExtArgs>>): Prisma__PortfolioAboutSectionClient<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
-
-    /**
-     * Delete zero or more PortfolioAboutSections.
-     * @param {PortfolioAboutSectionDeleteManyArgs} args - Arguments to filter PortfolioAboutSections to delete.
-     * @example
-     * // Delete a few PortfolioAboutSections
-     * const { count } = await prisma.portfolioAboutSection.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends PortfolioAboutSectionDeleteManyArgs>(args?: SelectSubset<T, PortfolioAboutSectionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more PortfolioAboutSections.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PortfolioAboutSectionUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many PortfolioAboutSections
-     * const portfolioAboutSection = await prisma.portfolioAboutSection.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends PortfolioAboutSectionUpdateManyArgs>(args: SelectSubset<T, PortfolioAboutSectionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more PortfolioAboutSections and returns the data updated in the database.
-     * @param {PortfolioAboutSectionUpdateManyAndReturnArgs} args - Arguments to update many PortfolioAboutSections.
-     * @example
-     * // Update many PortfolioAboutSections
-     * const portfolioAboutSection = await prisma.portfolioAboutSection.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more PortfolioAboutSections and only return the `id`
-     * const portfolioAboutSectionWithIdOnly = await prisma.portfolioAboutSection.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends PortfolioAboutSectionUpdateManyAndReturnArgs>(args: SelectSubset<T, PortfolioAboutSectionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "updateManyAndReturn", ClientOptions>>
-
-    /**
-     * Create or update one PortfolioAboutSection.
-     * @param {PortfolioAboutSectionUpsertArgs} args - Arguments to update or create a PortfolioAboutSection.
-     * @example
-     * // Update or create a PortfolioAboutSection
-     * const portfolioAboutSection = await prisma.portfolioAboutSection.upsert({
-     *   create: {
-     *     // ... data to create a PortfolioAboutSection
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the PortfolioAboutSection we want to update
-     *   }
-     * })
-     */
-    upsert<T extends PortfolioAboutSectionUpsertArgs>(args: SelectSubset<T, PortfolioAboutSectionUpsertArgs<ExtArgs>>): Prisma__PortfolioAboutSectionClient<$Result.GetResult<Prisma.$PortfolioAboutSectionPayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
-
-
-    /**
-     * Count the number of PortfolioAboutSections.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PortfolioAboutSectionCountArgs} args - Arguments to filter PortfolioAboutSections to count.
-     * @example
-     * // Count the number of PortfolioAboutSections
-     * const count = await prisma.portfolioAboutSection.count({
-     *   where: {
-     *     // ... the filter for the PortfolioAboutSections we want to count
-     *   }
-     * })
-    **/
-    count<T extends PortfolioAboutSectionCountArgs>(
-      args?: Subset<T, PortfolioAboutSectionCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], PortfolioAboutSectionCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a PortfolioAboutSection.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PortfolioAboutSectionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends PortfolioAboutSectionAggregateArgs>(args: Subset<T, PortfolioAboutSectionAggregateArgs>): Prisma.PrismaPromise<GetPortfolioAboutSectionAggregateType<T>>
-
-    /**
-     * Group by PortfolioAboutSection.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PortfolioAboutSectionGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends PortfolioAboutSectionGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: PortfolioAboutSectionGroupByArgs['orderBy'] }
-        : { orderBy?: PortfolioAboutSectionGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, PortfolioAboutSectionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPortfolioAboutSectionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the PortfolioAboutSection model
-   */
-  readonly fields: PortfolioAboutSectionFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for PortfolioAboutSection.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__PortfolioAboutSectionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    portfolio<T extends PortfolioAboutSection$portfolioArgs<ExtArgs> = {}>(args?: Subset<T, PortfolioAboutSection$portfolioArgs<ExtArgs>>): Prisma__PortfolioClient<$Result.GetResult<Prisma.$PortfolioPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the PortfolioAboutSection model
-   */ 
-  interface PortfolioAboutSectionFieldRefs {
-    readonly id: FieldRef<"PortfolioAboutSection", 'Int'>
-    readonly portfolioId: FieldRef<"PortfolioAboutSection", 'Int'>
-    readonly avatar: FieldRef<"PortfolioAboutSection", 'String'>
-    readonly overview: FieldRef<"PortfolioAboutSection", 'String'>
-    readonly detail: FieldRef<"PortfolioAboutSection", 'String'>
-    readonly createdAt: FieldRef<"PortfolioAboutSection", 'DateTime'>
-    readonly updatedAt: FieldRef<"PortfolioAboutSection", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * PortfolioAboutSection findUnique
-   */
-  export type PortfolioAboutSectionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PortfolioAboutSection
-     */
-    select?: PortfolioAboutSectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the PortfolioAboutSection
-     */
-    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PortfolioAboutSectionInclude<ExtArgs> | null
-    /**
-     * Filter, which PortfolioAboutSection to fetch.
-     */
-    where: PortfolioAboutSectionWhereUniqueInput
-  }
-
-  /**
-   * PortfolioAboutSection findUniqueOrThrow
-   */
-  export type PortfolioAboutSectionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PortfolioAboutSection
-     */
-    select?: PortfolioAboutSectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the PortfolioAboutSection
-     */
-    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PortfolioAboutSectionInclude<ExtArgs> | null
-    /**
-     * Filter, which PortfolioAboutSection to fetch.
-     */
-    where: PortfolioAboutSectionWhereUniqueInput
-  }
-
-  /**
-   * PortfolioAboutSection findFirst
-   */
-  export type PortfolioAboutSectionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PortfolioAboutSection
-     */
-    select?: PortfolioAboutSectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the PortfolioAboutSection
-     */
-    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PortfolioAboutSectionInclude<ExtArgs> | null
-    /**
-     * Filter, which PortfolioAboutSection to fetch.
-     */
-    where?: PortfolioAboutSectionWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of PortfolioAboutSections to fetch.
-     */
-    orderBy?: PortfolioAboutSectionOrderByWithRelationInput | PortfolioAboutSectionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for PortfolioAboutSections.
-     */
-    cursor?: PortfolioAboutSectionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` PortfolioAboutSections from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` PortfolioAboutSections.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of PortfolioAboutSections.
-     */
-    distinct?: PortfolioAboutSectionScalarFieldEnum | PortfolioAboutSectionScalarFieldEnum[]
-  }
-
-  /**
-   * PortfolioAboutSection findFirstOrThrow
-   */
-  export type PortfolioAboutSectionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PortfolioAboutSection
-     */
-    select?: PortfolioAboutSectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the PortfolioAboutSection
-     */
-    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PortfolioAboutSectionInclude<ExtArgs> | null
-    /**
-     * Filter, which PortfolioAboutSection to fetch.
-     */
-    where?: PortfolioAboutSectionWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of PortfolioAboutSections to fetch.
-     */
-    orderBy?: PortfolioAboutSectionOrderByWithRelationInput | PortfolioAboutSectionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for PortfolioAboutSections.
-     */
-    cursor?: PortfolioAboutSectionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` PortfolioAboutSections from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` PortfolioAboutSections.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of PortfolioAboutSections.
-     */
-    distinct?: PortfolioAboutSectionScalarFieldEnum | PortfolioAboutSectionScalarFieldEnum[]
-  }
-
-  /**
-   * PortfolioAboutSection findMany
-   */
-  export type PortfolioAboutSectionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PortfolioAboutSection
-     */
-    select?: PortfolioAboutSectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the PortfolioAboutSection
-     */
-    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PortfolioAboutSectionInclude<ExtArgs> | null
-    /**
-     * Filter, which PortfolioAboutSections to fetch.
-     */
-    where?: PortfolioAboutSectionWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of PortfolioAboutSections to fetch.
-     */
-    orderBy?: PortfolioAboutSectionOrderByWithRelationInput | PortfolioAboutSectionOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing PortfolioAboutSections.
-     */
-    cursor?: PortfolioAboutSectionWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` PortfolioAboutSections from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` PortfolioAboutSections.
-     */
-    skip?: number
-    distinct?: PortfolioAboutSectionScalarFieldEnum | PortfolioAboutSectionScalarFieldEnum[]
-  }
-
-  /**
-   * PortfolioAboutSection create
-   */
-  export type PortfolioAboutSectionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PortfolioAboutSection
-     */
-    select?: PortfolioAboutSectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the PortfolioAboutSection
-     */
-    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PortfolioAboutSectionInclude<ExtArgs> | null
-    /**
-     * The data needed to create a PortfolioAboutSection.
-     */
-    data: XOR<PortfolioAboutSectionCreateInput, PortfolioAboutSectionUncheckedCreateInput>
-  }
-
-  /**
-   * PortfolioAboutSection createMany
-   */
-  export type PortfolioAboutSectionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many PortfolioAboutSections.
-     */
-    data: PortfolioAboutSectionCreateManyInput | PortfolioAboutSectionCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * PortfolioAboutSection createManyAndReturn
-   */
-  export type PortfolioAboutSectionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PortfolioAboutSection
-     */
-    select?: PortfolioAboutSectionSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the PortfolioAboutSection
-     */
-    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
-    /**
-     * The data used to create many PortfolioAboutSections.
-     */
-    data: PortfolioAboutSectionCreateManyInput | PortfolioAboutSectionCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PortfolioAboutSectionIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * PortfolioAboutSection update
-   */
-  export type PortfolioAboutSectionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PortfolioAboutSection
-     */
-    select?: PortfolioAboutSectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the PortfolioAboutSection
-     */
-    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PortfolioAboutSectionInclude<ExtArgs> | null
-    /**
-     * The data needed to update a PortfolioAboutSection.
-     */
-    data: XOR<PortfolioAboutSectionUpdateInput, PortfolioAboutSectionUncheckedUpdateInput>
-    /**
-     * Choose, which PortfolioAboutSection to update.
-     */
-    where: PortfolioAboutSectionWhereUniqueInput
-  }
-
-  /**
-   * PortfolioAboutSection updateMany
-   */
-  export type PortfolioAboutSectionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update PortfolioAboutSections.
-     */
-    data: XOR<PortfolioAboutSectionUpdateManyMutationInput, PortfolioAboutSectionUncheckedUpdateManyInput>
-    /**
-     * Filter which PortfolioAboutSections to update
-     */
-    where?: PortfolioAboutSectionWhereInput
-    /**
-     * Limit how many PortfolioAboutSections to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * PortfolioAboutSection updateManyAndReturn
-   */
-  export type PortfolioAboutSectionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PortfolioAboutSection
-     */
-    select?: PortfolioAboutSectionSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the PortfolioAboutSection
-     */
-    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
-    /**
-     * The data used to update PortfolioAboutSections.
-     */
-    data: XOR<PortfolioAboutSectionUpdateManyMutationInput, PortfolioAboutSectionUncheckedUpdateManyInput>
-    /**
-     * Filter which PortfolioAboutSections to update
-     */
-    where?: PortfolioAboutSectionWhereInput
-    /**
-     * Limit how many PortfolioAboutSections to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PortfolioAboutSectionIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * PortfolioAboutSection upsert
-   */
-  export type PortfolioAboutSectionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PortfolioAboutSection
-     */
-    select?: PortfolioAboutSectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the PortfolioAboutSection
-     */
-    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PortfolioAboutSectionInclude<ExtArgs> | null
-    /**
-     * The filter to search for the PortfolioAboutSection to update in case it exists.
-     */
-    where: PortfolioAboutSectionWhereUniqueInput
-    /**
-     * In case the PortfolioAboutSection found by the `where` argument doesn't exist, create a new PortfolioAboutSection with this data.
-     */
-    create: XOR<PortfolioAboutSectionCreateInput, PortfolioAboutSectionUncheckedCreateInput>
-    /**
-     * In case the PortfolioAboutSection was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<PortfolioAboutSectionUpdateInput, PortfolioAboutSectionUncheckedUpdateInput>
-  }
-
-  /**
-   * PortfolioAboutSection delete
-   */
-  export type PortfolioAboutSectionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PortfolioAboutSection
-     */
-    select?: PortfolioAboutSectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the PortfolioAboutSection
-     */
-    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PortfolioAboutSectionInclude<ExtArgs> | null
-    /**
-     * Filter which PortfolioAboutSection to delete.
-     */
-    where: PortfolioAboutSectionWhereUniqueInput
-  }
-
-  /**
-   * PortfolioAboutSection deleteMany
-   */
-  export type PortfolioAboutSectionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which PortfolioAboutSections to delete
-     */
-    where?: PortfolioAboutSectionWhereInput
-    /**
-     * Limit how many PortfolioAboutSections to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * PortfolioAboutSection.portfolio
-   */
-  export type PortfolioAboutSection$portfolioArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Portfolio
-     */
-    select?: PortfolioSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Portfolio
-     */
-    omit?: PortfolioOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PortfolioInclude<ExtArgs> | null
-    where?: PortfolioWhereInput
-  }
-
-  /**
-   * PortfolioAboutSection without action
-   */
-  export type PortfolioAboutSectionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PortfolioAboutSection
-     */
-    select?: PortfolioAboutSectionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the PortfolioAboutSection
-     */
-    omit?: PortfolioAboutSectionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PortfolioAboutSectionInclude<ExtArgs> | null
-  }
-
-
-  /**
    * Model PortfolioWorkExperience
    */
 
@@ -13866,7 +12771,7 @@ export namespace Prisma {
     portfolioId: number
     role: string
     company: string
-    image: string
+    image: string | null
     from: Date
     to: Date | null
     createdAt: Date
@@ -13964,7 +12869,7 @@ export namespace Prisma {
       portfolioId: number
       role: string
       company: string
-      image: string
+      image: string | null
       from: Date
       to: Date | null
       createdAt: Date
@@ -17062,6 +15967,10 @@ export namespace Prisma {
     name: 'name',
     skillDescription: 'skillDescription',
     userId: 'userId',
+    overview: 'overview',
+    detail: 'detail',
+    avatar: 'avatar',
+    avatarPublicId: 'avatarPublicId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -17072,6 +15981,7 @@ export namespace Prisma {
   export const PortfolioProminentProjectScalarFieldEnum: {
     id: 'id',
     portfolioId: 'portfolioId',
+    name: 'name',
     description: 'description',
     role: 'role',
     company: 'company',
@@ -17089,6 +15999,7 @@ export namespace Prisma {
     id: 'id',
     portfolioProminentProjectId: 'portfolioProminentProjectId',
     image: 'image',
+    imagePublicId: 'imagePublicId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -17099,24 +16010,17 @@ export namespace Prisma {
   export const PortfolioCustomerFeedbackScalarFieldEnum: {
     id: 'id',
     portfolioId: 'portfolioId',
+    star: 'star',
+    comment: 'comment',
+    customerName: 'customerName',
+    companyName: 'companyName',
+    customerPosition: 'customerPosition',
+    image: 'image',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
   export type PortfolioCustomerFeedbackScalarFieldEnum = (typeof PortfolioCustomerFeedbackScalarFieldEnum)[keyof typeof PortfolioCustomerFeedbackScalarFieldEnum]
-
-
-  export const PortfolioAboutSectionScalarFieldEnum: {
-    id: 'id',
-    portfolioId: 'portfolioId',
-    avatar: 'avatar',
-    overview: 'overview',
-    detail: 'detail',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
-  };
-
-  export type PortfolioAboutSectionScalarFieldEnum = (typeof PortfolioAboutSectionScalarFieldEnum)[keyof typeof PortfolioAboutSectionScalarFieldEnum]
 
 
   export const PortfolioWorkExperienceScalarFieldEnum: {
@@ -17668,12 +16572,15 @@ export namespace Prisma {
     name?: StringNullableFilter<"Portfolio"> | string | null
     skillDescription?: StringNullableFilter<"Portfolio"> | string | null
     userId?: IntFilter<"Portfolio"> | number
+    overview?: StringNullableFilter<"Portfolio"> | string | null
+    detail?: StringNullableFilter<"Portfolio"> | string | null
+    avatar?: StringNullableFilter<"Portfolio"> | string | null
+    avatarPublicId?: StringNullableFilter<"Portfolio"> | string | null
     createdAt?: DateTimeFilter<"Portfolio"> | Date | string
     updatedAt?: DateTimeFilter<"Portfolio"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     portfolioProminentProjects?: PortfolioProminentProjectListRelationFilter
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackListRelationFilter
-    portfolioAboutSection?: XOR<PortfolioAboutSectionNullableScalarRelationFilter, PortfolioAboutSectionWhereInput> | null
     portfolioWorkExperiences?: PortfolioWorkExperienceListRelationFilter
     portfolioSkills?: PortfolioSkillListRelationFilter
   }
@@ -17683,12 +16590,15 @@ export namespace Prisma {
     name?: SortOrderInput | SortOrder
     skillDescription?: SortOrderInput | SortOrder
     userId?: SortOrder
+    overview?: SortOrderInput | SortOrder
+    detail?: SortOrderInput | SortOrder
+    avatar?: SortOrderInput | SortOrder
+    avatarPublicId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
     portfolioProminentProjects?: PortfolioProminentProjectOrderByRelationAggregateInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackOrderByRelationAggregateInput
-    portfolioAboutSection?: PortfolioAboutSectionOrderByWithRelationInput
     portfolioWorkExperiences?: PortfolioWorkExperienceOrderByRelationAggregateInput
     portfolioSkills?: PortfolioSkillOrderByRelationAggregateInput
   }
@@ -17701,12 +16611,15 @@ export namespace Prisma {
     name?: StringNullableFilter<"Portfolio"> | string | null
     skillDescription?: StringNullableFilter<"Portfolio"> | string | null
     userId?: IntFilter<"Portfolio"> | number
+    overview?: StringNullableFilter<"Portfolio"> | string | null
+    detail?: StringNullableFilter<"Portfolio"> | string | null
+    avatar?: StringNullableFilter<"Portfolio"> | string | null
+    avatarPublicId?: StringNullableFilter<"Portfolio"> | string | null
     createdAt?: DateTimeFilter<"Portfolio"> | Date | string
     updatedAt?: DateTimeFilter<"Portfolio"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     portfolioProminentProjects?: PortfolioProminentProjectListRelationFilter
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackListRelationFilter
-    portfolioAboutSection?: XOR<PortfolioAboutSectionNullableScalarRelationFilter, PortfolioAboutSectionWhereInput> | null
     portfolioWorkExperiences?: PortfolioWorkExperienceListRelationFilter
     portfolioSkills?: PortfolioSkillListRelationFilter
   }, "id">
@@ -17716,6 +16629,10 @@ export namespace Prisma {
     name?: SortOrderInput | SortOrder
     skillDescription?: SortOrderInput | SortOrder
     userId?: SortOrder
+    overview?: SortOrderInput | SortOrder
+    detail?: SortOrderInput | SortOrder
+    avatar?: SortOrderInput | SortOrder
+    avatarPublicId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: PortfolioCountOrderByAggregateInput
@@ -17733,6 +16650,10 @@ export namespace Prisma {
     name?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
     skillDescription?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
     userId?: IntWithAggregatesFilter<"Portfolio"> | number
+    overview?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
+    detail?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
+    avatar?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
+    avatarPublicId?: StringNullableWithAggregatesFilter<"Portfolio"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Portfolio"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Portfolio"> | Date | string
   }
@@ -17743,6 +16664,7 @@ export namespace Prisma {
     NOT?: PortfolioProminentProjectWhereInput | PortfolioProminentProjectWhereInput[]
     id?: IntFilter<"PortfolioProminentProject"> | number
     portfolioId?: IntFilter<"PortfolioProminentProject"> | number
+    name?: StringFilter<"PortfolioProminentProject"> | string
     description?: StringFilter<"PortfolioProminentProject"> | string
     role?: StringFilter<"PortfolioProminentProject"> | string
     company?: StringFilter<"PortfolioProminentProject"> | string
@@ -17752,12 +16674,13 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"PortfolioProminentProject"> | Date | string
     updatedAt?: DateTimeFilter<"PortfolioProminentProject"> | Date | string
     portfolio?: XOR<PortfolioScalarRelationFilter, PortfolioWhereInput>
-    portfolioProminentProjectImages?: PortfolioProminentProjectImageListRelationFilter
+    images?: PortfolioProminentProjectImageListRelationFilter
   }
 
   export type PortfolioProminentProjectOrderByWithRelationInput = {
     id?: SortOrder
     portfolioId?: SortOrder
+    name?: SortOrder
     description?: SortOrder
     role?: SortOrder
     company?: SortOrder
@@ -17767,7 +16690,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     portfolio?: PortfolioOrderByWithRelationInput
-    portfolioProminentProjectImages?: PortfolioProminentProjectImageOrderByRelationAggregateInput
+    images?: PortfolioProminentProjectImageOrderByRelationAggregateInput
   }
 
   export type PortfolioProminentProjectWhereUniqueInput = Prisma.AtLeast<{
@@ -17776,6 +16699,7 @@ export namespace Prisma {
     OR?: PortfolioProminentProjectWhereInput[]
     NOT?: PortfolioProminentProjectWhereInput | PortfolioProminentProjectWhereInput[]
     portfolioId?: IntFilter<"PortfolioProminentProject"> | number
+    name?: StringFilter<"PortfolioProminentProject"> | string
     description?: StringFilter<"PortfolioProminentProject"> | string
     role?: StringFilter<"PortfolioProminentProject"> | string
     company?: StringFilter<"PortfolioProminentProject"> | string
@@ -17785,12 +16709,13 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"PortfolioProminentProject"> | Date | string
     updatedAt?: DateTimeFilter<"PortfolioProminentProject"> | Date | string
     portfolio?: XOR<PortfolioScalarRelationFilter, PortfolioWhereInput>
-    portfolioProminentProjectImages?: PortfolioProminentProjectImageListRelationFilter
+    images?: PortfolioProminentProjectImageListRelationFilter
   }, "id">
 
   export type PortfolioProminentProjectOrderByWithAggregationInput = {
     id?: SortOrder
     portfolioId?: SortOrder
+    name?: SortOrder
     description?: SortOrder
     role?: SortOrder
     company?: SortOrder
@@ -17812,6 +16737,7 @@ export namespace Prisma {
     NOT?: PortfolioProminentProjectScalarWhereWithAggregatesInput | PortfolioProminentProjectScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"PortfolioProminentProject"> | number
     portfolioId?: IntWithAggregatesFilter<"PortfolioProminentProject"> | number
+    name?: StringWithAggregatesFilter<"PortfolioProminentProject"> | string
     description?: StringWithAggregatesFilter<"PortfolioProminentProject"> | string
     role?: StringWithAggregatesFilter<"PortfolioProminentProject"> | string
     company?: StringWithAggregatesFilter<"PortfolioProminentProject"> | string
@@ -17829,6 +16755,7 @@ export namespace Prisma {
     id?: IntFilter<"PortfolioProminentProjectImage"> | number
     portfolioProminentProjectId?: IntFilter<"PortfolioProminentProjectImage"> | number
     image?: StringFilter<"PortfolioProminentProjectImage"> | string
+    imagePublicId?: StringFilter<"PortfolioProminentProjectImage"> | string
     createdAt?: DateTimeFilter<"PortfolioProminentProjectImage"> | Date | string
     updatedAt?: DateTimeFilter<"PortfolioProminentProjectImage"> | Date | string
     portfolioProminentProject?: XOR<PortfolioProminentProjectScalarRelationFilter, PortfolioProminentProjectWhereInput>
@@ -17838,6 +16765,7 @@ export namespace Prisma {
     id?: SortOrder
     portfolioProminentProjectId?: SortOrder
     image?: SortOrder
+    imagePublicId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     portfolioProminentProject?: PortfolioProminentProjectOrderByWithRelationInput
@@ -17850,6 +16778,7 @@ export namespace Prisma {
     NOT?: PortfolioProminentProjectImageWhereInput | PortfolioProminentProjectImageWhereInput[]
     portfolioProminentProjectId?: IntFilter<"PortfolioProminentProjectImage"> | number
     image?: StringFilter<"PortfolioProminentProjectImage"> | string
+    imagePublicId?: StringFilter<"PortfolioProminentProjectImage"> | string
     createdAt?: DateTimeFilter<"PortfolioProminentProjectImage"> | Date | string
     updatedAt?: DateTimeFilter<"PortfolioProminentProjectImage"> | Date | string
     portfolioProminentProject?: XOR<PortfolioProminentProjectScalarRelationFilter, PortfolioProminentProjectWhereInput>
@@ -17859,6 +16788,7 @@ export namespace Prisma {
     id?: SortOrder
     portfolioProminentProjectId?: SortOrder
     image?: SortOrder
+    imagePublicId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: PortfolioProminentProjectImageCountOrderByAggregateInput
@@ -17875,6 +16805,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"PortfolioProminentProjectImage"> | number
     portfolioProminentProjectId?: IntWithAggregatesFilter<"PortfolioProminentProjectImage"> | number
     image?: StringWithAggregatesFilter<"PortfolioProminentProjectImage"> | string
+    imagePublicId?: StringWithAggregatesFilter<"PortfolioProminentProjectImage"> | string
     createdAt?: DateTimeWithAggregatesFilter<"PortfolioProminentProjectImage"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"PortfolioProminentProjectImage"> | Date | string
   }
@@ -17885,6 +16816,12 @@ export namespace Prisma {
     NOT?: PortfolioCustomerFeedbackWhereInput | PortfolioCustomerFeedbackWhereInput[]
     id?: IntFilter<"PortfolioCustomerFeedback"> | number
     portfolioId?: IntFilter<"PortfolioCustomerFeedback"> | number
+    star?: IntFilter<"PortfolioCustomerFeedback"> | number
+    comment?: StringFilter<"PortfolioCustomerFeedback"> | string
+    customerName?: StringNullableFilter<"PortfolioCustomerFeedback"> | string | null
+    companyName?: StringNullableFilter<"PortfolioCustomerFeedback"> | string | null
+    customerPosition?: StringNullableFilter<"PortfolioCustomerFeedback"> | string | null
+    image?: StringNullableFilter<"PortfolioCustomerFeedback"> | string | null
     createdAt?: DateTimeFilter<"PortfolioCustomerFeedback"> | Date | string
     updatedAt?: DateTimeFilter<"PortfolioCustomerFeedback"> | Date | string
     portfolio?: XOR<PortfolioScalarRelationFilter, PortfolioWhereInput>
@@ -17893,6 +16830,12 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackOrderByWithRelationInput = {
     id?: SortOrder
     portfolioId?: SortOrder
+    star?: SortOrder
+    comment?: SortOrder
+    customerName?: SortOrderInput | SortOrder
+    companyName?: SortOrderInput | SortOrder
+    customerPosition?: SortOrderInput | SortOrder
+    image?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     portfolio?: PortfolioOrderByWithRelationInput
@@ -17904,6 +16847,12 @@ export namespace Prisma {
     OR?: PortfolioCustomerFeedbackWhereInput[]
     NOT?: PortfolioCustomerFeedbackWhereInput | PortfolioCustomerFeedbackWhereInput[]
     portfolioId?: IntFilter<"PortfolioCustomerFeedback"> | number
+    star?: IntFilter<"PortfolioCustomerFeedback"> | number
+    comment?: StringFilter<"PortfolioCustomerFeedback"> | string
+    customerName?: StringNullableFilter<"PortfolioCustomerFeedback"> | string | null
+    companyName?: StringNullableFilter<"PortfolioCustomerFeedback"> | string | null
+    customerPosition?: StringNullableFilter<"PortfolioCustomerFeedback"> | string | null
+    image?: StringNullableFilter<"PortfolioCustomerFeedback"> | string | null
     createdAt?: DateTimeFilter<"PortfolioCustomerFeedback"> | Date | string
     updatedAt?: DateTimeFilter<"PortfolioCustomerFeedback"> | Date | string
     portfolio?: XOR<PortfolioScalarRelationFilter, PortfolioWhereInput>
@@ -17912,6 +16861,12 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackOrderByWithAggregationInput = {
     id?: SortOrder
     portfolioId?: SortOrder
+    star?: SortOrder
+    comment?: SortOrder
+    customerName?: SortOrderInput | SortOrder
+    companyName?: SortOrderInput | SortOrder
+    customerPosition?: SortOrderInput | SortOrder
+    image?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: PortfolioCustomerFeedbackCountOrderByAggregateInput
@@ -17927,75 +16882,14 @@ export namespace Prisma {
     NOT?: PortfolioCustomerFeedbackScalarWhereWithAggregatesInput | PortfolioCustomerFeedbackScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"PortfolioCustomerFeedback"> | number
     portfolioId?: IntWithAggregatesFilter<"PortfolioCustomerFeedback"> | number
+    star?: IntWithAggregatesFilter<"PortfolioCustomerFeedback"> | number
+    comment?: StringWithAggregatesFilter<"PortfolioCustomerFeedback"> | string
+    customerName?: StringNullableWithAggregatesFilter<"PortfolioCustomerFeedback"> | string | null
+    companyName?: StringNullableWithAggregatesFilter<"PortfolioCustomerFeedback"> | string | null
+    customerPosition?: StringNullableWithAggregatesFilter<"PortfolioCustomerFeedback"> | string | null
+    image?: StringNullableWithAggregatesFilter<"PortfolioCustomerFeedback"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"PortfolioCustomerFeedback"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"PortfolioCustomerFeedback"> | Date | string
-  }
-
-  export type PortfolioAboutSectionWhereInput = {
-    AND?: PortfolioAboutSectionWhereInput | PortfolioAboutSectionWhereInput[]
-    OR?: PortfolioAboutSectionWhereInput[]
-    NOT?: PortfolioAboutSectionWhereInput | PortfolioAboutSectionWhereInput[]
-    id?: IntFilter<"PortfolioAboutSection"> | number
-    portfolioId?: IntNullableFilter<"PortfolioAboutSection"> | number | null
-    avatar?: StringFilter<"PortfolioAboutSection"> | string
-    overview?: StringFilter<"PortfolioAboutSection"> | string
-    detail?: StringFilter<"PortfolioAboutSection"> | string
-    createdAt?: DateTimeFilter<"PortfolioAboutSection"> | Date | string
-    updatedAt?: DateTimeFilter<"PortfolioAboutSection"> | Date | string
-    portfolio?: XOR<PortfolioNullableScalarRelationFilter, PortfolioWhereInput> | null
-  }
-
-  export type PortfolioAboutSectionOrderByWithRelationInput = {
-    id?: SortOrder
-    portfolioId?: SortOrderInput | SortOrder
-    avatar?: SortOrder
-    overview?: SortOrder
-    detail?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    portfolio?: PortfolioOrderByWithRelationInput
-  }
-
-  export type PortfolioAboutSectionWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    portfolioId?: number
-    AND?: PortfolioAboutSectionWhereInput | PortfolioAboutSectionWhereInput[]
-    OR?: PortfolioAboutSectionWhereInput[]
-    NOT?: PortfolioAboutSectionWhereInput | PortfolioAboutSectionWhereInput[]
-    avatar?: StringFilter<"PortfolioAboutSection"> | string
-    overview?: StringFilter<"PortfolioAboutSection"> | string
-    detail?: StringFilter<"PortfolioAboutSection"> | string
-    createdAt?: DateTimeFilter<"PortfolioAboutSection"> | Date | string
-    updatedAt?: DateTimeFilter<"PortfolioAboutSection"> | Date | string
-    portfolio?: XOR<PortfolioNullableScalarRelationFilter, PortfolioWhereInput> | null
-  }, "id" | "portfolioId">
-
-  export type PortfolioAboutSectionOrderByWithAggregationInput = {
-    id?: SortOrder
-    portfolioId?: SortOrderInput | SortOrder
-    avatar?: SortOrder
-    overview?: SortOrder
-    detail?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    _count?: PortfolioAboutSectionCountOrderByAggregateInput
-    _avg?: PortfolioAboutSectionAvgOrderByAggregateInput
-    _max?: PortfolioAboutSectionMaxOrderByAggregateInput
-    _min?: PortfolioAboutSectionMinOrderByAggregateInput
-    _sum?: PortfolioAboutSectionSumOrderByAggregateInput
-  }
-
-  export type PortfolioAboutSectionScalarWhereWithAggregatesInput = {
-    AND?: PortfolioAboutSectionScalarWhereWithAggregatesInput | PortfolioAboutSectionScalarWhereWithAggregatesInput[]
-    OR?: PortfolioAboutSectionScalarWhereWithAggregatesInput[]
-    NOT?: PortfolioAboutSectionScalarWhereWithAggregatesInput | PortfolioAboutSectionScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"PortfolioAboutSection"> | number
-    portfolioId?: IntNullableWithAggregatesFilter<"PortfolioAboutSection"> | number | null
-    avatar?: StringWithAggregatesFilter<"PortfolioAboutSection"> | string
-    overview?: StringWithAggregatesFilter<"PortfolioAboutSection"> | string
-    detail?: StringWithAggregatesFilter<"PortfolioAboutSection"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"PortfolioAboutSection"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"PortfolioAboutSection"> | Date | string
   }
 
   export type PortfolioWorkExperienceWhereInput = {
@@ -18006,7 +16900,7 @@ export namespace Prisma {
     portfolioId?: IntFilter<"PortfolioWorkExperience"> | number
     role?: StringFilter<"PortfolioWorkExperience"> | string
     company?: StringFilter<"PortfolioWorkExperience"> | string
-    image?: StringFilter<"PortfolioWorkExperience"> | string
+    image?: StringNullableFilter<"PortfolioWorkExperience"> | string | null
     from?: DateTimeFilter<"PortfolioWorkExperience"> | Date | string
     to?: DateTimeNullableFilter<"PortfolioWorkExperience"> | Date | string | null
     createdAt?: DateTimeFilter<"PortfolioWorkExperience"> | Date | string
@@ -18019,7 +16913,7 @@ export namespace Prisma {
     portfolioId?: SortOrder
     role?: SortOrder
     company?: SortOrder
-    image?: SortOrder
+    image?: SortOrderInput | SortOrder
     from?: SortOrder
     to?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -18035,7 +16929,7 @@ export namespace Prisma {
     portfolioId?: IntFilter<"PortfolioWorkExperience"> | number
     role?: StringFilter<"PortfolioWorkExperience"> | string
     company?: StringFilter<"PortfolioWorkExperience"> | string
-    image?: StringFilter<"PortfolioWorkExperience"> | string
+    image?: StringNullableFilter<"PortfolioWorkExperience"> | string | null
     from?: DateTimeFilter<"PortfolioWorkExperience"> | Date | string
     to?: DateTimeNullableFilter<"PortfolioWorkExperience"> | Date | string | null
     createdAt?: DateTimeFilter<"PortfolioWorkExperience"> | Date | string
@@ -18048,7 +16942,7 @@ export namespace Prisma {
     portfolioId?: SortOrder
     role?: SortOrder
     company?: SortOrder
-    image?: SortOrder
+    image?: SortOrderInput | SortOrder
     from?: SortOrder
     to?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -18068,7 +16962,7 @@ export namespace Prisma {
     portfolioId?: IntWithAggregatesFilter<"PortfolioWorkExperience"> | number
     role?: StringWithAggregatesFilter<"PortfolioWorkExperience"> | string
     company?: StringWithAggregatesFilter<"PortfolioWorkExperience"> | string
-    image?: StringWithAggregatesFilter<"PortfolioWorkExperience"> | string
+    image?: StringNullableWithAggregatesFilter<"PortfolioWorkExperience"> | string | null
     from?: DateTimeWithAggregatesFilter<"PortfolioWorkExperience"> | Date | string
     to?: DateTimeNullableWithAggregatesFilter<"PortfolioWorkExperience"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"PortfolioWorkExperience"> | Date | string
@@ -18626,12 +17520,15 @@ export namespace Prisma {
   export type PortfolioCreateInput = {
     name?: string | null
     skillDescription?: string | null
+    overview?: string | null
+    detail?: string | null
+    avatar?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutPortfoliosInput
     portfolioProminentProjects?: PortfolioProminentProjectCreateNestedManyWithoutPortfolioInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackCreateNestedManyWithoutPortfolioInput
-    portfolioAboutSection?: PortfolioAboutSectionCreateNestedOneWithoutPortfolioInput
     portfolioWorkExperiences?: PortfolioWorkExperienceCreateNestedManyWithoutPortfolioInput
     portfolioSkills?: PortfolioSkillCreateNestedManyWithoutPortfolioInput
   }
@@ -18641,11 +17538,14 @@ export namespace Prisma {
     name?: string | null
     skillDescription?: string | null
     userId: number
+    overview?: string | null
+    detail?: string | null
+    avatar?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedCreateNestedManyWithoutPortfolioInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedCreateNestedManyWithoutPortfolioInput
-    portfolioAboutSection?: PortfolioAboutSectionUncheckedCreateNestedOneWithoutPortfolioInput
     portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedCreateNestedManyWithoutPortfolioInput
     portfolioSkills?: PortfolioSkillUncheckedCreateNestedManyWithoutPortfolioInput
   }
@@ -18653,12 +17553,15 @@ export namespace Prisma {
   export type PortfolioUpdateInput = {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    overview?: NullableStringFieldUpdateOperationsInput | string | null
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutPortfoliosNestedInput
     portfolioProminentProjects?: PortfolioProminentProjectUpdateManyWithoutPortfolioNestedInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUpdateManyWithoutPortfolioNestedInput
-    portfolioAboutSection?: PortfolioAboutSectionUpdateOneWithoutPortfolioNestedInput
     portfolioWorkExperiences?: PortfolioWorkExperienceUpdateManyWithoutPortfolioNestedInput
     portfolioSkills?: PortfolioSkillUpdateManyWithoutPortfolioNestedInput
   }
@@ -18668,11 +17571,14 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: IntFieldUpdateOperationsInput | number
+    overview?: NullableStringFieldUpdateOperationsInput | string | null
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioNestedInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedUpdateManyWithoutPortfolioNestedInput
-    portfolioAboutSection?: PortfolioAboutSectionUncheckedUpdateOneWithoutPortfolioNestedInput
     portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedUpdateManyWithoutPortfolioNestedInput
     portfolioSkills?: PortfolioSkillUncheckedUpdateManyWithoutPortfolioNestedInput
   }
@@ -18682,6 +17588,10 @@ export namespace Prisma {
     name?: string | null
     skillDescription?: string | null
     userId: number
+    overview?: string | null
+    detail?: string | null
+    avatar?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -18689,6 +17599,10 @@ export namespace Prisma {
   export type PortfolioUpdateManyMutationInput = {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    overview?: NullableStringFieldUpdateOperationsInput | string | null
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18698,11 +17612,16 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: IntFieldUpdateOperationsInput | number
+    overview?: NullableStringFieldUpdateOperationsInput | string | null
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PortfolioProminentProjectCreateInput = {
+    name: string
     description: string
     role: string
     company: string
@@ -18712,12 +17631,13 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     portfolio: PortfolioCreateNestedOneWithoutPortfolioProminentProjectsInput
-    portfolioProminentProjectImages?: PortfolioProminentProjectImageCreateNestedManyWithoutPortfolioProminentProjectInput
+    images?: PortfolioProminentProjectImageCreateNestedManyWithoutPortfolioProminentProjectInput
   }
 
   export type PortfolioProminentProjectUncheckedCreateInput = {
     id?: number
     portfolioId: number
+    name: string
     description: string
     role: string
     company: string
@@ -18726,10 +17646,11 @@ export namespace Prisma {
     to?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    portfolioProminentProjectImages?: PortfolioProminentProjectImageUncheckedCreateNestedManyWithoutPortfolioProminentProjectInput
+    images?: PortfolioProminentProjectImageUncheckedCreateNestedManyWithoutPortfolioProminentProjectInput
   }
 
   export type PortfolioProminentProjectUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     company?: StringFieldUpdateOperationsInput | string
@@ -18739,12 +17660,13 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     portfolio?: PortfolioUpdateOneRequiredWithoutPortfolioProminentProjectsNestedInput
-    portfolioProminentProjectImages?: PortfolioProminentProjectImageUpdateManyWithoutPortfolioProminentProjectNestedInput
+    images?: PortfolioProminentProjectImageUpdateManyWithoutPortfolioProminentProjectNestedInput
   }
 
   export type PortfolioProminentProjectUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     portfolioId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     company?: StringFieldUpdateOperationsInput | string
@@ -18753,12 +17675,13 @@ export namespace Prisma {
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    portfolioProminentProjectImages?: PortfolioProminentProjectImageUncheckedUpdateManyWithoutPortfolioProminentProjectNestedInput
+    images?: PortfolioProminentProjectImageUncheckedUpdateManyWithoutPortfolioProminentProjectNestedInput
   }
 
   export type PortfolioProminentProjectCreateManyInput = {
     id?: number
     portfolioId: number
+    name: string
     description: string
     role: string
     company: string
@@ -18770,6 +17693,7 @@ export namespace Prisma {
   }
 
   export type PortfolioProminentProjectUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     company?: StringFieldUpdateOperationsInput | string
@@ -18783,6 +17707,7 @@ export namespace Prisma {
   export type PortfolioProminentProjectUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     portfolioId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     company?: StringFieldUpdateOperationsInput | string
@@ -18795,30 +17720,34 @@ export namespace Prisma {
 
   export type PortfolioProminentProjectImageCreateInput = {
     image: string
+    imagePublicId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    portfolioProminentProject: PortfolioProminentProjectCreateNestedOneWithoutPortfolioProminentProjectImagesInput
+    portfolioProminentProject: PortfolioProminentProjectCreateNestedOneWithoutImagesInput
   }
 
   export type PortfolioProminentProjectImageUncheckedCreateInput = {
     id?: number
     portfolioProminentProjectId: number
     image: string
+    imagePublicId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type PortfolioProminentProjectImageUpdateInput = {
     image?: StringFieldUpdateOperationsInput | string
+    imagePublicId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    portfolioProminentProject?: PortfolioProminentProjectUpdateOneRequiredWithoutPortfolioProminentProjectImagesNestedInput
+    portfolioProminentProject?: PortfolioProminentProjectUpdateOneRequiredWithoutImagesNestedInput
   }
 
   export type PortfolioProminentProjectImageUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     portfolioProminentProjectId?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
+    imagePublicId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18827,12 +17756,14 @@ export namespace Prisma {
     id?: number
     portfolioProminentProjectId: number
     image: string
+    imagePublicId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type PortfolioProminentProjectImageUpdateManyMutationInput = {
     image?: StringFieldUpdateOperationsInput | string
+    imagePublicId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18841,11 +17772,18 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     portfolioProminentProjectId?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
+    imagePublicId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PortfolioCustomerFeedbackCreateInput = {
+    star: number
+    comment: string
+    customerName?: string | null
+    companyName?: string | null
+    customerPosition?: string | null
+    image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     portfolio: PortfolioCreateNestedOneWithoutPortfolioCustomerFeedbacksInput
@@ -18854,11 +17792,23 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackUncheckedCreateInput = {
     id?: number
     portfolioId: number
+    star: number
+    comment: string
+    customerName?: string | null
+    companyName?: string | null
+    customerPosition?: string | null
+    image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type PortfolioCustomerFeedbackUpdateInput = {
+    star?: IntFieldUpdateOperationsInput | number
+    comment?: StringFieldUpdateOperationsInput | string
+    customerName?: NullableStringFieldUpdateOperationsInput | string | null
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    customerPosition?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     portfolio?: PortfolioUpdateOneRequiredWithoutPortfolioCustomerFeedbacksNestedInput
@@ -18867,6 +17817,12 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     portfolioId?: IntFieldUpdateOperationsInput | number
+    star?: IntFieldUpdateOperationsInput | number
+    comment?: StringFieldUpdateOperationsInput | string
+    customerName?: NullableStringFieldUpdateOperationsInput | string | null
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    customerPosition?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18874,11 +17830,23 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackCreateManyInput = {
     id?: number
     portfolioId: number
+    star: number
+    comment: string
+    customerName?: string | null
+    companyName?: string | null
+    customerPosition?: string | null
+    image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type PortfolioCustomerFeedbackUpdateManyMutationInput = {
+    star?: IntFieldUpdateOperationsInput | number
+    comment?: StringFieldUpdateOperationsInput | string
+    customerName?: NullableStringFieldUpdateOperationsInput | string | null
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    customerPosition?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18886,72 +17854,12 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     portfolioId?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type PortfolioAboutSectionCreateInput = {
-    avatar: string
-    overview: string
-    detail: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    portfolio?: PortfolioCreateNestedOneWithoutPortfolioAboutSectionInput
-  }
-
-  export type PortfolioAboutSectionUncheckedCreateInput = {
-    id?: number
-    portfolioId?: number | null
-    avatar: string
-    overview: string
-    detail: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type PortfolioAboutSectionUpdateInput = {
-    avatar?: StringFieldUpdateOperationsInput | string
-    overview?: StringFieldUpdateOperationsInput | string
-    detail?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    portfolio?: PortfolioUpdateOneWithoutPortfolioAboutSectionNestedInput
-  }
-
-  export type PortfolioAboutSectionUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    portfolioId?: NullableIntFieldUpdateOperationsInput | number | null
-    avatar?: StringFieldUpdateOperationsInput | string
-    overview?: StringFieldUpdateOperationsInput | string
-    detail?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type PortfolioAboutSectionCreateManyInput = {
-    id?: number
-    portfolioId?: number | null
-    avatar: string
-    overview: string
-    detail: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type PortfolioAboutSectionUpdateManyMutationInput = {
-    avatar?: StringFieldUpdateOperationsInput | string
-    overview?: StringFieldUpdateOperationsInput | string
-    detail?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type PortfolioAboutSectionUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    portfolioId?: NullableIntFieldUpdateOperationsInput | number | null
-    avatar?: StringFieldUpdateOperationsInput | string
-    overview?: StringFieldUpdateOperationsInput | string
-    detail?: StringFieldUpdateOperationsInput | string
+    star?: IntFieldUpdateOperationsInput | number
+    comment?: StringFieldUpdateOperationsInput | string
+    customerName?: NullableStringFieldUpdateOperationsInput | string | null
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    customerPosition?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18959,7 +17867,7 @@ export namespace Prisma {
   export type PortfolioWorkExperienceCreateInput = {
     role: string
     company: string
-    image: string
+    image?: string | null
     from: Date | string
     to?: Date | string | null
     createdAt?: Date | string
@@ -18972,7 +17880,7 @@ export namespace Prisma {
     portfolioId: number
     role: string
     company: string
-    image: string
+    image?: string | null
     from: Date | string
     to?: Date | string | null
     createdAt?: Date | string
@@ -18982,7 +17890,7 @@ export namespace Prisma {
   export type PortfolioWorkExperienceUpdateInput = {
     role?: StringFieldUpdateOperationsInput | string
     company?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -18995,7 +17903,7 @@ export namespace Prisma {
     portfolioId?: IntFieldUpdateOperationsInput | number
     role?: StringFieldUpdateOperationsInput | string
     company?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -19007,7 +17915,7 @@ export namespace Prisma {
     portfolioId: number
     role: string
     company: string
-    image: string
+    image?: string | null
     from: Date | string
     to?: Date | string | null
     createdAt?: Date | string
@@ -19017,7 +17925,7 @@ export namespace Prisma {
   export type PortfolioWorkExperienceUpdateManyMutationInput = {
     role?: StringFieldUpdateOperationsInput | string
     company?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -19029,7 +17937,7 @@ export namespace Prisma {
     portfolioId?: IntFieldUpdateOperationsInput | number
     role?: StringFieldUpdateOperationsInput | string
     company?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -19620,11 +18528,6 @@ export namespace Prisma {
     none?: PortfolioCustomerFeedbackWhereInput
   }
 
-  export type PortfolioAboutSectionNullableScalarRelationFilter = {
-    is?: PortfolioAboutSectionWhereInput | null
-    isNot?: PortfolioAboutSectionWhereInput | null
-  }
-
   export type PortfolioWorkExperienceListRelationFilter = {
     every?: PortfolioWorkExperienceWhereInput
     some?: PortfolioWorkExperienceWhereInput
@@ -19658,6 +18561,10 @@ export namespace Prisma {
     name?: SortOrder
     skillDescription?: SortOrder
     userId?: SortOrder
+    overview?: SortOrder
+    detail?: SortOrder
+    avatar?: SortOrder
+    avatarPublicId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -19672,6 +18579,10 @@ export namespace Prisma {
     name?: SortOrder
     skillDescription?: SortOrder
     userId?: SortOrder
+    overview?: SortOrder
+    detail?: SortOrder
+    avatar?: SortOrder
+    avatarPublicId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -19681,6 +18592,10 @@ export namespace Prisma {
     name?: SortOrder
     skillDescription?: SortOrder
     userId?: SortOrder
+    overview?: SortOrder
+    detail?: SortOrder
+    avatar?: SortOrder
+    avatarPublicId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -19708,6 +18623,7 @@ export namespace Prisma {
   export type PortfolioProminentProjectCountOrderByAggregateInput = {
     id?: SortOrder
     portfolioId?: SortOrder
+    name?: SortOrder
     description?: SortOrder
     role?: SortOrder
     company?: SortOrder
@@ -19726,6 +18642,7 @@ export namespace Prisma {
   export type PortfolioProminentProjectMaxOrderByAggregateInput = {
     id?: SortOrder
     portfolioId?: SortOrder
+    name?: SortOrder
     description?: SortOrder
     role?: SortOrder
     company?: SortOrder
@@ -19739,6 +18656,7 @@ export namespace Prisma {
   export type PortfolioProminentProjectMinOrderByAggregateInput = {
     id?: SortOrder
     portfolioId?: SortOrder
+    name?: SortOrder
     description?: SortOrder
     role?: SortOrder
     company?: SortOrder
@@ -19763,6 +18681,7 @@ export namespace Prisma {
     id?: SortOrder
     portfolioProminentProjectId?: SortOrder
     image?: SortOrder
+    imagePublicId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -19776,6 +18695,7 @@ export namespace Prisma {
     id?: SortOrder
     portfolioProminentProjectId?: SortOrder
     image?: SortOrder
+    imagePublicId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -19784,6 +18704,7 @@ export namespace Prisma {
     id?: SortOrder
     portfolioProminentProjectId?: SortOrder
     image?: SortOrder
+    imagePublicId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -19796,6 +18717,12 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackCountOrderByAggregateInput = {
     id?: SortOrder
     portfolioId?: SortOrder
+    star?: SortOrder
+    comment?: SortOrder
+    customerName?: SortOrder
+    companyName?: SortOrder
+    customerPosition?: SortOrder
+    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -19803,11 +18730,18 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackAvgOrderByAggregateInput = {
     id?: SortOrder
     portfolioId?: SortOrder
+    star?: SortOrder
   }
 
   export type PortfolioCustomerFeedbackMaxOrderByAggregateInput = {
     id?: SortOrder
     portfolioId?: SortOrder
+    star?: SortOrder
+    comment?: SortOrder
+    customerName?: SortOrder
+    companyName?: SortOrder
+    customerPosition?: SortOrder
+    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -19815,6 +18749,12 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackMinOrderByAggregateInput = {
     id?: SortOrder
     portfolioId?: SortOrder
+    star?: SortOrder
+    comment?: SortOrder
+    customerName?: SortOrder
+    companyName?: SortOrder
+    customerPosition?: SortOrder
+    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -19822,51 +18762,7 @@ export namespace Prisma {
   export type PortfolioCustomerFeedbackSumOrderByAggregateInput = {
     id?: SortOrder
     portfolioId?: SortOrder
-  }
-
-  export type PortfolioNullableScalarRelationFilter = {
-    is?: PortfolioWhereInput | null
-    isNot?: PortfolioWhereInput | null
-  }
-
-  export type PortfolioAboutSectionCountOrderByAggregateInput = {
-    id?: SortOrder
-    portfolioId?: SortOrder
-    avatar?: SortOrder
-    overview?: SortOrder
-    detail?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type PortfolioAboutSectionAvgOrderByAggregateInput = {
-    id?: SortOrder
-    portfolioId?: SortOrder
-  }
-
-  export type PortfolioAboutSectionMaxOrderByAggregateInput = {
-    id?: SortOrder
-    portfolioId?: SortOrder
-    avatar?: SortOrder
-    overview?: SortOrder
-    detail?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type PortfolioAboutSectionMinOrderByAggregateInput = {
-    id?: SortOrder
-    portfolioId?: SortOrder
-    avatar?: SortOrder
-    overview?: SortOrder
-    detail?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type PortfolioAboutSectionSumOrderByAggregateInput = {
-    id?: SortOrder
-    portfolioId?: SortOrder
+    star?: SortOrder
   }
 
   export type PortfolioWorkExperienceCountOrderByAggregateInput = {
@@ -20279,12 +19175,6 @@ export namespace Prisma {
     connect?: PortfolioCustomerFeedbackWhereUniqueInput | PortfolioCustomerFeedbackWhereUniqueInput[]
   }
 
-  export type PortfolioAboutSectionCreateNestedOneWithoutPortfolioInput = {
-    create?: XOR<PortfolioAboutSectionCreateWithoutPortfolioInput, PortfolioAboutSectionUncheckedCreateWithoutPortfolioInput>
-    connectOrCreate?: PortfolioAboutSectionCreateOrConnectWithoutPortfolioInput
-    connect?: PortfolioAboutSectionWhereUniqueInput
-  }
-
   export type PortfolioWorkExperienceCreateNestedManyWithoutPortfolioInput = {
     create?: XOR<PortfolioWorkExperienceCreateWithoutPortfolioInput, PortfolioWorkExperienceUncheckedCreateWithoutPortfolioInput> | PortfolioWorkExperienceCreateWithoutPortfolioInput[] | PortfolioWorkExperienceUncheckedCreateWithoutPortfolioInput[]
     connectOrCreate?: PortfolioWorkExperienceCreateOrConnectWithoutPortfolioInput | PortfolioWorkExperienceCreateOrConnectWithoutPortfolioInput[]
@@ -20311,12 +19201,6 @@ export namespace Prisma {
     connectOrCreate?: PortfolioCustomerFeedbackCreateOrConnectWithoutPortfolioInput | PortfolioCustomerFeedbackCreateOrConnectWithoutPortfolioInput[]
     createMany?: PortfolioCustomerFeedbackCreateManyPortfolioInputEnvelope
     connect?: PortfolioCustomerFeedbackWhereUniqueInput | PortfolioCustomerFeedbackWhereUniqueInput[]
-  }
-
-  export type PortfolioAboutSectionUncheckedCreateNestedOneWithoutPortfolioInput = {
-    create?: XOR<PortfolioAboutSectionCreateWithoutPortfolioInput, PortfolioAboutSectionUncheckedCreateWithoutPortfolioInput>
-    connectOrCreate?: PortfolioAboutSectionCreateOrConnectWithoutPortfolioInput
-    connect?: PortfolioAboutSectionWhereUniqueInput
   }
 
   export type PortfolioWorkExperienceUncheckedCreateNestedManyWithoutPortfolioInput = {
@@ -20367,16 +19251,6 @@ export namespace Prisma {
     update?: PortfolioCustomerFeedbackUpdateWithWhereUniqueWithoutPortfolioInput | PortfolioCustomerFeedbackUpdateWithWhereUniqueWithoutPortfolioInput[]
     updateMany?: PortfolioCustomerFeedbackUpdateManyWithWhereWithoutPortfolioInput | PortfolioCustomerFeedbackUpdateManyWithWhereWithoutPortfolioInput[]
     deleteMany?: PortfolioCustomerFeedbackScalarWhereInput | PortfolioCustomerFeedbackScalarWhereInput[]
-  }
-
-  export type PortfolioAboutSectionUpdateOneWithoutPortfolioNestedInput = {
-    create?: XOR<PortfolioAboutSectionCreateWithoutPortfolioInput, PortfolioAboutSectionUncheckedCreateWithoutPortfolioInput>
-    connectOrCreate?: PortfolioAboutSectionCreateOrConnectWithoutPortfolioInput
-    upsert?: PortfolioAboutSectionUpsertWithoutPortfolioInput
-    disconnect?: PortfolioAboutSectionWhereInput | boolean
-    delete?: PortfolioAboutSectionWhereInput | boolean
-    connect?: PortfolioAboutSectionWhereUniqueInput
-    update?: XOR<XOR<PortfolioAboutSectionUpdateToOneWithWhereWithoutPortfolioInput, PortfolioAboutSectionUpdateWithoutPortfolioInput>, PortfolioAboutSectionUncheckedUpdateWithoutPortfolioInput>
   }
 
   export type PortfolioWorkExperienceUpdateManyWithoutPortfolioNestedInput = {
@@ -20433,16 +19307,6 @@ export namespace Prisma {
     update?: PortfolioCustomerFeedbackUpdateWithWhereUniqueWithoutPortfolioInput | PortfolioCustomerFeedbackUpdateWithWhereUniqueWithoutPortfolioInput[]
     updateMany?: PortfolioCustomerFeedbackUpdateManyWithWhereWithoutPortfolioInput | PortfolioCustomerFeedbackUpdateManyWithWhereWithoutPortfolioInput[]
     deleteMany?: PortfolioCustomerFeedbackScalarWhereInput | PortfolioCustomerFeedbackScalarWhereInput[]
-  }
-
-  export type PortfolioAboutSectionUncheckedUpdateOneWithoutPortfolioNestedInput = {
-    create?: XOR<PortfolioAboutSectionCreateWithoutPortfolioInput, PortfolioAboutSectionUncheckedCreateWithoutPortfolioInput>
-    connectOrCreate?: PortfolioAboutSectionCreateOrConnectWithoutPortfolioInput
-    upsert?: PortfolioAboutSectionUpsertWithoutPortfolioInput
-    disconnect?: PortfolioAboutSectionWhereInput | boolean
-    delete?: PortfolioAboutSectionWhereInput | boolean
-    connect?: PortfolioAboutSectionWhereUniqueInput
-    update?: XOR<XOR<PortfolioAboutSectionUpdateToOneWithWhereWithoutPortfolioInput, PortfolioAboutSectionUpdateWithoutPortfolioInput>, PortfolioAboutSectionUncheckedUpdateWithoutPortfolioInput>
   }
 
   export type PortfolioWorkExperienceUncheckedUpdateManyWithoutPortfolioNestedInput = {
@@ -20529,18 +19393,18 @@ export namespace Prisma {
     deleteMany?: PortfolioProminentProjectImageScalarWhereInput | PortfolioProminentProjectImageScalarWhereInput[]
   }
 
-  export type PortfolioProminentProjectCreateNestedOneWithoutPortfolioProminentProjectImagesInput = {
-    create?: XOR<PortfolioProminentProjectCreateWithoutPortfolioProminentProjectImagesInput, PortfolioProminentProjectUncheckedCreateWithoutPortfolioProminentProjectImagesInput>
-    connectOrCreate?: PortfolioProminentProjectCreateOrConnectWithoutPortfolioProminentProjectImagesInput
+  export type PortfolioProminentProjectCreateNestedOneWithoutImagesInput = {
+    create?: XOR<PortfolioProminentProjectCreateWithoutImagesInput, PortfolioProminentProjectUncheckedCreateWithoutImagesInput>
+    connectOrCreate?: PortfolioProminentProjectCreateOrConnectWithoutImagesInput
     connect?: PortfolioProminentProjectWhereUniqueInput
   }
 
-  export type PortfolioProminentProjectUpdateOneRequiredWithoutPortfolioProminentProjectImagesNestedInput = {
-    create?: XOR<PortfolioProminentProjectCreateWithoutPortfolioProminentProjectImagesInput, PortfolioProminentProjectUncheckedCreateWithoutPortfolioProminentProjectImagesInput>
-    connectOrCreate?: PortfolioProminentProjectCreateOrConnectWithoutPortfolioProminentProjectImagesInput
-    upsert?: PortfolioProminentProjectUpsertWithoutPortfolioProminentProjectImagesInput
+  export type PortfolioProminentProjectUpdateOneRequiredWithoutImagesNestedInput = {
+    create?: XOR<PortfolioProminentProjectCreateWithoutImagesInput, PortfolioProminentProjectUncheckedCreateWithoutImagesInput>
+    connectOrCreate?: PortfolioProminentProjectCreateOrConnectWithoutImagesInput
+    upsert?: PortfolioProminentProjectUpsertWithoutImagesInput
     connect?: PortfolioProminentProjectWhereUniqueInput
-    update?: XOR<XOR<PortfolioProminentProjectUpdateToOneWithWhereWithoutPortfolioProminentProjectImagesInput, PortfolioProminentProjectUpdateWithoutPortfolioProminentProjectImagesInput>, PortfolioProminentProjectUncheckedUpdateWithoutPortfolioProminentProjectImagesInput>
+    update?: XOR<XOR<PortfolioProminentProjectUpdateToOneWithWhereWithoutImagesInput, PortfolioProminentProjectUpdateWithoutImagesInput>, PortfolioProminentProjectUncheckedUpdateWithoutImagesInput>
   }
 
   export type PortfolioCreateNestedOneWithoutPortfolioCustomerFeedbacksInput = {
@@ -20555,22 +19419,6 @@ export namespace Prisma {
     upsert?: PortfolioUpsertWithoutPortfolioCustomerFeedbacksInput
     connect?: PortfolioWhereUniqueInput
     update?: XOR<XOR<PortfolioUpdateToOneWithWhereWithoutPortfolioCustomerFeedbacksInput, PortfolioUpdateWithoutPortfolioCustomerFeedbacksInput>, PortfolioUncheckedUpdateWithoutPortfolioCustomerFeedbacksInput>
-  }
-
-  export type PortfolioCreateNestedOneWithoutPortfolioAboutSectionInput = {
-    create?: XOR<PortfolioCreateWithoutPortfolioAboutSectionInput, PortfolioUncheckedCreateWithoutPortfolioAboutSectionInput>
-    connectOrCreate?: PortfolioCreateOrConnectWithoutPortfolioAboutSectionInput
-    connect?: PortfolioWhereUniqueInput
-  }
-
-  export type PortfolioUpdateOneWithoutPortfolioAboutSectionNestedInput = {
-    create?: XOR<PortfolioCreateWithoutPortfolioAboutSectionInput, PortfolioUncheckedCreateWithoutPortfolioAboutSectionInput>
-    connectOrCreate?: PortfolioCreateOrConnectWithoutPortfolioAboutSectionInput
-    upsert?: PortfolioUpsertWithoutPortfolioAboutSectionInput
-    disconnect?: PortfolioWhereInput | boolean
-    delete?: PortfolioWhereInput | boolean
-    connect?: PortfolioWhereUniqueInput
-    update?: XOR<XOR<PortfolioUpdateToOneWithWhereWithoutPortfolioAboutSectionInput, PortfolioUpdateWithoutPortfolioAboutSectionInput>, PortfolioUncheckedUpdateWithoutPortfolioAboutSectionInput>
   }
 
   export type PortfolioCreateNestedOneWithoutPortfolioWorkExperiencesInput = {
@@ -20916,11 +19764,14 @@ export namespace Prisma {
   export type PortfolioCreateWithoutUserInput = {
     name?: string | null
     skillDescription?: string | null
+    overview?: string | null
+    detail?: string | null
+    avatar?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     portfolioProminentProjects?: PortfolioProminentProjectCreateNestedManyWithoutPortfolioInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackCreateNestedManyWithoutPortfolioInput
-    portfolioAboutSection?: PortfolioAboutSectionCreateNestedOneWithoutPortfolioInput
     portfolioWorkExperiences?: PortfolioWorkExperienceCreateNestedManyWithoutPortfolioInput
     portfolioSkills?: PortfolioSkillCreateNestedManyWithoutPortfolioInput
   }
@@ -20929,11 +19780,14 @@ export namespace Prisma {
     id?: number
     name?: string | null
     skillDescription?: string | null
+    overview?: string | null
+    detail?: string | null
+    avatar?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedCreateNestedManyWithoutPortfolioInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedCreateNestedManyWithoutPortfolioInput
-    portfolioAboutSection?: PortfolioAboutSectionUncheckedCreateNestedOneWithoutPortfolioInput
     portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedCreateNestedManyWithoutPortfolioInput
     portfolioSkills?: PortfolioSkillUncheckedCreateNestedManyWithoutPortfolioInput
   }
@@ -21063,6 +19917,10 @@ export namespace Prisma {
     name?: StringNullableFilter<"Portfolio"> | string | null
     skillDescription?: StringNullableFilter<"Portfolio"> | string | null
     userId?: IntFilter<"Portfolio"> | number
+    overview?: StringNullableFilter<"Portfolio"> | string | null
+    detail?: StringNullableFilter<"Portfolio"> | string | null
+    avatar?: StringNullableFilter<"Portfolio"> | string | null
+    avatarPublicId?: StringNullableFilter<"Portfolio"> | string | null
     createdAt?: DateTimeFilter<"Portfolio"> | Date | string
     updatedAt?: DateTimeFilter<"Portfolio"> | Date | string
   }
@@ -21436,6 +20294,7 @@ export namespace Prisma {
   }
 
   export type PortfolioProminentProjectCreateWithoutPortfolioInput = {
+    name: string
     description: string
     role: string
     company: string
@@ -21444,11 +20303,12 @@ export namespace Prisma {
     to?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    portfolioProminentProjectImages?: PortfolioProminentProjectImageCreateNestedManyWithoutPortfolioProminentProjectInput
+    images?: PortfolioProminentProjectImageCreateNestedManyWithoutPortfolioProminentProjectInput
   }
 
   export type PortfolioProminentProjectUncheckedCreateWithoutPortfolioInput = {
     id?: number
+    name: string
     description: string
     role: string
     company: string
@@ -21457,7 +20317,7 @@ export namespace Prisma {
     to?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    portfolioProminentProjectImages?: PortfolioProminentProjectImageUncheckedCreateNestedManyWithoutPortfolioProminentProjectInput
+    images?: PortfolioProminentProjectImageUncheckedCreateNestedManyWithoutPortfolioProminentProjectInput
   }
 
   export type PortfolioProminentProjectCreateOrConnectWithoutPortfolioInput = {
@@ -21471,12 +20331,24 @@ export namespace Prisma {
   }
 
   export type PortfolioCustomerFeedbackCreateWithoutPortfolioInput = {
+    star: number
+    comment: string
+    customerName?: string | null
+    companyName?: string | null
+    customerPosition?: string | null
+    image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type PortfolioCustomerFeedbackUncheckedCreateWithoutPortfolioInput = {
     id?: number
+    star: number
+    comment: string
+    customerName?: string | null
+    companyName?: string | null
+    customerPosition?: string | null
+    image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -21491,32 +20363,10 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type PortfolioAboutSectionCreateWithoutPortfolioInput = {
-    avatar: string
-    overview: string
-    detail: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type PortfolioAboutSectionUncheckedCreateWithoutPortfolioInput = {
-    id?: number
-    avatar: string
-    overview: string
-    detail: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type PortfolioAboutSectionCreateOrConnectWithoutPortfolioInput = {
-    where: PortfolioAboutSectionWhereUniqueInput
-    create: XOR<PortfolioAboutSectionCreateWithoutPortfolioInput, PortfolioAboutSectionUncheckedCreateWithoutPortfolioInput>
-  }
-
   export type PortfolioWorkExperienceCreateWithoutPortfolioInput = {
     role: string
     company: string
-    image: string
+    image?: string | null
     from: Date | string
     to?: Date | string | null
     createdAt?: Date | string
@@ -21527,7 +20377,7 @@ export namespace Prisma {
     id?: number
     role: string
     company: string
-    image: string
+    image?: string | null
     from: Date | string
     to?: Date | string | null
     createdAt?: Date | string
@@ -21645,6 +20495,7 @@ export namespace Prisma {
     NOT?: PortfolioProminentProjectScalarWhereInput | PortfolioProminentProjectScalarWhereInput[]
     id?: IntFilter<"PortfolioProminentProject"> | number
     portfolioId?: IntFilter<"PortfolioProminentProject"> | number
+    name?: StringFilter<"PortfolioProminentProject"> | string
     description?: StringFilter<"PortfolioProminentProject"> | string
     role?: StringFilter<"PortfolioProminentProject"> | string
     company?: StringFilter<"PortfolioProminentProject"> | string
@@ -21677,36 +20528,14 @@ export namespace Prisma {
     NOT?: PortfolioCustomerFeedbackScalarWhereInput | PortfolioCustomerFeedbackScalarWhereInput[]
     id?: IntFilter<"PortfolioCustomerFeedback"> | number
     portfolioId?: IntFilter<"PortfolioCustomerFeedback"> | number
+    star?: IntFilter<"PortfolioCustomerFeedback"> | number
+    comment?: StringFilter<"PortfolioCustomerFeedback"> | string
+    customerName?: StringNullableFilter<"PortfolioCustomerFeedback"> | string | null
+    companyName?: StringNullableFilter<"PortfolioCustomerFeedback"> | string | null
+    customerPosition?: StringNullableFilter<"PortfolioCustomerFeedback"> | string | null
+    image?: StringNullableFilter<"PortfolioCustomerFeedback"> | string | null
     createdAt?: DateTimeFilter<"PortfolioCustomerFeedback"> | Date | string
     updatedAt?: DateTimeFilter<"PortfolioCustomerFeedback"> | Date | string
-  }
-
-  export type PortfolioAboutSectionUpsertWithoutPortfolioInput = {
-    update: XOR<PortfolioAboutSectionUpdateWithoutPortfolioInput, PortfolioAboutSectionUncheckedUpdateWithoutPortfolioInput>
-    create: XOR<PortfolioAboutSectionCreateWithoutPortfolioInput, PortfolioAboutSectionUncheckedCreateWithoutPortfolioInput>
-    where?: PortfolioAboutSectionWhereInput
-  }
-
-  export type PortfolioAboutSectionUpdateToOneWithWhereWithoutPortfolioInput = {
-    where?: PortfolioAboutSectionWhereInput
-    data: XOR<PortfolioAboutSectionUpdateWithoutPortfolioInput, PortfolioAboutSectionUncheckedUpdateWithoutPortfolioInput>
-  }
-
-  export type PortfolioAboutSectionUpdateWithoutPortfolioInput = {
-    avatar?: StringFieldUpdateOperationsInput | string
-    overview?: StringFieldUpdateOperationsInput | string
-    detail?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type PortfolioAboutSectionUncheckedUpdateWithoutPortfolioInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    avatar?: StringFieldUpdateOperationsInput | string
-    overview?: StringFieldUpdateOperationsInput | string
-    detail?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PortfolioWorkExperienceUpsertWithWhereUniqueWithoutPortfolioInput = {
@@ -21733,7 +20562,7 @@ export namespace Prisma {
     portfolioId?: IntFilter<"PortfolioWorkExperience"> | number
     role?: StringFilter<"PortfolioWorkExperience"> | string
     company?: StringFilter<"PortfolioWorkExperience"> | string
-    image?: StringFilter<"PortfolioWorkExperience"> | string
+    image?: StringNullableFilter<"PortfolioWorkExperience"> | string | null
     from?: DateTimeFilter<"PortfolioWorkExperience"> | Date | string
     to?: DateTimeNullableFilter<"PortfolioWorkExperience"> | Date | string | null
     createdAt?: DateTimeFilter<"PortfolioWorkExperience"> | Date | string
@@ -21770,11 +20599,14 @@ export namespace Prisma {
   export type PortfolioCreateWithoutPortfolioProminentProjectsInput = {
     name?: string | null
     skillDescription?: string | null
+    overview?: string | null
+    detail?: string | null
+    avatar?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutPortfoliosInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackCreateNestedManyWithoutPortfolioInput
-    portfolioAboutSection?: PortfolioAboutSectionCreateNestedOneWithoutPortfolioInput
     portfolioWorkExperiences?: PortfolioWorkExperienceCreateNestedManyWithoutPortfolioInput
     portfolioSkills?: PortfolioSkillCreateNestedManyWithoutPortfolioInput
   }
@@ -21784,10 +20616,13 @@ export namespace Prisma {
     name?: string | null
     skillDescription?: string | null
     userId: number
+    overview?: string | null
+    detail?: string | null
+    avatar?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedCreateNestedManyWithoutPortfolioInput
-    portfolioAboutSection?: PortfolioAboutSectionUncheckedCreateNestedOneWithoutPortfolioInput
     portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedCreateNestedManyWithoutPortfolioInput
     portfolioSkills?: PortfolioSkillUncheckedCreateNestedManyWithoutPortfolioInput
   }
@@ -21799,6 +20634,7 @@ export namespace Prisma {
 
   export type PortfolioProminentProjectImageCreateWithoutPortfolioProminentProjectInput = {
     image: string
+    imagePublicId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -21806,6 +20642,7 @@ export namespace Prisma {
   export type PortfolioProminentProjectImageUncheckedCreateWithoutPortfolioProminentProjectInput = {
     id?: number
     image: string
+    imagePublicId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -21834,11 +20671,14 @@ export namespace Prisma {
   export type PortfolioUpdateWithoutPortfolioProminentProjectsInput = {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    overview?: NullableStringFieldUpdateOperationsInput | string | null
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutPortfoliosNestedInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUpdateManyWithoutPortfolioNestedInput
-    portfolioAboutSection?: PortfolioAboutSectionUpdateOneWithoutPortfolioNestedInput
     portfolioWorkExperiences?: PortfolioWorkExperienceUpdateManyWithoutPortfolioNestedInput
     portfolioSkills?: PortfolioSkillUpdateManyWithoutPortfolioNestedInput
   }
@@ -21848,10 +20688,13 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: IntFieldUpdateOperationsInput | number
+    overview?: NullableStringFieldUpdateOperationsInput | string | null
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedUpdateManyWithoutPortfolioNestedInput
-    portfolioAboutSection?: PortfolioAboutSectionUncheckedUpdateOneWithoutPortfolioNestedInput
     portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedUpdateManyWithoutPortfolioNestedInput
     portfolioSkills?: PortfolioSkillUncheckedUpdateManyWithoutPortfolioNestedInput
   }
@@ -21879,11 +20722,13 @@ export namespace Prisma {
     id?: IntFilter<"PortfolioProminentProjectImage"> | number
     portfolioProminentProjectId?: IntFilter<"PortfolioProminentProjectImage"> | number
     image?: StringFilter<"PortfolioProminentProjectImage"> | string
+    imagePublicId?: StringFilter<"PortfolioProminentProjectImage"> | string
     createdAt?: DateTimeFilter<"PortfolioProminentProjectImage"> | Date | string
     updatedAt?: DateTimeFilter<"PortfolioProminentProjectImage"> | Date | string
   }
 
-  export type PortfolioProminentProjectCreateWithoutPortfolioProminentProjectImagesInput = {
+  export type PortfolioProminentProjectCreateWithoutImagesInput = {
+    name: string
     description: string
     role: string
     company: string
@@ -21895,9 +20740,10 @@ export namespace Prisma {
     portfolio: PortfolioCreateNestedOneWithoutPortfolioProminentProjectsInput
   }
 
-  export type PortfolioProminentProjectUncheckedCreateWithoutPortfolioProminentProjectImagesInput = {
+  export type PortfolioProminentProjectUncheckedCreateWithoutImagesInput = {
     id?: number
     portfolioId: number
+    name: string
     description: string
     role: string
     company: string
@@ -21908,23 +20754,24 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type PortfolioProminentProjectCreateOrConnectWithoutPortfolioProminentProjectImagesInput = {
+  export type PortfolioProminentProjectCreateOrConnectWithoutImagesInput = {
     where: PortfolioProminentProjectWhereUniqueInput
-    create: XOR<PortfolioProminentProjectCreateWithoutPortfolioProminentProjectImagesInput, PortfolioProminentProjectUncheckedCreateWithoutPortfolioProminentProjectImagesInput>
+    create: XOR<PortfolioProminentProjectCreateWithoutImagesInput, PortfolioProminentProjectUncheckedCreateWithoutImagesInput>
   }
 
-  export type PortfolioProminentProjectUpsertWithoutPortfolioProminentProjectImagesInput = {
-    update: XOR<PortfolioProminentProjectUpdateWithoutPortfolioProminentProjectImagesInput, PortfolioProminentProjectUncheckedUpdateWithoutPortfolioProminentProjectImagesInput>
-    create: XOR<PortfolioProminentProjectCreateWithoutPortfolioProminentProjectImagesInput, PortfolioProminentProjectUncheckedCreateWithoutPortfolioProminentProjectImagesInput>
+  export type PortfolioProminentProjectUpsertWithoutImagesInput = {
+    update: XOR<PortfolioProminentProjectUpdateWithoutImagesInput, PortfolioProminentProjectUncheckedUpdateWithoutImagesInput>
+    create: XOR<PortfolioProminentProjectCreateWithoutImagesInput, PortfolioProminentProjectUncheckedCreateWithoutImagesInput>
     where?: PortfolioProminentProjectWhereInput
   }
 
-  export type PortfolioProminentProjectUpdateToOneWithWhereWithoutPortfolioProminentProjectImagesInput = {
+  export type PortfolioProminentProjectUpdateToOneWithWhereWithoutImagesInput = {
     where?: PortfolioProminentProjectWhereInput
-    data: XOR<PortfolioProminentProjectUpdateWithoutPortfolioProminentProjectImagesInput, PortfolioProminentProjectUncheckedUpdateWithoutPortfolioProminentProjectImagesInput>
+    data: XOR<PortfolioProminentProjectUpdateWithoutImagesInput, PortfolioProminentProjectUncheckedUpdateWithoutImagesInput>
   }
 
-  export type PortfolioProminentProjectUpdateWithoutPortfolioProminentProjectImagesInput = {
+  export type PortfolioProminentProjectUpdateWithoutImagesInput = {
+    name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     company?: StringFieldUpdateOperationsInput | string
@@ -21936,9 +20783,10 @@ export namespace Prisma {
     portfolio?: PortfolioUpdateOneRequiredWithoutPortfolioProminentProjectsNestedInput
   }
 
-  export type PortfolioProminentProjectUncheckedUpdateWithoutPortfolioProminentProjectImagesInput = {
+  export type PortfolioProminentProjectUncheckedUpdateWithoutImagesInput = {
     id?: IntFieldUpdateOperationsInput | number
     portfolioId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     company?: StringFieldUpdateOperationsInput | string
@@ -21952,11 +20800,14 @@ export namespace Prisma {
   export type PortfolioCreateWithoutPortfolioCustomerFeedbacksInput = {
     name?: string | null
     skillDescription?: string | null
+    overview?: string | null
+    detail?: string | null
+    avatar?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutPortfoliosInput
     portfolioProminentProjects?: PortfolioProminentProjectCreateNestedManyWithoutPortfolioInput
-    portfolioAboutSection?: PortfolioAboutSectionCreateNestedOneWithoutPortfolioInput
     portfolioWorkExperiences?: PortfolioWorkExperienceCreateNestedManyWithoutPortfolioInput
     portfolioSkills?: PortfolioSkillCreateNestedManyWithoutPortfolioInput
   }
@@ -21966,10 +20817,13 @@ export namespace Prisma {
     name?: string | null
     skillDescription?: string | null
     userId: number
+    overview?: string | null
+    detail?: string | null
+    avatar?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedCreateNestedManyWithoutPortfolioInput
-    portfolioAboutSection?: PortfolioAboutSectionUncheckedCreateNestedOneWithoutPortfolioInput
     portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedCreateNestedManyWithoutPortfolioInput
     portfolioSkills?: PortfolioSkillUncheckedCreateNestedManyWithoutPortfolioInput
   }
@@ -21993,11 +20847,14 @@ export namespace Prisma {
   export type PortfolioUpdateWithoutPortfolioCustomerFeedbacksInput = {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    overview?: NullableStringFieldUpdateOperationsInput | string | null
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutPortfoliosNestedInput
     portfolioProminentProjects?: PortfolioProminentProjectUpdateManyWithoutPortfolioNestedInput
-    portfolioAboutSection?: PortfolioAboutSectionUpdateOneWithoutPortfolioNestedInput
     portfolioWorkExperiences?: PortfolioWorkExperienceUpdateManyWithoutPortfolioNestedInput
     portfolioSkills?: PortfolioSkillUpdateManyWithoutPortfolioNestedInput
   }
@@ -22007,76 +20864,13 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: IntFieldUpdateOperationsInput | number
+    overview?: NullableStringFieldUpdateOperationsInput | string | null
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioNestedInput
-    portfolioAboutSection?: PortfolioAboutSectionUncheckedUpdateOneWithoutPortfolioNestedInput
-    portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedUpdateManyWithoutPortfolioNestedInput
-    portfolioSkills?: PortfolioSkillUncheckedUpdateManyWithoutPortfolioNestedInput
-  }
-
-  export type PortfolioCreateWithoutPortfolioAboutSectionInput = {
-    name?: string | null
-    skillDescription?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutPortfoliosInput
-    portfolioProminentProjects?: PortfolioProminentProjectCreateNestedManyWithoutPortfolioInput
-    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackCreateNestedManyWithoutPortfolioInput
-    portfolioWorkExperiences?: PortfolioWorkExperienceCreateNestedManyWithoutPortfolioInput
-    portfolioSkills?: PortfolioSkillCreateNestedManyWithoutPortfolioInput
-  }
-
-  export type PortfolioUncheckedCreateWithoutPortfolioAboutSectionInput = {
-    id?: number
-    name?: string | null
-    skillDescription?: string | null
-    userId: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    portfolioProminentProjects?: PortfolioProminentProjectUncheckedCreateNestedManyWithoutPortfolioInput
-    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedCreateNestedManyWithoutPortfolioInput
-    portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedCreateNestedManyWithoutPortfolioInput
-    portfolioSkills?: PortfolioSkillUncheckedCreateNestedManyWithoutPortfolioInput
-  }
-
-  export type PortfolioCreateOrConnectWithoutPortfolioAboutSectionInput = {
-    where: PortfolioWhereUniqueInput
-    create: XOR<PortfolioCreateWithoutPortfolioAboutSectionInput, PortfolioUncheckedCreateWithoutPortfolioAboutSectionInput>
-  }
-
-  export type PortfolioUpsertWithoutPortfolioAboutSectionInput = {
-    update: XOR<PortfolioUpdateWithoutPortfolioAboutSectionInput, PortfolioUncheckedUpdateWithoutPortfolioAboutSectionInput>
-    create: XOR<PortfolioCreateWithoutPortfolioAboutSectionInput, PortfolioUncheckedCreateWithoutPortfolioAboutSectionInput>
-    where?: PortfolioWhereInput
-  }
-
-  export type PortfolioUpdateToOneWithWhereWithoutPortfolioAboutSectionInput = {
-    where?: PortfolioWhereInput
-    data: XOR<PortfolioUpdateWithoutPortfolioAboutSectionInput, PortfolioUncheckedUpdateWithoutPortfolioAboutSectionInput>
-  }
-
-  export type PortfolioUpdateWithoutPortfolioAboutSectionInput = {
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutPortfoliosNestedInput
-    portfolioProminentProjects?: PortfolioProminentProjectUpdateManyWithoutPortfolioNestedInput
-    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUpdateManyWithoutPortfolioNestedInput
-    portfolioWorkExperiences?: PortfolioWorkExperienceUpdateManyWithoutPortfolioNestedInput
-    portfolioSkills?: PortfolioSkillUpdateManyWithoutPortfolioNestedInput
-  }
-
-  export type PortfolioUncheckedUpdateWithoutPortfolioAboutSectionInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    userId?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    portfolioProminentProjects?: PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioNestedInput
-    portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedUpdateManyWithoutPortfolioNestedInput
     portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedUpdateManyWithoutPortfolioNestedInput
     portfolioSkills?: PortfolioSkillUncheckedUpdateManyWithoutPortfolioNestedInput
   }
@@ -22084,12 +20878,15 @@ export namespace Prisma {
   export type PortfolioCreateWithoutPortfolioWorkExperiencesInput = {
     name?: string | null
     skillDescription?: string | null
+    overview?: string | null
+    detail?: string | null
+    avatar?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutPortfoliosInput
     portfolioProminentProjects?: PortfolioProminentProjectCreateNestedManyWithoutPortfolioInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackCreateNestedManyWithoutPortfolioInput
-    portfolioAboutSection?: PortfolioAboutSectionCreateNestedOneWithoutPortfolioInput
     portfolioSkills?: PortfolioSkillCreateNestedManyWithoutPortfolioInput
   }
 
@@ -22098,11 +20895,14 @@ export namespace Prisma {
     name?: string | null
     skillDescription?: string | null
     userId: number
+    overview?: string | null
+    detail?: string | null
+    avatar?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedCreateNestedManyWithoutPortfolioInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedCreateNestedManyWithoutPortfolioInput
-    portfolioAboutSection?: PortfolioAboutSectionUncheckedCreateNestedOneWithoutPortfolioInput
     portfolioSkills?: PortfolioSkillUncheckedCreateNestedManyWithoutPortfolioInput
   }
 
@@ -22125,12 +20925,15 @@ export namespace Prisma {
   export type PortfolioUpdateWithoutPortfolioWorkExperiencesInput = {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    overview?: NullableStringFieldUpdateOperationsInput | string | null
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutPortfoliosNestedInput
     portfolioProminentProjects?: PortfolioProminentProjectUpdateManyWithoutPortfolioNestedInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUpdateManyWithoutPortfolioNestedInput
-    portfolioAboutSection?: PortfolioAboutSectionUpdateOneWithoutPortfolioNestedInput
     portfolioSkills?: PortfolioSkillUpdateManyWithoutPortfolioNestedInput
   }
 
@@ -22139,23 +20942,29 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: IntFieldUpdateOperationsInput | number
+    overview?: NullableStringFieldUpdateOperationsInput | string | null
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioNestedInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedUpdateManyWithoutPortfolioNestedInput
-    portfolioAboutSection?: PortfolioAboutSectionUncheckedUpdateOneWithoutPortfolioNestedInput
     portfolioSkills?: PortfolioSkillUncheckedUpdateManyWithoutPortfolioNestedInput
   }
 
   export type PortfolioCreateWithoutPortfolioSkillsInput = {
     name?: string | null
     skillDescription?: string | null
+    overview?: string | null
+    detail?: string | null
+    avatar?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutPortfoliosInput
     portfolioProminentProjects?: PortfolioProminentProjectCreateNestedManyWithoutPortfolioInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackCreateNestedManyWithoutPortfolioInput
-    portfolioAboutSection?: PortfolioAboutSectionCreateNestedOneWithoutPortfolioInput
     portfolioWorkExperiences?: PortfolioWorkExperienceCreateNestedManyWithoutPortfolioInput
   }
 
@@ -22164,11 +20973,14 @@ export namespace Prisma {
     name?: string | null
     skillDescription?: string | null
     userId: number
+    overview?: string | null
+    detail?: string | null
+    avatar?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedCreateNestedManyWithoutPortfolioInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedCreateNestedManyWithoutPortfolioInput
-    portfolioAboutSection?: PortfolioAboutSectionUncheckedCreateNestedOneWithoutPortfolioInput
     portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedCreateNestedManyWithoutPortfolioInput
   }
 
@@ -22191,12 +21003,15 @@ export namespace Prisma {
   export type PortfolioUpdateWithoutPortfolioSkillsInput = {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    overview?: NullableStringFieldUpdateOperationsInput | string | null
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutPortfoliosNestedInput
     portfolioProminentProjects?: PortfolioProminentProjectUpdateManyWithoutPortfolioNestedInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUpdateManyWithoutPortfolioNestedInput
-    portfolioAboutSection?: PortfolioAboutSectionUpdateOneWithoutPortfolioNestedInput
     portfolioWorkExperiences?: PortfolioWorkExperienceUpdateManyWithoutPortfolioNestedInput
   }
 
@@ -22205,11 +21020,14 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: IntFieldUpdateOperationsInput | number
+    overview?: NullableStringFieldUpdateOperationsInput | string | null
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioNestedInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedUpdateManyWithoutPortfolioNestedInput
-    portfolioAboutSection?: PortfolioAboutSectionUncheckedUpdateOneWithoutPortfolioNestedInput
     portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedUpdateManyWithoutPortfolioNestedInput
   }
 
@@ -22248,6 +21066,10 @@ export namespace Prisma {
     id?: number
     name?: string | null
     skillDescription?: string | null
+    overview?: string | null
+    detail?: string | null
+    avatar?: string | null
+    avatarPublicId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -22345,11 +21167,14 @@ export namespace Prisma {
   export type PortfolioUpdateWithoutUserInput = {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    overview?: NullableStringFieldUpdateOperationsInput | string | null
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUpdateManyWithoutPortfolioNestedInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUpdateManyWithoutPortfolioNestedInput
-    portfolioAboutSection?: PortfolioAboutSectionUpdateOneWithoutPortfolioNestedInput
     portfolioWorkExperiences?: PortfolioWorkExperienceUpdateManyWithoutPortfolioNestedInput
     portfolioSkills?: PortfolioSkillUpdateManyWithoutPortfolioNestedInput
   }
@@ -22358,11 +21183,14 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    overview?: NullableStringFieldUpdateOperationsInput | string | null
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     portfolioProminentProjects?: PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioNestedInput
     portfolioCustomerFeedbacks?: PortfolioCustomerFeedbackUncheckedUpdateManyWithoutPortfolioNestedInput
-    portfolioAboutSection?: PortfolioAboutSectionUncheckedUpdateOneWithoutPortfolioNestedInput
     portfolioWorkExperiences?: PortfolioWorkExperienceUncheckedUpdateManyWithoutPortfolioNestedInput
     portfolioSkills?: PortfolioSkillUncheckedUpdateManyWithoutPortfolioNestedInput
   }
@@ -22371,12 +21199,17 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: NullableStringFieldUpdateOperationsInput | string | null
     skillDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    overview?: NullableStringFieldUpdateOperationsInput | string | null
+    detail?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PortfolioProminentProjectCreateManyPortfolioInput = {
     id?: number
+    name: string
     description: string
     role: string
     company: string
@@ -22389,6 +21222,12 @@ export namespace Prisma {
 
   export type PortfolioCustomerFeedbackCreateManyPortfolioInput = {
     id?: number
+    star: number
+    comment: string
+    customerName?: string | null
+    companyName?: string | null
+    customerPosition?: string | null
+    image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -22397,7 +21236,7 @@ export namespace Prisma {
     id?: number
     role: string
     company: string
-    image: string
+    image?: string | null
     from: Date | string
     to?: Date | string | null
     createdAt?: Date | string
@@ -22412,6 +21251,7 @@ export namespace Prisma {
   }
 
   export type PortfolioProminentProjectUpdateWithoutPortfolioInput = {
+    name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     company?: StringFieldUpdateOperationsInput | string
@@ -22420,11 +21260,12 @@ export namespace Prisma {
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    portfolioProminentProjectImages?: PortfolioProminentProjectImageUpdateManyWithoutPortfolioProminentProjectNestedInput
+    images?: PortfolioProminentProjectImageUpdateManyWithoutPortfolioProminentProjectNestedInput
   }
 
   export type PortfolioProminentProjectUncheckedUpdateWithoutPortfolioInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     company?: StringFieldUpdateOperationsInput | string
@@ -22433,11 +21274,12 @@ export namespace Prisma {
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    portfolioProminentProjectImages?: PortfolioProminentProjectImageUncheckedUpdateManyWithoutPortfolioProminentProjectNestedInput
+    images?: PortfolioProminentProjectImageUncheckedUpdateManyWithoutPortfolioProminentProjectNestedInput
   }
 
   export type PortfolioProminentProjectUncheckedUpdateManyWithoutPortfolioInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     company?: StringFieldUpdateOperationsInput | string
@@ -22449,18 +21291,36 @@ export namespace Prisma {
   }
 
   export type PortfolioCustomerFeedbackUpdateWithoutPortfolioInput = {
+    star?: IntFieldUpdateOperationsInput | number
+    comment?: StringFieldUpdateOperationsInput | string
+    customerName?: NullableStringFieldUpdateOperationsInput | string | null
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    customerPosition?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PortfolioCustomerFeedbackUncheckedUpdateWithoutPortfolioInput = {
     id?: IntFieldUpdateOperationsInput | number
+    star?: IntFieldUpdateOperationsInput | number
+    comment?: StringFieldUpdateOperationsInput | string
+    customerName?: NullableStringFieldUpdateOperationsInput | string | null
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    customerPosition?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PortfolioCustomerFeedbackUncheckedUpdateManyWithoutPortfolioInput = {
     id?: IntFieldUpdateOperationsInput | number
+    star?: IntFieldUpdateOperationsInput | number
+    comment?: StringFieldUpdateOperationsInput | string
+    customerName?: NullableStringFieldUpdateOperationsInput | string | null
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    customerPosition?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -22468,7 +21328,7 @@ export namespace Prisma {
   export type PortfolioWorkExperienceUpdateWithoutPortfolioInput = {
     role?: StringFieldUpdateOperationsInput | string
     company?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -22479,7 +21339,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     role?: StringFieldUpdateOperationsInput | string
     company?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -22490,7 +21350,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     role?: StringFieldUpdateOperationsInput | string
     company?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -22520,12 +21380,14 @@ export namespace Prisma {
   export type PortfolioProminentProjectImageCreateManyPortfolioProminentProjectInput = {
     id?: number
     image: string
+    imagePublicId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type PortfolioProminentProjectImageUpdateWithoutPortfolioProminentProjectInput = {
     image?: StringFieldUpdateOperationsInput | string
+    imagePublicId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -22533,6 +21395,7 @@ export namespace Prisma {
   export type PortfolioProminentProjectImageUncheckedUpdateWithoutPortfolioProminentProjectInput = {
     id?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
+    imagePublicId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -22540,6 +21403,7 @@ export namespace Prisma {
   export type PortfolioProminentProjectImageUncheckedUpdateManyWithoutPortfolioProminentProjectInput = {
     id?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
+    imagePublicId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
