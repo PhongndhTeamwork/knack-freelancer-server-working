@@ -83,10 +83,10 @@ export class PortfolioService {
             avatar: uploadedAvatar.secure_url,
             avatarPublicId: uploadedAvatar.public_id
           }),
-          ...(name && name !== "" && { name }),
-          ...(detail && detail !== "" && { detail }),
-          ...(skillDescription && skillDescription !== "" && { skillDescription }),
-          ...(overview && overview !== "" && { overview })
+          ...(name != null && { name }),
+          ...(detail != null && { detail }),
+          ...(skillDescription != null && { skillDescription }),
+          ...(overview != null && { overview })
         }
       });
       return { message: "Portfolio updated successfully" };
