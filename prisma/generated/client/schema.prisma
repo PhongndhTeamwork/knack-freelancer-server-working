@@ -77,6 +77,7 @@ model ProfileAchievement {
   description String?
   from        DateTime  @db.Timestamptz()
   to          DateTime? @db.Timestamptz()
+  wage        Int?
 
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
@@ -92,7 +93,6 @@ model ProfileProminentWork {
   description String?
   from        DateTime  @db.Timestamptz()
   to          DateTime? @db.Timestamptz()
-  wage        Int?
 
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()

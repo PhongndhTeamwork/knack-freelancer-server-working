@@ -163,6 +163,7 @@ exports.Prisma.ProfileAchievementScalarFieldEnum = {
   description: 'description',
   from: 'from',
   to: 'to',
+  wage: 'wage',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -174,7 +175,6 @@ exports.Prisma.ProfileProminentWorkScalarFieldEnum = {
   description: 'description',
   from: 'from',
   to: 'to',
-  wage: 'wage',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

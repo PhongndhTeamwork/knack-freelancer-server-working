@@ -31,6 +31,18 @@ export class UserController {
     return result;
   }
 
+  @Get("feedback")
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  async getFeedback(@Req() req: Request) {
+    const user: any = req.user;
+    const result = await this.userService.getFeedback(+user?.id);
+    if (result instanceof HttpException) {
+      throw result;
+    }
+    return result;
+  }
+
   @Put("update-profile")
   @UseGuards(JwtAuthGuard)
   @UseInterceptors(FileInterceptor("avatar"))

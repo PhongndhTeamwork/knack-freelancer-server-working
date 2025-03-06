@@ -24,15 +24,34 @@ export class UserService {
       return await this.prisma.user.findFirst({
         where: { id: id },
         include: {
-          profileWorkExperiences: {orderBy : {id : 'asc'}},
-          profileAchievements: {orderBy : {id : 'asc'}},
-          profileProminentWorks: {orderBy : {id : 'asc'}},
+          profileWorkExperiences: { orderBy: { id: "asc" } },
+          profileAchievements: { orderBy: { id: "asc" } },
+          profileProminentWorks: { orderBy: { id: "asc" } }
         }
       });
     } catch (error) {
       return new BadRequestException(error?.message);
     }
   }
+
+  async getFeedback(userId : number) {
+    try {
+      const user = await this.prisma.user.findUnique({
+        where : {id : userId},
+        include : {
+          portfolios : {
+            include : {
+              portfolioCustomerFeedbacks : true
+            }
+          }
+        }
+      });
+      return user.portfolios ? user.portfolios?.[0]?.portfolioCustomerFeedbacks[0] || null : null;
+    } catch (e) {
+      new BadRequestException(e?.message);
+    }
+  }
+
 
   async updateProfile(userId: number, updateUserDto: UpdateUserDto) {
     try {
@@ -83,7 +102,7 @@ export class UserService {
           name: createWorkExperienceDto.name,
           description: createWorkExperienceDto.description,
           from: new Date(createWorkExperienceDto.from),
-          to : createWorkExperienceDto.to !== "" ? new Date(createWorkExperienceDto.to) : null,
+          to: createWorkExperienceDto.to !== "" ? new Date(createWorkExperienceDto.to) : null
         }
       });
     } catch (error) {
@@ -103,7 +122,7 @@ export class UserService {
           name: updateWorkExperienceDto.name,
           description: updateWorkExperienceDto.description,
           from: new Date(updateWorkExperienceDto.from),
-          to : updateWorkExperienceDto.to !== "" ? new Date(updateWorkExperienceDto.to) : null,
+          to: updateWorkExperienceDto.to !== "" ? new Date(updateWorkExperienceDto.to) : null
         }
       });
     } catch (error) {
@@ -136,7 +155,8 @@ export class UserService {
           name: createAchievementDto.name,
           description: createAchievementDto.description,
           from: new Date(createAchievementDto.from),
-          to : createAchievementDto.to !== "" ? new Date(createAchievementDto.to) : null,
+          to: createAchievementDto.to !== "" ? new Date(createAchievementDto.to) : null,
+          wage: +createAchievementDto.wage
         }
       });
 
@@ -157,7 +177,8 @@ export class UserService {
           name: updateAchievementDto.name,
           description: updateAchievementDto.description,
           from: new Date(updateAchievementDto.from),
-          to : updateAchievementDto.to !== "" ? new Date(updateAchievementDto.to) : null,
+          to: updateAchievementDto.to !== "" ? new Date(updateAchievementDto.to) : null,
+          wage: +updateAchievementDto.wage
         }
       });
 
@@ -191,13 +212,13 @@ export class UserService {
           name: createProminentWorkDto.name,
           description: createProminentWorkDto.description,
           from: new Date(createProminentWorkDto.from),
-          to: new Date(createProminentWorkDto.to),
-          wage: +createProminentWorkDto.wage
+          to: createProminentWorkDto.to !== "" ? new Date(createProminentWorkDto.to) : null
         }
       });
 
       return prominentWork;
     } catch (error) {
+      console.log(error);
       return new BadRequestException(error?.message);
     }
   }
@@ -213,8 +234,7 @@ export class UserService {
           name: updateProminentWorkDto.name,
           description: updateProminentWorkDto.description,
           from: new Date(updateProminentWorkDto.from),
-          to : updateProminentWorkDto.to !== "" ? new Date(updateProminentWorkDto.to) : null,
-          wage: +updateProminentWorkDto.wage
+          to: updateProminentWorkDto.to !== "" ? new Date(updateProminentWorkDto.to) : null
         }
       });
 

@@ -1,4 +1,4 @@
-import { IsOptional, IsString } from "class-validator"
+import { IsNumber, IsOptional, IsString } from "class-validator";
 
 export class UpdateAchievementDto{
   @IsOptional()
@@ -16,4 +16,8 @@ export class UpdateAchievementDto{
   @IsOptional()
   @IsString()
   to: string
+
+  @IsOptional()
+  @IsNumber()
+  wage: number
 }
