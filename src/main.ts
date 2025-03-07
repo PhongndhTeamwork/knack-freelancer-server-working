@@ -16,15 +16,19 @@ async function bootstrap() {
   SwaggerModule.setup("api/docs", app, document);
 
   app.enableCors({
-    origin: ['https://knack-freelancer-working.onrender.com/','http://localhost:4000','https://knack-freelancer-working.vercel.app'], // Allow requests from this origin
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed methods
+    origin: [
+      "https://knack-freelancer-working.onrender.com",
+      "http://localhost:4000",
+      "https://knack-freelancer-working.vercel.app"
+    ], // Allow requests from this origin
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Allowed methods
     credentials: true, // Allow cookies if needed
-    allowedHeaders: 'Content-Type, Authorization', // Allowed headers
+    allowedHeaders: "Content-Type, Authorization" // Allowed headers
   });
 
-  await app.listen(8081);
+  await app.listen(8085);
 }
 
 bootstrap().then(() => {
-  console.log("App is running on port 8081");
+  console.log("App is running on port 8085");
 });

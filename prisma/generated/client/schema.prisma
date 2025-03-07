@@ -16,21 +16,23 @@ datasource db {
 }
 
 model User {
-  id             Int     @id @default(autoincrement())
-  name           String?
-  avatar         String?
-  role           Int     @default(1) @db.SmallInt
-  phone          String? @db.VarChar(15)
-  gender         Int?    @db.SmallInt
-  email          String?
-  biography      String?
-  address        String?
-  occupation     String?
-  facebookLink   String? @map("facebook_link")
-  instagramLink  String? @map("instagram_link")
-  youtubeLink    String? @map("youtube_link")
-  tiktokLink     String? @map("tiktok_link")
-  avatarPublicId String? @map("avatar_public_id")
+  id                 Int      @id @default(autoincrement())
+  name               String?
+  avatar             String?
+  role               Int      @default(1) @db.SmallInt
+  phone              String?  @db.VarChar(15)
+  gender             Int?     @db.SmallInt
+  email              String?
+  biography          String?
+  address            String?
+  occupation         String?
+  facebookLink       String?  @map("facebook_link")
+  instagramLink      String?  @map("instagram_link")
+  youtubeLink        String?  @map("youtube_link")
+  tiktokLink         String?  @map("tiktok_link")
+  avatarPublicId     String?  @map("avatar_public_id")
+  servicePriceLink   String?  @map("service_price_link")
+  isShowServicePrice Boolean? @default(true) @map("is_show_service_price")
 
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
@@ -39,6 +41,7 @@ model User {
   profileAchievements    ProfileAchievement[]
   profileProminentWorks  ProfileProminentWork[]
   portfolios             Portfolio[]
+  profileServicePrice    ProfileServicePrice[]
 
   @@unique([email])
   @@map("users")
@@ -57,7 +60,7 @@ model Auth {
 
 model ProfileWorkExperience {
   id          Int       @id @default(autoincrement())
-  userId      Int
+  userId      Int       @map("user_id")
   name        String
   description String?
   from        DateTime  @db.Timestamptz()
@@ -72,12 +75,11 @@ model ProfileWorkExperience {
 
 model ProfileAchievement {
   id          Int       @id @default(autoincrement())
-  userId      Int
+  userId      Int       @map("user_id")
   name        String
   description String?
   from        DateTime  @db.Timestamptz()
   to          DateTime? @db.Timestamptz()
-  wage        Int?
 
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
@@ -88,17 +90,47 @@ model ProfileAchievement {
 
 model ProfileProminentWork {
   id          Int       @id @default(autoincrement())
-  userId      Int
+  userId      Int       @map("user_id")
   name        String
   description String?
   from        DateTime  @db.Timestamptz()
   to          DateTime? @db.Timestamptz()
+  wage        Int?
 
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
 
   @@map("profile_prominent_works")
+}
+
+model ProfileServicePrice {
+  id        Int    @id @default(autoincrement())
+  userId    Int
+  fieldName String @map("field_name")
+
+  user           User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  profileService ProfileService[]
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  @@map("profile_service_prices")
+}
+
+model ProfileService {
+  id                    Int     @id @default(autoincrement())
+  name                  String
+  price                 Int
+  description           String?
+  profileServicePriceId Int     @map("profile_service_price_id")
+
+  profileServicePrice ProfileServicePrice @relation(fields: [profileServicePriceId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  @@map("profile_services")
 }
 
 model Portfolio {
@@ -125,7 +157,7 @@ model Portfolio {
 
 model PortfolioProminentProject {
   id          Int       @id @default(autoincrement())
-  portfolioId Int
+  portfolioId Int       @map("portfolio_id")
   name        String
   description String
   role        String
@@ -145,7 +177,7 @@ model PortfolioProminentProject {
 
 model PortfolioProminentProjectImage {
   id                          Int    @id @default(autoincrement())
-  portfolioProminentProjectId Int
+  portfolioProminentProjectId Int    @map("portfolio_prominent_project_id")
   image                       String
   imagePublicId               String @map("image_public_id")
 
@@ -159,7 +191,7 @@ model PortfolioProminentProjectImage {
 
 model PortfolioCustomerFeedback {
   id               Int     @id @default(autoincrement())
-  portfolioId      Int
+  portfolioId      Int     @map("portfolio_id")
   star             Int
   comment          String
   customerName     String? @map("customer_name")
@@ -177,7 +209,7 @@ model PortfolioCustomerFeedback {
 
 model PortfolioWorkExperience {
   id          Int       @id @default(autoincrement())
-  portfolioId Int
+  portfolioId Int       @map("portfolio_id")
   role        String
   company     String
   image       String?
@@ -194,7 +226,7 @@ model PortfolioWorkExperience {
 
 model PortfolioSkill {
   id          Int    @id @default(autoincrement())
-  portfolioId Int
+  portfolioId Int    @map("portfolio_id")
   name        String
 
   portfolio Portfolio @relation(references: [id], fields: [portfolioId])

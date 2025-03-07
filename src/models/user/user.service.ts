@@ -34,14 +34,14 @@ export class UserService {
     }
   }
 
-  async getFeedback(userId : number) {
+  async getFeedback(userId: number) {
     try {
       const user = await this.prisma.user.findUnique({
-        where : {id : userId},
-        include : {
-          portfolios : {
-            include : {
-              portfolioCustomerFeedbacks : true
+        where: { id: userId },
+        include: {
+          portfolios: {
+            include: {
+              portfolioCustomerFeedbacks: true
             }
           }
         }
@@ -155,8 +155,7 @@ export class UserService {
           name: createAchievementDto.name,
           description: createAchievementDto.description,
           from: new Date(createAchievementDto.from),
-          to: createAchievementDto.to !== "" ? new Date(createAchievementDto.to) : null,
-          wage: +createAchievementDto.wage
+          to: createAchievementDto.to !== "" ? new Date(createAchievementDto.to) : null
         }
       });
 
@@ -177,8 +176,7 @@ export class UserService {
           name: updateAchievementDto.name,
           description: updateAchievementDto.description,
           from: new Date(updateAchievementDto.from),
-          to: updateAchievementDto.to !== "" ? new Date(updateAchievementDto.to) : null,
-          wage: +updateAchievementDto.wage
+          to: updateAchievementDto.to !== "" ? new Date(updateAchievementDto.to) : null
         }
       });
 
@@ -212,7 +210,8 @@ export class UserService {
           name: createProminentWorkDto.name,
           description: createProminentWorkDto.description,
           from: new Date(createProminentWorkDto.from),
-          to: createProminentWorkDto.to !== "" ? new Date(createProminentWorkDto.to) : null
+          to: createProminentWorkDto.to !== "" ? new Date(createProminentWorkDto.to) : null,
+          wage: +createProminentWorkDto.wage
         }
       });
 
@@ -234,7 +233,8 @@ export class UserService {
           name: updateProminentWorkDto.name,
           description: updateProminentWorkDto.description,
           from: new Date(updateProminentWorkDto.from),
-          to: updateProminentWorkDto.to !== "" ? new Date(updateProminentWorkDto.to) : null
+          to: updateProminentWorkDto.to !== "" ? new Date(updateProminentWorkDto.to) : null,
+          wage: +updateProminentWorkDto.wage
         }
       });
 

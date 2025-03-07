@@ -24,6 +24,9 @@ export class PortfolioService {
       return await this.prisma.portfolio.findMany({
         where: {
           userId: userId
+        },
+        orderBy : {
+          id : "asc"
         }
       });
     } catch (err) {

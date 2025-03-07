@@ -133,6 +133,8 @@ exports.Prisma.UserScalarFieldEnum = {
   youtubeLink: 'youtubeLink',
   tiktokLink: 'tiktokLink',
   avatarPublicId: 'avatarPublicId',
+  servicePriceLink: 'servicePriceLink',
+  isShowServicePrice: 'isShowServicePrice',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -163,7 +165,6 @@ exports.Prisma.ProfileAchievementScalarFieldEnum = {
   description: 'description',
   from: 'from',
   to: 'to',
-  wage: 'wage',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -175,6 +176,25 @@ exports.Prisma.ProfileProminentWorkScalarFieldEnum = {
   description: 'description',
   from: 'from',
   to: 'to',
+  wage: 'wage',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ProfileServicePriceScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  fieldName: 'fieldName',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ProfileServiceScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  price: 'price',
+  description: 'description',
+  profileServicePriceId: 'profileServicePriceId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -279,6 +299,8 @@ exports.Prisma.ModelName = {
   ProfileWorkExperience: 'ProfileWorkExperience',
   ProfileAchievement: 'ProfileAchievement',
   ProfileProminentWork: 'ProfileProminentWork',
+  ProfileServicePrice: 'ProfileServicePrice',
+  ProfileService: 'ProfileService',
   Portfolio: 'Portfolio',
   PortfolioProminentProject: 'PortfolioProminentProject',
   PortfolioProminentProjectImage: 'PortfolioProminentProjectImage',

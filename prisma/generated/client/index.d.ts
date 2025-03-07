@@ -39,6 +39,16 @@ export type ProfileAchievement = $Result.DefaultSelection<Prisma.$ProfileAchieve
  */
 export type ProfileProminentWork = $Result.DefaultSelection<Prisma.$ProfileProminentWorkPayload>
 /**
+ * Model ProfileServicePrice
+ * 
+ */
+export type ProfileServicePrice = $Result.DefaultSelection<Prisma.$ProfileServicePricePayload>
+/**
+ * Model ProfileService
+ * 
+ */
+export type ProfileService = $Result.DefaultSelection<Prisma.$ProfileServicePayload>
+/**
  * Model Portfolio
  * 
  */
@@ -248,6 +258,26 @@ export class PrismaClient<
     * ```
     */
   get profileProminentWork(): Prisma.ProfileProminentWorkDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.profileServicePrice`: Exposes CRUD operations for the **ProfileServicePrice** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ProfileServicePrices
+    * const profileServicePrices = await prisma.profileServicePrice.findMany()
+    * ```
+    */
+  get profileServicePrice(): Prisma.ProfileServicePriceDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.profileService`: Exposes CRUD operations for the **ProfileService** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ProfileServices
+    * const profileServices = await prisma.profileService.findMany()
+    * ```
+    */
+  get profileService(): Prisma.ProfileServiceDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.portfolio`: Exposes CRUD operations for the **Portfolio** model.
@@ -763,6 +793,8 @@ export namespace Prisma {
     ProfileWorkExperience: 'ProfileWorkExperience',
     ProfileAchievement: 'ProfileAchievement',
     ProfileProminentWork: 'ProfileProminentWork',
+    ProfileServicePrice: 'ProfileServicePrice',
+    ProfileService: 'ProfileService',
     Portfolio: 'Portfolio',
     PortfolioProminentProject: 'PortfolioProminentProject',
     PortfolioProminentProjectImage: 'PortfolioProminentProjectImage',
@@ -785,7 +817,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "user" | "auth" | "profileWorkExperience" | "profileAchievement" | "profileProminentWork" | "portfolio" | "portfolioProminentProject" | "portfolioProminentProjectImage" | "portfolioCustomerFeedback" | "portfolioWorkExperience" | "portfolioSkill" | "booking"
+      modelProps: "user" | "auth" | "profileWorkExperience" | "profileAchievement" | "profileProminentWork" | "profileServicePrice" | "profileService" | "portfolio" | "portfolioProminentProject" | "portfolioProminentProjectImage" | "portfolioCustomerFeedback" | "portfolioWorkExperience" | "portfolioSkill" | "booking"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1156,6 +1188,154 @@ export namespace Prisma {
           count: {
             args: Prisma.ProfileProminentWorkCountArgs<ExtArgs>
             result: $Utils.Optional<ProfileProminentWorkCountAggregateOutputType> | number
+          }
+        }
+      }
+      ProfileServicePrice: {
+        payload: Prisma.$ProfileServicePricePayload<ExtArgs>
+        fields: Prisma.ProfileServicePriceFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProfileServicePriceFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePricePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProfileServicePriceFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePricePayload>
+          }
+          findFirst: {
+            args: Prisma.ProfileServicePriceFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePricePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProfileServicePriceFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePricePayload>
+          }
+          findMany: {
+            args: Prisma.ProfileServicePriceFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePricePayload>[]
+          }
+          create: {
+            args: Prisma.ProfileServicePriceCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePricePayload>
+          }
+          createMany: {
+            args: Prisma.ProfileServicePriceCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProfileServicePriceCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePricePayload>[]
+          }
+          delete: {
+            args: Prisma.ProfileServicePriceDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePricePayload>
+          }
+          update: {
+            args: Prisma.ProfileServicePriceUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePricePayload>
+          }
+          deleteMany: {
+            args: Prisma.ProfileServicePriceDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProfileServicePriceUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProfileServicePriceUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePricePayload>[]
+          }
+          upsert: {
+            args: Prisma.ProfileServicePriceUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePricePayload>
+          }
+          aggregate: {
+            args: Prisma.ProfileServicePriceAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProfileServicePrice>
+          }
+          groupBy: {
+            args: Prisma.ProfileServicePriceGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProfileServicePriceGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProfileServicePriceCountArgs<ExtArgs>
+            result: $Utils.Optional<ProfileServicePriceCountAggregateOutputType> | number
+          }
+        }
+      }
+      ProfileService: {
+        payload: Prisma.$ProfileServicePayload<ExtArgs>
+        fields: Prisma.ProfileServiceFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProfileServiceFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProfileServiceFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePayload>
+          }
+          findFirst: {
+            args: Prisma.ProfileServiceFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProfileServiceFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePayload>
+          }
+          findMany: {
+            args: Prisma.ProfileServiceFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePayload>[]
+          }
+          create: {
+            args: Prisma.ProfileServiceCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePayload>
+          }
+          createMany: {
+            args: Prisma.ProfileServiceCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProfileServiceCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePayload>[]
+          }
+          delete: {
+            args: Prisma.ProfileServiceDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePayload>
+          }
+          update: {
+            args: Prisma.ProfileServiceUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePayload>
+          }
+          deleteMany: {
+            args: Prisma.ProfileServiceDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProfileServiceUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProfileServiceUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePayload>[]
+          }
+          upsert: {
+            args: Prisma.ProfileServiceUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileServicePayload>
+          }
+          aggregate: {
+            args: Prisma.ProfileServiceAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProfileService>
+          }
+          groupBy: {
+            args: Prisma.ProfileServiceGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProfileServiceGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProfileServiceCountArgs<ExtArgs>
+            result: $Utils.Optional<ProfileServiceCountAggregateOutputType> | number
           }
         }
       }
@@ -1766,6 +1946,8 @@ export namespace Prisma {
     profileWorkExperience?: ProfileWorkExperienceOmit
     profileAchievement?: ProfileAchievementOmit
     profileProminentWork?: ProfileProminentWorkOmit
+    profileServicePrice?: ProfileServicePriceOmit
+    profileService?: ProfileServiceOmit
     portfolio?: PortfolioOmit
     portfolioProminentProject?: PortfolioProminentProjectOmit
     portfolioProminentProjectImage?: PortfolioProminentProjectImageOmit
@@ -1871,6 +2053,7 @@ export namespace Prisma {
     profileAchievements: number
     profileProminentWorks: number
     portfolios: number
+    profileServicePrice: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1878,6 +2061,7 @@ export namespace Prisma {
     profileAchievements?: boolean | UserCountOutputTypeCountProfileAchievementsArgs
     profileProminentWorks?: boolean | UserCountOutputTypeCountProfileProminentWorksArgs
     portfolios?: boolean | UserCountOutputTypeCountPortfoliosArgs
+    profileServicePrice?: boolean | UserCountOutputTypeCountProfileServicePriceArgs
   }
 
   // Custom InputTypes
@@ -1917,6 +2101,44 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountPortfoliosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PortfolioWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountProfileServicePriceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfileServicePriceWhereInput
+  }
+
+
+  /**
+   * Count Type ProfileServicePriceCountOutputType
+   */
+
+  export type ProfileServicePriceCountOutputType = {
+    profileService: number
+  }
+
+  export type ProfileServicePriceCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profileService?: boolean | ProfileServicePriceCountOutputTypeCountProfileServiceArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ProfileServicePriceCountOutputType without action
+   */
+  export type ProfileServicePriceCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileServicePriceCountOutputType
+     */
+    select?: ProfileServicePriceCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ProfileServicePriceCountOutputType without action
+   */
+  export type ProfileServicePriceCountOutputTypeCountProfileServiceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfileServiceWhereInput
   }
 
 
@@ -2053,6 +2275,8 @@ export namespace Prisma {
     youtubeLink: string | null
     tiktokLink: string | null
     avatarPublicId: string | null
+    servicePriceLink: string | null
+    isShowServicePrice: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2073,6 +2297,8 @@ export namespace Prisma {
     youtubeLink: string | null
     tiktokLink: string | null
     avatarPublicId: string | null
+    servicePriceLink: string | null
+    isShowServicePrice: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2093,6 +2319,8 @@ export namespace Prisma {
     youtubeLink: number
     tiktokLink: number
     avatarPublicId: number
+    servicePriceLink: number
+    isShowServicePrice: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -2127,6 +2355,8 @@ export namespace Prisma {
     youtubeLink?: true
     tiktokLink?: true
     avatarPublicId?: true
+    servicePriceLink?: true
+    isShowServicePrice?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2147,6 +2377,8 @@ export namespace Prisma {
     youtubeLink?: true
     tiktokLink?: true
     avatarPublicId?: true
+    servicePriceLink?: true
+    isShowServicePrice?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2167,6 +2399,8 @@ export namespace Prisma {
     youtubeLink?: true
     tiktokLink?: true
     avatarPublicId?: true
+    servicePriceLink?: true
+    isShowServicePrice?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -2274,6 +2508,8 @@ export namespace Prisma {
     youtubeLink: string | null
     tiktokLink: string | null
     avatarPublicId: string | null
+    servicePriceLink: string | null
+    isShowServicePrice: boolean | null
     createdAt: Date
     updatedAt: Date
     _count: UserCountAggregateOutputType | null
@@ -2313,12 +2549,15 @@ export namespace Prisma {
     youtubeLink?: boolean
     tiktokLink?: boolean
     avatarPublicId?: boolean
+    servicePriceLink?: boolean
+    isShowServicePrice?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     profileWorkExperiences?: boolean | User$profileWorkExperiencesArgs<ExtArgs>
     profileAchievements?: boolean | User$profileAchievementsArgs<ExtArgs>
     profileProminentWorks?: boolean | User$profileProminentWorksArgs<ExtArgs>
     portfolios?: boolean | User$portfoliosArgs<ExtArgs>
+    profileServicePrice?: boolean | User$profileServicePriceArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -2338,6 +2577,8 @@ export namespace Prisma {
     youtubeLink?: boolean
     tiktokLink?: boolean
     avatarPublicId?: boolean
+    servicePriceLink?: boolean
+    isShowServicePrice?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -2358,6 +2599,8 @@ export namespace Prisma {
     youtubeLink?: boolean
     tiktokLink?: boolean
     avatarPublicId?: boolean
+    servicePriceLink?: boolean
+    isShowServicePrice?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -2378,16 +2621,19 @@ export namespace Prisma {
     youtubeLink?: boolean
     tiktokLink?: boolean
     avatarPublicId?: boolean
+    servicePriceLink?: boolean
+    isShowServicePrice?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "avatar" | "role" | "phone" | "gender" | "email" | "biography" | "address" | "occupation" | "facebookLink" | "instagramLink" | "youtubeLink" | "tiktokLink" | "avatarPublicId" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "avatar" | "role" | "phone" | "gender" | "email" | "biography" | "address" | "occupation" | "facebookLink" | "instagramLink" | "youtubeLink" | "tiktokLink" | "avatarPublicId" | "servicePriceLink" | "isShowServicePrice" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     profileWorkExperiences?: boolean | User$profileWorkExperiencesArgs<ExtArgs>
     profileAchievements?: boolean | User$profileAchievementsArgs<ExtArgs>
     profileProminentWorks?: boolean | User$profileProminentWorksArgs<ExtArgs>
     portfolios?: boolean | User$portfoliosArgs<ExtArgs>
+    profileServicePrice?: boolean | User$profileServicePriceArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2400,6 +2646,7 @@ export namespace Prisma {
       profileAchievements: Prisma.$ProfileAchievementPayload<ExtArgs>[]
       profileProminentWorks: Prisma.$ProfileProminentWorkPayload<ExtArgs>[]
       portfolios: Prisma.$PortfolioPayload<ExtArgs>[]
+      profileServicePrice: Prisma.$ProfileServicePricePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -2417,6 +2664,8 @@ export namespace Prisma {
       youtubeLink: string | null
       tiktokLink: string | null
       avatarPublicId: string | null
+      servicePriceLink: string | null
+      isShowServicePrice: boolean | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["user"]>
@@ -2817,6 +3066,7 @@ export namespace Prisma {
     profileAchievements<T extends User$profileAchievementsArgs<ExtArgs> = {}>(args?: Subset<T, User$profileAchievementsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileAchievementPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     profileProminentWorks<T extends User$profileProminentWorksArgs<ExtArgs> = {}>(args?: Subset<T, User$profileProminentWorksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileProminentWorkPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     portfolios<T extends User$portfoliosArgs<ExtArgs> = {}>(args?: Subset<T, User$portfoliosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PortfolioPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    profileServicePrice<T extends User$profileServicePriceArgs<ExtArgs> = {}>(args?: Subset<T, User$profileServicePriceArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileServicePricePayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2861,6 +3111,8 @@ export namespace Prisma {
     readonly youtubeLink: FieldRef<"User", 'String'>
     readonly tiktokLink: FieldRef<"User", 'String'>
     readonly avatarPublicId: FieldRef<"User", 'String'>
+    readonly servicePriceLink: FieldRef<"User", 'String'>
+    readonly isShowServicePrice: FieldRef<"User", 'Boolean'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
@@ -3344,6 +3596,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: PortfolioScalarFieldEnum | PortfolioScalarFieldEnum[]
+  }
+
+  /**
+   * User.profileServicePrice
+   */
+  export type User$profileServicePriceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileServicePrice
+     */
+    select?: ProfileServicePriceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileServicePrice
+     */
+    omit?: ProfileServicePriceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServicePriceInclude<ExtArgs> | null
+    where?: ProfileServicePriceWhereInput
+    orderBy?: ProfileServicePriceOrderByWithRelationInput | ProfileServicePriceOrderByWithRelationInput[]
+    cursor?: ProfileServicePriceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProfileServicePriceScalarFieldEnum | ProfileServicePriceScalarFieldEnum[]
   }
 
   /**
@@ -5548,13 +5824,11 @@ export namespace Prisma {
   export type ProfileAchievementAvgAggregateOutputType = {
     id: number | null
     userId: number | null
-    wage: number | null
   }
 
   export type ProfileAchievementSumAggregateOutputType = {
     id: number | null
     userId: number | null
-    wage: number | null
   }
 
   export type ProfileAchievementMinAggregateOutputType = {
@@ -5564,7 +5838,6 @@ export namespace Prisma {
     description: string | null
     from: Date | null
     to: Date | null
-    wage: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -5576,7 +5849,6 @@ export namespace Prisma {
     description: string | null
     from: Date | null
     to: Date | null
-    wage: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -5588,7 +5860,6 @@ export namespace Prisma {
     description: number
     from: number
     to: number
-    wage: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -5598,13 +5869,11 @@ export namespace Prisma {
   export type ProfileAchievementAvgAggregateInputType = {
     id?: true
     userId?: true
-    wage?: true
   }
 
   export type ProfileAchievementSumAggregateInputType = {
     id?: true
     userId?: true
-    wage?: true
   }
 
   export type ProfileAchievementMinAggregateInputType = {
@@ -5614,7 +5883,6 @@ export namespace Prisma {
     description?: true
     from?: true
     to?: true
-    wage?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -5626,7 +5894,6 @@ export namespace Prisma {
     description?: true
     from?: true
     to?: true
-    wage?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -5638,7 +5905,6 @@ export namespace Prisma {
     description?: true
     from?: true
     to?: true
-    wage?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -5737,7 +6003,6 @@ export namespace Prisma {
     description: string | null
     from: Date
     to: Date | null
-    wage: number | null
     createdAt: Date
     updatedAt: Date
     _count: ProfileAchievementCountAggregateOutputType | null
@@ -5768,7 +6033,6 @@ export namespace Prisma {
     description?: boolean
     from?: boolean
     to?: boolean
-    wage?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -5781,7 +6045,6 @@ export namespace Prisma {
     description?: boolean
     from?: boolean
     to?: boolean
-    wage?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -5794,7 +6057,6 @@ export namespace Prisma {
     description?: boolean
     from?: boolean
     to?: boolean
-    wage?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -5807,12 +6069,11 @@ export namespace Prisma {
     description?: boolean
     from?: boolean
     to?: boolean
-    wage?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type ProfileAchievementOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "name" | "description" | "from" | "to" | "wage" | "createdAt" | "updatedAt", ExtArgs["result"]["profileAchievement"]>
+  export type ProfileAchievementOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "name" | "description" | "from" | "to" | "createdAt" | "updatedAt", ExtArgs["result"]["profileAchievement"]>
   export type ProfileAchievementInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -5835,7 +6096,6 @@ export namespace Prisma {
       description: string | null
       from: Date
       to: Date | null
-      wage: number | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["profileAchievement"]>
@@ -6268,7 +6528,6 @@ export namespace Prisma {
     readonly description: FieldRef<"ProfileAchievement", 'String'>
     readonly from: FieldRef<"ProfileAchievement", 'DateTime'>
     readonly to: FieldRef<"ProfileAchievement", 'DateTime'>
-    readonly wage: FieldRef<"ProfileAchievement", 'Int'>
     readonly createdAt: FieldRef<"ProfileAchievement", 'DateTime'>
     readonly updatedAt: FieldRef<"ProfileAchievement", 'DateTime'>
   }
@@ -6700,11 +6959,13 @@ export namespace Prisma {
   export type ProfileProminentWorkAvgAggregateOutputType = {
     id: number | null
     userId: number | null
+    wage: number | null
   }
 
   export type ProfileProminentWorkSumAggregateOutputType = {
     id: number | null
     userId: number | null
+    wage: number | null
   }
 
   export type ProfileProminentWorkMinAggregateOutputType = {
@@ -6714,6 +6975,7 @@ export namespace Prisma {
     description: string | null
     from: Date | null
     to: Date | null
+    wage: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -6725,6 +6987,7 @@ export namespace Prisma {
     description: string | null
     from: Date | null
     to: Date | null
+    wage: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -6736,6 +6999,7 @@ export namespace Prisma {
     description: number
     from: number
     to: number
+    wage: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -6745,11 +7009,13 @@ export namespace Prisma {
   export type ProfileProminentWorkAvgAggregateInputType = {
     id?: true
     userId?: true
+    wage?: true
   }
 
   export type ProfileProminentWorkSumAggregateInputType = {
     id?: true
     userId?: true
+    wage?: true
   }
 
   export type ProfileProminentWorkMinAggregateInputType = {
@@ -6759,6 +7025,7 @@ export namespace Prisma {
     description?: true
     from?: true
     to?: true
+    wage?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -6770,6 +7037,7 @@ export namespace Prisma {
     description?: true
     from?: true
     to?: true
+    wage?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -6781,6 +7049,7 @@ export namespace Prisma {
     description?: true
     from?: true
     to?: true
+    wage?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -6879,6 +7148,7 @@ export namespace Prisma {
     description: string | null
     from: Date
     to: Date | null
+    wage: number | null
     createdAt: Date
     updatedAt: Date
     _count: ProfileProminentWorkCountAggregateOutputType | null
@@ -6909,6 +7179,7 @@ export namespace Prisma {
     description?: boolean
     from?: boolean
     to?: boolean
+    wage?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -6921,6 +7192,7 @@ export namespace Prisma {
     description?: boolean
     from?: boolean
     to?: boolean
+    wage?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -6933,6 +7205,7 @@ export namespace Prisma {
     description?: boolean
     from?: boolean
     to?: boolean
+    wage?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -6945,11 +7218,12 @@ export namespace Prisma {
     description?: boolean
     from?: boolean
     to?: boolean
+    wage?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type ProfileProminentWorkOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "name" | "description" | "from" | "to" | "createdAt" | "updatedAt", ExtArgs["result"]["profileProminentWork"]>
+  export type ProfileProminentWorkOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "name" | "description" | "from" | "to" | "wage" | "createdAt" | "updatedAt", ExtArgs["result"]["profileProminentWork"]>
   export type ProfileProminentWorkInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -6972,6 +7246,7 @@ export namespace Prisma {
       description: string | null
       from: Date
       to: Date | null
+      wage: number | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["profileProminentWork"]>
@@ -7404,6 +7679,7 @@ export namespace Prisma {
     readonly description: FieldRef<"ProfileProminentWork", 'String'>
     readonly from: FieldRef<"ProfileProminentWork", 'DateTime'>
     readonly to: FieldRef<"ProfileProminentWork", 'DateTime'>
+    readonly wage: FieldRef<"ProfileProminentWork", 'Int'>
     readonly createdAt: FieldRef<"ProfileProminentWork", 'DateTime'>
     readonly updatedAt: FieldRef<"ProfileProminentWork", 'DateTime'>
   }
@@ -7817,6 +8093,2258 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: ProfileProminentWorkInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ProfileServicePrice
+   */
+
+  export type AggregateProfileServicePrice = {
+    _count: ProfileServicePriceCountAggregateOutputType | null
+    _avg: ProfileServicePriceAvgAggregateOutputType | null
+    _sum: ProfileServicePriceSumAggregateOutputType | null
+    _min: ProfileServicePriceMinAggregateOutputType | null
+    _max: ProfileServicePriceMaxAggregateOutputType | null
+  }
+
+  export type ProfileServicePriceAvgAggregateOutputType = {
+    id: number | null
+    userId: number | null
+  }
+
+  export type ProfileServicePriceSumAggregateOutputType = {
+    id: number | null
+    userId: number | null
+  }
+
+  export type ProfileServicePriceMinAggregateOutputType = {
+    id: number | null
+    userId: number | null
+    fieldName: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ProfileServicePriceMaxAggregateOutputType = {
+    id: number | null
+    userId: number | null
+    fieldName: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ProfileServicePriceCountAggregateOutputType = {
+    id: number
+    userId: number
+    fieldName: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ProfileServicePriceAvgAggregateInputType = {
+    id?: true
+    userId?: true
+  }
+
+  export type ProfileServicePriceSumAggregateInputType = {
+    id?: true
+    userId?: true
+  }
+
+  export type ProfileServicePriceMinAggregateInputType = {
+    id?: true
+    userId?: true
+    fieldName?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ProfileServicePriceMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    fieldName?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ProfileServicePriceCountAggregateInputType = {
+    id?: true
+    userId?: true
+    fieldName?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ProfileServicePriceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProfileServicePrice to aggregate.
+     */
+    where?: ProfileServicePriceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileServicePrices to fetch.
+     */
+    orderBy?: ProfileServicePriceOrderByWithRelationInput | ProfileServicePriceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProfileServicePriceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileServicePrices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileServicePrices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ProfileServicePrices
+    **/
+    _count?: true | ProfileServicePriceCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProfileServicePriceAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProfileServicePriceSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProfileServicePriceMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProfileServicePriceMaxAggregateInputType
+  }
+
+  export type GetProfileServicePriceAggregateType<T extends ProfileServicePriceAggregateArgs> = {
+        [P in keyof T & keyof AggregateProfileServicePrice]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProfileServicePrice[P]>
+      : GetScalarType<T[P], AggregateProfileServicePrice[P]>
+  }
+
+
+
+
+  export type ProfileServicePriceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfileServicePriceWhereInput
+    orderBy?: ProfileServicePriceOrderByWithAggregationInput | ProfileServicePriceOrderByWithAggregationInput[]
+    by: ProfileServicePriceScalarFieldEnum[] | ProfileServicePriceScalarFieldEnum
+    having?: ProfileServicePriceScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProfileServicePriceCountAggregateInputType | true
+    _avg?: ProfileServicePriceAvgAggregateInputType
+    _sum?: ProfileServicePriceSumAggregateInputType
+    _min?: ProfileServicePriceMinAggregateInputType
+    _max?: ProfileServicePriceMaxAggregateInputType
+  }
+
+  export type ProfileServicePriceGroupByOutputType = {
+    id: number
+    userId: number
+    fieldName: string
+    createdAt: Date
+    updatedAt: Date
+    _count: ProfileServicePriceCountAggregateOutputType | null
+    _avg: ProfileServicePriceAvgAggregateOutputType | null
+    _sum: ProfileServicePriceSumAggregateOutputType | null
+    _min: ProfileServicePriceMinAggregateOutputType | null
+    _max: ProfileServicePriceMaxAggregateOutputType | null
+  }
+
+  type GetProfileServicePriceGroupByPayload<T extends ProfileServicePriceGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProfileServicePriceGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProfileServicePriceGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProfileServicePriceGroupByOutputType[P]>
+            : GetScalarType<T[P], ProfileServicePriceGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProfileServicePriceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    fieldName?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    profileService?: boolean | ProfileServicePrice$profileServiceArgs<ExtArgs>
+    _count?: boolean | ProfileServicePriceCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profileServicePrice"]>
+
+  export type ProfileServicePriceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    fieldName?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profileServicePrice"]>
+
+  export type ProfileServicePriceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    fieldName?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profileServicePrice"]>
+
+  export type ProfileServicePriceSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    fieldName?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ProfileServicePriceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "fieldName" | "createdAt" | "updatedAt", ExtArgs["result"]["profileServicePrice"]>
+  export type ProfileServicePriceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    profileService?: boolean | ProfileServicePrice$profileServiceArgs<ExtArgs>
+    _count?: boolean | ProfileServicePriceCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ProfileServicePriceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type ProfileServicePriceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $ProfileServicePricePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ProfileServicePrice"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      profileService: Prisma.$ProfileServicePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      userId: number
+      fieldName: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["profileServicePrice"]>
+    composites: {}
+  }
+
+  type ProfileServicePriceGetPayload<S extends boolean | null | undefined | ProfileServicePriceDefaultArgs> = $Result.GetResult<Prisma.$ProfileServicePricePayload, S>
+
+  type ProfileServicePriceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProfileServicePriceFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProfileServicePriceCountAggregateInputType | true
+    }
+
+  export interface ProfileServicePriceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProfileServicePrice'], meta: { name: 'ProfileServicePrice' } }
+    /**
+     * Find zero or one ProfileServicePrice that matches the filter.
+     * @param {ProfileServicePriceFindUniqueArgs} args - Arguments to find a ProfileServicePrice
+     * @example
+     * // Get one ProfileServicePrice
+     * const profileServicePrice = await prisma.profileServicePrice.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProfileServicePriceFindUniqueArgs>(args: SelectSubset<T, ProfileServicePriceFindUniqueArgs<ExtArgs>>): Prisma__ProfileServicePriceClient<$Result.GetResult<Prisma.$ProfileServicePricePayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find one ProfileServicePrice that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProfileServicePriceFindUniqueOrThrowArgs} args - Arguments to find a ProfileServicePrice
+     * @example
+     * // Get one ProfileServicePrice
+     * const profileServicePrice = await prisma.profileServicePrice.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProfileServicePriceFindUniqueOrThrowArgs>(args: SelectSubset<T, ProfileServicePriceFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProfileServicePriceClient<$Result.GetResult<Prisma.$ProfileServicePricePayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first ProfileServicePrice that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileServicePriceFindFirstArgs} args - Arguments to find a ProfileServicePrice
+     * @example
+     * // Get one ProfileServicePrice
+     * const profileServicePrice = await prisma.profileServicePrice.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProfileServicePriceFindFirstArgs>(args?: SelectSubset<T, ProfileServicePriceFindFirstArgs<ExtArgs>>): Prisma__ProfileServicePriceClient<$Result.GetResult<Prisma.$ProfileServicePricePayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first ProfileServicePrice that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileServicePriceFindFirstOrThrowArgs} args - Arguments to find a ProfileServicePrice
+     * @example
+     * // Get one ProfileServicePrice
+     * const profileServicePrice = await prisma.profileServicePrice.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProfileServicePriceFindFirstOrThrowArgs>(args?: SelectSubset<T, ProfileServicePriceFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProfileServicePriceClient<$Result.GetResult<Prisma.$ProfileServicePricePayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find zero or more ProfileServicePrices that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileServicePriceFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ProfileServicePrices
+     * const profileServicePrices = await prisma.profileServicePrice.findMany()
+     * 
+     * // Get first 10 ProfileServicePrices
+     * const profileServicePrices = await prisma.profileServicePrice.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const profileServicePriceWithIdOnly = await prisma.profileServicePrice.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProfileServicePriceFindManyArgs>(args?: SelectSubset<T, ProfileServicePriceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileServicePricePayload<ExtArgs>, T, "findMany", ClientOptions>>
+
+    /**
+     * Create a ProfileServicePrice.
+     * @param {ProfileServicePriceCreateArgs} args - Arguments to create a ProfileServicePrice.
+     * @example
+     * // Create one ProfileServicePrice
+     * const ProfileServicePrice = await prisma.profileServicePrice.create({
+     *   data: {
+     *     // ... data to create a ProfileServicePrice
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProfileServicePriceCreateArgs>(args: SelectSubset<T, ProfileServicePriceCreateArgs<ExtArgs>>): Prisma__ProfileServicePriceClient<$Result.GetResult<Prisma.$ProfileServicePricePayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Create many ProfileServicePrices.
+     * @param {ProfileServicePriceCreateManyArgs} args - Arguments to create many ProfileServicePrices.
+     * @example
+     * // Create many ProfileServicePrices
+     * const profileServicePrice = await prisma.profileServicePrice.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProfileServicePriceCreateManyArgs>(args?: SelectSubset<T, ProfileServicePriceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ProfileServicePrices and returns the data saved in the database.
+     * @param {ProfileServicePriceCreateManyAndReturnArgs} args - Arguments to create many ProfileServicePrices.
+     * @example
+     * // Create many ProfileServicePrices
+     * const profileServicePrice = await prisma.profileServicePrice.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ProfileServicePrices and only return the `id`
+     * const profileServicePriceWithIdOnly = await prisma.profileServicePrice.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProfileServicePriceCreateManyAndReturnArgs>(args?: SelectSubset<T, ProfileServicePriceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileServicePricePayload<ExtArgs>, T, "createManyAndReturn", ClientOptions>>
+
+    /**
+     * Delete a ProfileServicePrice.
+     * @param {ProfileServicePriceDeleteArgs} args - Arguments to delete one ProfileServicePrice.
+     * @example
+     * // Delete one ProfileServicePrice
+     * const ProfileServicePrice = await prisma.profileServicePrice.delete({
+     *   where: {
+     *     // ... filter to delete one ProfileServicePrice
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProfileServicePriceDeleteArgs>(args: SelectSubset<T, ProfileServicePriceDeleteArgs<ExtArgs>>): Prisma__ProfileServicePriceClient<$Result.GetResult<Prisma.$ProfileServicePricePayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Update one ProfileServicePrice.
+     * @param {ProfileServicePriceUpdateArgs} args - Arguments to update one ProfileServicePrice.
+     * @example
+     * // Update one ProfileServicePrice
+     * const profileServicePrice = await prisma.profileServicePrice.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProfileServicePriceUpdateArgs>(args: SelectSubset<T, ProfileServicePriceUpdateArgs<ExtArgs>>): Prisma__ProfileServicePriceClient<$Result.GetResult<Prisma.$ProfileServicePricePayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Delete zero or more ProfileServicePrices.
+     * @param {ProfileServicePriceDeleteManyArgs} args - Arguments to filter ProfileServicePrices to delete.
+     * @example
+     * // Delete a few ProfileServicePrices
+     * const { count } = await prisma.profileServicePrice.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProfileServicePriceDeleteManyArgs>(args?: SelectSubset<T, ProfileServicePriceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProfileServicePrices.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileServicePriceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ProfileServicePrices
+     * const profileServicePrice = await prisma.profileServicePrice.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProfileServicePriceUpdateManyArgs>(args: SelectSubset<T, ProfileServicePriceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProfileServicePrices and returns the data updated in the database.
+     * @param {ProfileServicePriceUpdateManyAndReturnArgs} args - Arguments to update many ProfileServicePrices.
+     * @example
+     * // Update many ProfileServicePrices
+     * const profileServicePrice = await prisma.profileServicePrice.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ProfileServicePrices and only return the `id`
+     * const profileServicePriceWithIdOnly = await prisma.profileServicePrice.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProfileServicePriceUpdateManyAndReturnArgs>(args: SelectSubset<T, ProfileServicePriceUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileServicePricePayload<ExtArgs>, T, "updateManyAndReturn", ClientOptions>>
+
+    /**
+     * Create or update one ProfileServicePrice.
+     * @param {ProfileServicePriceUpsertArgs} args - Arguments to update or create a ProfileServicePrice.
+     * @example
+     * // Update or create a ProfileServicePrice
+     * const profileServicePrice = await prisma.profileServicePrice.upsert({
+     *   create: {
+     *     // ... data to create a ProfileServicePrice
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ProfileServicePrice we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProfileServicePriceUpsertArgs>(args: SelectSubset<T, ProfileServicePriceUpsertArgs<ExtArgs>>): Prisma__ProfileServicePriceClient<$Result.GetResult<Prisma.$ProfileServicePricePayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
+
+
+    /**
+     * Count the number of ProfileServicePrices.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileServicePriceCountArgs} args - Arguments to filter ProfileServicePrices to count.
+     * @example
+     * // Count the number of ProfileServicePrices
+     * const count = await prisma.profileServicePrice.count({
+     *   where: {
+     *     // ... the filter for the ProfileServicePrices we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProfileServicePriceCountArgs>(
+      args?: Subset<T, ProfileServicePriceCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProfileServicePriceCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ProfileServicePrice.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileServicePriceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProfileServicePriceAggregateArgs>(args: Subset<T, ProfileServicePriceAggregateArgs>): Prisma.PrismaPromise<GetProfileServicePriceAggregateType<T>>
+
+    /**
+     * Group by ProfileServicePrice.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileServicePriceGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProfileServicePriceGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProfileServicePriceGroupByArgs['orderBy'] }
+        : { orderBy?: ProfileServicePriceGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProfileServicePriceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProfileServicePriceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ProfileServicePrice model
+   */
+  readonly fields: ProfileServicePriceFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ProfileServicePrice.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProfileServicePriceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
+    profileService<T extends ProfileServicePrice$profileServiceArgs<ExtArgs> = {}>(args?: Subset<T, ProfileServicePrice$profileServiceArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileServicePayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ProfileServicePrice model
+   */ 
+  interface ProfileServicePriceFieldRefs {
+    readonly id: FieldRef<"ProfileServicePrice", 'Int'>
+    readonly userId: FieldRef<"ProfileServicePrice", 'Int'>
+    readonly fieldName: FieldRef<"ProfileServicePrice", 'String'>
+    readonly createdAt: FieldRef<"ProfileServicePrice", 'DateTime'>
+    readonly updatedAt: FieldRef<"ProfileServicePrice", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ProfileServicePrice findUnique
+   */
+  export type ProfileServicePriceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileServicePrice
+     */
+    select?: ProfileServicePriceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileServicePrice
+     */
+    omit?: ProfileServicePriceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServicePriceInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileServicePrice to fetch.
+     */
+    where: ProfileServicePriceWhereUniqueInput
+  }
+
+  /**
+   * ProfileServicePrice findUniqueOrThrow
+   */
+  export type ProfileServicePriceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileServicePrice
+     */
+    select?: ProfileServicePriceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileServicePrice
+     */
+    omit?: ProfileServicePriceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServicePriceInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileServicePrice to fetch.
+     */
+    where: ProfileServicePriceWhereUniqueInput
+  }
+
+  /**
+   * ProfileServicePrice findFirst
+   */
+  export type ProfileServicePriceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileServicePrice
+     */
+    select?: ProfileServicePriceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileServicePrice
+     */
+    omit?: ProfileServicePriceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServicePriceInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileServicePrice to fetch.
+     */
+    where?: ProfileServicePriceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileServicePrices to fetch.
+     */
+    orderBy?: ProfileServicePriceOrderByWithRelationInput | ProfileServicePriceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProfileServicePrices.
+     */
+    cursor?: ProfileServicePriceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileServicePrices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileServicePrices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProfileServicePrices.
+     */
+    distinct?: ProfileServicePriceScalarFieldEnum | ProfileServicePriceScalarFieldEnum[]
+  }
+
+  /**
+   * ProfileServicePrice findFirstOrThrow
+   */
+  export type ProfileServicePriceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileServicePrice
+     */
+    select?: ProfileServicePriceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileServicePrice
+     */
+    omit?: ProfileServicePriceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServicePriceInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileServicePrice to fetch.
+     */
+    where?: ProfileServicePriceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileServicePrices to fetch.
+     */
+    orderBy?: ProfileServicePriceOrderByWithRelationInput | ProfileServicePriceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProfileServicePrices.
+     */
+    cursor?: ProfileServicePriceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileServicePrices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileServicePrices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProfileServicePrices.
+     */
+    distinct?: ProfileServicePriceScalarFieldEnum | ProfileServicePriceScalarFieldEnum[]
+  }
+
+  /**
+   * ProfileServicePrice findMany
+   */
+  export type ProfileServicePriceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileServicePrice
+     */
+    select?: ProfileServicePriceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileServicePrice
+     */
+    omit?: ProfileServicePriceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServicePriceInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileServicePrices to fetch.
+     */
+    where?: ProfileServicePriceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileServicePrices to fetch.
+     */
+    orderBy?: ProfileServicePriceOrderByWithRelationInput | ProfileServicePriceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ProfileServicePrices.
+     */
+    cursor?: ProfileServicePriceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileServicePrices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileServicePrices.
+     */
+    skip?: number
+    distinct?: ProfileServicePriceScalarFieldEnum | ProfileServicePriceScalarFieldEnum[]
+  }
+
+  /**
+   * ProfileServicePrice create
+   */
+  export type ProfileServicePriceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileServicePrice
+     */
+    select?: ProfileServicePriceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileServicePrice
+     */
+    omit?: ProfileServicePriceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServicePriceInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ProfileServicePrice.
+     */
+    data: XOR<ProfileServicePriceCreateInput, ProfileServicePriceUncheckedCreateInput>
+  }
+
+  /**
+   * ProfileServicePrice createMany
+   */
+  export type ProfileServicePriceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ProfileServicePrices.
+     */
+    data: ProfileServicePriceCreateManyInput | ProfileServicePriceCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProfileServicePrice createManyAndReturn
+   */
+  export type ProfileServicePriceCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileServicePrice
+     */
+    select?: ProfileServicePriceSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileServicePrice
+     */
+    omit?: ProfileServicePriceOmit<ExtArgs> | null
+    /**
+     * The data used to create many ProfileServicePrices.
+     */
+    data: ProfileServicePriceCreateManyInput | ProfileServicePriceCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServicePriceIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProfileServicePrice update
+   */
+  export type ProfileServicePriceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileServicePrice
+     */
+    select?: ProfileServicePriceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileServicePrice
+     */
+    omit?: ProfileServicePriceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServicePriceInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ProfileServicePrice.
+     */
+    data: XOR<ProfileServicePriceUpdateInput, ProfileServicePriceUncheckedUpdateInput>
+    /**
+     * Choose, which ProfileServicePrice to update.
+     */
+    where: ProfileServicePriceWhereUniqueInput
+  }
+
+  /**
+   * ProfileServicePrice updateMany
+   */
+  export type ProfileServicePriceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ProfileServicePrices.
+     */
+    data: XOR<ProfileServicePriceUpdateManyMutationInput, ProfileServicePriceUncheckedUpdateManyInput>
+    /**
+     * Filter which ProfileServicePrices to update
+     */
+    where?: ProfileServicePriceWhereInput
+    /**
+     * Limit how many ProfileServicePrices to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProfileServicePrice updateManyAndReturn
+   */
+  export type ProfileServicePriceUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileServicePrice
+     */
+    select?: ProfileServicePriceSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileServicePrice
+     */
+    omit?: ProfileServicePriceOmit<ExtArgs> | null
+    /**
+     * The data used to update ProfileServicePrices.
+     */
+    data: XOR<ProfileServicePriceUpdateManyMutationInput, ProfileServicePriceUncheckedUpdateManyInput>
+    /**
+     * Filter which ProfileServicePrices to update
+     */
+    where?: ProfileServicePriceWhereInput
+    /**
+     * Limit how many ProfileServicePrices to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServicePriceIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProfileServicePrice upsert
+   */
+  export type ProfileServicePriceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileServicePrice
+     */
+    select?: ProfileServicePriceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileServicePrice
+     */
+    omit?: ProfileServicePriceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServicePriceInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ProfileServicePrice to update in case it exists.
+     */
+    where: ProfileServicePriceWhereUniqueInput
+    /**
+     * In case the ProfileServicePrice found by the `where` argument doesn't exist, create a new ProfileServicePrice with this data.
+     */
+    create: XOR<ProfileServicePriceCreateInput, ProfileServicePriceUncheckedCreateInput>
+    /**
+     * In case the ProfileServicePrice was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProfileServicePriceUpdateInput, ProfileServicePriceUncheckedUpdateInput>
+  }
+
+  /**
+   * ProfileServicePrice delete
+   */
+  export type ProfileServicePriceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileServicePrice
+     */
+    select?: ProfileServicePriceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileServicePrice
+     */
+    omit?: ProfileServicePriceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServicePriceInclude<ExtArgs> | null
+    /**
+     * Filter which ProfileServicePrice to delete.
+     */
+    where: ProfileServicePriceWhereUniqueInput
+  }
+
+  /**
+   * ProfileServicePrice deleteMany
+   */
+  export type ProfileServicePriceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProfileServicePrices to delete
+     */
+    where?: ProfileServicePriceWhereInput
+    /**
+     * Limit how many ProfileServicePrices to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProfileServicePrice.profileService
+   */
+  export type ProfileServicePrice$profileServiceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileService
+     */
+    select?: ProfileServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileService
+     */
+    omit?: ProfileServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServiceInclude<ExtArgs> | null
+    where?: ProfileServiceWhereInput
+    orderBy?: ProfileServiceOrderByWithRelationInput | ProfileServiceOrderByWithRelationInput[]
+    cursor?: ProfileServiceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProfileServiceScalarFieldEnum | ProfileServiceScalarFieldEnum[]
+  }
+
+  /**
+   * ProfileServicePrice without action
+   */
+  export type ProfileServicePriceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileServicePrice
+     */
+    select?: ProfileServicePriceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileServicePrice
+     */
+    omit?: ProfileServicePriceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServicePriceInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ProfileService
+   */
+
+  export type AggregateProfileService = {
+    _count: ProfileServiceCountAggregateOutputType | null
+    _avg: ProfileServiceAvgAggregateOutputType | null
+    _sum: ProfileServiceSumAggregateOutputType | null
+    _min: ProfileServiceMinAggregateOutputType | null
+    _max: ProfileServiceMaxAggregateOutputType | null
+  }
+
+  export type ProfileServiceAvgAggregateOutputType = {
+    id: number | null
+    price: number | null
+    profileServicePriceId: number | null
+  }
+
+  export type ProfileServiceSumAggregateOutputType = {
+    id: number | null
+    price: number | null
+    profileServicePriceId: number | null
+  }
+
+  export type ProfileServiceMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    price: number | null
+    description: string | null
+    profileServicePriceId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ProfileServiceMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    price: number | null
+    description: string | null
+    profileServicePriceId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ProfileServiceCountAggregateOutputType = {
+    id: number
+    name: number
+    price: number
+    description: number
+    profileServicePriceId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ProfileServiceAvgAggregateInputType = {
+    id?: true
+    price?: true
+    profileServicePriceId?: true
+  }
+
+  export type ProfileServiceSumAggregateInputType = {
+    id?: true
+    price?: true
+    profileServicePriceId?: true
+  }
+
+  export type ProfileServiceMinAggregateInputType = {
+    id?: true
+    name?: true
+    price?: true
+    description?: true
+    profileServicePriceId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ProfileServiceMaxAggregateInputType = {
+    id?: true
+    name?: true
+    price?: true
+    description?: true
+    profileServicePriceId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ProfileServiceCountAggregateInputType = {
+    id?: true
+    name?: true
+    price?: true
+    description?: true
+    profileServicePriceId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ProfileServiceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProfileService to aggregate.
+     */
+    where?: ProfileServiceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileServices to fetch.
+     */
+    orderBy?: ProfileServiceOrderByWithRelationInput | ProfileServiceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProfileServiceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileServices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileServices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ProfileServices
+    **/
+    _count?: true | ProfileServiceCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProfileServiceAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProfileServiceSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProfileServiceMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProfileServiceMaxAggregateInputType
+  }
+
+  export type GetProfileServiceAggregateType<T extends ProfileServiceAggregateArgs> = {
+        [P in keyof T & keyof AggregateProfileService]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProfileService[P]>
+      : GetScalarType<T[P], AggregateProfileService[P]>
+  }
+
+
+
+
+  export type ProfileServiceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfileServiceWhereInput
+    orderBy?: ProfileServiceOrderByWithAggregationInput | ProfileServiceOrderByWithAggregationInput[]
+    by: ProfileServiceScalarFieldEnum[] | ProfileServiceScalarFieldEnum
+    having?: ProfileServiceScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProfileServiceCountAggregateInputType | true
+    _avg?: ProfileServiceAvgAggregateInputType
+    _sum?: ProfileServiceSumAggregateInputType
+    _min?: ProfileServiceMinAggregateInputType
+    _max?: ProfileServiceMaxAggregateInputType
+  }
+
+  export type ProfileServiceGroupByOutputType = {
+    id: number
+    name: string
+    price: number
+    description: string | null
+    profileServicePriceId: number
+    createdAt: Date
+    updatedAt: Date
+    _count: ProfileServiceCountAggregateOutputType | null
+    _avg: ProfileServiceAvgAggregateOutputType | null
+    _sum: ProfileServiceSumAggregateOutputType | null
+    _min: ProfileServiceMinAggregateOutputType | null
+    _max: ProfileServiceMaxAggregateOutputType | null
+  }
+
+  type GetProfileServiceGroupByPayload<T extends ProfileServiceGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProfileServiceGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProfileServiceGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProfileServiceGroupByOutputType[P]>
+            : GetScalarType<T[P], ProfileServiceGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProfileServiceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    price?: boolean
+    description?: boolean
+    profileServicePriceId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    profileServicePrice?: boolean | ProfileServicePriceDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profileService"]>
+
+  export type ProfileServiceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    price?: boolean
+    description?: boolean
+    profileServicePriceId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    profileServicePrice?: boolean | ProfileServicePriceDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profileService"]>
+
+  export type ProfileServiceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    price?: boolean
+    description?: boolean
+    profileServicePriceId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    profileServicePrice?: boolean | ProfileServicePriceDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profileService"]>
+
+  export type ProfileServiceSelectScalar = {
+    id?: boolean
+    name?: boolean
+    price?: boolean
+    description?: boolean
+    profileServicePriceId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ProfileServiceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "price" | "description" | "profileServicePriceId" | "createdAt" | "updatedAt", ExtArgs["result"]["profileService"]>
+  export type ProfileServiceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profileServicePrice?: boolean | ProfileServicePriceDefaultArgs<ExtArgs>
+  }
+  export type ProfileServiceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profileServicePrice?: boolean | ProfileServicePriceDefaultArgs<ExtArgs>
+  }
+  export type ProfileServiceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profileServicePrice?: boolean | ProfileServicePriceDefaultArgs<ExtArgs>
+  }
+
+  export type $ProfileServicePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ProfileService"
+    objects: {
+      profileServicePrice: Prisma.$ProfileServicePricePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      price: number
+      description: string | null
+      profileServicePriceId: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["profileService"]>
+    composites: {}
+  }
+
+  type ProfileServiceGetPayload<S extends boolean | null | undefined | ProfileServiceDefaultArgs> = $Result.GetResult<Prisma.$ProfileServicePayload, S>
+
+  type ProfileServiceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProfileServiceFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProfileServiceCountAggregateInputType | true
+    }
+
+  export interface ProfileServiceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProfileService'], meta: { name: 'ProfileService' } }
+    /**
+     * Find zero or one ProfileService that matches the filter.
+     * @param {ProfileServiceFindUniqueArgs} args - Arguments to find a ProfileService
+     * @example
+     * // Get one ProfileService
+     * const profileService = await prisma.profileService.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProfileServiceFindUniqueArgs>(args: SelectSubset<T, ProfileServiceFindUniqueArgs<ExtArgs>>): Prisma__ProfileServiceClient<$Result.GetResult<Prisma.$ProfileServicePayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find one ProfileService that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProfileServiceFindUniqueOrThrowArgs} args - Arguments to find a ProfileService
+     * @example
+     * // Get one ProfileService
+     * const profileService = await prisma.profileService.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProfileServiceFindUniqueOrThrowArgs>(args: SelectSubset<T, ProfileServiceFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProfileServiceClient<$Result.GetResult<Prisma.$ProfileServicePayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first ProfileService that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileServiceFindFirstArgs} args - Arguments to find a ProfileService
+     * @example
+     * // Get one ProfileService
+     * const profileService = await prisma.profileService.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProfileServiceFindFirstArgs>(args?: SelectSubset<T, ProfileServiceFindFirstArgs<ExtArgs>>): Prisma__ProfileServiceClient<$Result.GetResult<Prisma.$ProfileServicePayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first ProfileService that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileServiceFindFirstOrThrowArgs} args - Arguments to find a ProfileService
+     * @example
+     * // Get one ProfileService
+     * const profileService = await prisma.profileService.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProfileServiceFindFirstOrThrowArgs>(args?: SelectSubset<T, ProfileServiceFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProfileServiceClient<$Result.GetResult<Prisma.$ProfileServicePayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find zero or more ProfileServices that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileServiceFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ProfileServices
+     * const profileServices = await prisma.profileService.findMany()
+     * 
+     * // Get first 10 ProfileServices
+     * const profileServices = await prisma.profileService.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const profileServiceWithIdOnly = await prisma.profileService.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProfileServiceFindManyArgs>(args?: SelectSubset<T, ProfileServiceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileServicePayload<ExtArgs>, T, "findMany", ClientOptions>>
+
+    /**
+     * Create a ProfileService.
+     * @param {ProfileServiceCreateArgs} args - Arguments to create a ProfileService.
+     * @example
+     * // Create one ProfileService
+     * const ProfileService = await prisma.profileService.create({
+     *   data: {
+     *     // ... data to create a ProfileService
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProfileServiceCreateArgs>(args: SelectSubset<T, ProfileServiceCreateArgs<ExtArgs>>): Prisma__ProfileServiceClient<$Result.GetResult<Prisma.$ProfileServicePayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Create many ProfileServices.
+     * @param {ProfileServiceCreateManyArgs} args - Arguments to create many ProfileServices.
+     * @example
+     * // Create many ProfileServices
+     * const profileService = await prisma.profileService.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProfileServiceCreateManyArgs>(args?: SelectSubset<T, ProfileServiceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ProfileServices and returns the data saved in the database.
+     * @param {ProfileServiceCreateManyAndReturnArgs} args - Arguments to create many ProfileServices.
+     * @example
+     * // Create many ProfileServices
+     * const profileService = await prisma.profileService.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ProfileServices and only return the `id`
+     * const profileServiceWithIdOnly = await prisma.profileService.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProfileServiceCreateManyAndReturnArgs>(args?: SelectSubset<T, ProfileServiceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileServicePayload<ExtArgs>, T, "createManyAndReturn", ClientOptions>>
+
+    /**
+     * Delete a ProfileService.
+     * @param {ProfileServiceDeleteArgs} args - Arguments to delete one ProfileService.
+     * @example
+     * // Delete one ProfileService
+     * const ProfileService = await prisma.profileService.delete({
+     *   where: {
+     *     // ... filter to delete one ProfileService
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProfileServiceDeleteArgs>(args: SelectSubset<T, ProfileServiceDeleteArgs<ExtArgs>>): Prisma__ProfileServiceClient<$Result.GetResult<Prisma.$ProfileServicePayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Update one ProfileService.
+     * @param {ProfileServiceUpdateArgs} args - Arguments to update one ProfileService.
+     * @example
+     * // Update one ProfileService
+     * const profileService = await prisma.profileService.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProfileServiceUpdateArgs>(args: SelectSubset<T, ProfileServiceUpdateArgs<ExtArgs>>): Prisma__ProfileServiceClient<$Result.GetResult<Prisma.$ProfileServicePayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Delete zero or more ProfileServices.
+     * @param {ProfileServiceDeleteManyArgs} args - Arguments to filter ProfileServices to delete.
+     * @example
+     * // Delete a few ProfileServices
+     * const { count } = await prisma.profileService.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProfileServiceDeleteManyArgs>(args?: SelectSubset<T, ProfileServiceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProfileServices.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileServiceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ProfileServices
+     * const profileService = await prisma.profileService.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProfileServiceUpdateManyArgs>(args: SelectSubset<T, ProfileServiceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProfileServices and returns the data updated in the database.
+     * @param {ProfileServiceUpdateManyAndReturnArgs} args - Arguments to update many ProfileServices.
+     * @example
+     * // Update many ProfileServices
+     * const profileService = await prisma.profileService.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ProfileServices and only return the `id`
+     * const profileServiceWithIdOnly = await prisma.profileService.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProfileServiceUpdateManyAndReturnArgs>(args: SelectSubset<T, ProfileServiceUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileServicePayload<ExtArgs>, T, "updateManyAndReturn", ClientOptions>>
+
+    /**
+     * Create or update one ProfileService.
+     * @param {ProfileServiceUpsertArgs} args - Arguments to update or create a ProfileService.
+     * @example
+     * // Update or create a ProfileService
+     * const profileService = await prisma.profileService.upsert({
+     *   create: {
+     *     // ... data to create a ProfileService
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ProfileService we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProfileServiceUpsertArgs>(args: SelectSubset<T, ProfileServiceUpsertArgs<ExtArgs>>): Prisma__ProfileServiceClient<$Result.GetResult<Prisma.$ProfileServicePayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
+
+
+    /**
+     * Count the number of ProfileServices.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileServiceCountArgs} args - Arguments to filter ProfileServices to count.
+     * @example
+     * // Count the number of ProfileServices
+     * const count = await prisma.profileService.count({
+     *   where: {
+     *     // ... the filter for the ProfileServices we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProfileServiceCountArgs>(
+      args?: Subset<T, ProfileServiceCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProfileServiceCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ProfileService.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileServiceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProfileServiceAggregateArgs>(args: Subset<T, ProfileServiceAggregateArgs>): Prisma.PrismaPromise<GetProfileServiceAggregateType<T>>
+
+    /**
+     * Group by ProfileService.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileServiceGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProfileServiceGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProfileServiceGroupByArgs['orderBy'] }
+        : { orderBy?: ProfileServiceGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProfileServiceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProfileServiceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ProfileService model
+   */
+  readonly fields: ProfileServiceFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ProfileService.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProfileServiceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    profileServicePrice<T extends ProfileServicePriceDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProfileServicePriceDefaultArgs<ExtArgs>>): Prisma__ProfileServicePriceClient<$Result.GetResult<Prisma.$ProfileServicePricePayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ProfileService model
+   */ 
+  interface ProfileServiceFieldRefs {
+    readonly id: FieldRef<"ProfileService", 'Int'>
+    readonly name: FieldRef<"ProfileService", 'String'>
+    readonly price: FieldRef<"ProfileService", 'Int'>
+    readonly description: FieldRef<"ProfileService", 'String'>
+    readonly profileServicePriceId: FieldRef<"ProfileService", 'Int'>
+    readonly createdAt: FieldRef<"ProfileService", 'DateTime'>
+    readonly updatedAt: FieldRef<"ProfileService", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ProfileService findUnique
+   */
+  export type ProfileServiceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileService
+     */
+    select?: ProfileServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileService
+     */
+    omit?: ProfileServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServiceInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileService to fetch.
+     */
+    where: ProfileServiceWhereUniqueInput
+  }
+
+  /**
+   * ProfileService findUniqueOrThrow
+   */
+  export type ProfileServiceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileService
+     */
+    select?: ProfileServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileService
+     */
+    omit?: ProfileServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServiceInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileService to fetch.
+     */
+    where: ProfileServiceWhereUniqueInput
+  }
+
+  /**
+   * ProfileService findFirst
+   */
+  export type ProfileServiceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileService
+     */
+    select?: ProfileServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileService
+     */
+    omit?: ProfileServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServiceInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileService to fetch.
+     */
+    where?: ProfileServiceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileServices to fetch.
+     */
+    orderBy?: ProfileServiceOrderByWithRelationInput | ProfileServiceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProfileServices.
+     */
+    cursor?: ProfileServiceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileServices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileServices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProfileServices.
+     */
+    distinct?: ProfileServiceScalarFieldEnum | ProfileServiceScalarFieldEnum[]
+  }
+
+  /**
+   * ProfileService findFirstOrThrow
+   */
+  export type ProfileServiceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileService
+     */
+    select?: ProfileServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileService
+     */
+    omit?: ProfileServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServiceInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileService to fetch.
+     */
+    where?: ProfileServiceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileServices to fetch.
+     */
+    orderBy?: ProfileServiceOrderByWithRelationInput | ProfileServiceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProfileServices.
+     */
+    cursor?: ProfileServiceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileServices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileServices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProfileServices.
+     */
+    distinct?: ProfileServiceScalarFieldEnum | ProfileServiceScalarFieldEnum[]
+  }
+
+  /**
+   * ProfileService findMany
+   */
+  export type ProfileServiceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileService
+     */
+    select?: ProfileServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileService
+     */
+    omit?: ProfileServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServiceInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileServices to fetch.
+     */
+    where?: ProfileServiceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileServices to fetch.
+     */
+    orderBy?: ProfileServiceOrderByWithRelationInput | ProfileServiceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ProfileServices.
+     */
+    cursor?: ProfileServiceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileServices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileServices.
+     */
+    skip?: number
+    distinct?: ProfileServiceScalarFieldEnum | ProfileServiceScalarFieldEnum[]
+  }
+
+  /**
+   * ProfileService create
+   */
+  export type ProfileServiceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileService
+     */
+    select?: ProfileServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileService
+     */
+    omit?: ProfileServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServiceInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ProfileService.
+     */
+    data: XOR<ProfileServiceCreateInput, ProfileServiceUncheckedCreateInput>
+  }
+
+  /**
+   * ProfileService createMany
+   */
+  export type ProfileServiceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ProfileServices.
+     */
+    data: ProfileServiceCreateManyInput | ProfileServiceCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProfileService createManyAndReturn
+   */
+  export type ProfileServiceCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileService
+     */
+    select?: ProfileServiceSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileService
+     */
+    omit?: ProfileServiceOmit<ExtArgs> | null
+    /**
+     * The data used to create many ProfileServices.
+     */
+    data: ProfileServiceCreateManyInput | ProfileServiceCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServiceIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProfileService update
+   */
+  export type ProfileServiceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileService
+     */
+    select?: ProfileServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileService
+     */
+    omit?: ProfileServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServiceInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ProfileService.
+     */
+    data: XOR<ProfileServiceUpdateInput, ProfileServiceUncheckedUpdateInput>
+    /**
+     * Choose, which ProfileService to update.
+     */
+    where: ProfileServiceWhereUniqueInput
+  }
+
+  /**
+   * ProfileService updateMany
+   */
+  export type ProfileServiceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ProfileServices.
+     */
+    data: XOR<ProfileServiceUpdateManyMutationInput, ProfileServiceUncheckedUpdateManyInput>
+    /**
+     * Filter which ProfileServices to update
+     */
+    where?: ProfileServiceWhereInput
+    /**
+     * Limit how many ProfileServices to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProfileService updateManyAndReturn
+   */
+  export type ProfileServiceUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileService
+     */
+    select?: ProfileServiceSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileService
+     */
+    omit?: ProfileServiceOmit<ExtArgs> | null
+    /**
+     * The data used to update ProfileServices.
+     */
+    data: XOR<ProfileServiceUpdateManyMutationInput, ProfileServiceUncheckedUpdateManyInput>
+    /**
+     * Filter which ProfileServices to update
+     */
+    where?: ProfileServiceWhereInput
+    /**
+     * Limit how many ProfileServices to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServiceIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProfileService upsert
+   */
+  export type ProfileServiceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileService
+     */
+    select?: ProfileServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileService
+     */
+    omit?: ProfileServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServiceInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ProfileService to update in case it exists.
+     */
+    where: ProfileServiceWhereUniqueInput
+    /**
+     * In case the ProfileService found by the `where` argument doesn't exist, create a new ProfileService with this data.
+     */
+    create: XOR<ProfileServiceCreateInput, ProfileServiceUncheckedCreateInput>
+    /**
+     * In case the ProfileService was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProfileServiceUpdateInput, ProfileServiceUncheckedUpdateInput>
+  }
+
+  /**
+   * ProfileService delete
+   */
+  export type ProfileServiceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileService
+     */
+    select?: ProfileServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileService
+     */
+    omit?: ProfileServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServiceInclude<ExtArgs> | null
+    /**
+     * Filter which ProfileService to delete.
+     */
+    where: ProfileServiceWhereUniqueInput
+  }
+
+  /**
+   * ProfileService deleteMany
+   */
+  export type ProfileServiceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProfileServices to delete
+     */
+    where?: ProfileServiceWhereInput
+    /**
+     * Limit how many ProfileServices to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProfileService without action
+   */
+  export type ProfileServiceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileService
+     */
+    select?: ProfileServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileService
+     */
+    omit?: ProfileServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileServiceInclude<ExtArgs> | null
   }
 
 
@@ -15901,6 +18429,8 @@ export namespace Prisma {
     youtubeLink: 'youtubeLink',
     tiktokLink: 'tiktokLink',
     avatarPublicId: 'avatarPublicId',
+    servicePriceLink: 'servicePriceLink',
+    isShowServicePrice: 'isShowServicePrice',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -15940,7 +18470,6 @@ export namespace Prisma {
     description: 'description',
     from: 'from',
     to: 'to',
-    wage: 'wage',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -15955,11 +18484,36 @@ export namespace Prisma {
     description: 'description',
     from: 'from',
     to: 'to',
+    wage: 'wage',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
   export type ProfileProminentWorkScalarFieldEnum = (typeof ProfileProminentWorkScalarFieldEnum)[keyof typeof ProfileProminentWorkScalarFieldEnum]
+
+
+  export const ProfileServicePriceScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    fieldName: 'fieldName',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ProfileServicePriceScalarFieldEnum = (typeof ProfileServicePriceScalarFieldEnum)[keyof typeof ProfileServicePriceScalarFieldEnum]
+
+
+  export const ProfileServiceScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    price: 'price',
+    description: 'description',
+    profileServicePriceId: 'profileServicePriceId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ProfileServiceScalarFieldEnum = (typeof ProfileServiceScalarFieldEnum)[keyof typeof ProfileServiceScalarFieldEnum]
 
 
   export const PortfolioScalarFieldEnum: {
@@ -16119,6 +18673,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -16182,12 +18743,15 @@ export namespace Prisma {
     youtubeLink?: StringNullableFilter<"User"> | string | null
     tiktokLink?: StringNullableFilter<"User"> | string | null
     avatarPublicId?: StringNullableFilter<"User"> | string | null
+    servicePriceLink?: StringNullableFilter<"User"> | string | null
+    isShowServicePrice?: BoolNullableFilter<"User"> | boolean | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     profileWorkExperiences?: ProfileWorkExperienceListRelationFilter
     profileAchievements?: ProfileAchievementListRelationFilter
     profileProminentWorks?: ProfileProminentWorkListRelationFilter
     portfolios?: PortfolioListRelationFilter
+    profileServicePrice?: ProfileServicePriceListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -16206,12 +18770,15 @@ export namespace Prisma {
     youtubeLink?: SortOrderInput | SortOrder
     tiktokLink?: SortOrderInput | SortOrder
     avatarPublicId?: SortOrderInput | SortOrder
+    servicePriceLink?: SortOrderInput | SortOrder
+    isShowServicePrice?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     profileWorkExperiences?: ProfileWorkExperienceOrderByRelationAggregateInput
     profileAchievements?: ProfileAchievementOrderByRelationAggregateInput
     profileProminentWorks?: ProfileProminentWorkOrderByRelationAggregateInput
     portfolios?: PortfolioOrderByRelationAggregateInput
+    profileServicePrice?: ProfileServicePriceOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -16233,12 +18800,15 @@ export namespace Prisma {
     youtubeLink?: StringNullableFilter<"User"> | string | null
     tiktokLink?: StringNullableFilter<"User"> | string | null
     avatarPublicId?: StringNullableFilter<"User"> | string | null
+    servicePriceLink?: StringNullableFilter<"User"> | string | null
+    isShowServicePrice?: BoolNullableFilter<"User"> | boolean | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     profileWorkExperiences?: ProfileWorkExperienceListRelationFilter
     profileAchievements?: ProfileAchievementListRelationFilter
     profileProminentWorks?: ProfileProminentWorkListRelationFilter
     portfolios?: PortfolioListRelationFilter
+    profileServicePrice?: ProfileServicePriceListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -16257,6 +18827,8 @@ export namespace Prisma {
     youtubeLink?: SortOrderInput | SortOrder
     tiktokLink?: SortOrderInput | SortOrder
     avatarPublicId?: SortOrderInput | SortOrder
+    servicePriceLink?: SortOrderInput | SortOrder
+    isShowServicePrice?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -16285,6 +18857,8 @@ export namespace Prisma {
     youtubeLink?: StringNullableWithAggregatesFilter<"User"> | string | null
     tiktokLink?: StringNullableWithAggregatesFilter<"User"> | string | null
     avatarPublicId?: StringNullableWithAggregatesFilter<"User"> | string | null
+    servicePriceLink?: StringNullableWithAggregatesFilter<"User"> | string | null
+    isShowServicePrice?: BoolNullableWithAggregatesFilter<"User"> | boolean | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
@@ -16425,7 +18999,6 @@ export namespace Prisma {
     description?: StringNullableFilter<"ProfileAchievement"> | string | null
     from?: DateTimeFilter<"ProfileAchievement"> | Date | string
     to?: DateTimeNullableFilter<"ProfileAchievement"> | Date | string | null
-    wage?: IntNullableFilter<"ProfileAchievement"> | number | null
     createdAt?: DateTimeFilter<"ProfileAchievement"> | Date | string
     updatedAt?: DateTimeFilter<"ProfileAchievement"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -16438,7 +19011,6 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     from?: SortOrder
     to?: SortOrderInput | SortOrder
-    wage?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
@@ -16454,7 +19026,6 @@ export namespace Prisma {
     description?: StringNullableFilter<"ProfileAchievement"> | string | null
     from?: DateTimeFilter<"ProfileAchievement"> | Date | string
     to?: DateTimeNullableFilter<"ProfileAchievement"> | Date | string | null
-    wage?: IntNullableFilter<"ProfileAchievement"> | number | null
     createdAt?: DateTimeFilter<"ProfileAchievement"> | Date | string
     updatedAt?: DateTimeFilter<"ProfileAchievement"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -16467,7 +19038,6 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     from?: SortOrder
     to?: SortOrderInput | SortOrder
-    wage?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: ProfileAchievementCountOrderByAggregateInput
@@ -16487,7 +19057,6 @@ export namespace Prisma {
     description?: StringNullableWithAggregatesFilter<"ProfileAchievement"> | string | null
     from?: DateTimeWithAggregatesFilter<"ProfileAchievement"> | Date | string
     to?: DateTimeNullableWithAggregatesFilter<"ProfileAchievement"> | Date | string | null
-    wage?: IntNullableWithAggregatesFilter<"ProfileAchievement"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"ProfileAchievement"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"ProfileAchievement"> | Date | string
   }
@@ -16502,6 +19071,7 @@ export namespace Prisma {
     description?: StringNullableFilter<"ProfileProminentWork"> | string | null
     from?: DateTimeFilter<"ProfileProminentWork"> | Date | string
     to?: DateTimeNullableFilter<"ProfileProminentWork"> | Date | string | null
+    wage?: IntNullableFilter<"ProfileProminentWork"> | number | null
     createdAt?: DateTimeFilter<"ProfileProminentWork"> | Date | string
     updatedAt?: DateTimeFilter<"ProfileProminentWork"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -16514,6 +19084,7 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     from?: SortOrder
     to?: SortOrderInput | SortOrder
+    wage?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
@@ -16529,6 +19100,7 @@ export namespace Prisma {
     description?: StringNullableFilter<"ProfileProminentWork"> | string | null
     from?: DateTimeFilter<"ProfileProminentWork"> | Date | string
     to?: DateTimeNullableFilter<"ProfileProminentWork"> | Date | string | null
+    wage?: IntNullableFilter<"ProfileProminentWork"> | number | null
     createdAt?: DateTimeFilter<"ProfileProminentWork"> | Date | string
     updatedAt?: DateTimeFilter<"ProfileProminentWork"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -16541,6 +19113,7 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     from?: SortOrder
     to?: SortOrderInput | SortOrder
+    wage?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: ProfileProminentWorkCountOrderByAggregateInput
@@ -16560,8 +19133,136 @@ export namespace Prisma {
     description?: StringNullableWithAggregatesFilter<"ProfileProminentWork"> | string | null
     from?: DateTimeWithAggregatesFilter<"ProfileProminentWork"> | Date | string
     to?: DateTimeNullableWithAggregatesFilter<"ProfileProminentWork"> | Date | string | null
+    wage?: IntNullableWithAggregatesFilter<"ProfileProminentWork"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"ProfileProminentWork"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"ProfileProminentWork"> | Date | string
+  }
+
+  export type ProfileServicePriceWhereInput = {
+    AND?: ProfileServicePriceWhereInput | ProfileServicePriceWhereInput[]
+    OR?: ProfileServicePriceWhereInput[]
+    NOT?: ProfileServicePriceWhereInput | ProfileServicePriceWhereInput[]
+    id?: IntFilter<"ProfileServicePrice"> | number
+    userId?: IntFilter<"ProfileServicePrice"> | number
+    fieldName?: StringFilter<"ProfileServicePrice"> | string
+    createdAt?: DateTimeFilter<"ProfileServicePrice"> | Date | string
+    updatedAt?: DateTimeFilter<"ProfileServicePrice"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    profileService?: ProfileServiceListRelationFilter
+  }
+
+  export type ProfileServicePriceOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    fieldName?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+    profileService?: ProfileServiceOrderByRelationAggregateInput
+  }
+
+  export type ProfileServicePriceWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ProfileServicePriceWhereInput | ProfileServicePriceWhereInput[]
+    OR?: ProfileServicePriceWhereInput[]
+    NOT?: ProfileServicePriceWhereInput | ProfileServicePriceWhereInput[]
+    userId?: IntFilter<"ProfileServicePrice"> | number
+    fieldName?: StringFilter<"ProfileServicePrice"> | string
+    createdAt?: DateTimeFilter<"ProfileServicePrice"> | Date | string
+    updatedAt?: DateTimeFilter<"ProfileServicePrice"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    profileService?: ProfileServiceListRelationFilter
+  }, "id">
+
+  export type ProfileServicePriceOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    fieldName?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ProfileServicePriceCountOrderByAggregateInput
+    _avg?: ProfileServicePriceAvgOrderByAggregateInput
+    _max?: ProfileServicePriceMaxOrderByAggregateInput
+    _min?: ProfileServicePriceMinOrderByAggregateInput
+    _sum?: ProfileServicePriceSumOrderByAggregateInput
+  }
+
+  export type ProfileServicePriceScalarWhereWithAggregatesInput = {
+    AND?: ProfileServicePriceScalarWhereWithAggregatesInput | ProfileServicePriceScalarWhereWithAggregatesInput[]
+    OR?: ProfileServicePriceScalarWhereWithAggregatesInput[]
+    NOT?: ProfileServicePriceScalarWhereWithAggregatesInput | ProfileServicePriceScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ProfileServicePrice"> | number
+    userId?: IntWithAggregatesFilter<"ProfileServicePrice"> | number
+    fieldName?: StringWithAggregatesFilter<"ProfileServicePrice"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"ProfileServicePrice"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ProfileServicePrice"> | Date | string
+  }
+
+  export type ProfileServiceWhereInput = {
+    AND?: ProfileServiceWhereInput | ProfileServiceWhereInput[]
+    OR?: ProfileServiceWhereInput[]
+    NOT?: ProfileServiceWhereInput | ProfileServiceWhereInput[]
+    id?: IntFilter<"ProfileService"> | number
+    name?: StringFilter<"ProfileService"> | string
+    price?: IntFilter<"ProfileService"> | number
+    description?: StringNullableFilter<"ProfileService"> | string | null
+    profileServicePriceId?: IntFilter<"ProfileService"> | number
+    createdAt?: DateTimeFilter<"ProfileService"> | Date | string
+    updatedAt?: DateTimeFilter<"ProfileService"> | Date | string
+    profileServicePrice?: XOR<ProfileServicePriceScalarRelationFilter, ProfileServicePriceWhereInput>
+  }
+
+  export type ProfileServiceOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    price?: SortOrder
+    description?: SortOrderInput | SortOrder
+    profileServicePriceId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    profileServicePrice?: ProfileServicePriceOrderByWithRelationInput
+  }
+
+  export type ProfileServiceWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ProfileServiceWhereInput | ProfileServiceWhereInput[]
+    OR?: ProfileServiceWhereInput[]
+    NOT?: ProfileServiceWhereInput | ProfileServiceWhereInput[]
+    name?: StringFilter<"ProfileService"> | string
+    price?: IntFilter<"ProfileService"> | number
+    description?: StringNullableFilter<"ProfileService"> | string | null
+    profileServicePriceId?: IntFilter<"ProfileService"> | number
+    createdAt?: DateTimeFilter<"ProfileService"> | Date | string
+    updatedAt?: DateTimeFilter<"ProfileService"> | Date | string
+    profileServicePrice?: XOR<ProfileServicePriceScalarRelationFilter, ProfileServicePriceWhereInput>
+  }, "id">
+
+  export type ProfileServiceOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    price?: SortOrder
+    description?: SortOrderInput | SortOrder
+    profileServicePriceId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ProfileServiceCountOrderByAggregateInput
+    _avg?: ProfileServiceAvgOrderByAggregateInput
+    _max?: ProfileServiceMaxOrderByAggregateInput
+    _min?: ProfileServiceMinOrderByAggregateInput
+    _sum?: ProfileServiceSumOrderByAggregateInput
+  }
+
+  export type ProfileServiceScalarWhereWithAggregatesInput = {
+    AND?: ProfileServiceScalarWhereWithAggregatesInput | ProfileServiceScalarWhereWithAggregatesInput[]
+    OR?: ProfileServiceScalarWhereWithAggregatesInput[]
+    NOT?: ProfileServiceScalarWhereWithAggregatesInput | ProfileServiceScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ProfileService"> | number
+    name?: StringWithAggregatesFilter<"ProfileService"> | string
+    price?: IntWithAggregatesFilter<"ProfileService"> | number
+    description?: StringNullableWithAggregatesFilter<"ProfileService"> | string | null
+    profileServicePriceId?: IntWithAggregatesFilter<"ProfileService"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"ProfileService"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ProfileService"> | Date | string
   }
 
   export type PortfolioWhereInput = {
@@ -17100,12 +19801,15 @@ export namespace Prisma {
     youtubeLink?: string | null
     tiktokLink?: string | null
     avatarPublicId?: string | null
+    servicePriceLink?: string | null
+    isShowServicePrice?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     profileWorkExperiences?: ProfileWorkExperienceCreateNestedManyWithoutUserInput
     profileAchievements?: ProfileAchievementCreateNestedManyWithoutUserInput
     profileProminentWorks?: ProfileProminentWorkCreateNestedManyWithoutUserInput
     portfolios?: PortfolioCreateNestedManyWithoutUserInput
+    profileServicePrice?: ProfileServicePriceCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -17124,12 +19828,15 @@ export namespace Prisma {
     youtubeLink?: string | null
     tiktokLink?: string | null
     avatarPublicId?: string | null
+    servicePriceLink?: string | null
+    isShowServicePrice?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     profileWorkExperiences?: ProfileWorkExperienceUncheckedCreateNestedManyWithoutUserInput
     profileAchievements?: ProfileAchievementUncheckedCreateNestedManyWithoutUserInput
     profileProminentWorks?: ProfileProminentWorkUncheckedCreateNestedManyWithoutUserInput
     portfolios?: PortfolioUncheckedCreateNestedManyWithoutUserInput
+    profileServicePrice?: ProfileServicePriceUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -17147,12 +19854,15 @@ export namespace Prisma {
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
     avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
+    servicePriceLink?: NullableStringFieldUpdateOperationsInput | string | null
+    isShowServicePrice?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileWorkExperiences?: ProfileWorkExperienceUpdateManyWithoutUserNestedInput
     profileAchievements?: ProfileAchievementUpdateManyWithoutUserNestedInput
     profileProminentWorks?: ProfileProminentWorkUpdateManyWithoutUserNestedInput
     portfolios?: PortfolioUpdateManyWithoutUserNestedInput
+    profileServicePrice?: ProfileServicePriceUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -17171,12 +19881,15 @@ export namespace Prisma {
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
     avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
+    servicePriceLink?: NullableStringFieldUpdateOperationsInput | string | null
+    isShowServicePrice?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileWorkExperiences?: ProfileWorkExperienceUncheckedUpdateManyWithoutUserNestedInput
     profileAchievements?: ProfileAchievementUncheckedUpdateManyWithoutUserNestedInput
     profileProminentWorks?: ProfileProminentWorkUncheckedUpdateManyWithoutUserNestedInput
     portfolios?: PortfolioUncheckedUpdateManyWithoutUserNestedInput
+    profileServicePrice?: ProfileServicePriceUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -17195,6 +19908,8 @@ export namespace Prisma {
     youtubeLink?: string | null
     tiktokLink?: string | null
     avatarPublicId?: string | null
+    servicePriceLink?: string | null
+    isShowServicePrice?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -17214,6 +19929,8 @@ export namespace Prisma {
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
     avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
+    servicePriceLink?: NullableStringFieldUpdateOperationsInput | string | null
+    isShowServicePrice?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -17234,6 +19951,8 @@ export namespace Prisma {
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
     avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
+    servicePriceLink?: NullableStringFieldUpdateOperationsInput | string | null
+    isShowServicePrice?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -17369,7 +20088,6 @@ export namespace Prisma {
     description?: string | null
     from: Date | string
     to?: Date | string | null
-    wage?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutProfileAchievementsInput
@@ -17382,7 +20100,6 @@ export namespace Prisma {
     description?: string | null
     from: Date | string
     to?: Date | string | null
-    wage?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -17392,7 +20109,6 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutProfileAchievementsNestedInput
@@ -17405,7 +20121,6 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -17417,7 +20132,6 @@ export namespace Prisma {
     description?: string | null
     from: Date | string
     to?: Date | string | null
-    wage?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -17427,7 +20141,6 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -17439,7 +20152,6 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -17449,6 +20161,7 @@ export namespace Prisma {
     description?: string | null
     from: Date | string
     to?: Date | string | null
+    wage?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutProfileProminentWorksInput
@@ -17461,6 +20174,7 @@ export namespace Prisma {
     description?: string | null
     from: Date | string
     to?: Date | string | null
+    wage?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -17470,6 +20184,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutProfileProminentWorksNestedInput
@@ -17482,6 +20197,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -17493,6 +20209,7 @@ export namespace Prisma {
     description?: string | null
     from: Date | string
     to?: Date | string | null
+    wage?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -17502,6 +20219,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -17513,6 +20231,129 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    wage?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileServicePriceCreateInput = {
+    fieldName: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutProfileServicePriceInput
+    profileService?: ProfileServiceCreateNestedManyWithoutProfileServicePriceInput
+  }
+
+  export type ProfileServicePriceUncheckedCreateInput = {
+    id?: number
+    userId: number
+    fieldName: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    profileService?: ProfileServiceUncheckedCreateNestedManyWithoutProfileServicePriceInput
+  }
+
+  export type ProfileServicePriceUpdateInput = {
+    fieldName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutProfileServicePriceNestedInput
+    profileService?: ProfileServiceUpdateManyWithoutProfileServicePriceNestedInput
+  }
+
+  export type ProfileServicePriceUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    fieldName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    profileService?: ProfileServiceUncheckedUpdateManyWithoutProfileServicePriceNestedInput
+  }
+
+  export type ProfileServicePriceCreateManyInput = {
+    id?: number
+    userId: number
+    fieldName: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileServicePriceUpdateManyMutationInput = {
+    fieldName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileServicePriceUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    fieldName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileServiceCreateInput = {
+    name: string
+    price: number
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    profileServicePrice: ProfileServicePriceCreateNestedOneWithoutProfileServiceInput
+  }
+
+  export type ProfileServiceUncheckedCreateInput = {
+    id?: number
+    name: string
+    price: number
+    description?: string | null
+    profileServicePriceId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileServiceUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    profileServicePrice?: ProfileServicePriceUpdateOneRequiredWithoutProfileServiceNestedInput
+  }
+
+  export type ProfileServiceUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    profileServicePriceId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileServiceCreateManyInput = {
+    id?: number
+    name: string
+    price: number
+    description?: string | null
+    profileServicePriceId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileServiceUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileServiceUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    profileServicePriceId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18093,6 +20934,11 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type BoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -18128,6 +20974,12 @@ export namespace Prisma {
     none?: PortfolioWhereInput
   }
 
+  export type ProfileServicePriceListRelationFilter = {
+    every?: ProfileServicePriceWhereInput
+    some?: ProfileServicePriceWhereInput
+    none?: ProfileServicePriceWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -18149,6 +21001,10 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type ProfileServicePriceOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -18165,6 +21021,8 @@ export namespace Prisma {
     youtubeLink?: SortOrder
     tiktokLink?: SortOrder
     avatarPublicId?: SortOrder
+    servicePriceLink?: SortOrder
+    isShowServicePrice?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -18191,6 +21049,8 @@ export namespace Prisma {
     youtubeLink?: SortOrder
     tiktokLink?: SortOrder
     avatarPublicId?: SortOrder
+    servicePriceLink?: SortOrder
+    isShowServicePrice?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -18211,6 +21071,8 @@ export namespace Prisma {
     youtubeLink?: SortOrder
     tiktokLink?: SortOrder
     avatarPublicId?: SortOrder
+    servicePriceLink?: SortOrder
+    isShowServicePrice?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -18269,6 +21131,14 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -18432,7 +21302,6 @@ export namespace Prisma {
     description?: SortOrder
     from?: SortOrder
     to?: SortOrder
-    wage?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -18440,7 +21309,6 @@ export namespace Prisma {
   export type ProfileAchievementAvgOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    wage?: SortOrder
   }
 
   export type ProfileAchievementMaxOrderByAggregateInput = {
@@ -18450,7 +21318,6 @@ export namespace Prisma {
     description?: SortOrder
     from?: SortOrder
     to?: SortOrder
-    wage?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -18462,7 +21329,6 @@ export namespace Prisma {
     description?: SortOrder
     from?: SortOrder
     to?: SortOrder
-    wage?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -18470,7 +21336,6 @@ export namespace Prisma {
   export type ProfileAchievementSumOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    wage?: SortOrder
   }
 
   export type ProfileProminentWorkCountOrderByAggregateInput = {
@@ -18480,6 +21345,7 @@ export namespace Prisma {
     description?: SortOrder
     from?: SortOrder
     to?: SortOrder
+    wage?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -18487,6 +21353,7 @@ export namespace Prisma {
   export type ProfileProminentWorkAvgOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
+    wage?: SortOrder
   }
 
   export type ProfileProminentWorkMaxOrderByAggregateInput = {
@@ -18496,6 +21363,7 @@ export namespace Prisma {
     description?: SortOrder
     from?: SortOrder
     to?: SortOrder
+    wage?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -18507,6 +21375,7 @@ export namespace Prisma {
     description?: SortOrder
     from?: SortOrder
     to?: SortOrder
+    wage?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -18514,6 +21383,98 @@ export namespace Prisma {
   export type ProfileProminentWorkSumOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
+    wage?: SortOrder
+  }
+
+  export type ProfileServiceListRelationFilter = {
+    every?: ProfileServiceWhereInput
+    some?: ProfileServiceWhereInput
+    none?: ProfileServiceWhereInput
+  }
+
+  export type ProfileServiceOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ProfileServicePriceCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    fieldName?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProfileServicePriceAvgOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type ProfileServicePriceMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    fieldName?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProfileServicePriceMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    fieldName?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProfileServicePriceSumOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type ProfileServicePriceScalarRelationFilter = {
+    is?: ProfileServicePriceWhereInput
+    isNot?: ProfileServicePriceWhereInput
+  }
+
+  export type ProfileServiceCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    price?: SortOrder
+    description?: SortOrder
+    profileServicePriceId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProfileServiceAvgOrderByAggregateInput = {
+    id?: SortOrder
+    price?: SortOrder
+    profileServicePriceId?: SortOrder
+  }
+
+  export type ProfileServiceMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    price?: SortOrder
+    description?: SortOrder
+    profileServicePriceId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProfileServiceMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    price?: SortOrder
+    description?: SortOrder
+    profileServicePriceId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProfileServiceSumOrderByAggregateInput = {
+    id?: SortOrder
+    price?: SortOrder
+    profileServicePriceId?: SortOrder
   }
 
   export type PortfolioProminentProjectListRelationFilter = {
@@ -18941,6 +21902,13 @@ export namespace Prisma {
     connect?: PortfolioWhereUniqueInput | PortfolioWhereUniqueInput[]
   }
 
+  export type ProfileServicePriceCreateNestedManyWithoutUserInput = {
+    create?: XOR<ProfileServicePriceCreateWithoutUserInput, ProfileServicePriceUncheckedCreateWithoutUserInput> | ProfileServicePriceCreateWithoutUserInput[] | ProfileServicePriceUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProfileServicePriceCreateOrConnectWithoutUserInput | ProfileServicePriceCreateOrConnectWithoutUserInput[]
+    createMany?: ProfileServicePriceCreateManyUserInputEnvelope
+    connect?: ProfileServicePriceWhereUniqueInput | ProfileServicePriceWhereUniqueInput[]
+  }
+
   export type ProfileWorkExperienceUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<ProfileWorkExperienceCreateWithoutUserInput, ProfileWorkExperienceUncheckedCreateWithoutUserInput> | ProfileWorkExperienceCreateWithoutUserInput[] | ProfileWorkExperienceUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ProfileWorkExperienceCreateOrConnectWithoutUserInput | ProfileWorkExperienceCreateOrConnectWithoutUserInput[]
@@ -18969,6 +21937,13 @@ export namespace Prisma {
     connect?: PortfolioWhereUniqueInput | PortfolioWhereUniqueInput[]
   }
 
+  export type ProfileServicePriceUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<ProfileServicePriceCreateWithoutUserInput, ProfileServicePriceUncheckedCreateWithoutUserInput> | ProfileServicePriceCreateWithoutUserInput[] | ProfileServicePriceUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProfileServicePriceCreateOrConnectWithoutUserInput | ProfileServicePriceCreateOrConnectWithoutUserInput[]
+    createMany?: ProfileServicePriceCreateManyUserInputEnvelope
+    connect?: ProfileServicePriceWhereUniqueInput | ProfileServicePriceWhereUniqueInput[]
+  }
+
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
   }
@@ -18987,6 +21962,10 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type NullableBoolFieldUpdateOperationsInput = {
+    set?: boolean | null
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -19049,6 +22028,20 @@ export namespace Prisma {
     deleteMany?: PortfolioScalarWhereInput | PortfolioScalarWhereInput[]
   }
 
+  export type ProfileServicePriceUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ProfileServicePriceCreateWithoutUserInput, ProfileServicePriceUncheckedCreateWithoutUserInput> | ProfileServicePriceCreateWithoutUserInput[] | ProfileServicePriceUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProfileServicePriceCreateOrConnectWithoutUserInput | ProfileServicePriceCreateOrConnectWithoutUserInput[]
+    upsert?: ProfileServicePriceUpsertWithWhereUniqueWithoutUserInput | ProfileServicePriceUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ProfileServicePriceCreateManyUserInputEnvelope
+    set?: ProfileServicePriceWhereUniqueInput | ProfileServicePriceWhereUniqueInput[]
+    disconnect?: ProfileServicePriceWhereUniqueInput | ProfileServicePriceWhereUniqueInput[]
+    delete?: ProfileServicePriceWhereUniqueInput | ProfileServicePriceWhereUniqueInput[]
+    connect?: ProfileServicePriceWhereUniqueInput | ProfileServicePriceWhereUniqueInput[]
+    update?: ProfileServicePriceUpdateWithWhereUniqueWithoutUserInput | ProfileServicePriceUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ProfileServicePriceUpdateManyWithWhereWithoutUserInput | ProfileServicePriceUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ProfileServicePriceScalarWhereInput | ProfileServicePriceScalarWhereInput[]
+  }
+
   export type ProfileWorkExperienceUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<ProfileWorkExperienceCreateWithoutUserInput, ProfileWorkExperienceUncheckedCreateWithoutUserInput> | ProfileWorkExperienceCreateWithoutUserInput[] | ProfileWorkExperienceUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ProfileWorkExperienceCreateOrConnectWithoutUserInput | ProfileWorkExperienceCreateOrConnectWithoutUserInput[]
@@ -19105,6 +22098,20 @@ export namespace Prisma {
     deleteMany?: PortfolioScalarWhereInput | PortfolioScalarWhereInput[]
   }
 
+  export type ProfileServicePriceUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ProfileServicePriceCreateWithoutUserInput, ProfileServicePriceUncheckedCreateWithoutUserInput> | ProfileServicePriceCreateWithoutUserInput[] | ProfileServicePriceUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProfileServicePriceCreateOrConnectWithoutUserInput | ProfileServicePriceCreateOrConnectWithoutUserInput[]
+    upsert?: ProfileServicePriceUpsertWithWhereUniqueWithoutUserInput | ProfileServicePriceUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ProfileServicePriceCreateManyUserInputEnvelope
+    set?: ProfileServicePriceWhereUniqueInput | ProfileServicePriceWhereUniqueInput[]
+    disconnect?: ProfileServicePriceWhereUniqueInput | ProfileServicePriceWhereUniqueInput[]
+    delete?: ProfileServicePriceWhereUniqueInput | ProfileServicePriceWhereUniqueInput[]
+    connect?: ProfileServicePriceWhereUniqueInput | ProfileServicePriceWhereUniqueInput[]
+    update?: ProfileServicePriceUpdateWithWhereUniqueWithoutUserInput | ProfileServicePriceUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ProfileServicePriceUpdateManyWithWhereWithoutUserInput | ProfileServicePriceUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ProfileServicePriceScalarWhereInput | ProfileServicePriceScalarWhereInput[]
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -19153,6 +22160,76 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutProfileProminentWorksInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutProfileProminentWorksInput, UserUpdateWithoutProfileProminentWorksInput>, UserUncheckedUpdateWithoutProfileProminentWorksInput>
+  }
+
+  export type UserCreateNestedOneWithoutProfileServicePriceInput = {
+    create?: XOR<UserCreateWithoutProfileServicePriceInput, UserUncheckedCreateWithoutProfileServicePriceInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProfileServicePriceInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type ProfileServiceCreateNestedManyWithoutProfileServicePriceInput = {
+    create?: XOR<ProfileServiceCreateWithoutProfileServicePriceInput, ProfileServiceUncheckedCreateWithoutProfileServicePriceInput> | ProfileServiceCreateWithoutProfileServicePriceInput[] | ProfileServiceUncheckedCreateWithoutProfileServicePriceInput[]
+    connectOrCreate?: ProfileServiceCreateOrConnectWithoutProfileServicePriceInput | ProfileServiceCreateOrConnectWithoutProfileServicePriceInput[]
+    createMany?: ProfileServiceCreateManyProfileServicePriceInputEnvelope
+    connect?: ProfileServiceWhereUniqueInput | ProfileServiceWhereUniqueInput[]
+  }
+
+  export type ProfileServiceUncheckedCreateNestedManyWithoutProfileServicePriceInput = {
+    create?: XOR<ProfileServiceCreateWithoutProfileServicePriceInput, ProfileServiceUncheckedCreateWithoutProfileServicePriceInput> | ProfileServiceCreateWithoutProfileServicePriceInput[] | ProfileServiceUncheckedCreateWithoutProfileServicePriceInput[]
+    connectOrCreate?: ProfileServiceCreateOrConnectWithoutProfileServicePriceInput | ProfileServiceCreateOrConnectWithoutProfileServicePriceInput[]
+    createMany?: ProfileServiceCreateManyProfileServicePriceInputEnvelope
+    connect?: ProfileServiceWhereUniqueInput | ProfileServiceWhereUniqueInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutProfileServicePriceNestedInput = {
+    create?: XOR<UserCreateWithoutProfileServicePriceInput, UserUncheckedCreateWithoutProfileServicePriceInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProfileServicePriceInput
+    upsert?: UserUpsertWithoutProfileServicePriceInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutProfileServicePriceInput, UserUpdateWithoutProfileServicePriceInput>, UserUncheckedUpdateWithoutProfileServicePriceInput>
+  }
+
+  export type ProfileServiceUpdateManyWithoutProfileServicePriceNestedInput = {
+    create?: XOR<ProfileServiceCreateWithoutProfileServicePriceInput, ProfileServiceUncheckedCreateWithoutProfileServicePriceInput> | ProfileServiceCreateWithoutProfileServicePriceInput[] | ProfileServiceUncheckedCreateWithoutProfileServicePriceInput[]
+    connectOrCreate?: ProfileServiceCreateOrConnectWithoutProfileServicePriceInput | ProfileServiceCreateOrConnectWithoutProfileServicePriceInput[]
+    upsert?: ProfileServiceUpsertWithWhereUniqueWithoutProfileServicePriceInput | ProfileServiceUpsertWithWhereUniqueWithoutProfileServicePriceInput[]
+    createMany?: ProfileServiceCreateManyProfileServicePriceInputEnvelope
+    set?: ProfileServiceWhereUniqueInput | ProfileServiceWhereUniqueInput[]
+    disconnect?: ProfileServiceWhereUniqueInput | ProfileServiceWhereUniqueInput[]
+    delete?: ProfileServiceWhereUniqueInput | ProfileServiceWhereUniqueInput[]
+    connect?: ProfileServiceWhereUniqueInput | ProfileServiceWhereUniqueInput[]
+    update?: ProfileServiceUpdateWithWhereUniqueWithoutProfileServicePriceInput | ProfileServiceUpdateWithWhereUniqueWithoutProfileServicePriceInput[]
+    updateMany?: ProfileServiceUpdateManyWithWhereWithoutProfileServicePriceInput | ProfileServiceUpdateManyWithWhereWithoutProfileServicePriceInput[]
+    deleteMany?: ProfileServiceScalarWhereInput | ProfileServiceScalarWhereInput[]
+  }
+
+  export type ProfileServiceUncheckedUpdateManyWithoutProfileServicePriceNestedInput = {
+    create?: XOR<ProfileServiceCreateWithoutProfileServicePriceInput, ProfileServiceUncheckedCreateWithoutProfileServicePriceInput> | ProfileServiceCreateWithoutProfileServicePriceInput[] | ProfileServiceUncheckedCreateWithoutProfileServicePriceInput[]
+    connectOrCreate?: ProfileServiceCreateOrConnectWithoutProfileServicePriceInput | ProfileServiceCreateOrConnectWithoutProfileServicePriceInput[]
+    upsert?: ProfileServiceUpsertWithWhereUniqueWithoutProfileServicePriceInput | ProfileServiceUpsertWithWhereUniqueWithoutProfileServicePriceInput[]
+    createMany?: ProfileServiceCreateManyProfileServicePriceInputEnvelope
+    set?: ProfileServiceWhereUniqueInput | ProfileServiceWhereUniqueInput[]
+    disconnect?: ProfileServiceWhereUniqueInput | ProfileServiceWhereUniqueInput[]
+    delete?: ProfileServiceWhereUniqueInput | ProfileServiceWhereUniqueInput[]
+    connect?: ProfileServiceWhereUniqueInput | ProfileServiceWhereUniqueInput[]
+    update?: ProfileServiceUpdateWithWhereUniqueWithoutProfileServicePriceInput | ProfileServiceUpdateWithWhereUniqueWithoutProfileServicePriceInput[]
+    updateMany?: ProfileServiceUpdateManyWithWhereWithoutProfileServicePriceInput | ProfileServiceUpdateManyWithWhereWithoutProfileServicePriceInput[]
+    deleteMany?: ProfileServiceScalarWhereInput | ProfileServiceScalarWhereInput[]
+  }
+
+  export type ProfileServicePriceCreateNestedOneWithoutProfileServiceInput = {
+    create?: XOR<ProfileServicePriceCreateWithoutProfileServiceInput, ProfileServicePriceUncheckedCreateWithoutProfileServiceInput>
+    connectOrCreate?: ProfileServicePriceCreateOrConnectWithoutProfileServiceInput
+    connect?: ProfileServicePriceWhereUniqueInput
+  }
+
+  export type ProfileServicePriceUpdateOneRequiredWithoutProfileServiceNestedInput = {
+    create?: XOR<ProfileServicePriceCreateWithoutProfileServiceInput, ProfileServicePriceUncheckedCreateWithoutProfileServiceInput>
+    connectOrCreate?: ProfileServicePriceCreateOrConnectWithoutProfileServiceInput
+    upsert?: ProfileServicePriceUpsertWithoutProfileServiceInput
+    connect?: ProfileServicePriceWhereUniqueInput
+    update?: XOR<XOR<ProfileServicePriceUpdateToOneWithWhereWithoutProfileServiceInput, ProfileServicePriceUpdateWithoutProfileServiceInput>, ProfileServicePriceUncheckedUpdateWithoutProfileServiceInput>
   }
 
   export type UserCreateNestedOneWithoutPortfoliosInput = {
@@ -19493,6 +22570,11 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedBoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -19573,6 +22655,14 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -19706,7 +22796,6 @@ export namespace Prisma {
     description?: string | null
     from: Date | string
     to?: Date | string | null
-    wage?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -19717,7 +22806,6 @@ export namespace Prisma {
     description?: string | null
     from: Date | string
     to?: Date | string | null
-    wage?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -19737,6 +22825,7 @@ export namespace Prisma {
     description?: string | null
     from: Date | string
     to?: Date | string | null
+    wage?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -19747,6 +22836,7 @@ export namespace Prisma {
     description?: string | null
     from: Date | string
     to?: Date | string | null
+    wage?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -19799,6 +22889,31 @@ export namespace Prisma {
 
   export type PortfolioCreateManyUserInputEnvelope = {
     data: PortfolioCreateManyUserInput | PortfolioCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProfileServicePriceCreateWithoutUserInput = {
+    fieldName: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    profileService?: ProfileServiceCreateNestedManyWithoutProfileServicePriceInput
+  }
+
+  export type ProfileServicePriceUncheckedCreateWithoutUserInput = {
+    id?: number
+    fieldName: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    profileService?: ProfileServiceUncheckedCreateNestedManyWithoutProfileServicePriceInput
+  }
+
+  export type ProfileServicePriceCreateOrConnectWithoutUserInput = {
+    where: ProfileServicePriceWhereUniqueInput
+    create: XOR<ProfileServicePriceCreateWithoutUserInput, ProfileServicePriceUncheckedCreateWithoutUserInput>
+  }
+
+  export type ProfileServicePriceCreateManyUserInputEnvelope = {
+    data: ProfileServicePriceCreateManyUserInput | ProfileServicePriceCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -19858,7 +22973,6 @@ export namespace Prisma {
     description?: StringNullableFilter<"ProfileAchievement"> | string | null
     from?: DateTimeFilter<"ProfileAchievement"> | Date | string
     to?: DateTimeNullableFilter<"ProfileAchievement"> | Date | string | null
-    wage?: IntNullableFilter<"ProfileAchievement"> | number | null
     createdAt?: DateTimeFilter<"ProfileAchievement"> | Date | string
     updatedAt?: DateTimeFilter<"ProfileAchievement"> | Date | string
   }
@@ -19889,6 +23003,7 @@ export namespace Prisma {
     description?: StringNullableFilter<"ProfileProminentWork"> | string | null
     from?: DateTimeFilter<"ProfileProminentWork"> | Date | string
     to?: DateTimeNullableFilter<"ProfileProminentWork"> | Date | string | null
+    wage?: IntNullableFilter<"ProfileProminentWork"> | number | null
     createdAt?: DateTimeFilter<"ProfileProminentWork"> | Date | string
     updatedAt?: DateTimeFilter<"ProfileProminentWork"> | Date | string
   }
@@ -19925,6 +23040,33 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Portfolio"> | Date | string
   }
 
+  export type ProfileServicePriceUpsertWithWhereUniqueWithoutUserInput = {
+    where: ProfileServicePriceWhereUniqueInput
+    update: XOR<ProfileServicePriceUpdateWithoutUserInput, ProfileServicePriceUncheckedUpdateWithoutUserInput>
+    create: XOR<ProfileServicePriceCreateWithoutUserInput, ProfileServicePriceUncheckedCreateWithoutUserInput>
+  }
+
+  export type ProfileServicePriceUpdateWithWhereUniqueWithoutUserInput = {
+    where: ProfileServicePriceWhereUniqueInput
+    data: XOR<ProfileServicePriceUpdateWithoutUserInput, ProfileServicePriceUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ProfileServicePriceUpdateManyWithWhereWithoutUserInput = {
+    where: ProfileServicePriceScalarWhereInput
+    data: XOR<ProfileServicePriceUpdateManyMutationInput, ProfileServicePriceUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type ProfileServicePriceScalarWhereInput = {
+    AND?: ProfileServicePriceScalarWhereInput | ProfileServicePriceScalarWhereInput[]
+    OR?: ProfileServicePriceScalarWhereInput[]
+    NOT?: ProfileServicePriceScalarWhereInput | ProfileServicePriceScalarWhereInput[]
+    id?: IntFilter<"ProfileServicePrice"> | number
+    userId?: IntFilter<"ProfileServicePrice"> | number
+    fieldName?: StringFilter<"ProfileServicePrice"> | string
+    createdAt?: DateTimeFilter<"ProfileServicePrice"> | Date | string
+    updatedAt?: DateTimeFilter<"ProfileServicePrice"> | Date | string
+  }
+
   export type UserCreateWithoutProfileWorkExperiencesInput = {
     name?: string | null
     avatar?: string | null
@@ -19940,11 +23082,14 @@ export namespace Prisma {
     youtubeLink?: string | null
     tiktokLink?: string | null
     avatarPublicId?: string | null
+    servicePriceLink?: string | null
+    isShowServicePrice?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     profileAchievements?: ProfileAchievementCreateNestedManyWithoutUserInput
     profileProminentWorks?: ProfileProminentWorkCreateNestedManyWithoutUserInput
     portfolios?: PortfolioCreateNestedManyWithoutUserInput
+    profileServicePrice?: ProfileServicePriceCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutProfileWorkExperiencesInput = {
@@ -19963,11 +23108,14 @@ export namespace Prisma {
     youtubeLink?: string | null
     tiktokLink?: string | null
     avatarPublicId?: string | null
+    servicePriceLink?: string | null
+    isShowServicePrice?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     profileAchievements?: ProfileAchievementUncheckedCreateNestedManyWithoutUserInput
     profileProminentWorks?: ProfileProminentWorkUncheckedCreateNestedManyWithoutUserInput
     portfolios?: PortfolioUncheckedCreateNestedManyWithoutUserInput
+    profileServicePrice?: ProfileServicePriceUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutProfileWorkExperiencesInput = {
@@ -20001,11 +23149,14 @@ export namespace Prisma {
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
     avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
+    servicePriceLink?: NullableStringFieldUpdateOperationsInput | string | null
+    isShowServicePrice?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileAchievements?: ProfileAchievementUpdateManyWithoutUserNestedInput
     profileProminentWorks?: ProfileProminentWorkUpdateManyWithoutUserNestedInput
     portfolios?: PortfolioUpdateManyWithoutUserNestedInput
+    profileServicePrice?: ProfileServicePriceUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutProfileWorkExperiencesInput = {
@@ -20024,11 +23175,14 @@ export namespace Prisma {
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
     avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
+    servicePriceLink?: NullableStringFieldUpdateOperationsInput | string | null
+    isShowServicePrice?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileAchievements?: ProfileAchievementUncheckedUpdateManyWithoutUserNestedInput
     profileProminentWorks?: ProfileProminentWorkUncheckedUpdateManyWithoutUserNestedInput
     portfolios?: PortfolioUncheckedUpdateManyWithoutUserNestedInput
+    profileServicePrice?: ProfileServicePriceUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutProfileAchievementsInput = {
@@ -20046,11 +23200,14 @@ export namespace Prisma {
     youtubeLink?: string | null
     tiktokLink?: string | null
     avatarPublicId?: string | null
+    servicePriceLink?: string | null
+    isShowServicePrice?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     profileWorkExperiences?: ProfileWorkExperienceCreateNestedManyWithoutUserInput
     profileProminentWorks?: ProfileProminentWorkCreateNestedManyWithoutUserInput
     portfolios?: PortfolioCreateNestedManyWithoutUserInput
+    profileServicePrice?: ProfileServicePriceCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutProfileAchievementsInput = {
@@ -20069,11 +23226,14 @@ export namespace Prisma {
     youtubeLink?: string | null
     tiktokLink?: string | null
     avatarPublicId?: string | null
+    servicePriceLink?: string | null
+    isShowServicePrice?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     profileWorkExperiences?: ProfileWorkExperienceUncheckedCreateNestedManyWithoutUserInput
     profileProminentWorks?: ProfileProminentWorkUncheckedCreateNestedManyWithoutUserInput
     portfolios?: PortfolioUncheckedCreateNestedManyWithoutUserInput
+    profileServicePrice?: ProfileServicePriceUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutProfileAchievementsInput = {
@@ -20107,11 +23267,14 @@ export namespace Prisma {
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
     avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
+    servicePriceLink?: NullableStringFieldUpdateOperationsInput | string | null
+    isShowServicePrice?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileWorkExperiences?: ProfileWorkExperienceUpdateManyWithoutUserNestedInput
     profileProminentWorks?: ProfileProminentWorkUpdateManyWithoutUserNestedInput
     portfolios?: PortfolioUpdateManyWithoutUserNestedInput
+    profileServicePrice?: ProfileServicePriceUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutProfileAchievementsInput = {
@@ -20130,11 +23293,14 @@ export namespace Prisma {
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
     avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
+    servicePriceLink?: NullableStringFieldUpdateOperationsInput | string | null
+    isShowServicePrice?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileWorkExperiences?: ProfileWorkExperienceUncheckedUpdateManyWithoutUserNestedInput
     profileProminentWorks?: ProfileProminentWorkUncheckedUpdateManyWithoutUserNestedInput
     portfolios?: PortfolioUncheckedUpdateManyWithoutUserNestedInput
+    profileServicePrice?: ProfileServicePriceUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutProfileProminentWorksInput = {
@@ -20152,11 +23318,14 @@ export namespace Prisma {
     youtubeLink?: string | null
     tiktokLink?: string | null
     avatarPublicId?: string | null
+    servicePriceLink?: string | null
+    isShowServicePrice?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     profileWorkExperiences?: ProfileWorkExperienceCreateNestedManyWithoutUserInput
     profileAchievements?: ProfileAchievementCreateNestedManyWithoutUserInput
     portfolios?: PortfolioCreateNestedManyWithoutUserInput
+    profileServicePrice?: ProfileServicePriceCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutProfileProminentWorksInput = {
@@ -20175,11 +23344,14 @@ export namespace Prisma {
     youtubeLink?: string | null
     tiktokLink?: string | null
     avatarPublicId?: string | null
+    servicePriceLink?: string | null
+    isShowServicePrice?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     profileWorkExperiences?: ProfileWorkExperienceUncheckedCreateNestedManyWithoutUserInput
     profileAchievements?: ProfileAchievementUncheckedCreateNestedManyWithoutUserInput
     portfolios?: PortfolioUncheckedCreateNestedManyWithoutUserInput
+    profileServicePrice?: ProfileServicePriceUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutProfileProminentWorksInput = {
@@ -20213,11 +23385,14 @@ export namespace Prisma {
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
     avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
+    servicePriceLink?: NullableStringFieldUpdateOperationsInput | string | null
+    isShowServicePrice?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileWorkExperiences?: ProfileWorkExperienceUpdateManyWithoutUserNestedInput
     profileAchievements?: ProfileAchievementUpdateManyWithoutUserNestedInput
     portfolios?: PortfolioUpdateManyWithoutUserNestedInput
+    profileServicePrice?: ProfileServicePriceUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutProfileProminentWorksInput = {
@@ -20236,11 +23411,234 @@ export namespace Prisma {
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
     avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
+    servicePriceLink?: NullableStringFieldUpdateOperationsInput | string | null
+    isShowServicePrice?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileWorkExperiences?: ProfileWorkExperienceUncheckedUpdateManyWithoutUserNestedInput
     profileAchievements?: ProfileAchievementUncheckedUpdateManyWithoutUserNestedInput
     portfolios?: PortfolioUncheckedUpdateManyWithoutUserNestedInput
+    profileServicePrice?: ProfileServicePriceUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutProfileServicePriceInput = {
+    name?: string | null
+    avatar?: string | null
+    role?: number
+    phone?: string | null
+    gender?: number | null
+    email?: string | null
+    biography?: string | null
+    address?: string | null
+    occupation?: string | null
+    facebookLink?: string | null
+    instagramLink?: string | null
+    youtubeLink?: string | null
+    tiktokLink?: string | null
+    avatarPublicId?: string | null
+    servicePriceLink?: string | null
+    isShowServicePrice?: boolean | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    profileWorkExperiences?: ProfileWorkExperienceCreateNestedManyWithoutUserInput
+    profileAchievements?: ProfileAchievementCreateNestedManyWithoutUserInput
+    profileProminentWorks?: ProfileProminentWorkCreateNestedManyWithoutUserInput
+    portfolios?: PortfolioCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutProfileServicePriceInput = {
+    id?: number
+    name?: string | null
+    avatar?: string | null
+    role?: number
+    phone?: string | null
+    gender?: number | null
+    email?: string | null
+    biography?: string | null
+    address?: string | null
+    occupation?: string | null
+    facebookLink?: string | null
+    instagramLink?: string | null
+    youtubeLink?: string | null
+    tiktokLink?: string | null
+    avatarPublicId?: string | null
+    servicePriceLink?: string | null
+    isShowServicePrice?: boolean | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    profileWorkExperiences?: ProfileWorkExperienceUncheckedCreateNestedManyWithoutUserInput
+    profileAchievements?: ProfileAchievementUncheckedCreateNestedManyWithoutUserInput
+    profileProminentWorks?: ProfileProminentWorkUncheckedCreateNestedManyWithoutUserInput
+    portfolios?: PortfolioUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutProfileServicePriceInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutProfileServicePriceInput, UserUncheckedCreateWithoutProfileServicePriceInput>
+  }
+
+  export type ProfileServiceCreateWithoutProfileServicePriceInput = {
+    name: string
+    price: number
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileServiceUncheckedCreateWithoutProfileServicePriceInput = {
+    id?: number
+    name: string
+    price: number
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileServiceCreateOrConnectWithoutProfileServicePriceInput = {
+    where: ProfileServiceWhereUniqueInput
+    create: XOR<ProfileServiceCreateWithoutProfileServicePriceInput, ProfileServiceUncheckedCreateWithoutProfileServicePriceInput>
+  }
+
+  export type ProfileServiceCreateManyProfileServicePriceInputEnvelope = {
+    data: ProfileServiceCreateManyProfileServicePriceInput | ProfileServiceCreateManyProfileServicePriceInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutProfileServicePriceInput = {
+    update: XOR<UserUpdateWithoutProfileServicePriceInput, UserUncheckedUpdateWithoutProfileServicePriceInput>
+    create: XOR<UserCreateWithoutProfileServicePriceInput, UserUncheckedCreateWithoutProfileServicePriceInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutProfileServicePriceInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutProfileServicePriceInput, UserUncheckedUpdateWithoutProfileServicePriceInput>
+  }
+
+  export type UserUpdateWithoutProfileServicePriceInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: IntFieldUpdateOperationsInput | number
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableIntFieldUpdateOperationsInput | number | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    biography?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookLink?: NullableStringFieldUpdateOperationsInput | string | null
+    instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
+    servicePriceLink?: NullableStringFieldUpdateOperationsInput | string | null
+    isShowServicePrice?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    profileWorkExperiences?: ProfileWorkExperienceUpdateManyWithoutUserNestedInput
+    profileAchievements?: ProfileAchievementUpdateManyWithoutUserNestedInput
+    profileProminentWorks?: ProfileProminentWorkUpdateManyWithoutUserNestedInput
+    portfolios?: PortfolioUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutProfileServicePriceInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: IntFieldUpdateOperationsInput | number
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableIntFieldUpdateOperationsInput | number | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    biography?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    occupation?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookLink?: NullableStringFieldUpdateOperationsInput | string | null
+    instagramLink?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
+    tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
+    servicePriceLink?: NullableStringFieldUpdateOperationsInput | string | null
+    isShowServicePrice?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    profileWorkExperiences?: ProfileWorkExperienceUncheckedUpdateManyWithoutUserNestedInput
+    profileAchievements?: ProfileAchievementUncheckedUpdateManyWithoutUserNestedInput
+    profileProminentWorks?: ProfileProminentWorkUncheckedUpdateManyWithoutUserNestedInput
+    portfolios?: PortfolioUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type ProfileServiceUpsertWithWhereUniqueWithoutProfileServicePriceInput = {
+    where: ProfileServiceWhereUniqueInput
+    update: XOR<ProfileServiceUpdateWithoutProfileServicePriceInput, ProfileServiceUncheckedUpdateWithoutProfileServicePriceInput>
+    create: XOR<ProfileServiceCreateWithoutProfileServicePriceInput, ProfileServiceUncheckedCreateWithoutProfileServicePriceInput>
+  }
+
+  export type ProfileServiceUpdateWithWhereUniqueWithoutProfileServicePriceInput = {
+    where: ProfileServiceWhereUniqueInput
+    data: XOR<ProfileServiceUpdateWithoutProfileServicePriceInput, ProfileServiceUncheckedUpdateWithoutProfileServicePriceInput>
+  }
+
+  export type ProfileServiceUpdateManyWithWhereWithoutProfileServicePriceInput = {
+    where: ProfileServiceScalarWhereInput
+    data: XOR<ProfileServiceUpdateManyMutationInput, ProfileServiceUncheckedUpdateManyWithoutProfileServicePriceInput>
+  }
+
+  export type ProfileServiceScalarWhereInput = {
+    AND?: ProfileServiceScalarWhereInput | ProfileServiceScalarWhereInput[]
+    OR?: ProfileServiceScalarWhereInput[]
+    NOT?: ProfileServiceScalarWhereInput | ProfileServiceScalarWhereInput[]
+    id?: IntFilter<"ProfileService"> | number
+    name?: StringFilter<"ProfileService"> | string
+    price?: IntFilter<"ProfileService"> | number
+    description?: StringNullableFilter<"ProfileService"> | string | null
+    profileServicePriceId?: IntFilter<"ProfileService"> | number
+    createdAt?: DateTimeFilter<"ProfileService"> | Date | string
+    updatedAt?: DateTimeFilter<"ProfileService"> | Date | string
+  }
+
+  export type ProfileServicePriceCreateWithoutProfileServiceInput = {
+    fieldName: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutProfileServicePriceInput
+  }
+
+  export type ProfileServicePriceUncheckedCreateWithoutProfileServiceInput = {
+    id?: number
+    userId: number
+    fieldName: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileServicePriceCreateOrConnectWithoutProfileServiceInput = {
+    where: ProfileServicePriceWhereUniqueInput
+    create: XOR<ProfileServicePriceCreateWithoutProfileServiceInput, ProfileServicePriceUncheckedCreateWithoutProfileServiceInput>
+  }
+
+  export type ProfileServicePriceUpsertWithoutProfileServiceInput = {
+    update: XOR<ProfileServicePriceUpdateWithoutProfileServiceInput, ProfileServicePriceUncheckedUpdateWithoutProfileServiceInput>
+    create: XOR<ProfileServicePriceCreateWithoutProfileServiceInput, ProfileServicePriceUncheckedCreateWithoutProfileServiceInput>
+    where?: ProfileServicePriceWhereInput
+  }
+
+  export type ProfileServicePriceUpdateToOneWithWhereWithoutProfileServiceInput = {
+    where?: ProfileServicePriceWhereInput
+    data: XOR<ProfileServicePriceUpdateWithoutProfileServiceInput, ProfileServicePriceUncheckedUpdateWithoutProfileServiceInput>
+  }
+
+  export type ProfileServicePriceUpdateWithoutProfileServiceInput = {
+    fieldName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutProfileServicePriceNestedInput
+  }
+
+  export type ProfileServicePriceUncheckedUpdateWithoutProfileServiceInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    fieldName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserCreateWithoutPortfoliosInput = {
@@ -20258,11 +23656,14 @@ export namespace Prisma {
     youtubeLink?: string | null
     tiktokLink?: string | null
     avatarPublicId?: string | null
+    servicePriceLink?: string | null
+    isShowServicePrice?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     profileWorkExperiences?: ProfileWorkExperienceCreateNestedManyWithoutUserInput
     profileAchievements?: ProfileAchievementCreateNestedManyWithoutUserInput
     profileProminentWorks?: ProfileProminentWorkCreateNestedManyWithoutUserInput
+    profileServicePrice?: ProfileServicePriceCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutPortfoliosInput = {
@@ -20281,11 +23682,14 @@ export namespace Prisma {
     youtubeLink?: string | null
     tiktokLink?: string | null
     avatarPublicId?: string | null
+    servicePriceLink?: string | null
+    isShowServicePrice?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     profileWorkExperiences?: ProfileWorkExperienceUncheckedCreateNestedManyWithoutUserInput
     profileAchievements?: ProfileAchievementUncheckedCreateNestedManyWithoutUserInput
     profileProminentWorks?: ProfileProminentWorkUncheckedCreateNestedManyWithoutUserInput
+    profileServicePrice?: ProfileServicePriceUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutPortfoliosInput = {
@@ -20443,11 +23847,14 @@ export namespace Prisma {
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
     avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
+    servicePriceLink?: NullableStringFieldUpdateOperationsInput | string | null
+    isShowServicePrice?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileWorkExperiences?: ProfileWorkExperienceUpdateManyWithoutUserNestedInput
     profileAchievements?: ProfileAchievementUpdateManyWithoutUserNestedInput
     profileProminentWorks?: ProfileProminentWorkUpdateManyWithoutUserNestedInput
+    profileServicePrice?: ProfileServicePriceUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPortfoliosInput = {
@@ -20466,11 +23873,14 @@ export namespace Prisma {
     youtubeLink?: NullableStringFieldUpdateOperationsInput | string | null
     tiktokLink?: NullableStringFieldUpdateOperationsInput | string | null
     avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
+    servicePriceLink?: NullableStringFieldUpdateOperationsInput | string | null
+    isShowServicePrice?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     profileWorkExperiences?: ProfileWorkExperienceUncheckedUpdateManyWithoutUserNestedInput
     profileAchievements?: ProfileAchievementUncheckedUpdateManyWithoutUserNestedInput
     profileProminentWorks?: ProfileProminentWorkUncheckedUpdateManyWithoutUserNestedInput
+    profileServicePrice?: ProfileServicePriceUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type PortfolioProminentProjectUpsertWithWhereUniqueWithoutPortfolioInput = {
@@ -21047,7 +24457,6 @@ export namespace Prisma {
     description?: string | null
     from: Date | string
     to?: Date | string | null
-    wage?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -21058,6 +24467,7 @@ export namespace Prisma {
     description?: string | null
     from: Date | string
     to?: Date | string | null
+    wage?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -21070,6 +24480,13 @@ export namespace Prisma {
     detail?: string | null
     avatar?: string | null
     avatarPublicId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileServicePriceCreateManyUserInput = {
+    id?: number
+    fieldName: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -21108,7 +24525,6 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -21119,7 +24535,6 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -21130,7 +24545,6 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -21140,6 +24554,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -21150,6 +24565,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -21160,6 +24576,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     from?: DateTimeFieldUpdateOperationsInput | Date | string
     to?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    wage?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -21203,6 +24620,63 @@ export namespace Prisma {
     detail?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     avatarPublicId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileServicePriceUpdateWithoutUserInput = {
+    fieldName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    profileService?: ProfileServiceUpdateManyWithoutProfileServicePriceNestedInput
+  }
+
+  export type ProfileServicePriceUncheckedUpdateWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    fieldName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    profileService?: ProfileServiceUncheckedUpdateManyWithoutProfileServicePriceNestedInput
+  }
+
+  export type ProfileServicePriceUncheckedUpdateManyWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    fieldName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileServiceCreateManyProfileServicePriceInput = {
+    id?: number
+    name: string
+    price: number
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileServiceUpdateWithoutProfileServicePriceInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileServiceUncheckedUpdateWithoutProfileServicePriceInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileServiceUncheckedUpdateManyWithoutProfileServicePriceInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

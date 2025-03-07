@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
+import { IsNotEmpty, IsOptional, IsString } from "class-validator";
 
 export class CreateAchievementDto{
   @IsNotEmpty()
@@ -16,8 +16,4 @@ export class CreateAchievementDto{
   @IsOptional()
   @IsString()
   to: string
-
-  @IsOptional()
-  @IsNumber()
-  wage: number
 }

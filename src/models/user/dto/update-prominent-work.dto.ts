@@ -17,4 +17,8 @@ export class UpdateProminentWorkDto {
   @IsString()
   to: string
 
+  @IsOptional()
+  @IsNumber()
+  wage: number
+
 }

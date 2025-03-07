@@ -1,23 +1,20 @@
-import { IsNumber, IsOptional, IsString } from "class-validator";
+import { IsOptional, IsString } from "class-validator";
 
-export class UpdateAchievementDto{
+export class UpdateAchievementDto {
   @IsOptional()
   @IsString()
-  name: string
-
-  @IsOptional()
-  @IsString()
-  description: string
+  name: string;
 
   @IsOptional()
   @IsString()
-  from: string
+  description: string;
 
   @IsOptional()
   @IsString()
-  to: string
+  from: string;
 
   @IsOptional()
-  @IsNumber()
-  wage: number
+  @IsString()
+  to: string;
+
 }

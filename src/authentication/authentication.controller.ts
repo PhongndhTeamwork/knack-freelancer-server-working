@@ -1,7 +1,6 @@
 import { Body, Controller, Get, HttpException, Post, Req, UseGuards } from "@nestjs/common";
 import { AuthenticationService } from "./authentication.service";
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
-import { UserService } from "@model/user/user.service";
 import { CompleteSignupInfoDto } from "@authentication/dto/complete-signup-info.dto";
 import { Request } from "express";
 import { JwtAuthGuard } from "@guard/jwt-auth.guard";
