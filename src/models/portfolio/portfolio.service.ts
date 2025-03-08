@@ -25,8 +25,8 @@ export class PortfolioService {
         where: {
           userId: userId
         },
-        orderBy : {
-          id : "asc"
+        orderBy: {
+          id: "asc"
         }
       });
     } catch (err) {
@@ -131,6 +131,20 @@ export class PortfolioService {
       return portfolio;
     } catch (err) {
       return new BadRequestException(err?.message);
+    }
+  }
+
+  async deletePortfolio(userId: number, portfolioId: number) {
+    try {
+      await this.prisma.portfolio.delete({
+        where: {
+          userId: userId,
+          id: portfolioId
+        }
+      });
+      return "Delete successfully";
+    } catch (e) {
+      return new BadRequestException(e?.message);
     }
   }
 
@@ -416,7 +430,7 @@ export class PortfolioService {
       await this.prisma.portfolioSkill.create({
         data: {
           portfolioId: portfolioId,
-          name : body.name
+          name: body.name
         }
       });
     } catch (err) {
@@ -436,7 +450,7 @@ export class PortfolioService {
           portfolioId
         },
         data: {
-          name : body.name
+          name: body.name
         }
       });
     } catch (err) {

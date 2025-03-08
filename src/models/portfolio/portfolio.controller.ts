@@ -77,6 +77,16 @@ export class PortfolioController {
     return result;
   }
 
+  @Delete("delete-portfolio/:id")
+  @UseGuards(JwtAuthGuard, RoleGuard)
+  @Roles([Role.Freelancer])
+  async deletePortfolio(@Req() req: Request, @Param("id", ParseIntPipe) portfolioId: number) {
+    const user: any = req.user;
+    const result = await this.portfolioService.deletePortfolio(+user?.id, +portfolioId);
+    if (result instanceof HttpException) throw result;
+    return result;
+  }
+
   @UseInterceptors(FilesInterceptor("images"))
   @ApiConsumes("multipart/form-data")
   @Post("create-prominent-work/:portfolioId")
