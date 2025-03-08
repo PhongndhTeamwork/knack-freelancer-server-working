@@ -1,7 +1,9 @@
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
+import * as dotenv from 'dotenv';
 
+dotenv.config();
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -25,10 +27,11 @@ async function bootstrap() {
     credentials: true, // Allow cookies if needed
     allowedHeaders: "Content-Type, Authorization" // Allowed headers
   });
+  const port = process.env.PORT;
 
-  await app.listen(8085);
+  await app.listen(port);
 }
 
 bootstrap().then(() => {
-  console.log("App is running on port 8085");
+  console.log("App is running");
 });

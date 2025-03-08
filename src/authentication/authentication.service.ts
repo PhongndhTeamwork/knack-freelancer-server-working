@@ -22,7 +22,7 @@ export class AuthenticationService {
   }
 
   async login(credential: string) {
-    console.log(credential);
+    // console.log(credential);
     try {
       let hasFillInfo: boolean = true;
       const ticket = await this.client.verifyIdToken({
